@@ -298,7 +298,7 @@
             "Key": "f2b056af-a004-4514-a51a-f19d61053f32",
             "Value": {
                 "id": "b9436fcd-4ad1-4e6b-a5c3-f87eb153eb50",
-                "resourcePath": "scripts\\constants\\constants.yy",
+                "resourcePath": "scripts\\config_constants\\config_constants.yy",
                 "resourceType": "GMScript"
             }
         },
