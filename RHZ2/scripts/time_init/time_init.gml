@@ -6,5 +6,5 @@
 	*/
 	
 global.targetFps = argument0;
-global.time = 1;
+global.dt = 1;
 room_speed = global.targetFps;
