@@ -4,4 +4,4 @@
 	Requires time_init() to be called once before it will work;
 	*/
 	
-global.dt = delta_time / 1000000;
+global.deltaTime = delta_time / 1000000;
