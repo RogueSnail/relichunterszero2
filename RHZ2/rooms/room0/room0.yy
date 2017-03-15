@@ -4,7 +4,7 @@
     "mvc": "1.0",
     "name": "room0",
     "IsDnD": false,
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
@@ -44,7 +44,7 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_44125812",
-                    "x": 416,
+                    "x": 384,
                     "y": 256,
                     "IsDnD": false,
                     "colour": {
