@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "037a8c1e-198a-4535-a8e4-00ee13de1b4f",
+            "Value": {
+                "id": "e80a0194-5b6c-4744-837c-ee89c8141902",
+                "resourcePath": "scripts\\create_character\\create_character.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "04d36ced-baa2-44ce-82de-2ed335468baf",
             "Value": {
                 "id": "fbc95ba1-b6ac-434c-ab5c-66f7362888cc",
@@ -323,6 +331,7 @@
         "abf6f091-bb3a-4ba0-a4d6-40eee962ebcc",
         "89b1e41a-198d-4c7f-a5b6-d6e9f3e5ab09",
         "3a13497a-ab20-46be-a2c4-74a7297b28f7",
+        "037a8c1e-198a-4535-a8e4-00ee13de1b4f",
         "f2b056af-a004-4514-a51a-f19d61053f32"
     ],
     "tutorial": ""

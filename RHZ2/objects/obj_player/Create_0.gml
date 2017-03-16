@@ -4,6 +4,5 @@
 name = "";
 maxHP = 0;
 maxSpeed = 0;
+configFilename = "";
 
-
-load_character_config("mods\\_rhz2\\zero\\config.json");
