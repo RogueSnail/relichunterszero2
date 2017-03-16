@@ -1,0 +1,1 @@
+show_debug_message("room start:"+room_get_name(room));

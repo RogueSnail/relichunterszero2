@@ -1,9 +1,8 @@
-//load json config file
-filename = argument0;
+// load json config file
 
-show_message(working_directory + filename);
+show_debug_message(working_directory + configFilename);
 
-file = file_text_open_read(working_directory + filename);
+file = file_text_open_read(working_directory + configFilename);
 jsonStr = "";
 while (!file_text_eoln(file))
 {
@@ -11,8 +10,12 @@ while (!file_text_eoln(file))
 }
 file_text_close(file);
 	
-//load data into vars
+// load data into vars
 configDataMap = json_decode(jsonStr);
+
+// TODO: validate if is a valid config (eg: has all required properties?)
+
+// load data
 type = ds_map_find_value(configDataMap, "type");
 name = ds_map_find_value(configDataMap, "name");
 sprite_filename = ds_map_find_value(configDataMap, "sprite");
@@ -25,13 +28,13 @@ ds_map_destroy(configDataMap);
 //create sprite
 if file_exists(working_directory + sprite_filename)
 {
-	sprite = sprite_add(working_directory + sprite_filename, 1, true, true, sprite_origin_x, sprite_origin_y );
+	sprite = sprite_add(working_directory + sprite_filename, 1, false, true, sprite_origin_x, sprite_origin_y );
 	sprite_index = sprite;
 
-	show_message("test:" + string(sprite_index));
+	show_debug_message("test:" + string(sprite_index));
 	object_set_sprite(sprite_index, sprite);
 }
 else {
 
-	show_message("image not found: "+working_directory + sprite_filename);
+	show_debug_message("image not found: "+working_directory + sprite_filename);
 }
