@@ -35,6 +35,5 @@ if file_exists(working_directory + sprite_filename)
 	object_set_sprite(sprite_index, sprite);
 }
 else {
-
 	show_debug_message("image not found: "+working_directory + sprite_filename);
 }
