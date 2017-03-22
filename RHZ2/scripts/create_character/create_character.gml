@@ -20,6 +20,8 @@ else {
 emptyPlayer = instance_create_layer(posX,posY,"Instances", obj_player);
 emptyPlayer.configFilename = filename;
 
+//script_5(emptyPlayer);
+
 with (emptyPlayer)
 {
     load_character_config();
