@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "05039da1-7700-4388-9abb-d5eba190513e",
+            "Value": {
+                "id": "156fc02b-5d6b-47ce-9c6d-500d087166ac",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_teleport01-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "09c53cc8-019d-42c4-af06-2e4879842938",
             "Value": {
                 "id": "c2e8fc0c-24ce-4f7d-9b83-d1d29ae36903",
@@ -95,6 +103,14 @@
             }
         },
         {
+            "Key": "249ad329-9af9-4fbb-8353-3cd575a5a814",
+            "Value": {
+                "id": "b7001531-954e-4d2c-b1ff-d5125206349b",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_interface-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "280b09bb-cbce-4577-b64f-b7eff4986faa",
             "Value": {
                 "id": "911af70f-ddf7-4615-9892-7aae4477d853",
@@ -124,6 +140,14 @@
                 "id": "e0c284cd-9a01-4377-ad8d-ade764ae95b2",
                 "resourcePath": "views\\3033f2a2-ab06-4cd4-a208-b51d29e14e30.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "32498bd8-5b1d-468a-990c-898cb7540573",
+            "Value": {
+                "id": "88a66350-054d-4f1b-9fa3-2d0fbc7f6ff5",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_digin-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -175,6 +199,14 @@
             }
         },
         {
+            "Key": "58a69097-f9ce-4b14-857c-ae871b8d0771",
+            "Value": {
+                "id": "6cdecd9b-be3e-4694-ba11-f9f0474cde42",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_teleport00-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "61072b65-4cd4-4c3d-8ab1-d4738980b131",
             "Value": {
                 "id": "c1cbbee1-4389-4c1d-9d82-d3cca4827e7d",
@@ -215,11 +247,27 @@
             }
         },
         {
+            "Key": "788830bd-54b4-4ab5-bb32-9f3ba3c87cb1",
+            "Value": {
+                "id": "f1bbde3c-459b-4bca-a27a-5d23984ed1f9",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_idle-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "8012ce5f-32aa-43ce-a3c4-81121baef7dd",
             "Value": {
                 "id": "df20f826-88f7-4dbe-a3ca-1804d82e8721",
                 "resourcePath": "views\\8012ce5f-32aa-43ce-a3c4-81121baef7dd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "81fca0c9-646b-44e5-8649-581ccd1528ae",
+            "Value": {
+                "id": "277e4131-eb48-40f1-94af-8acbe25a4241",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_dash-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -247,6 +295,14 @@
             }
         },
         {
+            "Key": "8dd28dac-bc90-4c1c-92e7-0d7fff6411d8",
+            "Value": {
+                "id": "b9ae78c3-61e9-4ef2-a809-7e5435cf753c",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_walk-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "9052ee69-7d74-48b9-835c-9820deb00419",
             "Value": {
                 "id": "92fa8ca5-f73a-442c-ab1b-a2f6974374c2",
@@ -268,6 +324,22 @@
                 "id": "c2161886-103f-4c67-addf-51cc287f985f",
                 "resourcePath": "views\\92baef9b-7a9c-4341-b3ae-955154cf6677.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "943e0fd0-a7bc-407a-910f-229dd3047ecd",
+            "Value": {
+                "id": "c0ae9eff-a2ab-49a2-b341-bc62524cb43f",
+                "resourcePath": "views\\943e0fd0-a7bc-407a-910f-229dd3047ecd.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "98cf3ac7-ae20-4774-aa43-681f98468f31",
+            "Value": {
+                "id": "2db37f3e-6037-43b3-8a21-0abca451c3fb",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\config.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -335,6 +407,14 @@
             }
         },
         {
+            "Key": "ba5cdef0-aaa1-40c5-9215-814ef0246457",
+            "Value": {
+                "id": "a1c21c98-53fa-496a-9dd4-c2a29e129832",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_sprint-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "c4046a2e-3c34-45f8-9447-b8c6695e7745",
             "Value": {
                 "id": "1688c8fa-294c-4f71-97b1-a78532e973e4",
@@ -367,6 +447,14 @@
             }
         },
         {
+            "Key": "c875ed2f-9714-4ec6-80b9-5eb46571dc31",
+            "Value": {
+                "id": "0151c107-2aa2-4921-bd07-6280eef82d8d",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_meleeatk-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "ca770d06-1f13-460e-ad51-c5e17f4a3e8e",
             "Value": {
                 "id": "c315108c-d49a-43e9-9232-e333fff152b6",
@@ -391,10 +479,34 @@
             }
         },
         {
+            "Key": "d22e4ec0-bb38-4ac8-9945-cb031525c0dd",
+            "Value": {
+                "id": "2862658e-5143-480c-ba14-54f72e3b08ea",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_dying-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
+            "Key": "d76fcd60-e850-436b-be78-ce552d7ec78d",
+            "Value": {
+                "id": "c9c4a9cb-4e7b-4fc3-a152-abdeae31bef4",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_holograma-sheet.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "d820f36b-43a4-459c-a73f-1cef2ca50a52",
             "Value": {
                 "id": "f42c5056-fdc6-4daf-8b7a-e463e7e7320d",
                 "resourcePath": "datafiles_yy\\mods\\_rhz2\\zero\\spr_player.png.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
+            "Key": "da70251a-0c03-4cd3-ad4d-4097848698b1",
+            "Value": {
+                "id": "22cf3b22-d926-47cf-964b-f12aae485f36",
+                "resourcePath": "datafiles_yy\\mods\\_rhz2\\raff\\raff_dmg-sheet.png.yy",
                 "resourceType": "GMIncludedFile"
             }
         },
