@@ -93,38 +93,45 @@
 #macro K_INPUT_KEYBOARD 4
 #macro K_INPUT_ALL 9
 
-//Player animation Names
+// Player animation Names
 #macro anim_dash "dash"
 #macro anim_diging "digin"
 #macro anim_dmg "dmg"
 #macro anim_dying "dying"
 #macro anim_holograma "holograma"
 #macro anim_idle "idle"
-#macro anim_melee "melee"
+#macro anim_meleeatk "meleeatk"
 #macro anim_sprint "sprint"
 #macro anim_teleport00 "teleport00"
 #macro anim_teleport01 "teleport01"
 #macro anim_walk "walk"
+#macro anim_ui_choose_character "interface"
 
-#macro anim_interface "interface"
+// Player animation indexes
+#macro anim_dash_idx 0
+#macro anim_diging_idx 1
+#macro anim_dmg_idx 2
+#macro anim_dying_idx 3
+#macro anim_holograma_idx 4
+#macro anim_idle_idx 5
+#macro anim_meleeatk_idx 6
+#macro anim_sprint_idx 7
+#macro anim_teleport00_idx 8
+#macro anim_teleport01_idx 9
+#macro anim_walk_idx 10
+#macro anim_ui_choose_character_idx 11
+#macro anim_player_count 12
 
-global.player_common_anim_names = [anim_dash, anim_diging, anim_dmg, anim_dying, 
-anim_holograma, anim_idle, anim_melee, anim_sprint, anim_teleport00,
- anim_teleport01, anim_walk];
-
-//Player animation Frames
+//Player animation frames
 #macro anim_frames_dash 3
 #macro anim_frames_diging 3
 #macro anim_frames_dmg 2
 #macro anim_frames_dying 11
 #macro anim_frames_holograma 27
 #macro anim_frames_idle 10
-#macro anim_frames_melee 7
+#macro anim_frames_meleeatk 7
 #macro anim_frames_sprint 6
 #macro anim_frames_teleport00 8
 #macro anim_frames_teleport01 8
 #macro anim_frames_walk 6
-
-global.player_common_anim_frames = [3,3,2,11,27,10,7,6,8,8,6];
-
-#macro anim_frames_interface = 6;
+#macro anim_frames_ui_choose_character 6

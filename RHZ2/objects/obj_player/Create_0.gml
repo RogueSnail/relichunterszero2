@@ -16,6 +16,5 @@ maxSpeed = 0;
 // this character config filename
 configFilename = "";
 
-// this character sprite indexes
-spriteIndexes = ds_map_create();
-
+// this character's sprites instances
+spriteAnimations = array_create(anim_player_count);
