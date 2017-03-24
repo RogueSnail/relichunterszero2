@@ -167,6 +167,14 @@
             }
         },
         {
+            "Key": "3d780d0a-65d9-47fd-bb15-6d97efd2656d",
+            "Value": {
+                "id": "89cad0c1-d035-44f7-af5a-8b71cf3c1719",
+                "resourcePath": "scripts\\next_power_of_two\\next_power_of_two.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4396d04d-aea2-4a41-878a-81a975c7b7d9",
             "Value": {
                 "id": "098e5d0e-67b0-4f7d-a06c-dc3e8c8a2aa5",
@@ -564,6 +572,7 @@
         "89b1e41a-198d-4c7f-a5b6-d6e9f3e5ab09",
         "3a13497a-ab20-46be-a2c4-74a7297b28f7",
         "037a8c1e-198a-4535-a8e4-00ee13de1b4f",
+        "3d780d0a-65d9-47fd-bb15-6d97efd2656d",
         "f2b056af-a004-4514-a51a-f19d61053f32",
         "2fdc933d-a028-4097-8514-80903ca261c9",
         "3c97809c-2867-4328-8cc2-9938abb06950",

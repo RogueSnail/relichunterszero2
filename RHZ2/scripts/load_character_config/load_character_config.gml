@@ -35,46 +35,66 @@ maxSpeed = ds_map_find_value(configDataMap, "max_speed");
 maxHP = ds_map_find_value(configDataMap, "max_hp");
 ds_map_destroy(configDataMap);
 
-//create common sprites
-
-
-sprite_filename = working_directory + spritesheet_path + spritesheet_prefix + "_walk-sheet.png";
-show_debug_message(sprite_filename);
-if file_exists(sprite_filename)
-{
-
-/*
-	temp_sprite = sprite_add(sprite_filename, 1, false, true, 53, 91 );
-	sprite_index = temp_sprite;
-	object_set_sprite(sprite_index, temp_sprite);
-*/	
-///*
-	temp_sprite = sprite_add(sprite_filename, 1, false, true, 0, 0 );
-	//surface loading test
-	var surf;
-	surf = surface_create(1024,128);
-	surface_set_target(surf);
-		//draw_clear_alpha(c_white, 1);
-		draw_sprite(temp_sprite, image_index, 0, 0);
-		spr_custom = sprite_create_from_surface(surf, 0, 0, sprite_w, sprite_h, false, true, sprite_origin_x, sprite_origin_y);
-		for (i = 1; i < 6; i +=1)
-		{
-		   sprite_add_from_surface(spr_custom, surf, i*sprite_w, 0, sprite_w, sprite_h, false, true);
-		}
-
-	surface_reset_target();
-	surface_free(surf);
+//
+show_debug_message("Loading " + name);
 	
-	sprite_index = spr_custom;
-	object_set_sprite(sprite_index, spr_custom);
-//*/
+//create common sprites
+var local_player_anim_names = global.player_common_anim_names;
+var local_player_common_anim_frames = global.player_common_anim_frames;
+
+//load a single sprite test
+//temp_sprite = sprite_add(sprite_filename, 1, false, true, 53, 91 );
+//sprite_index = temp_sprite;
+//object_set_sprite(sprite_index, temp_sprite);
+
+//load spritesheet, add it to a surface, and extract the animation frames
+//create biggest necessary surface for each character only once
+var surf;
+var surface_width = 0;
+var surface_height = next_power_of_two(sprite_h);
+var temp_surface_width = 0;
+for(var idx = 0; idx < anim_player_count; idx++)
+{
+	temp_surface_width = next_power_of_two(sprite_w * local_player_common_anim_frames[idx]);
+	if (temp_surface_width > surface_width) 
+	{
+		surface_width = temp_surface_width;
+	}	
 }
-else {
+surf = surface_create(surface_width, surface_height);
+surface_set_target(surf);
+// load spreites
+for(idx = 0; idx < anim_player_count; idx++)
+{
+	sprite_filename = working_directory + spritesheet_path + spritesheet_prefix + "_" + local_player_anim_names[idx] + "-sheet.png";
+	//show_debug_message(sprite_filename);
+	if file_exists(sprite_filename)
+	{
+		//show_debug_message("image found: " + sprite_filename);		
+		temp_sprite = sprite_add(sprite_filename, 1, false, true, 0, 0 );
+		
+		//clear surface
+		draw_clear_alpha(c_black, 0); 
 
-	//show_debug_message("image not found: "+working_directory + sprite_filename);
+		draw_sprite(temp_sprite, 0, 0, 0);
+		spr_custom = sprite_create_from_surface(surf, 0, 0, sprite_w, sprite_h, false, true, sprite_origin_x, sprite_origin_y);
+		for (i = 1; i < local_player_common_anim_frames[idx]; i +=1)
+		{
+			sprite_add_from_surface(spr_custom, surf, i*sprite_w, 0, sprite_w, sprite_h, false, true);
+		}
+		
+		spriteAnimations[idx] = spr_custom;
+		
+		//sprite_index = spr_custom;
+		//object_set_sprite(sprite_index, spr_custom);
+	}
+	else {
+		show_debug_message("Loadin character mod error - image not found: " + sprite_filename);
+	}
 }
 
+surface_reset_target();
+surface_free(surf);
 
-
-
-
+//make character instance persistent
+persistent = true;
