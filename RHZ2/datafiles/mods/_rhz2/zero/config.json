@@ -1,9 +1,0 @@
-{
-	"type":"playable",
-	"name":"Zero",
-	"sprite":"mods\\_rhz2\\zero\\zero_walk_0.png",
-	"sprite_origin_x":57,
-	"sprite_origin_y":91,
-	"max_speed":4,
-	"max_hp":10
-}

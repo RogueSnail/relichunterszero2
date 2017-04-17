@@ -17,13 +17,12 @@ else {
 	posY = 0;//random_range(0,room_width);
 }
 
-newChar = instance_create_depth(posX, posY, -1, obj_player);
-//newChar = instance_create_layer(posX,posY,"Instances",obj_player);
-newChar.configFilename = filename;
+newWeapon = instance_create_depth(posX, posY, -1, obj_weapon);
+newWeapon.configFilename = filename;
 
-with (newChar)
+with (newWeapon)
 {
-    load_character_config();
+    load_weapon_config();
 }
 
-return newChar;
+return newWeapon;

@@ -63,7 +63,7 @@ for(var idx = 0; idx < anim_player_count; idx++)
 }
 surf = surface_create(surface_width, surface_height);
 surface_set_target(surf);
-// load spreites
+// load sprites
 for(idx = 0; idx < anim_player_count; idx++)
 {
 	sprite_filename = working_directory + spritesheet_path + spritesheet_prefix + "_" + local_player_anim_names[idx] + "-sheet.png";
