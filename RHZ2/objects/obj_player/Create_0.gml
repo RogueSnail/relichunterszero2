@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @player properties
+//add all player properties here
 
 // character name
 name = "";
