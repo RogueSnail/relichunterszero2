@@ -1,6 +1,8 @@
 /// @player properties
 //add all player properties here
 
+//depth = 1000;
+
 // character name
 name = "";
 
@@ -18,3 +20,13 @@ configFilename = "";
 
 // this character's sprites instances
 spriteAnimations = array_create(anim_player_count);
+
+// weapon positioning
+weapon_holder_x = 0;
+weapon_holder_y = 0;
+weapon_back_holder_x = 0;
+weapon_back_holder_y = 0;
+weapon_back_holder_rotation = 0;
+
+weapon_1_instance_id = 0;
+weapon_2_instance_id = 0;

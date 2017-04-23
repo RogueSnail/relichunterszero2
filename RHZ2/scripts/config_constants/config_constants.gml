@@ -135,3 +135,8 @@
 #macro anim_frames_teleport01 8
 #macro anim_frames_walk 6
 #macro anim_frames_ui_choose_character 6
+
+//Ammo types
+#macro ammo_type_light "light"
+#macro ammo_type_medium "medium"
+#macro ammo_type_heavy "heavy"

@@ -33,6 +33,12 @@ sprite_ui_origin_y = ds_map_find_value(configDataMap, "sprite_ui_origin_y");
 
 maxSpeed = ds_map_find_value(configDataMap, "max_speed");
 maxHP = ds_map_find_value(configDataMap, "max_hp");
+weapon_holder_x = ds_map_find_value(configDataMap, "weapon_holder_x");
+weapon_holder_y = ds_map_find_value(configDataMap, "weapon_holder_y");
+weapon_back_holder_x = ds_map_find_value(configDataMap, "weapon_back_holder_x");
+weapon_back_holder_y = ds_map_find_value(configDataMap, "weapon_back_holder_y");
+weapon_back_holder_rotation = ds_map_find_value(configDataMap, "weapon_back_holder_rotation");
+
 ds_map_destroy(configDataMap);
 
 //
