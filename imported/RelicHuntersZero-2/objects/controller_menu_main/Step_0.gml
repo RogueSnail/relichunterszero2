@@ -1,5 +1,5 @@
 ///Take Screenshot
-steam_screenshot_check();
+//steam_screenshot_check();
 
 ///Screen Update
 

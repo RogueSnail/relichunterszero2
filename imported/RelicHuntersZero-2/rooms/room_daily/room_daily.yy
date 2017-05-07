@@ -4,23 +4,22 @@
     "mvc": "1.0",
     "name": "room_daily",
     "IsDnD": false,
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-        "560e272d-fb14-41be-8500-46e428b0f09d",
-        "9a2e6772-514a-49b7-8d16-52f1cc3385cb",
         "0370bd13-d0b7-4a8e-9635-92943a2397f4",
-        "6a888e84-544c-42dc-993f-c7d26178c18f"
+        "6a888e84-544c-42dc-993f-c7d26178c18f",
+        "1871629b-5098-49f4-b755-abf38684ead4"
     ],
     "layers": [
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-            "id": "926c694f-fc61-4fe0-81c6-9a82b662d73d",
+            "id": "ccdbbf36-896a-48d0-8d7c-1f12bacd513a",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": -99999,
+            "depth": 0,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -34,34 +33,37 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Compatibility_Instances_Depth_-99999",
-            "userdefined_depth": true,
+            "name": "Fade",
+            "userdefined_depth": false,
             "visible": true,
             "instances": [
-                {
-                    "id": "560e272d-fb14-41be-8500-46e428b0f09d",
-                    "modelName": "GMRInstance",
-                    "mvc": "1.0",
-                    "ignore": false,
-                    "inheritItemSettings": false,
-                    "m_originalParentID": "00000000-0000-0000-0000-000000000000",
-                    "m_serialiseFrozen": false,
-                    "name": "inst_39309C6F",
-                    "x": 32,
-                    "y": 32,
-                    "IsDnD": false,
-                    "colour": {
-                        "Value": 4294967295
-                    },
-                    "creationCodeFile": "",
-                    "creationCodeType": "",
-                    "inheritCode": false,
-                    "name_with_no_file_rename": "inst_39309C6F",
-                    "objId": "e207163d-61da-43e3-88e8-2f3aa2a66ca9",
-                    "rotation": 0,
-                    "scaleX": 1,
-                    "scaleY": 1
-                }
+                
+            ]
+        },
+        {
+            "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
+            "id": "926c694f-fc61-4fe0-81c6-9a82b662d73d",
+            "modelName": "GMRInstanceLayer",
+            "mvc": "1.0",
+            "depth": 100,
+            "grid_x": 32,
+            "grid_y": 32,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+                
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "name": "Controllers",
+            "userdefined_depth": false,
+            "visible": true,
+            "instances": [
+                
             ]
         },
         {
@@ -69,7 +71,7 @@
             "id": "b322307a-0f8e-4bb6-be7f-35f45e431c6e",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": -1,
+            "depth": 200,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -83,8 +85,8 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Compatibility_Instances_Depth_-1",
-            "userdefined_depth": true,
+            "name": "Banner",
+            "userdefined_depth": false,
             "visible": true,
             "instances": [
                 {
@@ -118,7 +120,7 @@
             "id": "e9731258-27d7-434f-860a-0af6d8fc1c58",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": 0,
+            "depth": 300,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -132,8 +134,8 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Compatibility_Instances_Depth_0",
-            "userdefined_depth": true,
+            "name": "Buttons",
+            "userdefined_depth": false,
             "visible": true,
             "instances": [
                 {
@@ -159,15 +161,39 @@
                     "rotation": 0,
                     "scaleX": 1,
                     "scaleY": 1
+                },
+                {
+                    "id": "1871629b-5098-49f4-b755-abf38684ead4",
+                    "modelName": "GMRInstance",
+                    "mvc": "1.0",
+                    "ignore": false,
+                    "inheritItemSettings": false,
+                    "m_originalParentID": "00000000-0000-0000-0000-000000000000",
+                    "m_serialiseFrozen": false,
+                    "name": "inst_48CC02A1",
+                    "x": 640,
+                    "y": 608,
+                    "IsDnD": false,
+                    "colour": {
+                        "Value": 4294967295
+                    },
+                    "creationCodeFile": "",
+                    "creationCodeType": "",
+                    "inheritCode": false,
+                    "name_with_no_file_rename": "inst_48CC02A1",
+                    "objId": "37a3b1e1-1a6b-4efc-be80-ab1016e38f21",
+                    "rotation": 0,
+                    "scaleX": 1,
+                    "scaleY": 1
                 }
             ]
         },
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-            "id": "02a04274-1eb3-4086-9fb0-688f7110dd5d",
+            "id": "58e80ea1-680f-4695-b383-77a99ba136ae",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": 5,
+            "depth": 400,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -181,34 +207,11 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Compatibility_Instances_Depth_5",
-            "userdefined_depth": true,
+            "name": "BackgroundOverlay",
+            "userdefined_depth": false,
             "visible": true,
             "instances": [
-                {
-                    "id": "9a2e6772-514a-49b7-8d16-52f1cc3385cb",
-                    "modelName": "GMRInstance",
-                    "mvc": "1.0",
-                    "ignore": false,
-                    "inheritItemSettings": false,
-                    "m_originalParentID": "00000000-0000-0000-0000-000000000000",
-                    "m_serialiseFrozen": false,
-                    "name": "inst_3BFD3A75",
-                    "x": 640,
-                    "y": 608,
-                    "IsDnD": false,
-                    "colour": {
-                        "Value": 4294967295
-                    },
-                    "creationCodeFile": "",
-                    "creationCodeType": "",
-                    "inheritCode": false,
-                    "name_with_no_file_rename": "inst_3BFD3A75",
-                    "objId": "37a3b1e1-1a6b-4efc-be80-ab1016e38f21",
-                    "rotation": 0,
-                    "scaleX": 1,
-                    "scaleY": 1
-                }
+                
             ]
         },
         {
@@ -216,7 +219,7 @@
             "id": "536a8fc1-c471-4527-8ffc-243c6e968542",
             "modelName": "GMRBackgroundLayer",
             "mvc": "1.0",
-            "depth": 2147483500,
+            "depth": 500,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -231,7 +234,7 @@
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
             "name": "Compatibility_Background_0",
-            "userdefined_depth": true,
+            "userdefined_depth": false,
             "visible": true,
             "animationFPS": 15,
             "animationSpeedType": 0,
@@ -253,7 +256,7 @@
             "id": "d660df9b-e37c-4dbe-8a6a-18d89aa75cd2",
             "modelName": "GMRBackgroundLayer",
             "mvc": "1.0",
-            "depth": 2147483600,
+            "depth": 600,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -268,7 +271,7 @@
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
             "name": "Compatibility_Colour",
-            "userdefined_depth": true,
+            "userdefined_depth": false,
             "visible": true,
             "animationFPS": 15,
             "animationSpeedType": 0,

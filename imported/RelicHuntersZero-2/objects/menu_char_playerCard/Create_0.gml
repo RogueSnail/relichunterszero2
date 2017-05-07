@@ -4,10 +4,9 @@ slotInput = -1;
 slotCharacter = -1;
 myPlayerId = -1;
 
-mySpecialOkButton = instance_create(x-36,y+264,menu_char_buttonOk);
-mySpecialCancelButton = instance_create(x+122,y+300,menu_char_buttonCancel);
-
-myStatCard = instance_create(x+90,y+40,menu_char_playerStat);
+myStatCard = instance_create_layer(x+90,y+40,self.layer, menu_char_playerStat);
+mySpecialOkButton = instance_create_layer(x-36,y+264, self.layer, menu_char_buttonOk);
+mySpecialCancelButton = instance_create_layer(x+122,y+300, self.layer, menu_char_buttonCancel);
 
 mySpecialCancelButton.owner  = id;
 mySpecialOkButton.owner  = id;

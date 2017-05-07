@@ -7,8 +7,6 @@ allowInput = false;
 
 
 //Timeline
-fade = instance_create_depth(x,y,fade_depth,fx_fadeFromBlack);
-fade.durationInSeconds = 2;
 alarm[0] = room_speed*1; //spawns scrolling text
 alarm[3] = room_speed*4; // Allow the player to skip
 alarm[1] = room_speed*53; //fade to black

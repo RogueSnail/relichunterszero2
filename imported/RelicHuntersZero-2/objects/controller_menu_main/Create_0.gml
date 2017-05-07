@@ -1,7 +1,7 @@
 show_debug_message("controller_menu_main->create");
 ///Init
 //if (room == room_menu) draw_texture_flush();
-
+/*
 buttonController = instance_create_layer(0,0,"Instances",controller_menuButtons);
 
 //buttonController.allowDynamicInputSwitch = true;
@@ -16,7 +16,7 @@ with (backgroundController) {
 	backgroundY = 0;
 	backgroundSpeed = 0.5;
 }
-
+*/
 
 // Save File Read
 save_sync_read();

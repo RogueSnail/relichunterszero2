@@ -10991,6 +10991,14 @@
             }
         },
         {
+            "Key": "b33369d2-3d02-415f-9ad3-7b58bb4bd7a2",
+            "Value": {
+                "id": "b09dfdff-2bc2-40bf-bccb-1154156fe510",
+                "resourcePath": "scripts\\menu_room_creation_code\\menu_room_creation_code.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b337be8d-d8d6-4794-a2ff-88b8155c2244",
             "Value": {
                 "id": "122bc815-add3-40a8-b509-ad790c9d5785",
@@ -12548,6 +12556,14 @@
                 "id": "3fb0c80c-fbbe-4785-8ced-fc06ebc74c6c",
                 "resourcePath": "datafiles_yy\\fonts\\8-BIT WONDER.TTF.yy",
                 "resourceType": "GMIncludedFile"
+            }
+        },
+        {
+            "Key": "cdccbfa6-98d2-4970-8410-7f7548639bf7",
+            "Value": {
+                "id": "b8a676ac-d85c-45c4-9f1a-bcef75f55e28",
+                "resourcePath": "views\\cdccbfa6-98d2-4970-8410-7f7548639bf7.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -15879,7 +15895,8 @@
         "82fba0fe-d224-4c91-88f8-f6ec391b6521",
         "9132cdf1-abe7-4f01-a47c-4b346d6d3e63",
         "48e0effa-1353-4b95-8118-ba9561004428",
-        "ac399d84-0e18-4984-a99b-f5bddfa6e5d6"
+        "ac399d84-0e18-4984-a99b-f5bddfa6e5d6",
+        "b33369d2-3d02-415f-9ad3-7b58bb4bd7a2"
     ],
     "tutorial": ""
 }

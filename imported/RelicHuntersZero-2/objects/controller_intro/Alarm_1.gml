@@ -1,4 +1,4 @@
 ///FadeToBlack
-fadeOut = instance_create_depth(x,y,fade_depth,fx_fadeToBlack);
+fadeOut = instance_create_layer(x,y,"Fade",fx_fadeToBlack);
 fadeOut.durationInSeconds = 2.5;
 
