@@ -7,7 +7,7 @@ myChar = char_jimmy;
 setup_initial = false;
 interactionKey = false;
 
-myDynamicBar = instance_create(x,y,gui_dynamicBar);
+myDynamicBar = instance_create_depth(x,y,self.depth+1,gui_dynamicBar);
 myDynamicBar.owner = id;
 
 isVulnerable = false;
@@ -90,7 +90,7 @@ myGun = noone;
 weapon1 = noone;
 weapon2 = noone;
 
-reloadBarObj = instance_create(x,y,gui_reload_bar);
+reloadBarObj = instance_create_depth(x,y,self.depth+2,gui_reload_bar);
 reloadBarObj.owner = id;
 
 // Animation
@@ -139,7 +139,7 @@ mySuperShieldFx = noone;
 inputShield = false;
 
 //Dash
-myDash = instance_create(x,y,fx_player_dash);
+myDash = instance_create_depth(x,y,self.depth+3,fx_player_dash);
 myDash.owner = id;
 
 //Melee

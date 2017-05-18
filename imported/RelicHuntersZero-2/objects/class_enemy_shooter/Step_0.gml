@@ -23,7 +23,7 @@ if (hit_taken)
     
     if (shield)
     {
-        shield_effect = instance_create(x,y,fx_shield);
+        shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
         shield_effect.owner = id;
         shield_effect.blue = false;
         hit_taken = false;
@@ -53,14 +53,14 @@ else
     {
         if (!instance_exists(myDash))
         {
-            myDash = instance_create(x,y,fx_duck_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
             myDash.owner = id;
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create(x,y,fx_duck_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
             myDash.owner = id;
             myDash.slowness = 4;
             myDash.alpha = 60;
@@ -97,12 +97,12 @@ if hp <= 0
         }
     }
     
-    repeat(coins) instance_create(x,y,obj_pickup_coin);
+    repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
     roll_ammo_drop(x,y);
     
     if (drop_gun)
     {
-        if (random(1)<=drop_gun_chance) && (global.gameMode == gamemode_adventure) instance_create(x,y,drop_gun);
+        if (random(1)<=drop_gun_chance) && (global.gameMode == gamemode_adventure) instance_create_layer(x,y,"Interactive",drop_gun);
         else 
         {
             var broken_gun = noone;
@@ -119,7 +119,7 @@ if hp <= 0
         }
     }
 
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     if (pushed)
     {
@@ -139,7 +139,7 @@ if hp <= 0
         
         myCorpse.sprite_index = sprite_death_precision;
         
-        var mySkull = instance_create(x+(11*image_xscale),y-49,fx_skull);
+        var mySkull = instance_create_layer(x+(11*image_xscale),y-49,"Interactive",fx_skull);
         mySkull.image_xscale = image_xscale;
     }
     
@@ -164,7 +164,7 @@ if energy < energy_max
     
     if energy_regen_time_current = energy_regen_time
     {
-        myRecharge = instance_create(x,y,fx_shield_up);   
+        myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);   
         myRecharge.owner = id;
         myRecharge.blue = false;
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
@@ -173,11 +173,11 @@ if energy < energy_max
 
 if (!energy) && (shield == true)
 {
-    myShieldEffect = instance_create(x,y,fx_shield_explosion);
+    myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
     myShieldEffect.owner = id;
     myShieldEffect.blue = false;
     
-    mySparks = instance_create(x,y,fx_shield_down);
+    mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
     mySparks.owner = id;
     mySparks.blue = false;
     
@@ -219,7 +219,7 @@ if (!ai_active)
         if (want_to_activate)
         {
             ai_active = true;
-            activationFX = instance_create(x,y,fx_activation);
+            activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
             activationFX.owner = id;
         }
     }
@@ -340,7 +340,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             
             if (throwGrenade)
             {
-                ai_myGrenade = instance_create(x,y,obj_grenade_enemyNew);
+                ai_myGrenade = instance_create_layer(x,y,"Interactive",obj_grenade_enemyNew);
                 ai_myGrenade.speed = 8;
                 ai_myGrenade.direction = point_direction(x,y,ai_target.x,ai_target.y);
                 grenade_count--;
@@ -551,7 +551,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if collision_point(x,y,obj_limit,false,true)
 {
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     if (pushed)
     {

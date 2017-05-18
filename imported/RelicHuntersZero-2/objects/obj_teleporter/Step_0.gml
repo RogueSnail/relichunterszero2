@@ -49,14 +49,14 @@ if (buy = true) && (!active)
                 {
                     global.unlockRaff = true;
                     achievement_give("ACHIEVEMENT_UNLOCKRAFF");
-                    announce = instance_create(x,y,fx_bigMessage);
+                    announce = instance_create_layer(x,y,"GUI",fx_bigMessage);
                     announce.textBig = loc_key("HUD_UNLOCK_HUNTER");
                     announce.textSmall = loc_key("HUD_UNLOCK_RAFF");
                     announce.hunterUnlockSprite = spr_hud_face_raff;
                 }
             }
             else{
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_layer(activationClient.x,activationClient.y,"GUI",gui_info);
                 guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");
                 guiInfo.colorMain = K_BETU_RED;
                 guiInfo.owner = activationClient;

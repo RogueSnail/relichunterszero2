@@ -4,7 +4,7 @@ if (!spawned) && (image_index >= spawnFrame){
     spawned = true;
     
     if (!spawnCoins) {
-        var spawn = instance_create(x,y,fx_digItem);
+        var spawn = instance_create_layer(x,y,"Interactive",fx_digItem);
         spawn.itemSprite = spawnSprite;
         spawn.endlessRelic = spawnRelic;
         spawn.endlessWeapon = spawnWeapon;
@@ -40,14 +40,14 @@ if (!spawned) && (image_index >= spawnFrame){
         
         //Spawn Halloween candy
         if (spawnChallenge == "CHALLENGE_HAUNTED") {
-            repeat(irandom_range(4,7)) instance_create(x,y,obj_pickup_candy);
-            repeat(irandom_range(4,7)) instance_create(x,y,obj_pickup_candyLarge);
+            repeat(irandom_range(4,7)) instance_create_layer(x,y,"GUI",obj_pickup_candy);
+            repeat(irandom_range(4,7)) instance_create_layer(x,y,"GUI",obj_pickup_candyLarge);
         }
         
         if (listName != "") {
             ds_list_add(global.challengeList, listName);
             
-            var announceChallenge = instance_create(x,y,fx_bigMessage);
+            var announceChallenge = instance_create_layer(x,y,"Interactive",fx_bigMessage);
             announceChallenge.textBigColor = K_BETU_RED;
             announceChallenge.hunterUnlockSprite = spr_challengeUnique;
             announceChallenge.textBig = loc_key(stringChallenge);

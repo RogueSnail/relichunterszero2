@@ -56,7 +56,7 @@ if instance_exists(activationClient)
                 myChallenge = "";
                 sprite_index = spr_terminalClear;
 
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.myString = loc_key("SAE_INFO_HACKED");;
                 guiInfo.colorMain = c_white;
                 guiInfo.owner = activationClient;
@@ -64,7 +64,7 @@ if instance_exists(activationClient)
                 if (instance_exists(obj_sae)) if (instance_exists(obj_sae.myBalloon)) obj_sae.myBalloon.upgradeTalk = true;
         }
         else{
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");;
                 guiInfo.colorMain = K_BETU_RED;
                 guiInfo.owner = activationClient;

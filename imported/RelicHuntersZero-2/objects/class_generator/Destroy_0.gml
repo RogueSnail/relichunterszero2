@@ -1,3 +1,3 @@
 event_inherited();
-instance_create(x,y,obj_redbarrel_spawner);
+instance_create_layer(x,y,"Interactive",obj_redbarrel_spawner);
 

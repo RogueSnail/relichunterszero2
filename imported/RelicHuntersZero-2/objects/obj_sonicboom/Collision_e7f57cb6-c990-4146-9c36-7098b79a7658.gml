@@ -2,7 +2,7 @@
 
 if instance_exists(other)
 {
-    projectile = instance_create(other.x,other.y,obj_projectile_player);
+    projectile = instance_create_layer(other.x,other.y,"Interactive",obj_projectile_player);
 
     projectile.speed = other.speed;
     projectile.direction = -other.direction

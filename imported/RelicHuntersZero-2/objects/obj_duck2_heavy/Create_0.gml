@@ -33,7 +33,7 @@ sprite_death_precision = spr_duck_death_precision;
 
 if my_gun == noone
 {
-    my_gun = instance_create(x,y,obj_pistol_heavy_enemy);
+    my_gun = instance_create_layer(x,y,"Interactive",obj_pistol_heavy_enemy);
     my_gun.owner = id;
 }
 

@@ -15,7 +15,7 @@ alarm[0] = room_speed*1.5;
 if (room == room_start) || (room == room_shop) || (room == room_endShop) sprite_index = spr_ass_idle;
 
 mySwap = noone;
-if (room == room_start) mySwap = instance_create(x,y,obj_swap_ass);
+if (room == room_start) mySwap = instance_create_layer(x,y,"Interactive",obj_swap_ass);
 
 
 

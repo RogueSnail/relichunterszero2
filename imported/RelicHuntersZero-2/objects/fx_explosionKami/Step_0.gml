@@ -17,7 +17,7 @@ if (floor(image_index) == spawnFrame) && (!hasSpawned)
             c++;
         }
         
-        instance_create(spawnX,spawnY,obj_kamiAlly);
+        instance_create_layer(spawnX,spawnY,"Interactive",obj_kamiAlly);
     }   
     
     hasSpawned = true;

@@ -6,7 +6,7 @@ if (!hasSpawnedBrothers)
 {
     var angleDiff = 20;
     repeat(2){ 
-        var brother = instance_create(x,y,obj_projectile_flakRelic);
+        var brother = instance_create_layer(x,y,"Interactive",obj_projectile_flakRelic);
         brother.hasSpawnedBrothers = true;
         
         brother.damage = damage;

@@ -1,3 +1,4 @@
+
 ///Debug for Pathfinding
 
 if (global.drawGridDebug)
@@ -88,4 +89,4 @@ if (ds_exists(global.edgeTrackEnemyList,ds_type_list)) && (!global.pauseMenu) &&
         }
     }
 }
-
+/**/

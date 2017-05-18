@@ -7,7 +7,7 @@ if global.weapon2[myPlayerId] != noone
     {
         if global.weapon2[myPlayerId] == obj_buckler
         {
-            instance_create(x,y,obj_buckler);
+            instance_create_layer(x,y,"Interactive",obj_buckler);
             weapon2 = obj_buckler;
             weapon2.owner = id;
             weapon2.weaponLevel = global.weapon2Level[myPlayerId];
@@ -15,7 +15,7 @@ if global.weapon2[myPlayerId] != noone
         }
         else
         {
-            weapon2 = instance_create(x,y,global.weapon2[myPlayerId]);
+            weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
             weapon2.owner = id;
             weapon2.weaponLevel = global.weapon2Level[myPlayerId];
             draw_gun(weapon2);
@@ -28,7 +28,7 @@ if global.weapon2[myPlayerId] != noone
     {
         if global.weapon1[myPlayerId] == obj_buckler
         {
-            instance_create(x,y,obj_buckler);
+            instance_create_layer(x,y,"Interactive",obj_buckler);
             weapon1 = obj_buckler;
             weapon1.owner = id;
             weapon1.weaponLevel = global.weapon1Level[myPlayerId];
@@ -36,7 +36,7 @@ if global.weapon2[myPlayerId] != noone
         }
         else
         {
-            weapon1 = instance_create(x,y,global.weapon1[myPlayerId]);
+            weapon1 = instance_create_layer(x,y,"Interactive",global.weapon1[myPlayerId]);
             weapon1.owner = id;
             weapon1.weaponLevel = global.weapon1Level[myPlayerId];
             draw_gun(weapon1);
@@ -45,7 +45,7 @@ if global.weapon2[myPlayerId] != noone
     }
     else /// Starting Loadout
     {        
-        instance_create(x,y,obj_buckler);
+        instance_create_layer(x,y,"Interactive",obj_buckler);
         weapon1 = obj_buckler;
         weapon1.owner = id;
         draw_gun(weapon1);

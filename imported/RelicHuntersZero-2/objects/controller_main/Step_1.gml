@@ -1,3 +1,4 @@
+
 ///Apply Global Buffs (Relics and Characters)
 
 //Watchful Eye & Biu
@@ -76,4 +77,4 @@ if (window_mouse_get_x() < 0+hsafety) window_mouse_set(0+hsafety, window_mouse_g
 if (window_mouse_get_y() < 0+vsafety) window_mouse_set(window_mouse_get_x(), 0+vsafety);
 if (window_mouse_get_x() > window_get_width()-hsafety) window_mouse_set(window_get_width()-hsafety, window_mouse_get_y());
 if (window_mouse_get_y() > window_get_height()-vsafety) window_mouse_set(window_mouse_get_x(), window_get_height()-vsafety);
-
+/**/

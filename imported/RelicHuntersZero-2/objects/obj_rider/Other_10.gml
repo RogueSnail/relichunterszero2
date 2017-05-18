@@ -15,7 +15,7 @@ overshield = global.overshield[myPlayerId];
     {
         show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
         
-        weapon2 = instance_create(x,y,global.weapon2[myPlayerId]);
+        weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
         weapon2.owner = id;
         weapon2.weaponLevel = global.weapon2Level[myPlayerId];
         draw_gun(weapon2);
@@ -26,7 +26,7 @@ overshield = global.overshield[myPlayerId];
     {
         show_debug_message("weapon1[myPlayerId] returns "+string(global.weapon1[myPlayerId]));
         
-        weapon1 = instance_create(x,y,global.weapon1[myPlayerId]);
+        weapon1 = instance_create_layer(x,y,"Interactive",global.weapon1[myPlayerId]);
         weapon1.owner = id;
         weapon1.weaponLevel = global.weapon1Level[myPlayerId];
         draw_gun(weapon1);
@@ -34,7 +34,7 @@ overshield = global.overshield[myPlayerId];
     }
     else
     {
-        weapon1 = instance_create(x,y,obj_pistol);
+        weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol);
         weapon1.owner = id;
         draw_gun(weapon1);
     }

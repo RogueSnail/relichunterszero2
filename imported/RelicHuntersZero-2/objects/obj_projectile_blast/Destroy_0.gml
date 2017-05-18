@@ -1,5 +1,5 @@
 ///Create mini-explosion
-var blast = instance_create(x,y,fx_explosion_mini);
+var blast = instance_create_layer(x,y,"Interactive",fx_explosion_mini);
 var blastDamage = damage * 4;
 
 if (global.relic_midnight_beer == 2) blastDamage += round(blastDamage*global.midnightDamageMultiplier ); //Midnight Beer

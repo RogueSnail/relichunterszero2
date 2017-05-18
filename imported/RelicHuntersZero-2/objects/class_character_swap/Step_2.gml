@@ -27,43 +27,43 @@ if instance_exists(activationClient) && (active)
         {
             myCharacter = global.character[p];
             global.character[p] = char_pinky;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_pinky);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_pinky);
         }
         else if (myCharacter == char_jimmy) 
         {
             myCharacter = global.character[p];
             global.character[p] = char_jimmy;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_jimmy);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_jimmy);
         }
         else if (myCharacter == char_raff) 
         {
             myCharacter = global.character[p];
             global.character[p] = char_raff;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_raff);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_raff);
         }
         else if (myCharacter == char_biu) 
         {
             myCharacter = global.character[p];
             global.character[p] = char_biu;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_biu);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_biu);
         }
         else if (myCharacter == char_punny) 
         {
             myCharacter = global.character[p];
             global.character[p] = char_punny;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_punny);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_punny);
         }
         else if (myCharacter == char_ass) 
         {
             myCharacter = global.character[p];
             global.character[p] = char_ass;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_assPlayer);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_assPlayer);
         }
         else if (myCharacter == char_rider) 
         {
             myCharacter = global.character[p];
             global.character[p] = char_rider;
-            newChar = instance_create(activationClient.x,activationClient.y,obj_rider);
+            newChar = instance_create_layer(activationClient.x,activationClient.y,"Interactive",obj_rider);
         }
         
         newChar.myPlayerId = p;

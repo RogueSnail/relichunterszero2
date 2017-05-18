@@ -3,7 +3,7 @@
 event_inherited();
 
 if (unlock){
-    open = instance_create(x,y,fxObject);
+    open = instance_create_layer(x,y,"Interactive",fxObject);
     open.spawnRelic = spawnRelic;
     open.spawnWeapon = spawnWeapon;
     open.spawnSprite = spawnSprite;

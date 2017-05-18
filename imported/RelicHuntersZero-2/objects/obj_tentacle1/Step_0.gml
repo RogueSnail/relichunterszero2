@@ -42,7 +42,7 @@ if (player) && (damage_timer_current >= damage_timer) && instance_exists(player)
         
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
-        damage_fx = instance_create(player.x+spreadX,player.y+spreadY,fx_damage);
+        damage_fx = instance_create_layer(player.x+spreadX,player.y+spreadY,"Interactive",fx_damage);
         damage_fx.damage = damage;
     }
 

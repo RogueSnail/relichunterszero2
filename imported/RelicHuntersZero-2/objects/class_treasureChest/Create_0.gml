@@ -24,11 +24,11 @@ depth = -y-16;
 range = 130;
 in_range = false;
 
-myPrompt = instance_create(x+10,y-25,fx_prompt_e);
+myPrompt = instance_create_layer(x+10,y-25,"Interactive",fx_prompt_e);
 myPrompt.owner = id;
 
 name = loc_key("INFO_TREASURECHEST");
-myWeaponInfo = instance_create(x,y,fx_info_pickup);
+myWeaponInfo = instance_create_layer(x,y,"Interactive",fx_info_pickup);
 myWeaponInfo.owner = id;
 
 reflection_object_setup(25,-1,image_index);

@@ -35,7 +35,7 @@ if instance_exists(activationClient) && (allowBuy)
             global.unlockEndless = true;
             wantToActivate = false;
                     
-            announce = instance_create(x,y,fx_bigMessage);
+            announce = instance_create_layer(x,y,"GUI",fx_bigMessage);
             announce.textBig = loc_key("HUD_UNLOCK_ENDLESS");
             announce.textSmall = loc_key("HUD_UNLOCK_ENDLESS_DESC");
                     
@@ -45,7 +45,7 @@ if instance_exists(activationClient) && (allowBuy)
             myBalloon.upgradeTalk = true;
         }
         else{
-            guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+            guiInfo = instance_create_layer(activationClient.x,activationClient.y,"GUI",gui_info);
             guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");;
             guiInfo.colorMain = K_BETU_RED;
             guiInfo.owner = activationClient;
@@ -62,7 +62,7 @@ if instance_exists(class_player)
     
     if (distToPlayer <= 280) && (!instance_exists(obj_endless_balloon))
     {
-            myBalloon = instance_create(x,y,obj_endless_balloon);
+            myBalloon = instance_create_layer(x,y,"GUI",obj_endless_balloon);
             if (!image_xscale) myBalloon.x -= 50;
             myBalloon.owner = id;
     }

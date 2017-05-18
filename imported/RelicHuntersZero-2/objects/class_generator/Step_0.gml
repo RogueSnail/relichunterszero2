@@ -64,7 +64,7 @@ if (hp <= maxhp*0.66) && (hp > maxhp*0.33)
 {
     if damage == 0
     {
-        myDirt = instance_create(x,y,fx_dirt);
+        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
         myDirt.sprite_index = sprite_dirt;
     }
     damage = 1;
@@ -74,7 +74,7 @@ if (hp <= maxhp*0.33)
 {
     if damage == 1
     {
-        myDirt = instance_create(x,y,fx_dirt);
+        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
         myDirt.sprite_index = sprite_dirt;
     }
     damage = 2;
@@ -87,7 +87,7 @@ if (hp < 0)
     audio_play_exclusive(audio_emitter,false,1,sfx_debris1,sfx_debris2,sfx_debris3);
     ds_list_add(global.audio_cleaner,audio_emitter);
     
-    instance_create(x,y,breakObject);
+    instance_create_layer(x,y,"Interactive",breakObject);
     instance_destroy();
 }
 

@@ -63,15 +63,15 @@ if faction == f_player && instance_exists(other)
         }
         
         bloodAmount = min(bloodAmount, (global.max_casings-global.count_casings) );
-        if (bloodAmount) && (global.max_casings) repeat(bloodAmount) blood = instance_create(x,y,fx_blood);
+        if (bloodAmount) && (global.max_casings) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
         
-        damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         if (isPrecise) && (!other.shield) damageEffect.critical = true;
         damageEffect.damage = damage;
         
         if (global.count_particles < global.max_particles)
         {
-            hit = instance_create(x,y,fx_hit);
+            hit = instance_create_layer(x,y,"Interactive",fx_hit);
             hit.type = ammo_type;
         }
         
@@ -89,7 +89,7 @@ if faction == f_player && instance_exists(other)
     if (other.dodging) && (ds_list_find_index(damage_list,other.id) < 0)
     {
         ds_list_add(damage_list,other.id);
-        damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
     }
 }
 

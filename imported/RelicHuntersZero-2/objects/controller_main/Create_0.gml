@@ -1,4 +1,8 @@
+
 ///Main Configuration
+
+//Level Build
+level_built = false;
 
 //Initialization
 draw_texture_flush();
@@ -13,7 +17,6 @@ global.gameOver = false;
 global.relicDetected = false;
 global.overrideLevel = noone;
 
-
 global.steamApi = false;
 
 if (steam_initialised())
@@ -26,7 +29,18 @@ if (steam_initialised())
 }
 else show_debug_message("ERROR: Steam not initialized");
 
+//Audio
+global.falloffMainDist = 1280;
+global.falloffMainMax = 2000;
+global.falloffMainFactor = 1;
 
+global.falloffMediumDist = 600;
+global.falloffMediumMax = 1500;
+global.falloffMediumFactor = 1;
+
+global.falloffMinorDist = 280;
+global.falloffMinorMax = 1000;
+global.falloffMinorFactor = 1;
 
 //Camera and Crosshair
 global.crosshairX[1] = 0;
@@ -39,98 +53,10 @@ global.crosshair_scale[2] = 1;
 global.default_shadow_yscale = 0.3;
 global.music = true;
 
-main_camera = instance_create(x,y,controller_camera);
-main_effects = instance_create(x,y,controller_effects);
-
 level_end = false;
 global.level_complete = false;
 global.pause = 0;
-
-__view_set( e__VW.XView, 0, x );
-__view_set( e__VW.YView, 0, y );
-
-//Survival Mode Configuration
-global.survivalWaves = 0;
-survivalWaveSize = 0;
-
-if (room == levelHalloween_3) {global.survivalWaves = 3; survivalWaveSize = 3;}
-
-//Combat Options
-global.autoAimAngle = 38;
-global.precisionAngle = 20;
-global.precisionDistance = 32;
-global.friendlyFireDamageRatio = 0.7;
-global.enemyProjectileSpeed = 0.8;
-
-//Level Build
-level_built = false;
-
-//Pathfinding
-path_refresh = room_speed*1; // Updates the grid once per second
-alarm[1] = path_refresh;
-global.astar_grid = mp_grid_create(0,0,round(room_width/64),round(room_height/64),64,64);
-mp_grid_add_instances(global.astar_grid,class_solid,false);
-
-//Debug Pathfinding
-global.drawGridDebug = false;
-
-//GUI
-guiSurface = surface_create(1920,1080);
-global.total_value = 0;
-score_time = room_speed*1.2;
-score_time_current = 0;
-score_value = 10;
-score_string = "KILL";
-
-guiShieldAlertDraw = false;
-guiShieldAlertTime = room_speed*0.5;
-guiShieldAlertTimeCurrent = 0;
-
-guiReloadAlertDraw = false;
-guiReloadAlertTime = room_speed*0.5;
-guiReloadAlertTimeCurrent = 0;
-
-//Dynamic GUI
-global.dynamicBounty = instance_create(0,0,gui_dynamic_bounty);
-global.dynamicRelic1 = instance_create(0,0,gui_dynamic_relic1);
-global.dynamicRelic2 = instance_create(0,0,gui_dynamic_relic2);
-global.dynamicRelic3 = instance_create(0,0,gui_dynamic_relic3);
-global.dynamicAmmo1 = instance_create(0,0,gui_dynamic_ammo1);
-global.dynamicAmmo2 = instance_create(0,0,gui_dynamic_ammo2);
-
-delayedAmmoLightBar[1] = 1;
-delayedAmmoMediumBar[1] = 2;
-delayedAmmoHeavyBar[1] = 3;
-delayedCharHealthBar1[1] = 4;
-delayedCharShieldBar1[1] = 5;
-delayedAmmoLightBar[2] = 6;
-delayedAmmoMediumBar[2] = 7;
-delayedAmmoHeavyBar[2] = 8;
-delayedCharHealthBar1[2] = 9;
-delayedCharShieldBar1[2] = 10;
-delayedP1AmmoBar = 11;
-delayedP2AmmoBar = 12;
-draw_healthbar_delayed_init(delayedAmmoLightBar[1]);
-draw_healthbar_delayed_init(delayedAmmoMediumBar[1]);
-draw_healthbar_delayed_init(delayedAmmoHeavyBar[1]);
-draw_healthbar_delayed_init(delayedCharHealthBar1[1]);
-draw_healthbar_delayed_init(delayedCharShieldBar1[1]);
-draw_healthbar_delayed_init(delayedAmmoLightBar[2]);
-draw_healthbar_delayed_init(delayedAmmoMediumBar[2]);
-draw_healthbar_delayed_init(delayedAmmoHeavyBar[2]);
-draw_healthbar_delayed_init(delayedCharHealthBar1[2]);
-draw_healthbar_delayed_init(delayedCharShieldBar1[2]);
-draw_healthbar_delayed_init(delayedP1AmmoBar);
-draw_healthbar_delayed_init(delayedP2AmmoBar);
-
-//BossFight GUI
-bossBar = 666;
-draw_healthbar_delayed_init(bossBar);
-isBossSetup = false;
-isGen1Setup = false;
-isGen2Setup = false;
-isGen3Setup = false;
-fakeBarFill = 0;
+global.pauseMenu = false;
 
 //Score
 
@@ -239,6 +165,15 @@ grenades_max_biu = 10;
 draw_ammo1 = 0;
 draw_ammo2 = 0;
 
+//Combat Options
+global.autoAimAngle = 38;
+global.precisionAngle = 20;
+global.precisionDistance = 32;
+global.friendlyFireDamageRatio = 0.7;
+global.enemyProjectileSpeed = 0.8;
+
+global.total_value = 0;
+
 //Relics
 global.midnightDamageMultiplier = 0.5;
 global.crystalBaconRegen = 8;
@@ -246,24 +181,6 @@ global.devPotionRegenTime = room_speed*0.75;
 global.watchfulEyePickupBonus = 1.5;
 global.relicHpBonus = 1;
 global.relicEnergyBonus = 1;
-awarded4RelicsAchievement = false;
-
-//Audio
-global.falloffMainDist = 1280;
-global.falloffMainMax = 2000;
-global.falloffMainFactor = 1;
-
-global.falloffMediumDist = 600;
-global.falloffMediumMax = 1500;
-global.falloffMediumFactor = 1;
-
-global.falloffMinorDist = 280;
-global.falloffMinorMax = 1000;
-global.falloffMinorFactor = 1;
-
-//Stats
-timeCounter = 0;
-gameOverHint = "";
 
 //Endless Score
 global.scoreEndlessLevel = 600; 
@@ -277,21 +194,120 @@ global.dailyBadge = 0;
 global.dailyBadgeString = "";
 global.dailyRankDebug = -1;
 
-//Pause Menu
-game_pause_init();
 
-//Center Mouse Position At Beggining
-display_mouse_set(window_get_width() / 2, window_get_height() / 2);
+//Debug Pathfinding
+global.drawGridDebug = false;
 
 //Low Performance Detection
 global.lowPerfTime = room_speed*4.2;
 global.lowPerfTimeCurrent = 0;
 
-debug_forceLevelExit = false;
-
 ///Enemy Tracker
 global.edgeTrackEnemyList = noone;
 
+//GUI
+guiSurface = surface_create(1920,1080);
+//surface_set_target(guiSurface);
+//draw_clear_alpha(c_black, 0.0);
+//surface_reset_target();
+main_hud_alpha = 0;
+
+//Dynamic GUI
+global.dynamicBounty = instance_create_layer(0,0,"GUI",gui_dynamic_bounty);
+global.dynamicRelic1 = instance_create_layer(0,0,"GUI",gui_dynamic_relic1);
+global.dynamicRelic2 = instance_create_layer(0,0,"GUI",gui_dynamic_relic2);
+global.dynamicRelic3 = instance_create_layer(0,0,"GUI",gui_dynamic_relic3);
+global.dynamicAmmo1 = instance_create_layer(0,0,"GUI",gui_dynamic_ammo1);
+global.dynamicAmmo2 = instance_create_layer(0,0,"GUI",gui_dynamic_ammo2);
+
+//Pathfinding
+path_refresh = room_speed*1; // Updates the grid once per second
+alarm[1] = path_refresh;
+global.astar_grid = mp_grid_create(0,0,round(room_width/64),round(room_height/64),64,64);
+mp_grid_add_instances(global.astar_grid,class_solid,false);
+
+
+score_time = room_speed*1.2;
+score_time_current = 0;
+score_value = 10;
+score_string = "KILL";
+
+guiShieldAlertDraw = false;
+guiShieldAlertTime = room_speed*0.5;
+guiShieldAlertTimeCurrent = 0;
+
+guiReloadAlertDraw = false;
+guiReloadAlertTime = room_speed*0.5;
+guiReloadAlertTimeCurrent = 0;
+
+//Dynamic GUI
+
+delayedAmmoLightBar[1] = 1;
+delayedAmmoMediumBar[1] = 2;
+delayedAmmoHeavyBar[1] = 3;
+delayedCharHealthBar1[1] = 4;
+delayedCharShieldBar1[1] = 5;
+delayedAmmoLightBar[2] = 6;
+delayedAmmoMediumBar[2] = 7;
+delayedAmmoHeavyBar[2] = 8;
+delayedCharHealthBar1[2] = 9;
+delayedCharShieldBar1[2] = 10;
+delayedP1AmmoBar = 11;
+delayedP2AmmoBar = 12;
+draw_healthbar_delayed_init(delayedAmmoLightBar[1]);
+draw_healthbar_delayed_init(delayedAmmoMediumBar[1]);
+draw_healthbar_delayed_init(delayedAmmoHeavyBar[1]);
+draw_healthbar_delayed_init(delayedCharHealthBar1[1]);
+draw_healthbar_delayed_init(delayedCharShieldBar1[1]);
+draw_healthbar_delayed_init(delayedAmmoLightBar[2]);
+draw_healthbar_delayed_init(delayedAmmoMediumBar[2]);
+draw_healthbar_delayed_init(delayedAmmoHeavyBar[2]);
+draw_healthbar_delayed_init(delayedCharHealthBar1[2]);
+draw_healthbar_delayed_init(delayedCharShieldBar1[2]);
+draw_healthbar_delayed_init(delayedP1AmmoBar);
+draw_healthbar_delayed_init(delayedP2AmmoBar);
+
+///Cuscenes vs HUD
+
+global.cutscene = true;
+
+cutscene_bars_positionStart = 0.15;
+cutscene_bars_position = cutscene_bars_positionStart;
+cutscene_bars_exit_speed = 0.0025;
+
+//Survival Mode Configuration
+global.survivalWaves = 0;
+survivalWaveSize = 0;
+
+if (room == levelHalloween_3) {global.survivalWaves = 3; survivalWaveSize = 3;}
+
+///Particle Systems
+
+global.particle_list = ds_list_create();
+global.particle_type_list = ds_list_create();
+
+
+//Relics
+awarded4RelicsAchievement = false;
+
+//Stats
+timeCounter = 0;
+gameOverHint = "";
+
+debug_forceLevelExit = false;
+
+//BossFight GUI
+bossBar = 666;
+draw_healthbar_delayed_init(bossBar);
+isBossSetup = false;
+isGen1Setup = false;
+isGen2Setup = false;
+isGen3Setup = false;
+fakeBarFill = 0;
+
+
+//Center Mouse Position At Beggining
+display_mouse_set(window_get_width() / 2, window_get_height() / 2);
 
 ///Endless Economy & Rare Challenge Timers Balance
 if (global.gameMode == gamemode_endless)
@@ -486,9 +502,16 @@ if (global.gameMode == gamemode_endless)
     
 }
 
+main_camera = instance_create_layer(x,y,"Controllers",controller_camera);
+
+main_effects = instance_create_layer(x,y,"Controllers",controller_effects);
 
 
+//Pause Menu
+game_pause_init();
 
+__view_set( e__VW.XView, 0, x );
+__view_set( e__VW.YView, 0, y );
 
 ///Soundtrack & Memory Cleaner
 
@@ -656,19 +679,6 @@ if (room == room_start) global.hasUsedCheckpoint = false;
 show_debug_message("Test if Checkpoint was used before: "+string(global.hasUsedCheckpoint));
 
 
-///Particle Systems
-
-global.particle_list = ds_list_create();
-global.particle_type_list = ds_list_create();
-
-///Cuscenes vs HUD
-
-global.cutscene = true;
-
-cutscene_bars_positionStart = 0.15;
-cutscene_bars_position = cutscene_bars_positionStart;
-cutscene_bars_exit_speed = 0.0025;
-main_hud_alpha = 0;
 
 //Stage GUI
 alarm[4] = room_speed*0.75;
@@ -677,9 +687,10 @@ alarm[4] = room_speed*0.75;
 if (room == room_start) 
 {
     alarm[2] = room_speed*4;
-    //instance_create(x,y,gui_logo);
+    //instance_create_layer(x,y,"Interactive",gui_logo);
 }
 else  alarm[2] = room_speed*1.7;
+
 
 ///Reload Circle Bar Init
 reloadBarRadius = 18;
@@ -970,7 +981,7 @@ if (global.gameMode == gamemode_endless) && (ds_exists(global.challengeList,ds_t
             ds_list_add(global.challengeForbiddenList, listName);
         }
         
-        var announceChallenge = instance_create(x,y,fx_bigMessage);
+        var announceChallenge = instance_create_layer(x,y,"Interactive",fx_bigMessage);
         announceChallenge.textBigColor = K_BETU_RED;
         if (chUnique) announceChallenge.hunterUnlockSprite = spr_challengeUnique;
         else announceChallenge.hunterUnlockSprite = spr_challengeCommon;
@@ -1000,7 +1011,4 @@ if (global.gameMode == gamemode_endless) && (ds_exists(global.challengeList,ds_t
     
 //Apply these right here, right now
     if (global.challengeDucanWeapons) global.enemyProjectileSpeed = global.challengeDucanWeaponsSpeed;
-
-
-
-
+/**/

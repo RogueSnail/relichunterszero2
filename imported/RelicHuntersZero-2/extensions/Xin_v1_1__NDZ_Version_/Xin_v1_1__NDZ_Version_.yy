@@ -17,6 +17,7 @@
     "androidsourcedir": "",
     "author": "",
     "classname": "",
+    "copyToTargets": -1,
     "date": "2017-51-03 10:05:10",
     "description": "An XInput extension that enables the full use of Xbox 360 controllers within games.\\u000d\\u000a[WARNING]  This version features no deadzones on the controller thumbsticks. In most circumstances, it is recommended NOT to use this version of Xin.",
     "extensionName": "",
@@ -25,12 +26,6 @@
             "id": "6562783d-6158-4d34-b947-ccda31a87f5e",
             "modelName": "GMExtensionFile",
             "mvc": "1.0",
-            "ConfigOptions": [
-                {
-                    "Key": "default",
-                    "Value": 9223372036854775807
-                }
-            ],
             "ProxyFiles": [
                 
             ],
@@ -196,6 +191,7 @@
                     "value": "20"
                 }
             ],
+            "copyToTargets": 9223372036854775807,
             "filename": "XinDLL_NDZ.dll",
             "final": "",
             "functions": [
@@ -328,7 +324,6 @@
             ],
             "init": "",
             "kind": 1,
-            "maskTarget": 0,
             "order": [
                 
             ],

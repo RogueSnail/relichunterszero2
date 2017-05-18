@@ -1,3 +1,3 @@
 ///Spawns the Stage GUI
-instance_create(x,y,gui_stage);
+instance_create_layer(x,y,"GUI",gui_stage);
 

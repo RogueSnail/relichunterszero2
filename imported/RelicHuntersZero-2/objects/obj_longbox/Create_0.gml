@@ -23,7 +23,7 @@ else{
     shadow_object_setup(0,spr_longboxDucan_reflection,image_index,global.default_shadow_yscale);
     
     if (irandom(2) = 0) {
-        myFlag = instance_create(x+62,y-68,fx_ducanFlag);
+        myFlag = instance_create_layer(x+62,y-68,"Interactive",fx_ducanFlag);
         myFlag.owner = id;
     }
 }

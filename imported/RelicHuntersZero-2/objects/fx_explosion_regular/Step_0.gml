@@ -45,7 +45,7 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                     }
                     repeat(10) 
                     {
-                        blood = instance_create(poor_guy.x,poor_guy.y,fx_blood);
+                        blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
                         blood.vertical_speed_start = random_range(5,10);
                         blood.speed = random_range(5,9);
                     }
@@ -57,7 +57,7 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                 poor_guy.hp -= damage;
                 repeat(10) 
                 {
-                    blood = instance_create(poor_guy.x,poor_guy.y,fx_blood);
+                    blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
                     blood.vertical_speed_start = random_range(5,10);
                     blood.speed = random_range(5,9);
                 }
@@ -65,7 +65,7 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
             
             var spreadX = irandom_range(-15,15);
             var spreadY = irandom_range(-15,15);
-            var damage_fx = instance_create(poor_guy.x+spreadX,poor_guy.y+spreadY,fx_damage);
+            var damage_fx = instance_create_layer(poor_guy.x+spreadX,poor_guy.y+spreadY,"Interactive",fx_damage);
             damage_fx.damage = damage;
             
             if (poor_guy.hp <= 0) want_to_pause = true;

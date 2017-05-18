@@ -45,7 +45,7 @@ if (treasureType == "COINS")
 //Treasure: Weapon
 if (treasureType == "WEAPON") || (treasureType == "WEAPON_RARE") 
 {
-    var data = instance_create(0,0,data_chestItems);
+    var data = instance_create_layer(0,0,"Interactive",data_chestItems);
     if (ds_exists(data.weapons[treasureTier],ds_type_list)) {
         var list = data.weapons[treasureTier];
         if (!ds_list_empty(list)) {
@@ -57,7 +57,7 @@ if (treasureType == "WEAPON") || (treasureType == "WEAPON_RARE")
     
     //Find the sprite
     if (spawnWeapon != noone){
-        var spawnToTest = instance_create(0,0,spawnWeapon);
+        var spawnToTest = instance_create_layer(0,0,"Interactive",spawnWeapon);
         spawnSprite = spawnToTest.sprite_index;
         with (spawnToTest) instance_destroy();
     }
@@ -67,7 +67,7 @@ if (treasureType == "WEAPON") || (treasureType == "WEAPON_RARE")
 //Treasure: Relic
 if (treasureType == "RELIC") || (treasureType == "RELIC_RARE") 
 {
-    var data = instance_create(0,0,data_chestItems);
+    var data = instance_create_layer(0,0,"Interactive",data_chestItems);
     if (ds_exists(data.relics[treasureTier],ds_type_list)) {
         var list = data.relics[treasureTier];
         if (!ds_list_empty(list)) {
@@ -79,7 +79,7 @@ if (treasureType == "RELIC") || (treasureType == "RELIC_RARE")
     
     //Find the sprite
     if (spawnRelic != noone){
-        var spawnToTest = instance_create(0,0,spawnRelic);
+        var spawnToTest = instance_create_layer(0,0,"Interactive",spawnRelic);
         spawnSprite = spawnToTest.sprite_index;
         with (spawnToTest) instance_destroy();
     }

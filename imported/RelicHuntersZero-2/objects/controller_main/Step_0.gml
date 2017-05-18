@@ -1,3 +1,4 @@
+
 /// Pause
 if (global.pause)
 {
@@ -30,8 +31,8 @@ if (!level_built)
     if (global.isDaily) random_set_seed(global.dailySeed+global.stage_current+global.currentLoop);
     
     //Create global shop data objects
-    if (room == room_endShop) instance_create(0,0,data_shopEndless);
-    else instance_create(0,0,data_shop);
+    if (room == room_endShop) instance_create_layer(0,0,"Controllers",data_shopEndless);
+    else instance_create_layer(0,0,"Controllers",data_shop);
 
     //Instantiate Player
     player_spawn_number = instance_number(obj_spawn_player);
@@ -43,13 +44,13 @@ if (!level_built)
         if (global.playerAlive[p])
         {
             var playerSpawned;
-            if (global.character[p] == char_jimmy) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_jimmy);
-            if (global.character[p] == char_pinky) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_pinky);
-            if (global.character[p] == char_raff) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_raff);
-            if (global.character[p] == char_biu) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_biu);
-            if (global.character[p] == char_punny) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_punny);
-            if (global.character[p] == char_ass) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_assPlayer);
-            if (global.character[p] == char_rider) playerSpawned = instance_create(target_spawn.spawnX,target_spawn.spawnY,obj_rider);
+            if (global.character[p] == char_jimmy) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_jimmy);
+            if (global.character[p] == char_pinky) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_pinky);
+            if (global.character[p] == char_raff) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_raff);
+            if (global.character[p] == char_biu) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_biu);
+            if (global.character[p] == char_punny) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_punny);
+            if (global.character[p] == char_ass) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_assPlayer);
+            if (global.character[p] == char_rider) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_rider);
             
             playerSpawned.myPlayerId = p;
             with (playerSpawned) event_perform(ev_other,ev_user0);
@@ -59,16 +60,17 @@ if (!level_built)
     
     //Stop here if it's the first room
     if (room == room_start) { level_built = true; exit; }
+	if (room == room34) { level_built = true; exit; }
     
     //Still here? Create the teleporter entry point;
-    teleporter = instance_create(target_spawn.spawnX,target_spawn.spawnY-10,obj_teleporter);
+    teleporter = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY-10,"Interactive",obj_teleporter);
     teleporter.active = false;
     
     //Instantiate Data Objects and set enemy and item lists
     if (global.gameMode == gamemode_adventure)
     {
-        enemyData = instance_create(0,0,data_enemies);
-        itemData = instance_create(0,0,data_items);
+        enemyData = instance_create_layer(0,0,"Controllers",data_enemies);
+        itemData = instance_create_layer(0,0,"Controllers",data_items);
         
         enemy_pool = enemyData.enemyPool;
         item_pool = itemData.itemPool;
@@ -76,8 +78,8 @@ if (!level_built)
     
     if (global.gameMode == gamemode_endless)
     {
-        enemyData = instance_create(0,0,data_enemiesEndless);
-        itemData = instance_create(0,0,data_itemsEndless);
+        enemyData = instance_create_layer(0,0,"Controllers",data_enemiesEndless);
+        itemData = instance_create_layer(0,0,"Controllers",data_itemsEndless);
         
         enemy_pool = enemyData.enemyPool;
         item_pool = itemData.itemPool;
@@ -105,7 +107,7 @@ if (!level_built)
                         case 3 : spawnee = obj_ducanElite_sniper; break;
                         case 4 : spawnee = obj_ducanElite_plasma; break;
                     }
-                    instance_create(spawnX,spawnY,spawnee);
+                    instance_create_layer(spawnX,spawnY,"Interactive",spawnee);
                 }
             }
         }
@@ -122,7 +124,7 @@ if (!level_built)
                 
                 if collision_circle(spawnX,spawnY,40,class_solid,false,true) < 0 {
                     spawnee = obj_ghost_ducan;
-                    instance_create(spawnX,spawnY,spawnee);
+                    instance_create_layer(spawnX,spawnY,"Interactive",spawnee);
                 }
             }
         }
@@ -152,7 +154,7 @@ if (!level_built)
                     {
                         list_position = ds_list_size(current_group)-1;
                         spawnee = ds_list_find_value(current_group, list_position);
-                        instance_create(spawnX,spawnY,spawnee);
+                        instance_create_layer(spawnX,spawnY,"Interactive",spawnee);
                         ds_list_delete(current_group,list_position);
                     }
                 }
@@ -187,7 +189,7 @@ if (!level_built)
                 
                 list_position = irandom(ds_list_size(current_group)-1);
                 spawnee = ds_list_find_value(current_group, list_position);
-                instance_create(spawnX,spawnY,spawnee);
+                instance_create_layer(spawnX,spawnY,"Interactive",spawnee);
                 with (target_spawn) { instance_destroy(); }
             }
             ds_list_destroy(current_group);
@@ -207,27 +209,30 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
     if ((!instance_exists(class_enemy)) && (!instance_exists(obj_kamikazelite_flying)) && (instance_exists(class_player)) && (!global.survivalWaves) && (!level_end)) || (debug_forceLevelExit && !level_end)
     {
         //Instantiates Ass
-        var tries;
-        tries=0;
-        while (!level_end)
-        {
-            randomX = class_player.x + irandom_range(-100,100);
-            randomY = class_player.y + irandom_range(-100,100);
+		if (!instance_exists(obj_ass)) {
+	        var tries;
+	        tries=0;
+	        while (!level_end)
+	        {
+	            randomX = class_player.x + irandom_range(-100,100);
+	            randomY = class_player.y + irandom_range(-100,100);
             
-            if collision_circle(randomX,randomY,63,class_solid,false,true) < 0
-            {
-                level_end = true
-            }
-            tries++;
-            if (tries >= 10)
-            {
-                randomX = class_player.x;
-                randomY = class_player.y;
-                level_end = true;
-            }
-        }
-        ass = instance_create(randomX,randomY,obj_ass);   
+	            if collision_circle(randomX,randomY,63,class_solid,false,true) < 0
+	            {
+	                level_end = true
+	            }
+	            tries++;
+	            if (tries >= 10)
+	            {
+	                randomX = class_player.x;
+	                randomY = class_player.y;
+	                level_end = true;
+	            }
+	        }
+	        ass = instance_create_layer(randomX,randomY,"Interactive", obj_ass);   
+		}
  
+		
         if (global.gameMode == gamemode_adventure)
         {
             //Revives any dead player
@@ -239,13 +244,13 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                 if (!global.playerAlive[p])
                 {
                     var playerSpawned;
-                    if (global.character[p] == char_jimmy) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_jimmy);
-                    if (global.character[p] == char_pinky) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_pinky);
-                    if (global.character[p] == char_raff) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_raff);
-                    if (global.character[p] == char_biu) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_biu);
-                    if (global.character[p] == char_punny) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_punny);
-                    if (global.character[p] == char_ass) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_assPlayer);
-                    if (global.character[p] == char_rider) playerSpawned = instance_create(revivePlayerX,revivePlayerY,obj_rider);
+                    if (global.character[p] == char_jimmy) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_jimmy);
+                    if (global.character[p] == char_pinky) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_pinky);
+                    if (global.character[p] == char_raff) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_raff);
+                    if (global.character[p] == char_biu) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_biu);
+                    if (global.character[p] == char_punny) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_punny);
+                    if (global.character[p] == char_ass) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_assPlayer);
+                    if (global.character[p] == char_rider) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_rider);
                     playerSpawned.myPlayerId = p;
                     
                     //Reset weapons and HP
@@ -293,7 +298,7 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                     var candidate = ds_list_find_value(shopList,randomPos);
                     if (candidate)
                     {
-                        var spawnToTestVariable = instance_create(0,0,candidate);
+                        var spawnToTestVariable = instance_create_layer(0,0,"Interactive",candidate);
                         if (spawnToTestVariable.shopType == "relic") spawnRelic = candidate;
                         
                         with (spawnToTestVariable) instance_destroy();
@@ -330,17 +335,17 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                 audio_play_sound(sfx_relic_on,00,false); //Relic Detected Sound Will Go Here Someday
                 
                 global.relicDetected = true;
-                var announceRelic = instance_create(x,y,fx_bigMessage);
+                var announceRelic = instance_create_layer(x,y,"GUI",fx_bigMessage);
                 announceRelic.textBig = loc_key("HUD_RELIC_DETECT");
                 announceRelic.textBigColor = K_BETU_RED;
                 if (global.input[1] == K_INPUT_KEYBOARD) announceRelic.textSmall = loc_key("HUD_RELIC_DETECT_KEY");
                 else announceRelic.textSmall = loc_key("HUD_RELIC_DETECT_JOY");
                 
-                var relicDig = instance_create(relicSpawnX,relicSpawnY,obj_digSpot);
+                var relicDig = instance_create_layer(relicSpawnX,relicSpawnY,"Interactive",obj_digSpot);
                 relicDig.myItem = spawnRelic;
             }
         }
-        
+
         if (global.gameMode == gamemode_endless)
         {
             if (global.isDaily) random_set_seed(global.dailySeed+global.stage_current+global.currentLoop);
@@ -400,13 +405,13 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                 audio_play_sound(sfx_relic_on,00,false);
                 
                 global.relicDetected = true;
-                var announceRelic = instance_create(x,y,fx_bigMessage);
+                var announceRelic = instance_create_layer(x,y,"Interactive",fx_bigMessage);
                 announceRelic.textBig = loc_key("HUD_TREASURE_DETECT");
                 announceRelic.textBigColor = K_BETU_RED;
                 if (global.input[1] == K_INPUT_KEYBOARD) announceRelic.textSmall = loc_key("HUD_RELIC_DETECT_KEY");
                 else announceRelic.textSmall = loc_key("HUD_RELIC_DETECT_JOY");
                 
-                var relicDig = instance_create(relicSpawnX,relicSpawnY,obj_digSpot);
+                var relicDig = instance_create_layer(relicSpawnX,relicSpawnY,"Interactive",obj_digSpot);
                 relicDig.myItem = spawnObject;
             }
             else{
@@ -415,9 +420,9 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
         }
         
         //Special Rewards
-        if (room == levelHalloween_3)
+		if (room == levelHalloween_3)
         {
-            instance_create(2432,1664,obj_chestHaunted);
+            instance_create_layer(2432,1664,"Interactive",obj_chestHaunted);
             achievement_give("ACHIEVEMENT_COMPLETE_SPOOKYLANDS");
         }
     }
@@ -731,13 +736,13 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
 }
 
 ///Take Screenshot
-steam_screenshot_check();
+//steam_screenshot_check();
 
 ///Game Over
 if (global.gameOver)
 {
     //Load Steam Async
-    if (global.isDaily) if (!instance_exists(controller_steamAsync)) instance_create(0,0,controller_steamAsync);
+    if (global.isDaily) if (!instance_exists(controller_steamAsync)) instance_create_layer(0,0,"Controllers",controller_steamAsync);
     
     //TIPS
     if (gameOverHint == "")
@@ -837,7 +842,7 @@ if (global.statTotalBounty >= 80000) && (!global.unlockPunny)
 {
     global.unlockPunny = true;
     achievement_give("ACHIEVEMENT_UNLOCKPUNNY");
-    announce = instance_create(x,y,fx_bigMessage);
+    announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
     announce.textBig = loc_key("HUD_UNLOCK_HUNTER");
     announce.textSmall = loc_key("HUD_UNLOCK_PUNNY");
     announce.hunterUnlockSprite = spr_hud_face_punny;
@@ -847,7 +852,7 @@ if (global.statKilledByBoss >= 5) && (!global.unlockAss)
 {
     global.unlockAss = true;
     achievement_give("ACHIEVEMENT_UNLOCKASS");
-    announce = instance_create(x,y,fx_bigMessage);
+    announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
     announce.textBig = loc_key("HUD_UNLOCK_HUNTER");
     announce.textSmall = loc_key("HUD_UNLOCK_ASS");
     announce.hunterUnlockSprite = spr_hud_face_ass;
@@ -916,8 +921,6 @@ if (instance_exists(class_enemy))
 }
 
 
-
-
 ///Spawn Survival Wave Enemies
 
 if ((!instance_exists(class_enemy)) && (!instance_exists(obj_kamikazelite_flying)) && (instance_exists(class_player)) && (global.survivalWaves))
@@ -947,7 +950,7 @@ if ((!instance_exists(class_enemy)) && (!instance_exists(obj_kamikazelite_flying
                 {
                     list_position = ds_list_size(current_group)-1;
                     spawnee = ds_list_find_value(current_group, list_position);
-                    spawnedEnemy = instance_create(spawnX,spawnY,spawnee);
+                    spawnedEnemy = instance_create_layer(spawnX,spawnY,"Interactive",spawnee);
                     
                     spawnedEnemy.ai_activation_range = 2000;
                     spawnedEnemy.ai_shutdown_range = 2000;
@@ -970,3 +973,4 @@ if (global.isDaily)
     global.dailyCompletedScore = global.scoreEndless;
 }
 
+//*/

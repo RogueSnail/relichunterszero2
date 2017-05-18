@@ -13,7 +13,8 @@ if (vertical_speed_start < interactive_speed) && (instance_exists(other))
         global.scoreEndless += myScore;
     }
     global.statTotalBounty += myScore;
-    gui = instance_create(0,0,gui_score);
+	
+    gui = instance_create_layer(0,0,"GUI",gui_score);
     gui.value += myScore;
     gui.coin = true;
     

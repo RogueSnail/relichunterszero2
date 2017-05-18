@@ -17,11 +17,11 @@ price = 0;
 priceTier = global.endPriceTier_hack;
 priceArray = global.endPrice_hackCommon;
 
-myPrompt = instance_create(x-44,y-21,fx_prompt_e);
+myPrompt = instance_create_layer(x-44,y-21,"Interactive",fx_prompt_e);
 myPrompt.owner = id;
 
 name = "I AM ERROR";
-myInfo = instance_create(x,y,fx_info_pickup);
+myInfo = instance_create_layer(x,y,"Interactive",fx_info_pickup);
 myInfo.owner = id;
 
 depth = -y-32;

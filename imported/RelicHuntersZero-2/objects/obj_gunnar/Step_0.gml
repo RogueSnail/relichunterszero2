@@ -28,7 +28,7 @@ if instance_exists(activationClient)
                 steam_set_stat_int("STAT_TOTAL_UPGRADES", steam_get_stat_int("STAT_TOTAL_UPGRADES") + 1  ); 
                 if (steam_get_stat_int("STAT_TOTAL_UPGRADES") >= 360) achievement_give("ACHIEVEMENT_GUNNAR_360");
 
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.myString = loc_key("GUNNAR_INFO_UPGRADED");;
                 guiInfo.colorMain = c_white;
                 guiInfo.owner = activationClient;
@@ -36,7 +36,7 @@ if instance_exists(activationClient)
                 myBalloon.upgradeTalk = true;
             }
             else{
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");;
                 guiInfo.colorMain = K_BETU_RED;
                 guiInfo.owner = activationClient;
@@ -54,7 +54,7 @@ if instance_exists(class_player)
     
     if (distToPlayer <= 280) && (!instance_exists(obj_gunnar_balloon))
     {
-            myBalloon = instance_create(x,y,obj_gunnar_balloon);
+            myBalloon = instance_create_layer(x,y,"Interactive",obj_gunnar_balloon);
             if (!image_xscale) myBalloon.x -= 50;
     }
 }

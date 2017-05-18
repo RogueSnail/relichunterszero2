@@ -26,7 +26,7 @@ if (!instance_exists(spawnedItem)) {
             
             
         if (spawn){
-            spawnedItem = instance_create(x,y,spawn);
+            spawnedItem = instance_create_layer(x,y,"Interactive",spawn);
             if (ds_exists(list,ds_type_list)) ds_list_delete(list,randomSpawn);
             hasSpawned = true;
             myItem = spawn;

@@ -15,7 +15,7 @@ if (instance_exists(data_shopEndless))
         var randomSpawn = irandom(ds_list_size(list)-1);
         spawn = ds_list_find_value(list,randomSpawn);
         if (spawn){
-            instance_create(x,y,spawn);
+            instance_create_layer(x,y,"Interactive",spawn);
             ds_list_delete(list,randomSpawn);
             instance_destroy();
         }

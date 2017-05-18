@@ -4,6 +4,8 @@ magnet_accel = 3;
 magnet_speed_max = 8;
 magnet_friction = 2;
 
+magnet_player = noone;
+
 alpha = 1;
 alpha_duration = room_speed*0.1;
 alpha_duration_current = 0;

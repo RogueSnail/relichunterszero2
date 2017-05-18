@@ -34,7 +34,7 @@ if (activated) {
                     }
                     repeat(10) 
                     {
-                        blood = instance_create(poor_guy.x,poor_guy.y,fx_blood);
+                        blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
                         blood.vertical_speed_start = random_range(5,10);
                         blood.speed = random_range(5,9);
                     }
@@ -46,7 +46,7 @@ if (activated) {
                 poor_guy.hp -= damage;
                 repeat(10) 
                 {
-                    blood = instance_create(poor_guy.x,poor_guy.y,fx_blood);
+                    blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
                     blood.vertical_speed_start = random_range(5,10);
                     blood.speed = random_range(5,9);
                 }

@@ -12,7 +12,7 @@ weaponLevel = 0;
 storeOriginalDamage = -1;
 storeOriginalName = "";
 
-myShieldObject = instance_create(x,y,obj_shield_biu);
+myShieldObject = instance_create_layer(x,y,"Interactive",obj_shield_biu);
 myShieldObject.owner = id;
 
 shake_amount = 0;

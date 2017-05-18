@@ -6,7 +6,7 @@ in_range = false;
 
 myCharacter = char_pinky;
 
-myPrompt = instance_create(x+10,y-25,fx_prompt_e);
+myPrompt = instance_create_layer(x+10,y-25,"GUI",fx_prompt_e);
 myPrompt.owner = id;
 image_speed = 0.2;
 

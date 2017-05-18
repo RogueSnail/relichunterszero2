@@ -6,7 +6,7 @@ if !(instance_exists(myBarrel))
     
     if (spawnTimeCurrent >= spawnTimeWarning) && (!startAnimating)
     {
-        if (!instance_exists(myWarning)) myWarning = instance_create(get_bbox_centerX(id),y-30,fx_activation);
+        if (!instance_exists(myWarning)) myWarning = instance_create_layer(get_bbox_centerX(id),y-30,"Interactive",fx_activation);
     }
     
     if (spawnTimeCurrent >= spawnTime)

@@ -17,7 +17,13 @@ for (i=3; i< 10; i++)
 random_pick = irandom_range(3,(argument_count-1));
 sound_file = random_argument[random_pick];
 
-audioX = controller_camera.x - argument[0];
-audioY = controller_camera.y - argument[1];
+if (instance_exists(controller_camera)) {
+	audioX = controller_camera.x - argument[0];
+	audioY = controller_camera.y - argument[1];
+}
+else {
+	audioX = argument[0];
+	audioY = argument[1];
+}
 
 audio_play_sound_on(argument[0],sound_file,argument[1],argument[2]);

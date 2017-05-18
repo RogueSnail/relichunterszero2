@@ -15,14 +15,14 @@ if instance_exists(activationClient)
                 
                 audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);
                 
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.colorMain = K_BETU_BLUE;
                 guiInfo.myString = loc_key("INFO_SHIELDPLUS");
                 guiInfo.owner = activationClient;
                 instance_destroy();
             }
             else{
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.colorMain = c_black;
                 guiInfo.myString = loc_key("INFO_SHIELDMAX");
                 guiInfo.owner = activationClient;
@@ -30,7 +30,7 @@ if instance_exists(activationClient)
             }
         }
         else{
-                guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+                guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
                 guiInfo.colorMain = K_BETU_RED;
                 guiInfo.myString = loc_key("INFO_CANTUSESHIELD");
                 guiInfo.owner = activationClient;

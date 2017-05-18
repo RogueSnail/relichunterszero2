@@ -2,7 +2,7 @@ depth=-y-5;
 
 if (global.unlock_machinegun)
 {
-    instance_create(x,y,obj_pickup_machinegun);
+    instance_create_layer(x,y,"GUI",obj_pickup_machinegun);
     instance_destroy();
 }
 

@@ -106,7 +106,7 @@ if (isInvulnerable)
 ///Explode
 if (explode)
 {
-    var explosion = instance_create(x,y,fx_explosion_regular);
+    var explosion = instance_create_layer(x,y,"Interactive",fx_explosion_regular);
     explosion.radius = detonationRadius;
     explosion.damage = 300;
     

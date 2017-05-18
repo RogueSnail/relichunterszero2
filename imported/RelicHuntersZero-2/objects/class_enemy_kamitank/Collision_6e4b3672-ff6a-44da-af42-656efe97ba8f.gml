@@ -13,7 +13,7 @@ if (defenseMode) && (instance_exists(other))
                 var newType = other.type;
                 var newDamage = round(other.damage * reflectDamageMultiplier);
                 
-                newProjectile = instance_create(other.x,other.y,obj_projectile_player);
+                newProjectile = instance_create_layer(other.x,other.y,"Interactive",obj_projectile_player);
                 
                 newProjectile.owner = id;
                 newProjectile.speed = newpeed;

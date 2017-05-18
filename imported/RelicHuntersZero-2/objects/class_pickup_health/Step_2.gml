@@ -12,7 +12,7 @@ if instance_exists(activationClient)
             
             audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);
             
-            guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+            guiInfo = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gui_info);
             guiInfo.colorMain = c_white;
             guiInfo.myString = loc_key("INFO_HEALTHPLUS");
             guiInfo.owner = activationClient;
@@ -20,7 +20,7 @@ if instance_exists(activationClient)
         }
         else
         {
-            guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+            guiInfo = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gui_info);
             guiInfo.colorMain = c_black;
             guiInfo.myString = loc_key("INFO_HEALTHFULL");
             guiInfo.owner = activationClient;

@@ -143,7 +143,7 @@ isMoveable = false;
 
 if my_gun == noone
 {
-    my_gun = instance_create(x,y,obj_assaultrifle_boss);
+    my_gun = instance_create_layer(x,y,"Interactive",obj_assaultrifle_boss);
     my_gun.owner = id;
 }
 
@@ -155,7 +155,7 @@ rocketTime = room_speed*22;
 rocketTimeCurrent = rocketTime-100;
 
 /*
-my_gun2 = instance_create(x,y,obj_rocketlauncher_boss);
+my_gun2 = instance_create_layer(x,y,"Interactive",obj_rocketlauncher_boss);
 my_gun2.owner = id;
 
 

@@ -28,14 +28,14 @@ if (global.friendlyFire)
                     else 
                     {
                         other.hp -= ffDamage;
-                        repeat(round(ffDamage/10)) blood = instance_create(x,y,fx_blood);
+                        repeat(round(ffDamage/10)) blood = instance_create_layer(x,y,"Interactive",fx_blood);
                         
                         if (other.hp <= 0) achievement_give("ACHIEVEMENT_TEAMKILL");
                     }
                     other.hit_taken = true;
                     if (hasJoy) joy_rumble(joy,7,7);
                     
-                    damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+                    damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
                     damageEffect.damage = ffDamage;
                     damageEffect.critical = true;
                     
@@ -49,7 +49,7 @@ if (global.friendlyFire)
             
             if (other.dodging) && (ds_list_find_index(damage_list,other.id) < 0)
             {
-                damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+                damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
                 ds_list_add(damage_list,other.id);
             }
         }

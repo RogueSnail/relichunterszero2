@@ -14,7 +14,7 @@ if instance_exists(activationClient) && (active) && (price){
             audio_play(activationClient.audio_emitter, false, 1, sfx_buy);
             global.hasPurchasedAnything = true;
             
-            var playerSpawned = instance_create(x,y,charToSpawn);
+            var playerSpawned = instance_create_layer(x,y,"Interactive",charToSpawn);
             playerSpawned.myPlayerId = idToSpawn;
                     
             global.playerAlive[idToSpawn] = true;
@@ -36,7 +36,7 @@ if instance_exists(activationClient) && (active) && (price){
             instance_destroy();
         }
         else{
-            guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+            guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
             guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");;
             guiInfo.colorMain = K_BETU_RED;
             guiInfo.owner = activationClient;

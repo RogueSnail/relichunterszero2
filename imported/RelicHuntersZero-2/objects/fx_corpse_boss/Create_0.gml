@@ -53,7 +53,7 @@ if (global.hasUsedCheckpoint == false) && (!global.unlockBiu)
 {
     global.unlockBiu = true;
     achievement_give("ACHIEVEMENT_UNLOCKBIU");
-    announce = instance_create(x,y,fx_bigMessage);
+    announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
     announce.textBig = loc_key("HUD_UNLOCK_HUNTER");
     announce.textSmall = loc_key("HUD_UNLOCK_BIU");
     announce.hunterUnlockSprite = spr_hud_face_biu; 

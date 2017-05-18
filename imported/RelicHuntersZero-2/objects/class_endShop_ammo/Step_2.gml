@@ -30,7 +30,7 @@ if (unlock)
         audio_play(activationClient.audio_emitter,false,1,sfx_pickup_weapon);
     }
     
-    guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+    guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
     guiInfo.owner = activationClient;
     if (sprite_index == spr_pickup_light) { guiInfo.myString = "+ "+ loc_key("GENERAL_LIGHTAMMO"); guiInfo.colorMain = K_BETU_GREEN; }
     if (sprite_index == spr_pickup_medium)  { guiInfo.myString = "+ "+ loc_key("GENERAL_MEDIUMAMMO"); guiInfo.colorMain = K_BETU_RED; }

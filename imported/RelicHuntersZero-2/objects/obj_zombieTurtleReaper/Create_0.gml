@@ -31,7 +31,7 @@ sprite_death_precision = spr_zombieTurtle_precision;
 
 if my_gun == noone
 {
-    my_gun = instance_create(x,y,obj_reaper_enemy);
+    my_gun = instance_create_layer(x,y,"Interactive",obj_reaper_enemy);
     my_gun.owner = id;
 }
 drop_gun = obj_pickup_spookyReaper;

@@ -84,7 +84,7 @@ else
         else 
         {
             //Loading messages
-            if (!instance_exists(gui_badgeLoading)) instance_create(0,0,gui_badgeLoading);
+            if (!instance_exists(gui_badgeLoading)) instance_create_layer(0,0,"GUI",gui_badgeLoading);
             else{
                 var loading = instance_find(gui_badgeLoading,0);
                 draw_sprite_ext(loading.sprite_index,loading.image_index,x,badgeY,2,2,0,c_white,1);

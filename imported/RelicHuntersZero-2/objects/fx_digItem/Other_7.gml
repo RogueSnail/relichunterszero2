@@ -6,13 +6,13 @@ image_speed = 0;
 
 if (relic != noone)
 {
-    relic = instance_create(0,0,relic);
+    relic = instance_create_layer(0,0,"Interactive",relic);
     
     relic.unlock = true;
     
     if (instance_exists(fx_bigMessage)) with (fx_bigMessage) instance_destroy();
         
-    relic.announce = instance_create(x,y,fx_bigMessage);
+    relic.announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
     relic.announce.textBig = loc_key("HUD_UNLOCK_RELIC_PIECE");
     relic.announce.textSmall = loc_key("HUD_UNLOCK_RELIC_ALLPIECES");
     relic.announce.relicSprite1 = relic.relicSprite1;
@@ -26,7 +26,7 @@ if (relic != noone)
 
 if (endlessWeapon != noone)
 {
-    var weapon = instance_create(x,y,endlessWeapon);
+    var weapon = instance_create_layer(x,y,"Interactive",endlessWeapon);
     var wPos = get_bbox_center(weapon);
     weapon.x += x-wPos[0];
     weapon.y += y-wPos[1];
@@ -35,7 +35,7 @@ if (endlessWeapon != noone)
 
 if (endlessRelic != noone)
 {
-    var myRelic = instance_create(0,0,endlessRelic);
+    var myRelic = instance_create_layer(0,0,"Interactive",endlessRelic);
     myRelic.activationOverride = true;
     myRelic.activationClient = activationClient;
     myRelic.toggle = true;

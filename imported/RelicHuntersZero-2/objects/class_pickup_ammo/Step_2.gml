@@ -23,7 +23,7 @@ if instance_exists(activationClient) && (isInteractiveObjectActive)
         
         if (want_to_die)
         {
-            guiInfo = instance_create(player.x,player.y,gui_info);
+            guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
             if (sprite_index == spr_pickup_light) { guiInfo.myString = "+ "+ loc_key("GENERAL_LIGHTAMMO"); guiInfo.colorMain = K_BETU_GREEN; }
             if (sprite_index == spr_pickup_medium)  { guiInfo.myString = "+ "+ loc_key("GENERAL_MEDIUMAMMO"); guiInfo.colorMain = K_BETU_RED; }
             if (sprite_index == spr_pickup_heavy) { guiInfo.myString = "+ "+ loc_key("GENERAL_HEAVYAMMO"); guiInfo.colorMain = K_BETU_BLUE; } 
@@ -39,7 +39,7 @@ if instance_exists(activationClient) && (isInteractiveObjectActive)
         
         if (isAmmoFull)
         {
-            guiInfo = instance_create(player.x,player.y,gui_info);
+            guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
             guiInfo.myString = loc_key("INFO_FULLAMMO");
             guiInfo.colorMain = c_white;
             guiInfo.owner = player;

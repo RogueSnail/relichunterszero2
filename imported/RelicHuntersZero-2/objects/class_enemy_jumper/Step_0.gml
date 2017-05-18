@@ -32,14 +32,14 @@ else
     {
         if (!instance_exists(myDash))
         {
-            myDash = instance_create(x,y,fx_kamikaze_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
             myDash.owner = id;
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create(x,y,fx_kamikaze_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
             myDash.owner = id;
             myDash.slowness = 4;
             myDash.alpha = 60;
@@ -80,9 +80,9 @@ if hp <= 0
         }
     }
     
-    repeat(3) instance_create(x,y,obj_pickup_coin);
+    repeat(3) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
     roll_ammo_drop(x,y);
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     myCorpse.sprite_index = corpseSprite;
     
@@ -205,7 +205,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
                 
                 if ( collision_circle(fly_target_x, fly_target_y, 50, class_solid, false, true) < 0 )
                 {
-                    iAmFlying = instance_create(x,y,obj_kamikazelite_flying);
+                    iAmFlying = instance_create_layer(x,y,"Interactive",obj_kamikazelite_flying);
                     iAmFlying.targetX = fly_target_x;
                     iAmFlying.targetY = fly_target_y;
                     iAmFlying.hp = hp;
@@ -357,7 +357,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
-        damage_fx = instance_create(myEnemy.x+spreadX,myEnemy.y+spreadY,fx_damage);
+        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
         damage_fx.damage = damage;
         
         if (!is_player)
@@ -383,7 +383,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if collision_point(x,y,obj_limit,false,true)
 {
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     if (pushed)
     {

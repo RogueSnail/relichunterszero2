@@ -25,7 +25,7 @@ if instance_exists(class_player)
     if point_distance(x,y,class_player.x,class_player.y) <= 350
     if (!instance_exists(obj_ass_balloon))
     {
-        myBalloon = instance_create(x,y,obj_ass_balloon);
+        myBalloon = instance_create_layer(x,y,"GUI", obj_ass_balloon);
         if (!image_xscale) myBalloon.x -= 50;
     }
 }

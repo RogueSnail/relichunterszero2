@@ -2,8 +2,8 @@
 
 repeat(10)
 {
-    if (faction == f_player) projectile = instance_create(x,y,obj_projectile_player); 
-    else projectile = instance_create(x,y,obj_projectile_enemy); 
+    if (faction == f_player) projectile = instance_create_layer(x,y,"Interactive",obj_projectile_player); 
+    else projectile = instance_create_layer(x,y,"Interactive",obj_projectile_enemy); 
     
     projectile.damage = damage;
     projectile.speed = speed;

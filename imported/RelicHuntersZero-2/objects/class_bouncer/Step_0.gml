@@ -2,7 +2,7 @@
 
 if (vertical_speed_start)
 {
-    depth= -y;
+    depth = -y;
     
     draw_height += vertical_speed;
     sprite_angle += angular_speed;
@@ -10,7 +10,9 @@ if (vertical_speed_start)
     vertical_speed += fake_gravity;
 }
 
-if ( (draw_height >= 0) && (vertical_speed_start) ) timeToBounce = true;
+if ( (draw_height >= 0) && (vertical_speed_start) ) {
+	timeToBounce = true;
+}
 
 if (timeToBounce)
 {
@@ -26,7 +28,7 @@ if (timeToBounce)
     {
         vertical_speed_start = 0;
         //angular_speed = 0;
-        depth= 999999999999999;
+        depth=layer_get_depth("Interactive_Under");
     }
     else 
     {

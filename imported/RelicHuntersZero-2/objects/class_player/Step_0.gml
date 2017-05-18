@@ -55,7 +55,7 @@ if (global.relic_crystal_bacon ==2) && (instance_exists(controller_main)){
                 
         audio_play(audio_emitter,false,1,sfx_pickup_health);
                 
-        guiInfo = instance_create(x,y,gui_info);
+        guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
         guiInfo.colorMain = c_white;
         guiInfo.myString = loc_key("INFO_HEALTHPLUS");
         guiInfo.owner = id;
@@ -190,7 +190,7 @@ if (allowMovement)
             }
             else{
                 //Low Stamina Feedback
-                guiInfo = instance_create(x,y,gui_info);
+                guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
                 guiInfo.colorMain = K_BETU_RED;
                 guiInfo.myString = loc_key("INFO_LOWSTAMINA");
                 guiInfo.owner = id;
@@ -261,7 +261,7 @@ if (allowMovement)
                 }
                 else{
                     //Low Stamina Feedback
-                    guiInfo = instance_create(x,y,gui_info);
+                    guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
                     guiInfo.colorMain = K_BETU_RED;
                     guiInfo.myString = loc_key("INFO_LOWSTAMINA");
                     guiInfo.owner = id;
@@ -394,7 +394,7 @@ if (hit_taken)
     
     if (shield)
     {
-        shield_effect = instance_create(x,y,fx_shield);
+        shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
         shield_effect.owner = id;
         hit_taken = false;
         if (superShield) shield_effect.sprite_index = spr_supershield;
@@ -420,7 +420,7 @@ if (move_speed)
     {
         if (animation_current != "sprint")
         {
-            mySprintFx = instance_create(x,y,fx_sprint); 
+            mySprintFx = instance_create_layer(x,y,"Interactive",fx_sprint); 
             mySprintFx.image_xscale = image_xscale;
             audio_play_exclusive(audio_emitter,false,1,sfx_sprint);
         }
@@ -512,7 +512,7 @@ if (instance_exists(myGun)){
     {
         if (animation_index = melee_hit_frame)
         {
-            meleeArc = instance_create(x,y,fx_melee_arc);
+            meleeArc = instance_create_layer(x,y,"Interactive",fx_melee_arc);
             meleeArc.owner = id;
             meleeArc.damage = melee_damage;
             
@@ -542,7 +542,7 @@ if (instance_exists(myGun)){
 if (myChar == char_rider) && (!instance_exists(riderDodgeAttack)) {
     if (dodging) {
         if (!riderDodgeAttack){
-            riderDodgeAttack = instance_create(x,y,fx_melee_arc);
+            riderDodgeAttack = instance_create_layer(x,y,"Interactive",fx_melee_arc);
             riderDodgeAttack.owner = id;
             riderDodgeAttack.damage = melee_damage;  
             riderDodgeAttack.push_power = melee_push_power;
@@ -585,7 +585,7 @@ if ( (grenade_input) && (!melee) && (!throw) )
         }
         else if (myChar != char_rider) || (hp <= riderGrenadeCost){
             //Out of greandes feedback
-            guiInfo = instance_create(x,y,gui_info);
+            guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
             guiInfo.colorMain = K_BETU_RED;
             guiInfo.myString = loc_key("INFO_OUTOFGRENADES");
             guiInfo.owner = id;
@@ -596,11 +596,11 @@ if ( (grenade_input) && (!melee) && (!throw) )
             throw = true;
             audio_play(audio_emitter,false,1,sfx_melee);
             bloodAmount = min(5, (global.max_casings-global.count_casings));
-            if (bloodAmount) repeat(bloodAmount) blood = instance_create(x,y,fx_blood);
+            if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
             hit_taken = true;
             var spreadX = irandom_range(-15,15);
             var spreadY = irandom_range(-15,15);
-            damage_fx = instance_create(x+spreadX,y+spreadY,fx_damage);
+            damage_fx = instance_create_layer(x+spreadX,y+spreadY,"Interactive",fx_damage);
             damage_fx.damage = riderGrenadeCost;
         }
 }
@@ -612,7 +612,7 @@ if (throw) && (animation_current == "melee")
     {
         global.grenades[myPlayerId]--;
     
-        myGrenade = instance_create(x,y,myGrenadeObject);
+        myGrenade = instance_create_layer(x,y,"Interactive",myGrenadeObject);
         myGrenade.speed = grenade_speed;
         myGrenade.direction = point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
 
@@ -690,7 +690,7 @@ if (hp >= hp_max) hp = hp_max;
 if (hp <= 0) 
 {
     global.playerAlive[myPlayerId] = false;
-    corpse = instance_create(x,y,fx_corpse_player);
+    corpse = instance_create_layer(x,y,"Interactive",fx_corpse_player);
     if (global.character[myPlayerId] == char_jimmy) corpse.sprite_index = spr_jimmy_death;
     if (global.character[myPlayerId] == char_pinky) corpse.sprite_index = spr_pinky_death;
     if (global.character[myPlayerId] == char_raff) corpse.sprite_index = spr_raff_death;
@@ -715,7 +715,7 @@ if energy < (energy_max+overshield)
     }
     if energy_regen_time_current = energy_regen_time
     {
-        myRecharge = instance_create(x,y,fx_shield_up);  
+        myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);  
         audio_play(audio_emitter,false,1,sfx_shield_regen_start);
         myRecharge.owner = id;
     }
@@ -728,15 +728,15 @@ if (!energy) && (shield == true) && (energy_max)
     if (overshield)
     {
         overshield = 0;
-        guiInfo = instance_create(x,y,gui_info);
+        guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
         guiInfo.colorMain = K_BETU_RED;
         guiInfo.myString = loc_key("INFO_SHIELDLOST");
         guiInfo.owner = id;
     }
     
-    myShieldEffect = instance_create(x,y,fx_shield_explosion);
+    myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
     myShieldEffect.owner = id;
-    mySparks = instance_create(x,y,fx_shield_down);
+    mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
     mySparks.owner = id;
     shield = false;
     
@@ -750,7 +750,7 @@ if (superShield){
     shield = true;
 
     if (!instance_exists(mySuperShieldFx)) {
-        mySuperShieldFx = instance_create(x,y,fx_superShield);
+        mySuperShieldFx = instance_create_layer(x,y,"Interactive",fx_superShield);
         mySuperShieldFx.owner = id;
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
     }
@@ -761,7 +761,7 @@ if (superShield){
         superShieldTime = 0;
         superShield = false;
         if (instance_exists(mySuperShieldFx)) with (mySuperShieldFx){instance_destroy();}
-        instance_create(x,y,fx_explosion_shield);
+        instance_create_layer(x,y,"Interactive",fx_explosion_shield);
     }   
 }
 
@@ -870,7 +870,7 @@ if (global.relicDetected)
         
         myDirtColor = global.dirtColor;
         
-        repeat(irandom_range(3,8)) instance_create(x,y,fx_digDirt);
+        repeat(irandom_range(3,8)) instance_create_layer(x,y,"Interactive",fx_digDirt);
         digRateCurrent = 0;
     
         if (!isDigging)
@@ -883,19 +883,19 @@ if (global.relicDetected)
                 audio_play_sound(sfx_relic_on,00,false); //Dig Spot Found Sound Will Go Here Someday
                 
                 if instance_exists(fx_bigMessage) with (fx_bigMessage) instance_destroy();
-                var announceRelic = instance_create(x,y,fx_bigMessage);
+                var announceRelic = instance_create_layer(x,y,"Interactive",fx_bigMessage);
                 announceRelic.textBig = loc_key("HUD_RELIC_FOUND");
                 if (global.input[1] == K_INPUT_KEYBOARD) announceRelic.textSmall = loc_key("HUD_RELIC_FOUND_KEY");
                 else announceRelic.textSmall = loc_key("HUD_RELIC_FOUND_JOY");
             }
-            else instance_create(x,y,fx_detector);
+            else instance_create_layer(x,y,"Interactive",fx_detector);
         }
         else
         {
             digDepth = obj_digSpot.digDepth;
             digDepth += digSpeed;
             obj_digSpot.digDepth = digDepth;
-            repeat(irandom_range(1,2)) instance_create(x,y,obj_pickup_coin);
+            repeat(irandom_range(1,2)) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
         }
     }
 }

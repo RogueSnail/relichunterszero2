@@ -39,7 +39,7 @@ if (hp <= maxhp*0.66) && (hp > maxhp*0.33)
 {
     if damage == 0
     {
-        myDirt = instance_create(x,y,fx_dirt);
+        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
         myDirt.sprite_index = sprite_dirt;
     }
     damage = 1;
@@ -49,7 +49,7 @@ if (hp <= maxhp*0.33)
 {
     if damage == 1
     {
-        myDirt = instance_create(x,y,fx_dirt);
+        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
         myDirt.sprite_index = sprite_dirt;
     }
     damage = 2;

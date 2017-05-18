@@ -7,7 +7,7 @@ event_inherited();
         targetPlayer.superShieldTime = room_speed*6;
         audio_play(targetPlayer.audio_emitter,false,9,sfx_shield_regen_start);
         
-        guiInfo = instance_create(targetPlayer.x,targetPlayer.y,gui_info);
+        guiInfo = instance_create_layer(targetPlayer.x,targetPlayer.y,"Interactive",gui_info);
         guiInfo.colorMain = K_BETU_ORANGE;
         guiInfo.myString = loc_key("INFO_SUPERSHIELD");
         guiInfo.owner = targetPlayer;

@@ -10,7 +10,7 @@ else if (global.gameMode == gamemode_endless)
 }
 global.statTotalBounty += argument0;
  
-gui = instance_create(0,0,gui_score);
+gui = instance_create_layer(0,0,"GUI",gui_score);
 gui.value += argument0;
 gui.kill_count++;
 global.statKills++;

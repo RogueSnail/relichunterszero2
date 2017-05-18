@@ -1,3 +1,4 @@
+
 ///Set GUI Size
 originalX = 1920;
 originalY = 1080;
@@ -718,7 +719,7 @@ if (global.gameOver)
             else 
             {
                 //Loading messages
-                if (!instance_exists(gui_badgeLoading)) instance_create(0,0,gui_badgeLoading);
+                if (!instance_exists(gui_badgeLoading)) instance_create_layer(0,0,"GUI",gui_badgeLoading);
                 else{
                     var loading = instance_find(gui_badgeLoading,0);
                     draw_sprite_ext(loading.sprite_index,loading.image_index,gameOverX,badgeY,2,2,0,c_white,1);
@@ -851,7 +852,7 @@ if ((fps/room_speed) < 0.9)
             //global.reflections_toggle = false;
             //global.shadows_toggle = false;
             
-            instance_create(0,0,gui_info_lowPerformance);
+            instance_create_layer(0,0,"GUI",gui_info_lowPerformance);
             
             global.lowPerfChecked = true;
             
@@ -860,7 +861,6 @@ if ((fps/room_speed) < 0.9)
     }
     
 }
-
 
 
 ///Cutscene Bars Draw
@@ -890,4 +890,4 @@ else
     if (main_hud_alpha < 1) main_hud_alpha+=0.15;
     else main_hud_alpha = 1;
 }
-
+/**/

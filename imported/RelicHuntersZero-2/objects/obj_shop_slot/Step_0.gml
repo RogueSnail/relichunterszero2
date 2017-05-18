@@ -33,14 +33,14 @@ if (instance_exists(controller_main))
         {
             random_position = irandom_range(0, ds_list_size(list)-1);
             item = ds_list_find_value(list,random_position);
-            instance_create(x,y,item);
+            instance_create_layer(x,y,"Interactive",item);
             ds_list_delete(list,random_position);
             instance_destroy();
         }   
         else
         {
             random_free_item = ds_list_find_value(freelist, irandom_range(0, ds_list_size(freelist)-1) );
-            instance_create(x,y,random_free_item);
+            instance_create_layer(x,y,"Interactive",random_free_item);
             instance_destroy();
         }
     }

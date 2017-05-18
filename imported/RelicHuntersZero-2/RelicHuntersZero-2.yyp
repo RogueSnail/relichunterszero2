@@ -7735,6 +7735,14 @@
             }
         },
         {
+            "Key": "7b7dea00-fc9c-4a45-bfb6-b253fb039230",
+            "Value": {
+                "id": "49d609d5-25fd-4e78-947d-581ba2307560",
+                "resourcePath": "rooms\\room34\\room34.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "7b8f119c-ed69-4d70-a158-79db1e399509",
             "Value": {
                 "id": "6a8b2224-4193-459b-8026-011242b7e2ae",
@@ -13983,6 +13991,14 @@
             }
         },
         {
+            "Key": "e3b9a774-e7d5-42fc-836e-633ff62cd4df",
+            "Value": {
+                "id": "d6457199-bb2f-4fba-a7ec-1e52630ea3de",
+                "resourcePath": "rooms\\room_start1\\room_start1.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "e3befeb5-307b-43cb-8c9a-a1a384e7e5d9",
             "Value": {
                 "id": "e3d8b420-394d-47aa-8825-e10973beb512",
@@ -14100,6 +14116,14 @@
                 "id": "c66ecbac-5e98-4778-b38c-6aa570223fbe",
                 "resourcePath": "sprites\\spr_shield_up\\spr_shield_up.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e52ce705-c3bb-4b93-98e1-2933571c3da0",
+            "Value": {
+                "id": "49f4c925-ba0a-4cd8-93c6-0c47dbb64787",
+                "resourcePath": "scripts\\game_room_creation_code\\game_room_creation_code.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -15896,7 +15920,8 @@
         "9132cdf1-abe7-4f01-a47c-4b346d6d3e63",
         "48e0effa-1353-4b95-8118-ba9561004428",
         "ac399d84-0e18-4984-a99b-f5bddfa6e5d6",
-        "b33369d2-3d02-415f-9ad3-7b58bb4bd7a2"
+        "b33369d2-3d02-415f-9ad3-7b58bb4bd7a2",
+        "e52ce705-c3bb-4b93-98e1-2933571c3da0"
     ],
     "tutorial": ""
 }

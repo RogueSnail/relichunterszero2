@@ -1,3 +1,4 @@
+
 ///Toggle Effects ON and OFF
 
 if (!global.shadows_toggle) global.shadows = false;
@@ -34,4 +35,3 @@ if (!global.shadows)
     if surface_exists(global.shadow_surface) surface_free(global.shadow_surface);
     if surface_exists(global.shadow_surface_tall) surface_free(global.shadow_surface_tall);
 }
-

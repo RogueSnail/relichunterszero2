@@ -41,7 +41,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 ///Explode
 if (explode)
 {
-    var kami = instance_create(drawX,drawY,obj_kamiAlly);
+    var kami = instance_create_layer(drawX,drawY,"Interactive",obj_kamiAlly);
     
     audio_emitter_free(audio_emitter);
     instance_destroy();

@@ -9,7 +9,7 @@ if instance_exists(owner)
             projectileX = x+(lengthdir_x(spawn_distance_from_barrel,shoot_direction));
             projectileY = y+(lengthdir_y(spawn_distance_from_barrel,shoot_direction));
             
-            projectile = instance_create(projectileX,projectileY,projectile_obj);
+            projectile = instance_create_layer(projectileX,projectileY,"Interactive",projectile_obj);
             projectile.myGun = id;
             projectile.speed = projectile_speed * global.enemyProjectileSpeed;
             projectile.decay = projectile_speed_decay * global.enemyProjectileSpeed;
@@ -58,7 +58,7 @@ if instance_exists(owner)
         if (global.count_casings < global.max_casings) 
         {
             if (!is_rocket) {
-                casing = instance_create(x,y+16,fx_casing);
+                casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
                 casing.direction = shoot_direction+180+random_range(casing.dirMin,casing.dirMax);
                 casing.ammo_type = ammo_type;
             }

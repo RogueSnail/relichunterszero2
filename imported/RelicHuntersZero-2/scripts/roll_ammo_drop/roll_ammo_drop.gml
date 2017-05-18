@@ -96,18 +96,18 @@ while (p <= global.playerCount)
 // Test drop chances and drop
 if (random(1) <= actualChanceLight) repeat(irandom_range(dropsMin,dropsMax))
 { 
-    drop = instance_create(dropX,dropY,obj_pickup_ammo); 
+    drop = instance_create_layer(dropX,dropY,"Interactive",obj_pickup_ammo); 
     drop.ammoType = type_light;
 }
 
 if (random(1) <= actualChanceMedium) repeat(irandom_range(dropsMin,dropsMax))
 { 
-    drop = instance_create(dropX,dropY,obj_pickup_ammo); 
+    drop = instance_create_layer(dropX,dropY,"Interactive",obj_pickup_ammo); 
     drop.ammoType = type_medium;
 }
 
 if (random(1) <= actualChanceHeavy) repeat(irandom_range(dropsMin,dropsMax))
 { 
-    drop = instance_create(dropX,dropY,obj_pickup_ammo); 
+    drop = instance_create_layer(dropX,dropY,"Interactive",obj_pickup_ammo); 
     drop.ammoType = type_heavy;
 }

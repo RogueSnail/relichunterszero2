@@ -27,7 +27,7 @@ if instance_exists(activationClient)
         image_speed = 0.2;
         image_index = 0;
         
-        guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+        guiInfo = instance_create_layer(activationClient.x,activationClient.y,"GUI",gui_info);
         guiInfo.myString = loc_key("TERMINAL_RELIC_INFO");;
         guiInfo.colorMain = c_white;
         guiInfo.owner = activationClient;

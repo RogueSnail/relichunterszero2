@@ -9,18 +9,19 @@ global.selectedButton[K_INPUT_ALL] = -1;
 global.pauseInput = global.input[global.pauseClient];
 
 //Create all Pause Menu objects
-global.pauseFX = instance_create(0,0,menu_fx_pause);
-global.pauseButtonContinue = instance_create(0,0,pausemenu_btn_continue);
-global.pauseButtonBackToShip = instance_create(0,0,pausemenu_btn_ship);
-global.pauseButtonBackToMenu = instance_create(0,0,pausemenu_btn_menu);
-global.pauseButtonExit = instance_create(0,0,pausemenu_btn_exit);
 
-global.pausePlayerInfo = instance_create(0,0,gui_playerInfo);
-global.pauseWeapon1 = instance_create(0,0,gui_weaponInfo);
-global.pauseWeapon2 = instance_create(0,0,gui_weaponInfo);
+global.pauseFX = instance_create_layer(0,0,"GUI_Pause", menu_fx_pause);
+global.pauseButtonContinue = instance_create_layer(0,0,"GUI_Pause",pausemenu_btn_continue);
+global.pauseButtonBackToShip = instance_create_layer(0,0,"GUI_Pause",pausemenu_btn_ship);
+global.pauseButtonBackToMenu = instance_create_layer(0,0,"GUI_Pause",pausemenu_btn_menu);
+global.pauseButtonExit = instance_create_layer(0,0,"GUI_Pause",pausemenu_btn_exit);
 
-global.pauseController = instance_create(0,0,controller_pause);
-global.pauseMenuButtonController = instance_create(0,0,controller_menuButtons);
+global.pausePlayerInfo = instance_create_layer(0,0,"GUI_Pause",gui_playerInfo);
+global.pauseWeapon1 = instance_create_layer(0,0,"GUI_Pause",gui_weaponInfo);
+global.pauseWeapon2 = instance_create_layer(0,0,"GUI_Pause",gui_weaponInfo);
+
+global.pauseController = instance_create_layer(0,0,"Controllers",controller_pause);
+global.pauseMenuButtonController = instance_create_layer(0,0,"Controllers",controller_menuButtons);
 
 //All Pause Menu objects must start the game deactivated
 instance_deactivate_object(global.pauseFX);

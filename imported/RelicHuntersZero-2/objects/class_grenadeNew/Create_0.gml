@@ -55,7 +55,7 @@ goBoom = false;
 
 damage = 200;
 
-myTarget = instance_create(x,y,fx_grenadeTarget);
+myTarget = instance_create_layer(x,y,"Interactive",fx_grenadeTarget);
 myTarget.parent = id;
 targetSetup = false;
 

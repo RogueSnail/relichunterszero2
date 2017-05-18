@@ -29,7 +29,7 @@ if instance_exists(other) && instance_exists(owner)
         else 
         {
             other.hp -= damage;
-            repeat(round(damage/10)) blood = instance_create(x,y,fx_blood);
+            repeat(round(damage/10)) blood = instance_create_layer(x,y,"Interactive",fx_blood);
         }
         other.hit_taken = true;
         if (hasJoy) joy_rumble(joy,7,7);
@@ -38,7 +38,7 @@ if instance_exists(other) && instance_exists(owner)
         other.push_direction = point_direction(owner.x,owner.y,other.x,other.y);
         other.push_speed += push_power;
         
-        damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         damageEffect.damage = damage;
         damageEffect.critical = true;
         
@@ -53,7 +53,7 @@ if instance_exists(other) && instance_exists(owner)
     
     if (other.dodging) && (ds_list_find_index(damage_list,other.id) < 0)
     {
-        damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         ds_list_add(damage_list,other.id);
     }
 }

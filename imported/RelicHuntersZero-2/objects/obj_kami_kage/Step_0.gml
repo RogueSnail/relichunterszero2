@@ -42,7 +42,7 @@ if (hp <= maxhp*0.66) && (hp > maxhp*0.33)
 {
     if damage == 0
     {
-        myDirt = instance_create(x,y,fx_dirt);
+        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
         myDirt.sprite_index = spr_longbox_dirt;
     }
     damage = 1;
@@ -52,7 +52,7 @@ if (hp <= maxhp*0.33)
 {
     if damage == 1
     {
-        myDirt = instance_create(x,y,fx_dirt);
+        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
         myDirt.sprite_index = spr_longbox_dirt;
     }
     damage = 2;
@@ -71,10 +71,10 @@ if hp < 0
     {
         spawnX = x + irandom_range(-10,10) + 64;
         spawnY = y + irandom_range(-10,10) + 64;
-        instance_create(spawnX,spawnY,spawnObj);
+        instance_create_layer(spawnX,spawnY,"Interactive",spawnObj);
     }    
     
-    instance_create(x,y,fx_kami_cageDestroy);
+    instance_create_layer(x,y,"Interactive",fx_kami_cageDestroy);
     
     //Stats and Achievements
     steam_set_stat_int("STAT_TOTAL_KAMICAGES", steam_get_stat_int("STAT_TOTAL_KAMICAGES") + 1  ); 

@@ -82,7 +82,7 @@ myHomingTargetClass = class_player;
 look_direction = 1;
 firing = false;
 fire_range = 350;
-my_gun = instance_create(x,y,obj_needler_enemy);
+my_gun = instance_create_layer(x,y,"Interactive",obj_needler_enemy);
 my_gun.owner = id;
 
 randomize_supression = irandom_range(-1,1);
@@ -107,7 +107,7 @@ reflection_object_setup(0,-1,image_index);
 shadow_object_setup(0,-1,-1,global.default_shadow_yscale);
 
 //Lifebar
-myDynamicBar = instance_create(x,y,gui_dynamicBarEnemy);
+myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
 myDynamicBar.owner = id;
 
 //Audio

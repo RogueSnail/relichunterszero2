@@ -9,4 +9,3 @@ if (room != room_start) && (global.shadows)
     shadow_update();
     shadow_draw_tall(shadowColor,0.5);
 }
-

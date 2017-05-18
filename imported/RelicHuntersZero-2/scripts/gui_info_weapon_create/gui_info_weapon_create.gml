@@ -8,7 +8,7 @@ text=argument2;
 
 if instance_exists(owner)
 {
-    var guiInfo = instance_create(owner.x,owner.y,gui_info);
+    var guiInfo = instance_create_layer(owner.x,owner.y,"Interactive",gui_info);
     
     guiInfo.colorMain = color;
     guiInfo.myString = text;

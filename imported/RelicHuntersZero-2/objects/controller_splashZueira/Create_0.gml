@@ -4,7 +4,7 @@ room_goto_next();
 
 /*
 goToNextRoom = false;
-zueiraLogo = instance_create(room_width/2,room_height/2,splash_fx_zueira);
+zueiraLogo = instance_create_layer(room_width/2,room_height/2,"Interactive",splash_fx_zueira);
 
 //Timeline
 alarm[0] = room_speed*3; //spawn Logo

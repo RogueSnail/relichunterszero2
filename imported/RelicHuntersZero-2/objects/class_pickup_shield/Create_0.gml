@@ -5,12 +5,12 @@ in_range = false;
 overshield = 50;
 active = false;
 
-myPrompt = instance_create(x+10,y-25,fx_prompt_e);
+myPrompt = instance_create_layer(x+10,y-25,"Interactive",fx_prompt_e);
 myPrompt.owner = id;
 image_speed = 0;
 
 name = loc_key("INFO_SHIELDPLUS");
-myInfo = instance_create(x,y,fx_info_pickup);
+myInfo = instance_create_layer(x,y,"Interactive",fx_info_pickup);
 myInfo.owner = id;
 
 depth=-y-2;

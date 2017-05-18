@@ -5,7 +5,7 @@ if instance_exists(activationClient)
 {   
     if (unlock) && (spawnObject)
     {
-        var spawnRelic = instance_create(0,0,spawnObject);
+        var spawnRelic = instance_create_layer(0,0,"Interactive",spawnObject);
         spawnRelic.activationOverride = true;
         spawnRelic.activationClient = activationClient;
         spawnRelic.toggle = true;

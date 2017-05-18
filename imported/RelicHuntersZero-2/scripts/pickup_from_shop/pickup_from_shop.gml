@@ -6,7 +6,7 @@ if instance_exists(activationClient)
     
         if (activationClient.weapon2 == noone)
         {
-            activationClient.weapon2 = instance_create(activationClient.x,activationClient.y,gun);
+            activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
             activationClient.weapon2.owner = activationClient.id;
             with (activationClient)
             {
@@ -22,13 +22,13 @@ if instance_exists(activationClient)
         {
             if activationClient.weapon1 == obj_gloves
             {
-                new_pickup = instance_create(x,y,obj_pickup_gloves);
+                new_pickup = instance_create_layer(x,y,"GUI",obj_pickup_gloves);
                 with (obj_gloves)
                 {
                     instance_destroy();
                 }
                 
-                activationClient.weapon1 = instance_create(activationClient.x,activationClient.y,gun);
+                activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
                 activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -41,13 +41,13 @@ if instance_exists(activationClient)
             }
             if activationClient.weapon2 == obj_gloves
             {
-                new_pickup = instance_create(x,y,obj_pickup_gloves);
+                new_pickup = instance_create_layer(x,y,"GUI",obj_pickup_gloves);
                 with (obj_gloves)
                 {
                     instance_destroy();
                 }
                 
-                activationClient.weapon2 = instance_create(activationClient.x,activationClient.y,gun);
+                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -65,13 +65,13 @@ if instance_exists(activationClient)
         {
             if activationClient.weapon1 == obj_buckler
             {
-                new_pickup = instance_create(x,y,obj_pickup_buckler);
+                new_pickup = instance_create_layer(x,y,"GUI",obj_pickup_buckler);
                 with (obj_buckler)
                 {
                     instance_destroy();
                 }
                 
-                activationClient.weapon1 = instance_create(activationClient.x,activationClient.y,gun);
+                activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
                 activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -84,13 +84,13 @@ if instance_exists(activationClient)
             }
             if activationClient.weapon2 == obj_buckler
             {
-                new_pickup = instance_create(x,y,obj_pickup_buckler);
+                new_pickup = instance_create_layer(x,y,"GUI",obj_pickup_buckler);
                 with (obj_buckler)
                 {
                     instance_destroy();
                 }
                 
-                activationClient.weapon2 = instance_create(activationClient.x,activationClient.y,gun);
+                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -105,7 +105,7 @@ if instance_exists(activationClient)
         
         if activationClient.myGun == activationClient.weapon1
         {
-            new_pickup = instance_create(x,y,class_pickup_weapon);
+            new_pickup = instance_create_layer(x,y,"Interactive",class_pickup_weapon);
             new_pickup.gun = activationClient.weapon1.object;
             new_pickup.gun_ammo_current = activationClient.weapon1.ammo_current;
             new_pickup.sprite = activationClient.weapon1.sprite_index;
@@ -117,7 +117,7 @@ if instance_exists(activationClient)
             
             if (gun != obj_gloves) && (gun != obj_buckler)
             {
-                activationClient.weapon1 = instance_create(activationClient.x,activationClient.y,gun);
+                activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
                 activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -127,7 +127,7 @@ if instance_exists(activationClient)
             }
             else if (gun == obj_gloves)
             {
-                instance_create(activationClient.x,activationClient.y,obj_gloves);
+                instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_gloves);
                 activationClient.weapon2 = obj_gloves;
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
@@ -137,7 +137,7 @@ if instance_exists(activationClient)
             }
             else if (gun == obj_buckler)
             {
-                instance_create(activationClient.x,activationClient.y,obj_buckler);
+                instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_buckler);
                 activationClient.weapon2 = obj_buckler;
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
@@ -152,7 +152,7 @@ if instance_exists(activationClient)
         
         if activationClient.myGun == activationClient.weapon2
         {
-            new_pickup = instance_create(x,y,class_pickup_weapon);
+            new_pickup = instance_create_layer(x,y,"Interactive",class_pickup_weapon);
             new_pickup.gun = activationClient.weapon2.object;
             new_pickup.gun_ammo_current = activationClient.weapon2.ammo_current;
             new_pickup.sprite = activationClient.weapon2.sprite_index;
@@ -164,7 +164,7 @@ if instance_exists(activationClient)
             
             if (gun != obj_gloves) && (gun != obj_buckler)
             {
-                activationClient.weapon2 = instance_create(activationClient.x,activationClient.y,gun);
+                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -174,7 +174,7 @@ if instance_exists(activationClient)
             }
             else if (gun == obj_gloves)
             {
-                instance_create(activationClient.x,activationClient.y,obj_gloves);
+                instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,obj_gloves);
                 activationClient.weapon2 = obj_gloves;
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
@@ -184,7 +184,7 @@ if instance_exists(activationClient)
             }
             else if (gun == obj_buckler)
             {
-                instance_create(activationClient.x,activationClient.y,obj_buckler);
+                instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,obj_buckler);
                 activationClient.weapon2 = obj_buckler;
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)

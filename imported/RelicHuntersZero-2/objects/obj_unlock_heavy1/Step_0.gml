@@ -2,7 +2,7 @@ depth=-y-5;
 
 if (global.unlock_heavy1)
 {
-    instance_create(x,y,obj_pickup_heavyammo);
+    instance_create_layer(x,y,"GUI",obj_pickup_heavyammo);
     instance_destroy();
 }
 

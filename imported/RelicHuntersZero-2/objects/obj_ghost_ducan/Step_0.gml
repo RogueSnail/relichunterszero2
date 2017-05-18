@@ -23,7 +23,7 @@ if (instance_exists(ai_target)){
 if (!shy) 
 {
     if (shyTrigger) && (!instance_exists(activationFX)){
-        activationFX = instance_create(x,y,fx_activation);
+        activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
         activationFX.owner = id;
     }
     shyTrigger = false;
@@ -95,7 +95,7 @@ if (!ai_active)
     if (want_to_activate)
     {
         ai_active = true;
-        activationFX = instance_create(x,y,fx_activation);
+        activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
         activationFX.owner = id;
     }
 }
@@ -176,7 +176,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
-        damage_fx = instance_create(myEnemy.x+spreadX,myEnemy.y+spreadY,fx_damage);
+        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
         damage_fx.damage = damage;
         
         

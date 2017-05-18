@@ -32,14 +32,14 @@ else
     {
         if (!instance_exists(myDash))
         {
-            myDash = instance_create(x,y,fx_kamikaze_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
             myDash.owner = id;
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create(x,y,fx_kamikaze_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
             myDash.owner = id;
             myDash.slowness = 4;
             myDash.alpha = 60;
@@ -84,7 +84,7 @@ if hp <= 0
         }
     }
     
-    repeat(myCoinDropAmount) instance_create(x,y,obj_pickup_coin);
+    repeat(myCoinDropAmount) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
     
     //Revive body
     var corpseObject = fx_corpse;
@@ -92,7 +92,7 @@ if hp <= 0
         corpseObject = fx_corpseRevive;
     }
     
-    myCorpse = instance_create(x,y,corpseObject);
+    myCorpse = instance_create_layer(x,y,"Interactive",corpseObject);
     myCorpse.image_xscale = image_xscale;
     myCorpse.sprite_index = corpseSprite;
     
@@ -107,12 +107,12 @@ if hp <= 0
     if (critical_death) {
         audio_play_exclusive(audio_emitter,false,1,sfx_precision_kill1,sfx_precision_kill2,sfx_precision_kill3,sfx_precision_kill4,sfx_precision_kill5);
         
-        var mySkull = instance_create(x+(11*image_xscale),y-49,fx_skull);
+        var mySkull = instance_create_layer(x+(11*image_xscale),y-49,"Interactive",fx_skull);
         mySkull.image_xscale = image_xscale;
     }
     
     if (isWormZombie) {
-        repeat(8) instance_create(x+random_range(-10,10),y+random_range(-49,-20),fx_worm);
+        repeat(8) instance_create_layer(x+random_range(-10,10),y+random_range(-49,-20),"Interactive",fx_worm);
     }
     
     ds_list_add(global.audio_cleaner,audio_emitter);
@@ -150,7 +150,7 @@ if (!ai_active)
     if (want_to_activate)
     {
         ai_active = true;
-        activationFX = instance_create(x,y,fx_activation);
+        activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
         activationFX.owner = id;
     }
 }
@@ -245,7 +245,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             {
                 if (move_speed == speed_walk) && (!instance_exists(mySprintFx)) 
                 {
-                    mySprintFx = instance_create(x,y,fx_sprint); 
+                    mySprintFx = instance_create_layer(x,y,"Interactive",fx_sprint); 
                     mySprintFx.image_xscale = image_xscale;
                     audio_play_exclusive(audio_emitter,false,1,sfx_sprint);
                 }
@@ -391,7 +391,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
-        damage_fx = instance_create(myEnemy.x+spreadX,myEnemy.y+spreadY,fx_damage);
+        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
         damage_fx.damage = damage;
         
         if (!is_player)
@@ -421,7 +421,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if collision_point(x,y,obj_limit,false,true)
 {
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     if (pushed)
     {

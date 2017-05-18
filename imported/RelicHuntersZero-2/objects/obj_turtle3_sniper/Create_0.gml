@@ -32,7 +32,7 @@ sprite_death_precision = spr_turtle3_precision;
 
 if my_gun == noone
 {
-    my_gun = instance_create(x,y,obj_sniperrifle_enemy);
+    my_gun = instance_create_layer(x,y,"Interactive",obj_sniperrifle_enemy);
     my_gun.owner = id;
 }
 drop_gun = obj_pickup_sniper_rifle;

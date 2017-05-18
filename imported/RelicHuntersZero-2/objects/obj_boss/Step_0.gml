@@ -18,7 +18,7 @@ if (hit_taken)
     
     if (shield)
     {
-        shield_effect = instance_create(x,y,fx_shield);
+        shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
         shield_effect.sprite_index = spr_shield_boss;
         shield_effect.owner = id;
         shield_effect.blue = false;
@@ -49,14 +49,14 @@ else
     {
         if (!instance_exists(myDash))
         {
-            myDash = instance_create(x,y,fx_duck_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
             myDash.owner = id;
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create(x,y,fx_duck_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
             myDash.owner = id;
             myDash.slowness = 4;
             myDash.alpha = 60;
@@ -83,9 +83,9 @@ if (!elite)
 
 if hp <= 0
 {
-    repeat(coins) instance_create(x,y,obj_pickup_coin);
+    repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
     
-    myCorpse = instance_create(x,y,fx_corpse_boss);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse_boss);
     myCorpse.image_xscale = image_xscale;
     myCorpse.image_yscale = image_yscale;
     
@@ -114,7 +114,7 @@ if energy < energy_max
     
     if energy_regen_time_current = energy_regen_time
     {
-        myRecharge = instance_create(x,y,fx_shield_up);   
+        myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);   
         myRecharge.owner = id;
         myRecharge.blue = false;
     }
@@ -122,11 +122,11 @@ if energy < energy_max
 
 if (!energy) && (shield == true)
 {
-    myShieldEffect = instance_create(x,y,fx_shield_explosion);
+    myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
     myShieldEffect.owner = id;
     myShieldEffect.blue = false;
     
-    mySparks = instance_create(x,y,fx_shield_down);
+    mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
     mySparks.owner = id;
     mySparks.blue = false;
     
@@ -152,18 +152,18 @@ if (hpMilestoneCurrent == 0)
         }
         
         //Wave 1
-        instance_create(1928,832,obj_turtle3);
-        instance_create(2120,832,obj_turtle3);
-        instance_create(2100,832,obj_turtle3);
+        instance_create_layer(1928,832,"Interactive",obj_turtle3);
+        instance_create_layer(2120,832,"Interactive",obj_turtle3);
+        instance_create_layer(2100,832,"Interactive",obj_turtle3);
         
-        instance_create(1700,850,obj_turtle2_shotgun);
-        instance_create(1696,480,obj_turtle2_shotgun);
-        instance_create(2048,480,obj_turtle3);
-        instance_create(2000,480,obj_turtle3);
+        instance_create_layer(1700,850,"Interactive",obj_turtle2_shotgun);
+        instance_create_layer(1696,480,"Interactive",obj_turtle2_shotgun);
+        instance_create_layer(2048,480,"Interactive",obj_turtle3);
+        instance_create_layer(2000,480,"Interactive",obj_turtle3);
         
-        instance_create(2432,900,obj_turtle2_submachinegun);
-        instance_create(2550,900,obj_turtle2_submachinegun);
-        instance_create(2390,880,obj_turtle3);
+        instance_create_layer(2432,900,"Interactive",obj_turtle2_submachinegun);
+        instance_create_layer(2550,900,"Interactive",obj_turtle2_submachinegun);
+        instance_create_layer(2390,880,"Interactive",obj_turtle3);
     }
 }
 
@@ -189,24 +189,24 @@ if (hpMilestoneCurrent == 1)
         }
         
         //Wave 2
-        instance_create(832,1472,obj_turtle3);
-        instance_create(832,1664,obj_turtle3);
-        instance_create(832,1728,obj_turtle2_submachinegun);
+        instance_create_layer(832,1472,"Interactive",obj_turtle3);
+        instance_create_layer(832,1664,"Interactive",obj_turtle3);
+        instance_create_layer(832,1728,"Interactive",obj_turtle2_submachinegun);
         
-        instance_create(1088,2112,obj_duck3);
-        instance_create(1088,2240,obj_duck2_submachinegun);
-        instance_create(1088,2190,obj_duck2_submachinegun);
+        instance_create_layer(1088,2112,"Interactive",obj_duck3);
+        instance_create_layer(1088,2240,"Interactive",obj_duck2_submachinegun);
+        instance_create_layer(1088,2190,"Interactive",obj_duck2_submachinegun);
         
-        instance_create(2240,2176,obj_duck2_shotgun);
-        instance_create(2112,2176,obj_turtle3);
-        instance_create(2368,2176,obj_turtle3);
+        instance_create_layer(2240,2176,"Interactive",obj_duck2_shotgun);
+        instance_create_layer(2112,2176,"Interactive",obj_turtle3);
+        instance_create_layer(2368,2176,"Interactive",obj_turtle3);
         
-        instance_create(3136,2048,obj_turtle3_sniper);
-        instance_create(3200,1024,obj_turtle3_sniper);
+        instance_create_layer(3136,2048,"Interactive",obj_turtle3_sniper);
+        instance_create_layer(3200,1024,"Interactive",obj_turtle3_sniper);
         
-        instance_create(2240,832,obj_turtle3);
-        instance_create(2240,896,obj_turtle3);
-        instance_create(2240,960,obj_turtle3);
+        instance_create_layer(2240,832,"Interactive",obj_turtle3);
+        instance_create_layer(2240,896,"Interactive",obj_turtle3);
+        instance_create_layer(2240,960,"Interactive",obj_turtle3);
     }
 }
 
@@ -232,22 +232,22 @@ if (hpMilestoneCurrent == 2)
         }
         
         //Wave 3
-        instance_create(896,1472,obj_turtle3);
-        instance_create(896,1600,obj_turtle3);
-        instance_create(1024,1472,obj_duck2_submachinegun);
-        instance_create(1024,1600,obj_duck3);
+        instance_create_layer(896,1472,"Interactive",obj_turtle3);
+        instance_create_layer(896,1600,"Interactive",obj_turtle3);
+        instance_create_layer(1024,1472,"Interactive",obj_duck2_submachinegun);
+        instance_create_layer(1024,1600,"Interactive",obj_duck3);
 
-        instance_create(3520,896,obj_duck3_rocket);
+        instance_create_layer(3520,896,"Interactive",obj_duck3_rocket);
         
-        instance_create(1536,2176,obj_duck2_submachinegun);
-        instance_create(1664,2176,obj_duck2_submachinegun);
+        instance_create_layer(1536,2176,"Interactive",obj_duck2_submachinegun);
+        instance_create_layer(1664,2176,"Interactive",obj_duck2_submachinegun);
         
-        instance_create(3456,2176,obj_turtle2_shotgun);
-        instance_create(3520,2176,obj_turtle2_shotgun);
+        instance_create_layer(3456,2176,"Interactive",obj_turtle2_shotgun);
+        instance_create_layer(3520,2176,"Interactive",obj_turtle2_shotgun);
         
-        instance_create(3456,1120,obj_duck3);
+        instance_create_layer(3456,1120,"Interactive",obj_duck3);
         
-        instance_create(3008,1088,obj_duck2_shotgun);
+        instance_create_layer(3008,1088,"Interactive",obj_duck2_shotgun);
 
     }
 }
@@ -325,7 +325,7 @@ if (wantToFire)
 
 if (fireRocket)
 {
-    var myRocket = instance_create(x,y,obj_rocket_homing);
+    var myRocket = instance_create_layer(x,y,"Interactive",obj_rocket_homing);
     if (instance_exists(my_gun)) myRocket.direction = fireAngleModifier + my_gun.shoot_direction;
     myRocket.owner = id;
     myRocket.damage = 160;
@@ -363,7 +363,7 @@ if (!ai_active)
     if (want_to_activate)
     {
         ai_active = true;
-        activationFX = instance_create(x,y,fx_activation);
+        activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
         activationFX.owner = id;
     }
 }
@@ -469,7 +469,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             
             if (throwGrenade)
             {
-                ai_myGrenade = instance_create(x,y,obj_grenade_enemyNew);
+                ai_myGrenade = instance_create_layer(x,y,"Interactive",obj_grenade_enemyNew);
                 ai_myGrenade.speed = 8;
                 ai_myGrenade.direction = point_direction(x,y,ai_target.x,ai_target.y);
                 ai_myGrenade.speed_initial = 8;

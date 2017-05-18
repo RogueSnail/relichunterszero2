@@ -15,7 +15,7 @@ if instance_exists(activationClient)
                 global.hasPurchasedAnything = true;
         }
         else{
-           guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+           guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
            guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");;
            guiInfo.colorMain = K_BETU_RED;
            guiInfo.owner = activationClient;

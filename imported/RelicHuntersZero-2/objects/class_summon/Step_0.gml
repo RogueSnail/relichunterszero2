@@ -32,14 +32,14 @@ else
     {
         if (!instance_exists(myDash))
         {
-            myDash = instance_create(x,y,fx_kamikaze_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
             myDash.owner = id;
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create(x,y,fx_kamikaze_dash);
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
             myDash.owner = id;
             myDash.slowness = 4;
             myDash.alpha = 60;
@@ -58,7 +58,7 @@ if hp <= 0
 {
     var corpseSprite = sprite_death;
     
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     myCorpse.sprite_index = corpseSprite;
     
@@ -93,7 +93,7 @@ if (hit_taken) want_to_activate = true;
 if (!ai_active)
 {    
     ai_active = true;
-    activationFX = instance_create(x,y,fx_activation);
+    activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
     activationFX.owner = id;
 }
 
@@ -366,7 +366,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
             
             spreadX = irandom_range(-15,15);
             spreadY = irandom_range(-15,15);
-            damage_fx = instance_create(myEnemy.x+spreadX,myEnemy.y+spreadY,fx_damage);
+            damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
             damage_fx.damage = damage;
             
     
@@ -400,7 +400,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if collision_point(x,y,obj_limit,false,true)
 {
-    myCorpse = instance_create(x,y,fx_corpse);
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
     myCorpse.image_xscale = image_xscale;
     if (pushed)
     {

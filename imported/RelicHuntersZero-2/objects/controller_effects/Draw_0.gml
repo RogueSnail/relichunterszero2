@@ -1,3 +1,4 @@
+
 ///Draw Persistent Objects
 
 if (global.persistent_objects)

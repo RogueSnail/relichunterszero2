@@ -17,6 +17,7 @@
     "androidsourcedir": "",
     "author": "",
     "classname": "",
+    "copyToTargets": -1,
     "date": "2017-51-03 10:05:10",
     "description": "An XInput extension that enables the full use of Xbox 360 controllers within games.",
     "extensionName": "",
@@ -25,12 +26,6 @@
             "id": "cfb80ba5-321e-4b95-9d5c-15fd54e55d14",
             "modelName": "GMExtensionFile",
             "mvc": "1.0",
-            "ConfigOptions": [
-                {
-                    "Key": "default",
-                    "Value": 9223372036854775807
-                }
-            ],
             "ProxyFiles": [
                 
             ],
@@ -196,6 +191,7 @@
                     "value": "20"
                 }
             ],
+            "copyToTargets": 9223372036854775807,
             "filename": "XinDLL.dll",
             "final": "",
             "functions": [
@@ -328,7 +324,6 @@
             ],
             "init": "",
             "kind": 1,
-            "maskTarget": 0,
             "order": [
                 
             ],

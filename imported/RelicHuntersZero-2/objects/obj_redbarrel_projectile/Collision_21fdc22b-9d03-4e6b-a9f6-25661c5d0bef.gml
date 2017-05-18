@@ -22,7 +22,7 @@ else
             audio_play(audio_emitter,false,1,sfx_impact_flesh1,sfx_impact_flesh2,sfx_impact_flesh3,sfx_impact_flesh4);
             
             bloodAmount = min(round(trampleDamage/5), (global.max_casings-global.count_casings), 5);
-            if (bloodAmount) repeat(bloodAmount) blood = instance_create(x,y,fx_blood);
+            if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
         }
         other.hit_taken = true;
         
@@ -32,13 +32,13 @@ else
         
         
         
-        trampleDamageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+        trampleDamageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         if (type == 2) && (!other.shield) trampleDamageEffect.critical = true;
         trampleDamageEffect.damage = trampleDamage;
         
         if (global.count_particles < global.max_particles)
         {
-            hit = instance_create(x,y,fx_hit);
+            hit = instance_create_layer(x,y,"Interactive",fx_hit);
             hit.type = ammo_type;
         }
     }
@@ -46,7 +46,7 @@ else
     if (other.dodging) && (ds_list_find_index(hitList,other.id) < 0)
     {
         ds_list_add(hitList,other.id);
-        damageEffect = instance_create(other.x+spreadX,other.y+spreadY,fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
     }
 }
 

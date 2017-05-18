@@ -17,7 +17,7 @@ if (startAnimating)
     }
     
     
-    myBarrel = instance_create(x,y,obj_redbarrel);
+    myBarrel = instance_create_layer(x,y,"Interactive",obj_redbarrel);
     spawnTimeCurrent=0;
     image_speed = 0;
     startAnimating = false;

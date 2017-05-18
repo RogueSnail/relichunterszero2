@@ -54,7 +54,7 @@ if (myDeathStage == 1)
         {
             wantToExplode = false;
             randomOffset = random_range(-offset,offset);
-            var boom = instance_create(x+randomOffset,y+randomOffset,fx_explosion_regular);
+            var boom = instance_create_layer(x+randomOffset,y+randomOffset,"Interactive",fx_explosion_regular);
             boom.damage = 0;
             boom.radius = 0;
         }

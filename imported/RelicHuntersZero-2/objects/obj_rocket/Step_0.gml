@@ -41,7 +41,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 ///Explode
 if (explode)
 {
-    big_bang = instance_create(x,y,fx_explosion_regular);
+    big_bang = instance_create_layer(x,y,"Interactive",fx_explosion_regular);
     big_bang.damage = damage;
     big_bang.radius = radius;
     big_bang.push_power = push_power;

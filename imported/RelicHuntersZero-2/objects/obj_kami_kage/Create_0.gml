@@ -1,7 +1,7 @@
 cage_chance = irandom_range(0,3);
 if (cage_chance != 0)
 {
-    instance_create(x,y+95,obj_longbox);
+    instance_create_layer(x,y+95,"Interactive",obj_longbox);
     instance_destroy();
 }
 

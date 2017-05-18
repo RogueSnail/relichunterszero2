@@ -11,4 +11,3 @@ if (drawX != -1) && (drawY != -1) && (isVisible)
     
     draw_text(drawX,drawY,string_hash_to_newline(loc_key("INFO_EXIT")));
 }
-

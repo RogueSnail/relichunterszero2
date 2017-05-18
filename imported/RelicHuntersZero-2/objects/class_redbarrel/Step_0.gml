@@ -88,7 +88,7 @@ if (isExploding)
         audio_play_exclusive(audio_emitter,false,1,sfx_debris1,sfx_debris2,sfx_debris3);
         ds_list_add(global.audio_cleaner,audio_emitter);
     
-        myProjectile = instance_create(x+lengthdir_x(fakeMovement,explosionDirection),y+lengthdir_y(fakeMovement,explosionDirection),obj_redbarrel_projectile);
+        myProjectile = instance_create_layer(x+lengthdir_x(fakeMovement,explosionDirection),y+lengthdir_y(fakeMovement,explosionDirection),"Interactive",obj_redbarrel_projectile);
         myProjectile.direction = explosionDirection;
         
         myProjectile.speed = 0.4;
@@ -107,7 +107,7 @@ if (isExploding)
 
 if (hp < instantExplosionThreshold)
 {
-    var explosion = instance_create(x,y,fx_explosion_regular);
+    var explosion = instance_create_layer(x,y,"Interactive",fx_explosion_regular);
     explosion.radius = instantExplosionRadius;
     part_system_destroy(global.smoke_system);
     ds_priority_destroy(targetList);

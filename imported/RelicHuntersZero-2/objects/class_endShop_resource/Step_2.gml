@@ -29,7 +29,7 @@ if instance_exists(activationClient)
     }
     
     if (displayWarning){
-        guiInfo = instance_create(activationClient.x,activationClient.y,gui_info);
+        guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
         guiInfo.myString = infoString;
         guiInfo.colorMain = K_BETU_RED;
         guiInfo.owner = activationClient;
