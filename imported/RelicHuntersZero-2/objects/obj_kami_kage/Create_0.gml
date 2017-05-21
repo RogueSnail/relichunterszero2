@@ -16,6 +16,8 @@ shake_max = 12;
 
 maxhp = 250;
 hp = maxhp;
+hp_medium = maxhp * 0.66;
+hp_low = maxhp * 0.33;
 damage = 0;
 
 drawX = x;

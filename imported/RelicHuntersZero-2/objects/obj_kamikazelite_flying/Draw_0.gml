@@ -2,7 +2,7 @@
 
 if (flightState == "go") 
 {
-    depth = -99999999;
+    depth = layer_get_depth("Interactive_Over");
 }
 else depth = -y;
 

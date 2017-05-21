@@ -10,7 +10,7 @@ myPrompt = instance_create_layer(x-30,y-21,"Interactive",fx_prompt_e);
 myPrompt.owner = id;
 
 name = "I AM ERROR";
-myWeaponInfo = instance_create_layer(x,y,"Interactive",fx_info_pickup);
+myWeaponInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
 myWeaponInfo.owner = id;
 
 

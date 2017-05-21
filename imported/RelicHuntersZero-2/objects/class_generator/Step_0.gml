@@ -80,7 +80,6 @@ if (hp <= maxhp*0.33)
     damage = 2;
 }
 */
-if (hp > maxhp) hp = maxhp;
 
 if (hp < 0)
 {

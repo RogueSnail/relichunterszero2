@@ -3,7 +3,7 @@
 depth= -y;
 
 if (vertical_speed_start) vertical_speed += fake_gravity;
-else depth= 999999999999999;
+else depth= layer_get_depth("Interactive_Under");
 
 casing_height += vertical_speed;
 casing_angle += angular_speed;

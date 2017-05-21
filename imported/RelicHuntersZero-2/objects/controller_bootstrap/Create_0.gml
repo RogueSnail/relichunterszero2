@@ -1,8 +1,8 @@
 ///Bootstrap
 draw_texture_flush();
 randomize();
-shadow_init(0.4);
-reflection_init();
+//shadow_init(0.4);
+//reflection_init();
 
 // Sync Save
 save_sync_read();

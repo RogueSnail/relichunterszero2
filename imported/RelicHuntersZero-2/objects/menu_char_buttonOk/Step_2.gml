@@ -83,8 +83,6 @@ if (trigger)
     
     
     if (global.gameMode == gamemode_adventure) room_goto(room_start);
-	//if (global.gameMode == gamemode_adventure) room_goto(room_start1);
-	//if (global.gameMode == gamemode_adventure) room_goto(room34);
     if (global.gameMode == gamemode_endless) 
     {
         instance_create_layer(x,y,"Interactive",controller_main); // This runs the "Create" event of the controller_main before going into level1_1. No time to go by the required Globals and refactoring the code right now =(

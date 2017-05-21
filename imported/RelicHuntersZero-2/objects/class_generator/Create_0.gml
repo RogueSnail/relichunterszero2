@@ -15,6 +15,8 @@ image_blend = c_red;
 depth = -y;
 image_speed = 0;
 
+wall_calculate_hp_ranges();
+
 reflection_object_setup(0,spr_crate_reflection,image_index);
 shadow_object_setup(0,sprite,0,global.default_shadow_yscale);
 

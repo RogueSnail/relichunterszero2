@@ -31,3 +31,4 @@ else{
 breakObject = fx_longbox_break;
 depth = -y+96;
 
+wall_calculate_hp_ranges();

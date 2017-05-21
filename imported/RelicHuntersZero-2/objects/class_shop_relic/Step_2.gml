@@ -22,7 +22,7 @@ if instance_exists(activationClient) && (!unlock)
             announce.relicSprite3Draw = relicSprite3Draw;
         }
         else{
-            guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
+            guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
             guiInfo.myString = loc_key("INFO_NOTENOUGHBOUNTY");
             guiInfo.colorMain = K_BETU_RED;
             guiInfo.owner = activationClient;

@@ -20,3 +20,5 @@ breakObject = fx_barrel_break;
 
 depth = -y+96;
 
+wall_calculate_hp_ranges();
+

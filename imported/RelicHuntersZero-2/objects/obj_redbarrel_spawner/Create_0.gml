@@ -1,5 +1,5 @@
 ///Main Stuff
-depth = 999999;
+depth = layer_get_depth("Interactive_Under");
 
 image_speed = 0;
 

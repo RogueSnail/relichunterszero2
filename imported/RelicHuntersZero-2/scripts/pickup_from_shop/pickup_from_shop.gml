@@ -6,7 +6,7 @@ if instance_exists(activationClient)
     
         if (activationClient.weapon2 == noone)
         {
-            activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
+            activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
             activationClient.weapon2.owner = activationClient.id;
             with (activationClient)
             {
@@ -28,7 +28,7 @@ if instance_exists(activationClient)
                     instance_destroy();
                 }
                 
-                activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
+                activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
                 activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -47,7 +47,7 @@ if instance_exists(activationClient)
                     instance_destroy();
                 }
                 
-                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
+                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -71,7 +71,7 @@ if instance_exists(activationClient)
                     instance_destroy();
                 }
                 
-                activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
+                activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
                 activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -90,7 +90,7 @@ if instance_exists(activationClient)
                     instance_destroy();
                 }
                 
-                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
+                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -164,7 +164,7 @@ if instance_exists(activationClient)
             
             if (gun != obj_gloves) && (gun != obj_buckler)
             {
-                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,gun);
+                activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
@@ -174,7 +174,7 @@ if instance_exists(activationClient)
             }
             else if (gun == obj_gloves)
             {
-                instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,obj_gloves);
+                instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",obj_gloves);
                 activationClient.weapon2 = obj_gloves;
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
@@ -184,7 +184,7 @@ if instance_exists(activationClient)
             }
             else if (gun == obj_buckler)
             {
-                instance_create_layer(activationClient.x,activationClient.y,activationClient.layer,obj_buckler);
+                instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",obj_buckler);
                 activationClient.weapon2 = obj_buckler;
                 activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)

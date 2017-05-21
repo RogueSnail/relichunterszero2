@@ -22,7 +22,7 @@ if (unlock)
         audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);
     }
     
-    guiInfo = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gui_info);
+    guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
     guiInfo.colorMain = c_white;
     guiInfo.myString = loc_key("INFO_HEALTHPLUS");
     guiInfo.owner = activationClient;

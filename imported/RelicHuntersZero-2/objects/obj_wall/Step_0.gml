@@ -33,29 +33,27 @@ if (hit_taken)
 else sprite_index = sprite;
     
 //Damage
-if (hp > maxhp*0.66) damage = 0;
-
-if (hp <= maxhp*0.66) && (hp > maxhp*0.33)
-{
-    if damage == 0
-    {
-        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
-        myDirt.sprite_index = sprite_dirt;
-    }
-    damage = 1;
+if (hp < maxhp) {
+	if (hp > hp_medium) {
+		damage = 0;
+	}
+	else if ((hp <= hp_medium) && (hp > hp_low))
+	{
+	    if (damage == 0)
+	    {
+	        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
+	        myDirt.sprite_index = sprite_dirt;
+	    }
+	    damage = 1;
+	}
+	else //if (hp <= maxhp*0.33)
+	{
+	    if (damage == 1)
+	    {
+	        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
+	        myDirt.sprite_index = sprite_dirt;
+	    }
+	    damage = 2;
+	}
 }
-
-if (hp <= maxhp*0.33)
-{
-    if damage == 1
-    {
-        myDirt = instance_create_layer(x,y,"Interactive",fx_dirt);
-        myDirt.sprite_index = sprite_dirt;
-    }
-    damage = 2;
-}
-
-if (hp > maxhp) hp = maxhp;
-
-
 

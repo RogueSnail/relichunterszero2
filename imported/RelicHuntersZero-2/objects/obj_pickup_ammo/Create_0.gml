@@ -4,6 +4,8 @@ magnet_accel = 3;
 magnet_speed_max = 8;
 magnet_friction = 2;
 
+magnet_player = noone;
+
 ammoType = type_light;
 myAmmo = 4;
 isInteractive = true;

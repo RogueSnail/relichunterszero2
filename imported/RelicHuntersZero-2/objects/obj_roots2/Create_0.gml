@@ -12,3 +12,4 @@ shadow_object_setup(0,spr_longbox_reflection,image_index,global.default_shadow_y
 
 depth = -y+96;
 
+wall_calculate_hp_ranges();

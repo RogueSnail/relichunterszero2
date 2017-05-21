@@ -60,7 +60,6 @@ if (!level_built)
     
     //Stop here if it's the first room
     if (room == room_start) { level_built = true; exit; }
-	if (room == room34) { level_built = true; exit; }
     
     //Still here? Create the teleporter entry point;
     teleporter = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY-10,"Interactive",obj_teleporter);

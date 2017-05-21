@@ -23,3 +23,4 @@ else{
 breakObject = fx_crate_break;
 depth = -y+96;
 
+wall_calculate_hp_ranges();

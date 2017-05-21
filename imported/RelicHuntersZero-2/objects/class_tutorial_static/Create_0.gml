@@ -1,6 +1,6 @@
 ///Main Config
 
-depth = 99999999999999999999;
+depth = layer_get_depth("Interactive_Under");
 image_speed = 0;
 
 myFont = global.font_numberSmall;

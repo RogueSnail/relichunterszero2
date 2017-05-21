@@ -487,6 +487,14 @@
             }
         },
         {
+            "Key": "08bcf12f-e801-4880-b06c-5eabcda5d0c5",
+            "Value": {
+                "id": "1ecac7eb-4754-4e1a-a34d-c80a5353d66d",
+                "resourcePath": "scripts\\wall_calculate_hp_ranges\\wall_calculate_hp_ranges.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "08d7912c-d8c2-4a31-a5d6-4dbfb2a24a26",
             "Value": {
                 "id": "32730a4c-081f-4130-98b7-1dae881935cd",
@@ -13503,6 +13511,14 @@
             }
         },
         {
+            "Key": "dc6aa8be-4e36-40be-bb77-32eafd74b4d1",
+            "Value": {
+                "id": "242a10ec-26ab-47a0-bdc8-4def00098c35",
+                "resourcePath": "views\\dc6aa8be-4e36-40be-bb77-32eafd74b4d1.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "dc8405af-fcb8-4f59-bcb2-a35070c8ea1b",
             "Value": {
                 "id": "5bd8b4a8-9d33-45ee-8bca-e4f5586adb23",
@@ -15850,6 +15866,7 @@
         "191c57ef-bb36-400a-a194-256daf58731e",
         "932edee2-f60f-4ccf-9580-eeb2135250c4",
         "adf1f488-9648-45dc-abdb-a9c9ff1bbc0a",
+        "08bcf12f-e801-4880-b06c-5eabcda5d0c5",
         "f64b698b-2e56-4dbc-9e51-6871d8d7ad45",
         "d329f0a0-7c7a-483a-9487-fc62530750a9",
         "369574d7-eeca-40e9-a732-d112b14cb429",

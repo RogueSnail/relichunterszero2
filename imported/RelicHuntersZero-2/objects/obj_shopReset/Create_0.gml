@@ -13,7 +13,7 @@ myPrompt = instance_create_layer(x-44,y-21,"Interactive",fx_prompt_e);
 myPrompt.owner = id;
 
 name = loc_key("TERMINAL_RESET_DESC");
-myInfo = instance_create_layer(x,y,"Interactive",fx_info_pickup);
+myInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
 myInfo.owner = id;
 
 depth = -y-32;

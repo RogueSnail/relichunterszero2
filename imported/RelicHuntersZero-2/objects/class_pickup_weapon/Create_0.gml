@@ -9,11 +9,11 @@ gun = noone;
 gun_ammo_current = 99999;
 active = false;
 
-myPrompt = instance_create_layer(x+10,y-25,"Interactive",fx_prompt_e);
+myPrompt = instance_create_layer(x+10,y-25,"Interactive_Over",fx_prompt_e);
 myPrompt.owner = id;
 
 name = "I AM ERROR";
-myWeaponInfo = instance_create_layer(x,y,"Interactive",fx_info_pickup);
+myWeaponInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
 myWeaponInfo.owner = id;
 
 depth=-y-5;
