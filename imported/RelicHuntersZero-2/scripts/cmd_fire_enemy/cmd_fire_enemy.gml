@@ -1,9 +1,9 @@
 ///cmd_fire_enemy();
-if instance_exists(owner)
+if (owner != noone)
 {     
         fire_burst_current++;
         can_fire = false;
-              
+
         repeat(fire_amount)
         {
             projectileX = x+(lengthdir_x(spawn_distance_from_barrel,shoot_direction));
@@ -27,8 +27,8 @@ if instance_exists(owner)
             var damageBonus;
             damageBonus = round(projectile_damage * (global.challengeWanted*global.challengeWantedMultiplier));
             if (ammo_type == type_light) damageBonus += round(projectile_damage * (global.challengeLightFocus*global.challengeLightFocusMultiplier));
-            if (ammo_type == type_medium) damageBonus += round(projectile_damage * (global.challengeMediumFocus*global.challengeMediumFocusMultiplier));
-            if (ammo_type == type_heavy) damageBonus += round(projectile_damage * (global.challengeHeavyFocus*global.challengeHeavyFocusMultiplier));
+            else if (ammo_type == type_medium) damageBonus += round(projectile_damage * (global.challengeMediumFocus*global.challengeMediumFocusMultiplier));
+            else if (ammo_type == type_heavy) damageBonus += round(projectile_damage * (global.challengeHeavyFocus*global.challengeHeavyFocusMultiplier));
             
             projectile.damage = projectile_damage + damageBonus;
             
@@ -61,6 +61,9 @@ if instance_exists(owner)
                 casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
                 casing.direction = shoot_direction+180+random_range(casing.dirMin,casing.dirMax);
                 casing.ammo_type = ammo_type;
+				if (ammo_type == type_light) casing.casing_subimage = 0;
+				else if (ammo_type == type_medium) casing.casing_subimage = 1;
+				else if (ammo_type == type_heavy) casing.casing_subimage = 2;
             }
         }
 }

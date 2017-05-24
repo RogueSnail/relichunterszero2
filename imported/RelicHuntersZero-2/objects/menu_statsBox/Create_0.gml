@@ -26,7 +26,4 @@ longestRunTimeMinutes = longestRunTime div 60;
 longestRunTimeSeconds = longestRunTime mod 60;
 longestRunTimeString = string(longestRunTimeMinutes) + "m " + string(longestRunTimeSeconds);
 
-
-
-
-
+image_yscale = 1.65;

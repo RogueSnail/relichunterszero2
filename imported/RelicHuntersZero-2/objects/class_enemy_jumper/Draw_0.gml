@@ -1,5 +1,4 @@
 ///Main Draw
-depth = -y;
 draw_self();
 
 //Pause Animation

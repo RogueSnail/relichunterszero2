@@ -131,3 +131,8 @@ if (inputLocked) {
 }
 
 
+// dynamic depth and scale
+if (isDigging) 
+{
+    image_xscale = 1;
+}

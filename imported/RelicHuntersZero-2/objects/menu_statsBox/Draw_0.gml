@@ -1,6 +1,5 @@
 ///Text Time!
 
-image_yscale = 1.65;
 draw_self();
 
 

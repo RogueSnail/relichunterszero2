@@ -5,10 +5,12 @@ if !__b__
 {
 ///Animation and Rotation
 
-if instance_exists(owner)
+stepHasTarget = false;
+if (owner != noone)
 {
-    if instance_exists(owner.ai_target)
+    if (owner.ai_target != noone)
     {
+		stepHasTarget = true;
         image_angle = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
         if owner.look_direction == 0 image_angle = image_angle+180;
     }
@@ -22,7 +24,9 @@ if instance_exists(owner)
 //Recoil
 recoil_current += recoil_speed;
 
-if (recoil_current > 0) recoil_speed -= recoil_return;
+if (recoil_current > 0) {
+	recoil_speed -= recoil_return;
+}
 else
 {
     recoil_current = 0;
@@ -38,28 +42,25 @@ drawY = y +lengthdir_y( (-1*image_xscale*recoil_current), image_angle );
 
 ///Firing Control
 
-if instance_exists(owner)
+if (stepHasTarget)
 {
-    if instance_exists(owner.ai_target)
+    shoot_direction = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
+    if (owner.firing) && (can_fire)
     {
-        shoot_direction = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
-        if (owner.firing) && (can_fire)
-        {
-            shot_type = 0;
-            cmd_fire_enemy();
-        }
+        shot_type = 0;
+        cmd_fire_enemy();
     }
     
     //Rate of Fire
     if (!can_fire) && (fire_burst_current >= fire_burst)
     {
-        if (!is_sniper) fire_rate_current++;
-        else if instance_exists(owner)
-        {
-            if (owner.firing) fire_rate_current++;
-        }
+        if (!is_sniper) 
+			fire_rate_current++;
+        else if (owner.firing) 
+			fire_rate_current++;
         
-        if (global.challengeBloodlust) fire_rate_current += global.challengeBloodlustRate;
+        if (global.challengeBloodlust) 
+			fire_rate_current += global.challengeBloodlustRate;
         
         if fire_rate_current >= fire_rate
         {

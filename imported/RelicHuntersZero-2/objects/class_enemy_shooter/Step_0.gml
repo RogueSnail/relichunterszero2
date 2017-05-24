@@ -198,7 +198,9 @@ firing = false;
 var myClosestPlayer = instance_nearest(x,y,faction_player);
 
 distance_to_player = 0;
-if (instance_exists(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+if (myClosestPlayer != noone) {
+	distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+}
 
 if (grenade_count > grenade_count_max) grenade_count = grenade_count_max;
 
@@ -208,7 +210,8 @@ if (hit_taken) want_to_activate = true;
 if (!ai_active)
 {
     if (aiActivationTimeCurrent >= aiActivationTime){
-        if (distance_to_player < ai_activation_range) && instance_exists(myClosestPlayer) && (!want_to_activate)
+	
+        if (myClosestPlayer != noone) && (distance_to_player < ai_activation_range) && (!want_to_activate)
         {
             if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
             {
@@ -230,10 +233,11 @@ if (!ai_active)
 if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) )
 {
     //Find my Target (Faction Check)
+	distance_to_enemy = 99999;
     fuckingEnemy = instance_nearest(x,y,faction_monster);
-    if (instance_exists(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
-    else distance_to_enemy = 99999;
-    
+    if (fuckingEnemy != noone) {
+		distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+	} 
     
     if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
     {
@@ -253,21 +257,26 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     else 
     {
         ai_target_change_current++;
-        if (ai_target = myClosestPlayer) distance_to_target = distance_to_player;
+        if (ai_target == myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
         
     // Resolve AI with Target found
-    
-    if instance_exists(ai_target) && (!pushed)
+    if (ai_target != noone) && (!pushed)
     {
+		
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
-        if (ai_state == "PATROL" || ai_state == "COVER") aggro += aggro_add_patrol;
-        if (ai_state == "CHASE") aggro -= aggro_cost_chase;
-        
-        if (ai_state == "PATROL" && distance_to_target > ai_patrol_max) aggro += aggro_add_close;
-        
+        if (ai_state == "PATROL") {
+			aggro += aggro_add_patrol;
+			if (distance_to_target > ai_patrol_max) {
+				aggro += aggro_add_close;
+			}
+		}
+		else if (ai_state == "COVER") 
+			aggro += aggro_add_patrol;
+        else if (ai_state == "CHASE") 
+			aggro -= aggro_cost_chase;        
         
         if (aggro < 0) aggro = 0;
         if (aggro > aggro_max) aggro = aggro_max;
@@ -287,6 +296,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
+		
         //State Switches
         if ai_state == "CHASE"
         {
@@ -304,7 +314,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "COVER"
+        else if ai_state == "COVER"
         {
             if (energy >= energy_max) 
             { 
@@ -318,7 +328,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if aggro >= aggro_min_chase
             {
@@ -326,8 +336,9 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
                 exit;
             }
         }
-        
+        		
         //State Descriptions
+
         if ai_state == "CHASE"
         {
             sight_forbidden = noone;
@@ -361,8 +372,8 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             
             if (sight_forbidden) && (ai_supression) aggro -= aggro_cost_sight_forbidden;
         }
-        
-        if ai_state == "COVER"
+		
+        else if ai_state == "COVER"
         {
             move_speed = speed_sprint;
             sight_blocked = (collision_line(x,y,ai_target.x,ai_target.y,class_solid,false,true));
@@ -444,8 +455,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
             
         }
-        
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if (ai_patrol_x) && (ai_patrol_y)
             {
@@ -485,14 +495,17 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             exit;
         }
         else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current++;
+		//*/	
     }
 }
 
 //Look Direction
-if instance_exists(ai_target)
+if (ai_target != noone)
 {
-    if (ai_target.x > x) look_direction = 1;   
-    else look_direction = 0;
+    if (ai_target.x > x) 
+		look_direction = 1;   
+    else 
+		look_direction = 0;
 }
 
 //Force to stop when firing a burst
@@ -505,6 +518,7 @@ if (my_gun) && (instance_exists(my_gun))
         firing = true;
     }
 }
+
 
 //Resolve
 path_update();
@@ -544,6 +558,7 @@ else push_speed = 0;
 
 ///Audio
 audio_emitter_position(audio_emitter, x, y, 0);
+
 
 }
 }

@@ -1,9 +1,10 @@
 
-if (sprite_exists(sprite_index)) draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale,image_yscale,image_angle,c_white,1);
+if (sprite_exists(sprite_index)) 
+	draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale,image_yscale,image_angle,c_white,1);
 
-if instance_exists(owner)
+if (owner != noone)
 {
-    if (owner.firing) && (is_sniper) && instance_exists(owner.ai_target)
+    if (owner.firing) && (is_sniper) && (owner.ai_target != noone)
     {
         aiming_direction = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
         

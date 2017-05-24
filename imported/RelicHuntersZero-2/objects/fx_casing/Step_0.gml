@@ -3,7 +3,7 @@
 depth= -y;
 
 if (vertical_speed_start) vertical_speed += fake_gravity;
-else depth= layer_get_depth("Interactive_Under");
+else depth = layer_get_depth("Interactive_Under");
 
 casing_height += vertical_speed;
 casing_angle += angular_speed;
@@ -25,9 +25,3 @@ if casing_height >= 0 && (vertical_speed_start)
         vertical_speed = -vertical_speed_start;
     }
 }
-
-///Subimage
-if (ammo_type == type_light) casing_subimage = 0;
-if (ammo_type == type_medium) casing_subimage = 1;
-if (ammo_type == type_heavy) casing_subimage = 2;
-

@@ -1,4 +1,3 @@
-depth = -y;
 draw_self();
 
 //Placeholder Generator Feedback

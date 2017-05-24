@@ -1,5 +1,5 @@
 /// Follow Owner Position
-if instance_exists(owner)
+if (owner != noone)
 {
     x = owner.x;
     y = owner.y-15;

@@ -12,4 +12,3 @@ for (i=0; i<number_of_enemies; i++)
         test_enemy.want_to_activate = true;
     }
 }
-
