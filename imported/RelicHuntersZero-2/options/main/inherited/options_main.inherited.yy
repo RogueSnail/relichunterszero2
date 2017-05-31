@@ -16,6 +16,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -30,6 +31,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -44,6 +46,7 @@
                     "autocrop": false,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -58,6 +61,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -72,6 +76,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -86,6 +91,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -100,6 +106,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -114,6 +121,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -128,6 +136,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -142,6 +151,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -156,6 +166,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -170,6 +181,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -184,6 +196,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -198,6 +211,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -212,6 +226,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -226,6 +241,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -240,6 +256,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -254,6 +271,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -268,6 +286,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -282,6 +301,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -296,6 +316,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -310,6 +331,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -324,6 +346,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -338,6 +361,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -352,6 +376,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -366,6 +391,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -380,6 +406,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -394,6 +421,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -408,6 +436,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -422,6 +451,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -436,6 +466,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -450,6 +481,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -464,6 +496,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -478,6 +511,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -492,6 +526,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -506,6 +541,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -520,6 +556,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -534,6 +571,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -548,6 +586,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -562,6 +601,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -576,6 +616,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -590,6 +631,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -604,6 +646,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -618,6 +661,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -632,6 +676,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -646,6 +691,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -660,6 +706,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -674,6 +721,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -688,6 +736,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -702,6 +751,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -716,6 +766,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -730,6 +781,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             },
@@ -744,6 +796,7 @@
                     "autocrop": true,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
+                    "mipsToGenerate": 0,
                     "scaled": false
                 }
             }
@@ -765,7 +818,7 @@
                     "id": "93d5cf40-ad10-40e0-a3e4-474f9342b4a1",
                     "modelName": "GMAudioGroup",
                     "mvc": "1.0",
-                    "groupName": "audiogroup_default",
+                    "groupName": "audiogroup_sfx",
                     "targets": 29263750006690030
                 }
             },

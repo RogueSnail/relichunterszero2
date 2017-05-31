@@ -37,6 +37,7 @@ loc_init();
 // Debug Shit, don't mess with this
 audio_stop_all();
 if (!audio_group_is_loaded(ag_music)) audio_group_load(ag_music);
+if (!audio_group_is_loaded(audiogroup_sfx)) audio_group_load(audiogroup_sfx);
 
 if (os_type == os_macosx) global.version = os_macosx;
 else if (os_type == os_linux) global.version = os_linux;
