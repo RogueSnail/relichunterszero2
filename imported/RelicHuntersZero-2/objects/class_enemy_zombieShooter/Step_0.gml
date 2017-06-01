@@ -24,7 +24,8 @@ if (hit_taken)
     if (shield)
     {
         shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
-        shield_effect.owner = id;
+        //shield_effect.owner = id;
+		owner_add_owned_instance(shield_effect);
         shield_effect.blue = false;
         hit_taken = false;
     }

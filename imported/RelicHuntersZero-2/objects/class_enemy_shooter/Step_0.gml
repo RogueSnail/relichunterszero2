@@ -24,7 +24,8 @@ if (hit_taken)
     if (shield)
     {
         shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
-        shield_effect.owner = id;
+		owner_add_owned_instance(shield_effect);
+        //shield_effect.owner = id;
         shield_effect.blue = false;
         hit_taken = false;
     }
@@ -54,14 +55,16 @@ else
         if (!instance_exists(myDash))
         {
             myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
-            myDash.owner = id;
+            //myDash.owner = id;
+			owner_add_owned_instance(myDash);
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
             myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
-            myDash.owner = id;
+            //myDash.owner = id;
+			owner_add_owned_instance(myDash);
             myDash.slowness = 4;
             myDash.alpha = 60;
         }
@@ -165,7 +168,8 @@ if energy < energy_max
     if energy_regen_time_current = energy_regen_time
     {
         myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);   
-        myRecharge.owner = id;
+        //myRecharge.owner = id;
+		owner_add_owned_instance(myRecharge);
         myRecharge.blue = false;
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
     }
@@ -174,11 +178,13 @@ if energy < energy_max
 if (!energy) && (shield == true)
 {
     myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
-    myShieldEffect.owner = id;
+    //myShieldEffect.owner = id;
+	owner_add_owned_instance(myShieldEffect);
     myShieldEffect.blue = false;
     
     mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
-    mySparks.owner = id;
+    //mySparks.owner = id;
+	owner_add_owned_instance(mySparks);
     mySparks.blue = false;
     
     shield = false;
@@ -223,7 +229,8 @@ if (!ai_active)
         {
             ai_active = true;
             activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-            activationFX.owner = id;
+            //activationFX.owner = id;
+			owner_add_owned_instance(activationFX);
         }
     }
     else aiActivationTimeCurrent++;
@@ -577,4 +584,3 @@ if collision_point(x,y,obj_limit,false,true)
     
     instance_destroy();
 }
-

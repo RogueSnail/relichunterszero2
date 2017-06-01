@@ -18,20 +18,28 @@ if instance_exists(activationClient) && (isInteractiveObjectActive)
         
         if (sprite_index == spr_pickup_grenade) 
         {
-                if (global.grenades[p] < global.grenades_max) { global.grenades[p] += ammo; want_to_die = true;} else isAmmoFull = true;
+			if (global.grenades[p] < global.grenades_max) { 
+				global.grenades[p] += ammo; 
+				want_to_die = true;
+			} 
+			else isAmmoFull = true;
         }
         
         if (want_to_die)
         {
-            guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
-            if (sprite_index == spr_pickup_light) { guiInfo.myString = "+ "+ loc_key("GENERAL_LIGHTAMMO"); guiInfo.colorMain = K_BETU_GREEN; }
-            if (sprite_index == spr_pickup_medium)  { guiInfo.myString = "+ "+ loc_key("GENERAL_MEDIUMAMMO"); guiInfo.colorMain = K_BETU_RED; }
-            if (sprite_index == spr_pickup_heavy) { guiInfo.myString = "+ "+ loc_key("GENERAL_HEAVYAMMO"); guiInfo.colorMain = K_BETU_BLUE; } 
-            if (sprite_index == spr_pickup_grenade)  { guiInfo.myString = "+ "+ loc_key("GENERAL_GRENADES"); guiInfo.colorMain = K_BETU_ORANGE; }
+            //guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
+			var guiInfoString = "";
+			var guiInfoColor = c_white;
+            if (sprite_index == spr_pickup_light) { guiInfoString = "+ "+ loc_key("GENERAL_LIGHTAMMO"); guiInfoColor = K_BETU_GREEN; }
+            if (sprite_index == spr_pickup_medium)  { guiInfoString = "+ "+ loc_key("GENERAL_MEDIUMAMMO"); guiInfoColor = K_BETU_RED; }
+            if (sprite_index == spr_pickup_heavy) { guiInfoString = "+ "+ loc_key("GENERAL_HEAVYAMMO"); guiInfoColor = K_BETU_BLUE; } 
+            if (sprite_index == spr_pickup_grenade)  { guiInfoString = "+ "+ loc_key("GENERAL_GRENADES"); guiInfoColor = K_BETU_ORANGE; }
             //teste
-            guiInfo.colorMain = c_white;
+            //guiInfo.colorMain = c_white;
+			guiInfoColor = c_white;
             //
-            guiInfo.owner = player;
+            //guiInfo.owner = player;
+			gui_info_show_at(player.id, player.x, player.y, "Interactive", guiInfoColor, guiInfoString);
             
             audio_play(player.audio_emitter,false,1,sfx_pickup_weapon);
             isInteractiveObjectActive = false;
@@ -39,10 +47,11 @@ if instance_exists(activationClient) && (isInteractiveObjectActive)
         
         if (isAmmoFull)
         {
-            guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
-            guiInfo.myString = loc_key("INFO_FULLAMMO");
-            guiInfo.colorMain = c_white;
-            guiInfo.owner = player;
+			gui_info_show_at(player.id, player.x, player.y, "Interactive", c_white, loc_key("INFO_FULLAMMO"));
+            //guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
+            //guiInfo.myString = loc_key("INFO_FULLAMMO");
+            //guiInfo.colorMain = c_white;
+            //guiInfo.owner = player;
             audio_play(player.audio_emitter, false, 1, sfx_pickup_full);
         }
         

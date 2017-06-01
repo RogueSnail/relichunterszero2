@@ -2,15 +2,16 @@
 event_inherited();
 {
     var targetPlayer = instance_nearest(x,y,class_player);
-    if instance_exists(targetPlayer){
+    if (targetPlayer != noone){
         targetPlayer.superShield = true;
         targetPlayer.superShieldTime = room_speed*6;
         audio_play(targetPlayer.audio_emitter,false,9,sfx_shield_regen_start);
         
-        guiInfo = instance_create_layer(targetPlayer.x,targetPlayer.y,"Interactive",gui_info);
-        guiInfo.colorMain = K_BETU_ORANGE;
-        guiInfo.myString = loc_key("INFO_SUPERSHIELD");
-        guiInfo.owner = targetPlayer;
+		gui_info_show_at(targetPlayer.id, targetPlayer.x, targetPlayer.y, "Interactive", K_BETU_ORANGE, loc_key("INFO_SUPERSHIELD"));
+		//guiInfo = instance_create_layer(targetPlayer.x,targetPlayer.y,"Interactive",gui_info);
+        //guiInfo.colorMain = K_BETU_ORANGE;
+        //guiInfo.myString = loc_key("INFO_SUPERSHIELD");
+        //guiInfo.owner = targetPlayer;
     }
     instance_destroy();
 }

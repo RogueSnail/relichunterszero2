@@ -27,10 +27,11 @@ if instance_exists(activationClient)
         image_speed = 0.2;
         image_index = 0;
         
-        guiInfo = instance_create_layer(activationClient.x,activationClient.y,"GUI",gui_info);
-        guiInfo.myString = loc_key("TERMINAL_RELIC_INFO");;
-        guiInfo.colorMain = c_white;
-        guiInfo.owner = activationClient;
+		gui_info_show_at(activationClient.id, activationClient.x, activationClient.y, "GUI", c_white, loc_key("TERMINAL_RELIC_INFO"));
+        //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"GUI",gui_info);
+        //guiInfo.myString = loc_key("TERMINAL_RELIC_INFO");;
+        //guiInfo.colorMain = c_white;
+        //guiInfo.owner = activationClient;
         audio_play(activationClient.audio_emitter,false,1,sfx_relic_off);
     }
 }

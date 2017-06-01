@@ -12,11 +12,12 @@ if (instance_exists(controller_main)){
                 
         audio_play(audio_emitter,false,1,sfx_pickup_health);
                 
-        guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
-        guiInfo.colorMain = c_white;
-        guiInfo.myString = loc_key("INFO_HEALTHPLUS");
-        guiInfo.owner = id;
-        
+		gui_info_show_at(id, x, y, "Interactive", c_white, loc_key("INFO_HEALTHPLUS"));
+        //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
+        //guiInfo.colorMain = c_white;
+        //guiInfo.myString = loc_key("INFO_HEALTHPLUS");
+        //guiInfo.owner = id;
+		        
         receivedLevelEndHealing = true;
     }
 }

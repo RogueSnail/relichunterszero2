@@ -30,13 +30,17 @@ if (unlock)
         audio_play(activationClient.audio_emitter,false,1,sfx_pickup_weapon);
     }
     
-    guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
-    guiInfo.owner = activationClient;
-    if (sprite_index == spr_pickup_light) { guiInfo.myString = "+ "+ loc_key("GENERAL_LIGHTAMMO"); guiInfo.colorMain = K_BETU_GREEN; }
-    if (sprite_index == spr_pickup_medium)  { guiInfo.myString = "+ "+ loc_key("GENERAL_MEDIUMAMMO"); guiInfo.colorMain = K_BETU_RED; }
-    if (sprite_index == spr_pickup_heavy) { guiInfo.myString = "+ "+ loc_key("GENERAL_HEAVYAMMO"); guiInfo.colorMain = K_BETU_BLUE; } 
-    if (sprite_index == spr_pickup_grenade)  { guiInfo.myString = "+ "+ loc_key("GENERAL_GRENADES"); guiInfo.colorMain = K_BETU_ORANGE; }
+    //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
+    //guiInfo.owner = activationClient;
+	var guiInfoString = "";
+	var guiInfoColor = c_white;
+    if (sprite_index == spr_pickup_light) { guiInfoString = "+ "+ loc_key("GENERAL_LIGHTAMMO"); guiInfoColor = K_BETU_GREEN; }
+    if (sprite_index == spr_pickup_medium)  { guiInfoString = "+ "+ loc_key("GENERAL_MEDIUMAMMO"); guiInfoColor = K_BETU_RED; }
+    if (sprite_index == spr_pickup_heavy) { guiInfoString = "+ "+ loc_key("GENERAL_HEAVYAMMO"); guiInfoColor = K_BETU_BLUE; } 
+    if (sprite_index == spr_pickup_grenade)  { guiInfoString = "+ "+ loc_key("GENERAL_GRENADES"); guiInfoColor = K_BETU_ORANGE; }
     
+	gui_info_show_at(activationClient.id, activationClient.x, activationClient.y, "Interactive_Over", guiInfoColor, guiInfoString);
+	
     unlock = false;
     wantToActivate = false;
 }

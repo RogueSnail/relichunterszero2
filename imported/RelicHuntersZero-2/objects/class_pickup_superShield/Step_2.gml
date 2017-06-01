@@ -13,19 +13,21 @@ if instance_exists(activationClient)
             activationClient.superShield = true;
             
             audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);
-                
-            guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
-            guiInfo.colorMain = K_BETU_ORANGE;
-            guiInfo.myString = loc_key("INFO_SUPERSHIELD");
-            guiInfo.owner = activationClient;
+            
+			gui_info_show_at(activationClient, activationClient.x,activationClient.y, "Interactive_Over", K_BETU_ORANGE, loc_key("INFO_SUPERSHIELD"));
+            //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
+            //guiInfo.colorMain = K_BETU_ORANGE;
+            //guiInfo.myString = loc_key("INFO_SUPERSHIELD");
+            //guiInfo.owner = activationClient;
             instance_destroy();
         }
         else{
-                guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
-                guiInfo.colorMain = K_BETU_RED;
-                guiInfo.myString = loc_key("INFO_CANTUSESHIELD");
-                guiInfo.owner = activationClient;
-                audio_play(activationClient.audio_emitter, false, 1, sfx_pickup_full);
+			gui_info_show_at(activationClient, activationClient.x,activationClient.y, "Interactive_Over", K_BETU_ORANGE, loc_key("INFO_CANTUSESHIELD"));
+            //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
+            //guiInfo.colorMain = K_BETU_RED;
+            //guiInfo.myString = loc_key("INFO_CANTUSESHIELD");
+            //guiInfo.owner = activationClient;
+            audio_play(activationClient.audio_emitter, false, 1, sfx_pickup_full);
         }
     }
 }
