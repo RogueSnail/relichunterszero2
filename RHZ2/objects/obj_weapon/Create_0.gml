@@ -1,6 +1,8 @@
 /// @weapon properties
 //add all weapon properties here
 
+//depth = -1000;
+
 // weapon name
 name = "";
 
@@ -22,11 +24,23 @@ capacity = 0;
 // fire rate per second
 fire_rate_per_second = 0;
 
+// fire rate per second
+bullets_per_shot = 0;
+
 // damage
 damage = 0;
 
+// ammo type
+ammo_type = "light";
+
 // recoil in pixels
 recoil_pixels = 0;
+
+// recoil for character in pixels
+recoil_character_pixels = 0;
+
+//weapon shot spread angle
+spread_angle = 15;
 
 // screen shake force
 screen_shake_force = 0;

@@ -17,7 +17,7 @@ else {
 	posY = 0;//random_range(0,room_width);
 }
 
-newWeapon = instance_create_depth(posX, posY, -1, obj_weapon);
+newWeapon = instance_create_layer(posX, posY, "Instances", obj_weapon);
 newWeapon.configFilename = filename;
 
 with (newWeapon)

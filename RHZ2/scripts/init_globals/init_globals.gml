@@ -38,3 +38,9 @@ anim_frames_teleport01,
 anim_frames_walk,
 anim_frames_ui_choose_character
 ];
+
+global.weapon_ammo_types = [
+ammo_type_light,
+ammo_type_medium,
+ammo_type_heavy
+];
