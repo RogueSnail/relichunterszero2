@@ -1,3 +1,5 @@
+event_inherited();
+
 ///Main Shit
 elite = false;
 shield = true;

@@ -17,7 +17,7 @@ audio_listener_orientation(x,y,0,x,y,1);
 var countPlayers = instance_number(class_player);
 
 //Camera Position
-if instance_exists(class_player)
+if (countPlayers > 0)
 {
     if (countPlayers == 1)
     {
@@ -93,7 +93,7 @@ if instance_exists(class_player)
         var player1 = instance_find(class_player,0);
         var player2 = instance_find(class_player,1);
         
-        if (player1) && (player2) && (instance_exists(player1)) && (instance_exists(player1)) 
+        if (player1 != noone) && (player2 != noone)// && (instance_exists(player1)) && (instance_exists(player1)) 
         {
             x = (player1.x + player2.x)/2;
             y = (player1.y + player2.y)/2;
@@ -119,7 +119,7 @@ if instance_exists(class_player)
 //Zoom Control
 if zoom_current != zoom
 {
-    if (zoom_current > zoom) && instance_exists(class_player)
+    if (zoom_current > zoom) && (countPlayers > 0)
     {
         zoom_current -= min(zoom_speed_in,zoom_current-zoom);
         

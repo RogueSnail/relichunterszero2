@@ -327,7 +327,7 @@ if (wantToFire)
 if (fireRocket)
 {
     var myRocket = instance_create_layer(x,y,"Interactive",obj_rocket_homing);
-    if (instance_exists(my_gun)) myRocket.direction = fireAngleModifier + my_gun.shoot_direction;
+    if (my_gun != noone) myRocket.direction = fireAngleModifier + my_gun.shoot_direction;
     myRocket.owner = id;
     myRocket.damage = 160;
     fireRocket = false;

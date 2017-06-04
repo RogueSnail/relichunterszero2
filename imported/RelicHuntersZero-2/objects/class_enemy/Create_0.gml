@@ -1,3 +1,5 @@
+event_inherited();
+
 ///Minimum Enemy Class Variables
 sprite_reflecion = -1;
 sprite_reflection_subimage = 0;

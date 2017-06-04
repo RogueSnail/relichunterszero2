@@ -504,7 +504,7 @@ if instance_exists(ai_target)
 }
 
 //Force to stop when firing a burst
-if (my_gun) && (instance_exists(my_gun))
+if (my_gun) && (my_gun!= noone)
 {
     if (my_gun.fire_burst_current)
     {

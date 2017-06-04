@@ -1,4 +1,6 @@
 ///Main Shit
+event_inherited();
+
 shield = false;
 energy_max = 99999;
 energy = energy_max;

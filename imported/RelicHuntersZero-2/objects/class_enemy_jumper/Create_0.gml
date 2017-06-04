@@ -1,4 +1,5 @@
 ///Main Shit
+event_inherited();
 shield = false;
 energy_max = 0;
 energy = energy_max;
@@ -83,7 +84,8 @@ look_direction = 1;
 firing = false;
 fire_range = 350;
 my_gun = instance_create_layer(x,y,"Interactive",obj_needler_enemy);
-my_gun.owner = id;
+//my_gun.owner = id;
+owner_add_owned_instance(my_gun);
 
 randomize_supression = irandom_range(-1,1);
 ai_supression = randomize_supression;
@@ -107,8 +109,9 @@ reflection_object_setup(0,-1,image_index);
 shadow_object_setup(0,-1,-1,global.default_shadow_yscale);
 
 //Lifebar
-myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
-myDynamicBar.owner = id;
+//myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
+//owner_add_owned_instance(myDynamicBar);
+//myDynamicBar.owner = id;
 
 //Audio
 audio_emitter = audio_emitter_create();
