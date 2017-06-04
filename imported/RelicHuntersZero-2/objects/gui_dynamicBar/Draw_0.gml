@@ -1,6 +1,6 @@
 ///Draw
 
-if (instance_exists(owner)) //TODO: separate the update from the draw and get all this logic code out of the Draw event
+if (owner != noone) //TODO: separate the update from the draw and get all this logic code out of the Draw event
 {
     var topX = owner.x - barWidth/2;
     var topY = owner.y - 90;

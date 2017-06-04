@@ -1,4 +1,4 @@
-if (faction == f_enemy) && (instance_exists(other))
+if (faction == f_enemy) //&& (instance_exists(other))
 {
     spreadX = irandom_range(-15,15);
     spreadY = irandom_range(-15,15);
@@ -30,7 +30,6 @@ if (faction == f_enemy) && (instance_exists(other))
             if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
         }
         other.hit_taken = true;
-        
         
         damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         damage_fx.damage = damage;

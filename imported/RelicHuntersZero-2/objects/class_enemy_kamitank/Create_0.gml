@@ -1,4 +1,5 @@
 ///Main Shit
+event_inherited();
 shield = false;
 overshield = 0;
 energy_max = 0;
@@ -126,8 +127,9 @@ reflection_object_setup(0,-1,image_index);
 shadow_object_setup(0,-1,-1,global.default_shadow_yscale);
 
 //Lifebar
-myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
-myDynamicBar.owner = id;
+//myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
+//owner_add_owned_instance(myDynamicBar);
+//myDynamicBar.owner = id;
 
 //Rush VFX
 radiusStart = 12;

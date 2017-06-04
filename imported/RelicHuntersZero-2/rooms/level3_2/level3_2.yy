@@ -1177,7 +1177,7 @@
             "id": "e0d1bfa2-601c-4d40-8441-ff1a09404112",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": -13000,
+            "depth": -14000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -1226,7 +1226,7 @@
             "id": "ba2f59ed-aeb9-4b06-88c8-04d86dcea39b",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
-            "depth": -12000,
+            "depth": -13000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -1241,6 +1241,32 @@
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
             "name": "GUI_Pause",
+            "userdefined_depth": true,
+            "visible": true,
+            "instances": [
+                
+            ]
+        },
+        {
+            "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
+            "id": "4dace56b-ca25-41ab-8cf8-730ef33e4b48",
+            "modelName": "GMRInstanceLayer",
+            "mvc": "1.0",
+            "depth": -12000,
+            "grid_x": 32,
+            "grid_y": 32,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+                
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "name": "GUI",
             "userdefined_depth": true,
             "visible": true,
             "instances": [

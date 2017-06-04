@@ -10,9 +10,3 @@ if (drawOutline)
     draw_set_alpha(1);
 }
 else draw_text_dropshadow_ext_transformed(x+offsetX,y+offsetY,myString,colorMain,c_black,0.4,1,myScale,myScale,image_angle,myAlpha);
-
-
-
-
-
-

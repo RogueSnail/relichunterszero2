@@ -24,7 +24,8 @@ if (hit_taken)
     if (shield)
     {
         shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
-        shield_effect.owner = id;
+        //shield_effect.owner = id;
+		owner_add_owned_instance(shield_effect);
         shield_effect.blue = false;
         hit_taken = false;
     }
@@ -503,7 +504,7 @@ if instance_exists(ai_target)
 }
 
 //Force to stop when firing a burst
-if (my_gun) && (instance_exists(my_gun))
+if (my_gun) && (my_gun!= noone)
 {
     if (my_gun.fire_burst_current)
     {

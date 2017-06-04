@@ -192,7 +192,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
                 ai_movetarget_x = x;
                 ai_movetarget_y = y;
                 firing = true;
-                if (instance_exists(my_gun)) my_gun.myHomingTargetClass = myHomingTargetClass;
+                if (my_gun != noone) my_gun.myHomingTargetClass = myHomingTargetClass;
             }
             
             if (sight_forbidden) && (ai_supression) aggro -= aggro_cost_sight_forbidden;
@@ -290,7 +290,7 @@ if instance_exists(ai_target)
 }
 
 //Force to stop when firing a burst
-if (my_gun) && (instance_exists(my_gun))
+if (my_gun) && (my_gun != noone)
 {
     if (my_gun.fire_burst_current)
     {

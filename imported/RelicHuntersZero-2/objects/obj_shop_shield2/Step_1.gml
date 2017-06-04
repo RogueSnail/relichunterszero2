@@ -19,10 +19,11 @@ if (unlock)
             
             audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);
                 
-            guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
-            guiInfo.colorMain = K_BETU_BLUE;
-            guiInfo.myString = loc_key("INFO_SHIELDPLUS");
-            guiInfo.owner = activationClient;
+			gui_info_show_at(activationClient.id, activationClient.x, activationClient.y, "Interactive_Over", K_BETU_BLUE, loc_key("INFO_SHIELDPLUS"));
+            //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
+            //guiInfo.colorMain = K_BETU_BLUE;
+            //guiInfo.myString = loc_key("INFO_SHIELDPLUS");
+            //guiInfo.owner = activationClient;
             
             pack.want_to_die = true;
         }

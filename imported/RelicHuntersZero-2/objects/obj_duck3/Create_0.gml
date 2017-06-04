@@ -35,7 +35,8 @@ ai_cover_shield_threshold = energy_max*0.6;
 if my_gun == noone
 {
     my_gun = instance_create_layer(x,y,"Interactive",obj_assaultrifle_enemy);
-    my_gun.owner = id;
+    //my_gun.owner = id;
+	owner_add_owned_instance(my_gun);
 }
 
 grenade_count_max = 3;

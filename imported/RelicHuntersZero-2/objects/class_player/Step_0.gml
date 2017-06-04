@@ -55,10 +55,11 @@ if (global.relic_crystal_bacon ==2) && (instance_exists(controller_main)){
                 
         audio_play(audio_emitter,false,1,sfx_pickup_health);
                 
-        guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
-        guiInfo.colorMain = c_white;
-        guiInfo.myString = loc_key("INFO_HEALTHPLUS");
-        guiInfo.owner = id;
+		gui_info_show_at(id, x, y, "Interactive", c_white, loc_key("INFO_HEALTHPLUS"));
+        //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
+        //guiInfo.colorMain = c_white;
+        //guiInfo.myString = loc_key("INFO_HEALTHPLUS");
+        //guiInfo.owner = id;
         
         receivedCrystalBaconHealing = true;
     }
@@ -190,10 +191,12 @@ if (allowMovement)
             }
             else{
                 //Low Stamina Feedback
-                guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
-                guiInfo.colorMain = K_BETU_RED;
-                guiInfo.myString = loc_key("INFO_LOWSTAMINA");
-                guiInfo.owner = id;
+				gui_info_show_at(id, x, y, "Interactive", K_BETU_RED, loc_key("INFO_LOWSTAMINA"));
+                //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
+                //guiInfo.colorMain = K_BETU_RED;
+                //guiInfo.myString = loc_key("INFO_LOWSTAMINA");
+                //guiInfo.owner = id;
+
                 audio_play(audio_emitter, false, 1, sfx_pickup_full);
             }
         }
@@ -261,10 +264,11 @@ if (allowMovement)
                 }
                 else{
                     //Low Stamina Feedback
-                    guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
-                    guiInfo.colorMain = K_BETU_RED;
-                    guiInfo.myString = loc_key("INFO_LOWSTAMINA");
-                    guiInfo.owner = id;
+					gui_info_show_at(id, x, y, "Interactive", K_BETU_RED, loc_key("INFO_LOWSTAMINA"));
+                    //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
+                    //guiInfo.colorMain = K_BETU_RED;
+                    //guiInfo.myString = loc_key("INFO_LOWSTAMINA");
+                    //guiInfo.owner = id;
                     audio_play(audio_emitter, false, 1, sfx_pickup_full);
                 }
             }
@@ -395,7 +399,9 @@ if (hit_taken)
     if (shield)
     {
         shield_effect = instance_create_layer(x,y,"Interactive",fx_shield);
-        shield_effect.owner = id;
+		owner_add_owned_instance(shield_effect);
+        //shield_effect.owner = id;
+		
         hit_taken = false;
         if (superShield) shield_effect.sprite_index = spr_supershield;
         if (global.input[myPlayerId] != K_INPUT_KEYBOARD) joy_rumble(global.input[myPlayerId],1,1);

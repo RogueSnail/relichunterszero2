@@ -1,4 +1,5 @@
 ///Bootstrap
+global.pause = 0;
 draw_texture_flush();
 randomize();
 //shadow_init(0.4);
@@ -47,7 +48,7 @@ joy_init();
 
 volume_update();
 
+//create guiInfo
+global.guiInfo = instance_create_depth(0,0,0,gui_info);
+
 room_goto_next();
-
-
-

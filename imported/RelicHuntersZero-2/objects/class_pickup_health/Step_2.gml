@@ -11,19 +11,21 @@ if instance_exists(activationClient)
             activationClient.hp += hp;
             
             audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);
-            
-            guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
-            guiInfo.colorMain = c_white;
-            guiInfo.myString = loc_key("INFO_HEALTHPLUS");
-            guiInfo.owner = activationClient;
+
+			gui_info_show_at(activationClient.id, activationClient.x, activationClient.y, "Interactive_Over", c_white, loc_key("INFO_HEALTHPLUS"));
+            //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
+            //guiInfo.colorMain = c_white;
+            //guiInfo.myString = loc_key("INFO_HEALTHPLUS");
+            //guiInfo.owner = activationClient;
             instance_destroy();
         }
         else
         {
-            guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
-            guiInfo.colorMain = c_black;
-            guiInfo.myString = loc_key("INFO_HEALTHFULL");
-            guiInfo.owner = activationClient;
+			gui_info_show_at(activationClient.id, activationClient.x, activationClient.y, "Interactive_Over", c_black, loc_key("INFO_HEALTHFULL"));
+            //guiInfo = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gui_info);
+            //guiInfo.colorMain = c_black;
+            //guiInfo.myString = loc_key("INFO_HEALTHFULL");
+            //guiInfo.owner = activationClient;
             audio_play(activationClient.audio_emitter, false, 1, sfx_pickup_full);
         }
     }

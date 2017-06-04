@@ -1,4 +1,5 @@
 ///Main Shit
+event_inherited();
 shield = false;
 energy_max = 0;
 energy = 0;

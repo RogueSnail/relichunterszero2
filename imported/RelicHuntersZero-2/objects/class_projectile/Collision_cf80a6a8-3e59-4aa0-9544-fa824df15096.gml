@@ -6,8 +6,7 @@ if (!goesThroughWalls)
         projectile_bounce();
     }
     else if (!isBouncing)
-    {
-        
+    {        
         ds_list_destroy(damage_list);
         ds_list_add(global.audio_cleaner,audio_emitter);
         if (!instance_exists(hit)) && (global.count_particles < global.max_particles)

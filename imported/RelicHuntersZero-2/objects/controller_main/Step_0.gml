@@ -205,6 +205,15 @@ if (!level_built)
 
 if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop)) && (!(room == room_boss)) && (!(room == room_endShop))
 {
+
+	if (debug_forceLevelExit) {
+		var a = 1;
+	}
+	
+	if (!instance_exists(class_enemy)) {
+		var b = 1;
+	}
+	
     if ((!instance_exists(class_enemy)) && (!instance_exists(obj_kamikazelite_flying)) && (instance_exists(class_player)) && (!global.survivalWaves) && (!level_end)) || (debug_forceLevelExit && !level_end)
     {
         //Instantiates Ass

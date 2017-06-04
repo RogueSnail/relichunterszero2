@@ -1,7 +1,7 @@
 ///Friendly Fire
 if (global.friendlyFire)
 {
-    if (instance_exists(other)) && (instance_exists(owner))
+    if (owner != noone)//(instance_exists(other)) && (instance_exists(owner))
     {
         if (other.myPlayerId != owner.myPlayerId)
         {

@@ -1,5 +1,5 @@
 ///Enemy Collision
-if faction == f_player && instance_exists(other)
+if (faction == f_player) /*&& instance_exists(other)*/
 {
     spreadX = irandom_range(-15,15);
     spreadY = irandom_range(-15,15);

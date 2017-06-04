@@ -1,6 +1,6 @@
 ///Depth Adjustment
 depth = -y;
-if (instance_exists(my_gun))
+if (my_gun != noone)
 {
     my_gun.depth = depth-2;
 }

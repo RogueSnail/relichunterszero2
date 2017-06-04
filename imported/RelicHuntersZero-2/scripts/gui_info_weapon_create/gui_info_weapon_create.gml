@@ -6,14 +6,9 @@ owner=argument0;
 color=argument1;
 text=argument2;
 
-if instance_exists(owner)
+if (owner != noone)
 {
-    var guiInfo = instance_create_layer(owner.x,owner.y,"Interactive",gui_info);
-    
-    guiInfo.colorMain = color;
-    guiInfo.myString = text;
-    guiInfo.owner = owner;
-    
+	gui_info_show_at(owner.id, owner.x, owner.y, "Interactive", color, text);    
     return true;
 }
 else return false;

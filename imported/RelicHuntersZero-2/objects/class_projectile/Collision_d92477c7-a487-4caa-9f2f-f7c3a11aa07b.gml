@@ -1,6 +1,5 @@
 if (!goesThroughWalls)
 {
-    
     other.hp -= damage;
     other.shake_direction = direction;
     other.hitDirection = direction;

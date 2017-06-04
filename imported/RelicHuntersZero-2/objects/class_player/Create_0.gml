@@ -1,4 +1,5 @@
 ///Setup
+event_inherited();
 
 myPlayerId = 1;
 playerName = "NONAME";
@@ -8,7 +9,8 @@ setup_initial = false;
 interactionKey = false;
 
 myDynamicBar = instance_create_depth(x,y,self.depth+1,gui_dynamicBar);
-myDynamicBar.owner = id;
+//myDynamicBar.owner = id;
+owner_add_owned_instance(myDynamicBar);
 
 isVulnerable = false;
 alarm[0] = room_speed*2;
