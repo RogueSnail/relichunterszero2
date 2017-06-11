@@ -132,7 +132,7 @@ if (isActive)
     {
         var p = owner.myPlayerId;
         
-        if (!owner.melee) reload_time_current++;
+        if (!owner.melee) reload_time_current += delta_time;
         
         if reload_time_current >= reload_time
         {
@@ -278,7 +278,7 @@ if (isActive) && (owner) && instance_exists(owner)
     //Rate of Fire
     if (!can_fire)
     {
-        fire_rate_current++;
+        fire_rate_current += delta_time;
         if fire_rate_current >= (fire_rate + fireRateDecayCurrent)
         {
             fire_rate_current = 0;
@@ -290,13 +290,13 @@ if (isActive) && (owner) && instance_exists(owner)
     //Rate of Fire Decay Recovery
     if (!input_held) || (reloading) || (!ammo_current)
     {
-        fireRateDecayCurrent  += fireRateDecayRecovery;
+        fireRateDecayCurrent += fireRateDecayRecovery;
     }
     
     //Burst Fire
     if fire_burst_current < fire_burst && (!can_fire)
     {
-        fire_burst_rate_current++;
+        fire_burst_rate_current += delta_time;
         if fire_burst_rate_current >= fire_burst_rate
         {
             fire_burst_rate_current = 0;

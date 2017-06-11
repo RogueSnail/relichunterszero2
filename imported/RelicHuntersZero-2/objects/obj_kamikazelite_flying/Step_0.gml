@@ -80,6 +80,7 @@ if (flightState == "complete")
 {
     var landed = instance_create_layer(x,y,"Interactive",obj_kamikazelite);
     landed.hp = hp;
+	
     instance_destroy();
 }
 

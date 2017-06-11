@@ -18,7 +18,7 @@ speed_walk = 2.5;
 speed_sprint = 3.2;
 
 ai_dash_chance = 5;
-ai_dash_cooldown = room_speed*2;
+ai_dash_cooldown = 2000000;//room_speed*2;
 
 sprite_hit = spr_duck3_hit;
 sprite_walk = spr_duck3_walk;

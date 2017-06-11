@@ -20,8 +20,8 @@ accuracy_aiming = 1.1; //0.5
 ammo = 8;
 ammo_type = type_medium;
 ammo_cost = 3;
-reload_time = room_speed*3;
-fire_rate = room_speed*0.3;
+reload_time = 3000000;//room_speed*3;
+fire_rate = 300000;//room_speed*0.3;
 fire_automatic = false;
 crosshair_recoil = 0.5;
 

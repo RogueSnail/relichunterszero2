@@ -86,7 +86,6 @@ if (isExploding)
     if (timeCurrent >= timeToExplode)
     {
         audio_play_exclusive(audio_emitter,false,1,sfx_debris1,sfx_debris2,sfx_debris3);
-        ds_list_add(global.audio_cleaner,audio_emitter);
     
         myProjectile = instance_create_layer(x+lengthdir_x(fakeMovement,explosionDirection),y+lengthdir_y(fakeMovement,explosionDirection),"Interactive",obj_redbarrel_projectile);
         myProjectile.direction = explosionDirection;

@@ -3,7 +3,7 @@ event_inherited();
 
 price = priceArray [ min(priceTier,9) ];
 
-if instance_exists(activationClient) && (active) && (price){
+if (activationClient != noone) && (active) && (price){
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;
     
     if (wantToActivate) && (in_range) && (idToSpawn) && (charToSpawn  != noone) {

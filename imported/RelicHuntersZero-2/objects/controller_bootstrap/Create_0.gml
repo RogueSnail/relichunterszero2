@@ -51,4 +51,10 @@ volume_update();
 //create guiInfo
 global.guiInfo = instance_create_depth(0,0,0,gui_info);
 
+//create guiScore
+global.guiScore = instance_create_depth(0,0,0,gui_score);
+
+//create event controller
+global.eventManager = instance_create_depth(0,0,0,controller_eventManager);
+
 room_goto_next();

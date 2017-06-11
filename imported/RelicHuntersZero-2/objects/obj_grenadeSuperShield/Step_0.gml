@@ -4,7 +4,7 @@ event_inherited();
     var targetPlayer = instance_nearest(x,y,class_player);
     if (targetPlayer != noone){
         targetPlayer.superShield = true;
-        targetPlayer.superShieldTime = room_speed*6;
+        targetPlayer.superShieldTime = 6000000;//room_speed*6;
         audio_play(targetPlayer.audio_emitter,false,9,sfx_shield_regen_start);
         
 		gui_info_show_at(targetPlayer.id, targetPlayer.x, targetPlayer.y, "Interactive", K_BETU_ORANGE, loc_key("INFO_SUPERSHIELD"));

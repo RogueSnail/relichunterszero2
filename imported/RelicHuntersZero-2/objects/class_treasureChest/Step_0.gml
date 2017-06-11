@@ -7,7 +7,7 @@ if (!canActivate) {
     else canActivate = true;
 }
 
-if instance_exists(activationClient) && (canActivate)
+if (activationClient != noone) && (canActivate)
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;
 

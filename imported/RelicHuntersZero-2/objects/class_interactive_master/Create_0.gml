@@ -5,7 +5,7 @@ wantToActivate = false;
 isInteractiveObjectActive = true;
 isClientLocked = false;
 
-clientLockRelease = room_speed*0.5;
+clientLockRelease = 500000;//room_speed*0.5;
 clientLockReleaseCurrent = 0;
 
 activationOverride = false;

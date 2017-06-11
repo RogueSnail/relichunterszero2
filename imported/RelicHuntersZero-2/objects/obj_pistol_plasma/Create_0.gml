@@ -21,8 +21,8 @@ accuracy_aiming = 2;
 ammo = 9;
 ammo_type = type_heavy;
 ammo_cost = 4;
-reload_time = room_speed*3;
-fire_rate = room_speed*0.22;
+reload_time = 3000000;//room_speed*3;
+fire_rate = 220000;//room_speed*0.22;
 fire_automatic = false;
 crosshair_recoil = 0.7;
 

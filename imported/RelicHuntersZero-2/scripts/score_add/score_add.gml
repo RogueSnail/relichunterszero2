@@ -1,6 +1,4 @@
 ///score_add(points,is_headshot)
-var gui
-
 
 if (global.gameMode == gamemode_adventure) global.score_total += argument0;
 else if (global.gameMode == gamemode_endless) 
@@ -10,9 +8,19 @@ else if (global.gameMode == gamemode_endless)
 }
 global.statTotalBounty += argument0;
  
-gui = instance_create_layer(0,0,"GUI",gui_score);
-gui.value += argument0;
-gui.kill_count++;
-global.statKills++;
-if (argument1) gui.headshot = true;
-else gui.headshot = false;
+
+//show score
+var layer_id = layer_get_id("GUI");
+layer_add_instance(layer_id, global.guiScore);
+global.statKills++; 
+with (global.guiScore) {
+
+showScore = true;
+value += argument0;
+kill_count++;
+
+if (argument1) 
+	headshot = true;
+else 
+	headshot = false;
+}

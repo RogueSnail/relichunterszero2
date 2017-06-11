@@ -28,7 +28,7 @@ aggro_cost_chase = 1;
 aggro_min_chase = 120;
 
 ai_target = noone;
-ai_target_change = room_speed*2;
+ai_target_change = 2000000;//room_speed*2;
 ai_target_change_current = ai_target_change;
 ai_shutdown_range = 1000;
 
@@ -44,7 +44,7 @@ ai_cover_check_range = 400;
 ai_cover_hp_threshold = hp_max*0.5;
 
 ai_dash_chance = 0;
-ai_dash_cooldown = room_speed*5;
+ai_dash_cooldown = 1000000;//room_speed*5;
 ai_dash_cooldown_current = random(ai_dash_cooldown);
 ai_jump_distance_min = 400;
 ai_jump_distance_max = 900;
@@ -65,7 +65,7 @@ pushed = false;
 push_direction = 0;
 push_speed = 0;
 push_friction = 0.75;
-push_duration = room_speed*0.2;
+push_duration = 200000;//room_speed*0.2;
 push_duration_current = 0;
 
 no_score = false;
@@ -74,7 +74,7 @@ no_score = false;
 //Attack
 look_direction = 1;
 damage = 20;
-damage_timer = room_speed*1;
+damage_timer = 1000000;//room_speed*1;
 damage_timer_current = damage_timer;
 
 //Weapons

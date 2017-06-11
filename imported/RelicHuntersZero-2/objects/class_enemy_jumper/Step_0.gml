@@ -50,55 +50,10 @@ else
     hit_taken_count = 0;
 }
 
-///Life & Death
+///Life
 
 if (hp > hp_max) hp = hp_max;
 
-if hp <= 0
-{
-    var corpseSprite = sprite_death;
-    
-    if (!no_score)
-    {
-        if (!critical_death)
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.05;
-            score_add(global.score_kill,false);
-            
-            var randomDeath = irandom_range(1,2)
-            if (randomDeath == 1) corpseSprite = sprite_death;
-            if (randomDeath == 2) corpseSprite = sprite_death2;
-        }
-        else
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.075;
-            score_add(global.score_kill+global.score_headshot,true);
-            
-            var randomDeath = irandom_range(1,2)
-            if (randomDeath == 1) corpseSprite = sprite_precision1;
-            if (randomDeath == 2) corpseSprite = sprite_precision2;
-        }
-    }
-    
-    repeat(3) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
-    roll_ammo_drop(x,y);
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
-    myCorpse.image_xscale = image_xscale;
-    myCorpse.sprite_index = corpseSprite;
-    
-    if (pushed)
-    {
-        myCorpse.speed = push_speed*2;
-        myCorpse.direction = push_direction;
-    }
-    
-    audio_play(audio_emitter,false,1,sfx_kami_death);
-    
-    if (critical_death) audio_play_exclusive(audio_emitter,false,1,sfx_precision_kill1,sfx_precision_kill2,sfx_precision_kill3,sfx_precision_kill4,sfx_precision_kill5);
-    
-    ds_list_add(global.audio_cleaner,audio_emitter);
-    instance_destroy();
-}
 
 ///AI & Movement
 
@@ -141,7 +96,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
     }
     else 
     {
-        ai_target_change_current++;
+        ai_target_change_current += delta_time;
         if (ai_target = myClosestPlayer) 
         {
             distance_to_target = distance_to_player;
@@ -278,7 +233,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
             push_speed = dash_speed;
             exit;
         }
-        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current++;
+        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
     }
 }
 
@@ -319,7 +274,7 @@ if (pushed)
     push_speed -= push_friction;
     if push_speed < 0 push_speed = 0;
     
-    push_duration_current++;
+    push_duration_current += delta_time;
     if push_duration_current >= push_duration
     {
         push_duration_current = 0;
@@ -372,7 +327,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         damage = originalDamage;
     }
 }
-else damage_timer_current++;
+else damage_timer_current += delta_time;
 
 ///Audio
 audio_emitter_position(audio_emitter, x, y, 0);

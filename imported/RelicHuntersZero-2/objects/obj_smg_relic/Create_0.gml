@@ -19,13 +19,12 @@ accuracy_aiming = 5;
 ammo = 50;
 ammo_type = type_light;
 ammo_cost = 0.5;
-reload_time = room_speed*1.3;
-fire_rate = room_speed*0.15;
+//reload_time = 1300000;//room_speed*1.3;
+//fire_rate = 150000;//room_speed*0.15;
+reload_time = 1300000;//room_speed*1.3;
+fire_rate = 60000;//room_speed*0.06;
 fire_automatic = true;
 crosshair_recoil = 0.2;
-
-reload_time = room_speed*1.3;
-fire_rate = room_speed*0.06;
 
 sound = "smg";
 weaponClass = "smg";

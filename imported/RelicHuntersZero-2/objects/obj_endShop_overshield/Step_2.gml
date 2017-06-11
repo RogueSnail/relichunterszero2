@@ -3,7 +3,7 @@
 canActivate = true;
 infoString = "";
 
-if instance_exists(activationClient) && (isInteractiveObjectActive)
+if (activationClient != noone) && (isInteractiveObjectActive)
 {
     if (global.character[activationClient.myPlayerId] != char_biu) //Biu can't pick up Overshield
     {
@@ -23,7 +23,7 @@ event_inherited();
 
 if (unlock)
 {
-    if (instance_exists(activationClient))
+    if ((activationClient != noone))
     {
         activationClient.overshield += min(overshield, (activationClient.energy_max - activationClient.overshield));
         activationClient.energy_regen_time_current = activationClient.energy_regen_time-1;

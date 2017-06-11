@@ -6,7 +6,7 @@ if !__b__
 	if (visible) {
 		///Update Alpha and Duration
 
-		if (lifeCurrent < lifeMax) lifeCurrent++;
+		if (lifeCurrent < lifeMax) lifeCurrent += delta_time;
 		else myAlpha -= fadeSpeed;
 
 		if (myAlpha <= 0) {

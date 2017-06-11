@@ -1,5 +1,5 @@
 ///Activate
-if instance_exists(activationClient) && (full_relic) && (active)
+if (activationClient != noone) && (full_relic) && (active)
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;  
     

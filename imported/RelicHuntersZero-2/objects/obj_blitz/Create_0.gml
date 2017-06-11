@@ -16,11 +16,11 @@ accuracy_aiming = 2;
 ammo = 21;
 ammo_cost = 1;
 ammo_type = type_medium;
-reload_time = room_speed*2.5;
-fire_rate = room_speed*0.4;
+reload_time = 2500000;//room_speed*2.5;
+fire_rate = 400000;//room_speed*0.4;
 fire_automatic = true;
 fire_burst = 3;
-fire_burst_rate = room_speed*0.1;
+fire_burst_rate = 100000;//room_speed*0.1;
 crosshair_recoil = 0.5;
 
 criticalAimMax = 16;

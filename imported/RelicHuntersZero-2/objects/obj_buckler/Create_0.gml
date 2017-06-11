@@ -22,16 +22,16 @@ ammo_cost = 1;
 ammo = 0;
 ammo_current = ammo;
 reloading = false;
-reload_time = room_speed*2.5;
+reload_time = 2500000;//room_speed*2.5;
 reload_time_current = 0;
 
 fire_automatic = false;
 fire_amount = 1;
 fire_burst = 1;
 fire_burst_current = 0;
-fire_burst_rate = room_speed*0.1;
+fire_burst_rate = 100000;//room_speed*0.1;
 fire_burst_rate_current = 0;
-fire_rate = room_speed*0.1;
+fire_rate = 100000;//room_speed*0.1;
 fire_rate_current = 0;
 can_fire = true;
 

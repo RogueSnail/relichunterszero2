@@ -1,6 +1,6 @@
 ///pickup_from_shop()
 //Pickup when you are buying from the shop
-if instance_exists(activationClient)
+if (activationClient != noone)
     {
         activationClient.play_sound_pickup_weapon = true;
     

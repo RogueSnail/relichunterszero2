@@ -9,7 +9,7 @@ if (global.guiInfo != noone) {
 	global.guiInfo.mystring = argument5;
 	
 	global.guiInfo.myAlpha = 1;
-	global.guiInfo.lifeMax = room_speed*0.75;
+	global.guiInfo.lifeMax = 750000;//room_speed*0.75;
 	
 	global.guiInfo.visible = true;
 }

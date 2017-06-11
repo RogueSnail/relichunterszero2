@@ -5,7 +5,7 @@ image_speed = 0.1;
 image_index = irandom(image_number-1);
 
 damage = 20;
-damage_timer = room_speed*1;
+damage_timer = 1000000;//room_speed*1;
 damage_timer_current = damage_timer;
 
 dodging = false;

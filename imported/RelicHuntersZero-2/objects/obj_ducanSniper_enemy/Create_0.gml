@@ -9,5 +9,5 @@ projectile_damage = 150;
 projectile_range = 800;
 
 accuracy = 3;
-fire_rate = room_speed*2;
+fire_rate = 2000000;//room_speed*2;
 

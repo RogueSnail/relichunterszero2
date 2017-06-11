@@ -67,19 +67,12 @@ if (faction == f_player) /*&& instance_exists(other)*/
         
         damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         if (isPrecise) && (!other.shield) damageEffect.critical = true;
-        damageEffect.damage = damage;
-        
-        if (global.count_particles < global.max_particles)
-        {
-            hit = instance_create_layer(x,y,"Interactive",fx_hit);
-            hit.type = ammo_type;
-        }
+        damageEffect.damage = damage;        
         
         if (piercing) && (other.hp <= 0) piercing--;
         else if (bounce) && (bounceMax > bounceCurrent) projectile_bounce();
         else if (!isBouncing)
         {
-            ds_list_add(global.audio_cleaner,audio_emitter);
             instance_destroy();
         }
             

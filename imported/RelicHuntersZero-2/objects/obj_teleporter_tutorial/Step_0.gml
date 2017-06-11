@@ -1,6 +1,6 @@
 ///Interaction Override
 
-if instance_exists(activationClient) && (active)
+if (activationClient != noone) && (active)
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;  
 

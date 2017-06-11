@@ -47,5 +47,5 @@ if (player) && (damage_timer_current >= damage_timer) && instance_exists(player)
     }
 
 }
-else damage_timer_current++;
+else damage_timer_current += delta_time;
 

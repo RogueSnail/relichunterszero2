@@ -2,17 +2,7 @@
 
 if (headshot) myString = loc_key("HUD_PRECISIONKILL");
 
-if (destroy) instance_destroy();
-
-duration_current++;
-if (duration_current >= duration)
-{
-    global.total_value = 0;
-    instance_destroy();
-}
-
-
-if orientation == 0
+if (orientation == 0)
 {
     size_speed_current += size_accel_up;
     size_speed_current -= size_friction;

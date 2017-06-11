@@ -44,3 +44,4 @@ audio_emitter_gain(audio_emitter,global.soundVolume);
 playLoop = false;
 playLoopSound = -1;
 
+ammo_type = type_light;

@@ -21,7 +21,7 @@ event_inherited();
     stamina = stamina_max;
     energy_regen_speed = 2;
 
-    energy_regen_time = room_speed*2;
+    energy_regen_time = 2000000;//room_speed*2;
     energy_regen_time_regular = energy_regen_time;
     energy_regen_time_relic = energy_regen_time;
     

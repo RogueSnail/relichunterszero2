@@ -3,7 +3,7 @@
 canActivate = true;
 infoString = "";
 
-if instance_exists(activationClient) && (isInteractiveObjectActive)
+if (activationClient != noone) && (isInteractiveObjectActive)
 {
     if (activationClient.hp >= activationClient.hp_max)
     {
@@ -16,7 +16,7 @@ event_inherited();
 
 if (unlock)
 {
-    if (instance_exists(activationClient))
+    if ((activationClient != noone))
     {
         activationClient.hp += hp;
         audio_play(activationClient.audio_emitter,false,1,sfx_pickup_health);

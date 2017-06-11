@@ -3,7 +3,7 @@
 canActivate = true;
 infoString = "";
 
-if instance_exists(activationClient)
+if (activationClient != noone)
 {
     var p = activationClient.myPlayerId;
     
@@ -19,7 +19,7 @@ event_inherited();
 
 if (unlock)
 {
-    if (instance_exists(activationClient))
+    if ((activationClient != noone))
     {
         var p = activationClient.myPlayerId;
         if (ammoType == type_light) global.ammo_light[p] += ammo;

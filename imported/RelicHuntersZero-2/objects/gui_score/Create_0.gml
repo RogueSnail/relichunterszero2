@@ -1,6 +1,5 @@
 ///Main
-
-duration = room_speed*2;
+duration = 2000000;
 duration_current = 0;
 value = 0;
 myX = display_get_width()*0.5;
@@ -8,7 +7,6 @@ myY = display_get_height()*0.23;
 
 headshot = false;
 coin = false;
-destroy = false;
 
 //Animation
 size_start = 0.5;
@@ -23,11 +21,9 @@ size_speed_current = 0;
 
 orientation = 0; //0=growth, 1=shrink, 2=stable
 size_current = size_start;
-
-//There Can Be Only One
-previous_value = 0;
 kill_count = 0;
 
+/*
 while (instance_number(gui_score) > 1) 
 {
     other_gui = instance_find(gui_score,0);
@@ -47,6 +43,7 @@ while (instance_number(gui_score) > 1)
         }
     }
 }
+*/
 /*var testScores = instance_number(gui_score);
 if (testScores > 1)
 {
@@ -62,8 +59,6 @@ if (testScores > 1)
     }
 }*/
 
-value += previous_value;
+myString = "";
 setup = false;
-
-/* */
-/*  */
+showScore = false;

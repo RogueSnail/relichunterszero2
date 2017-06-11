@@ -7,9 +7,9 @@ is_sniper = false;
 fire_amount = 1;
 fire_burst = 1;
 fire_burst_current = 0;
-fire_burst_rate = room_speed*0.1;
+fire_burst_rate = 100000;//room_speed*0.1;
 fire_burst_rate_current = 0;
-fire_rate = room_speed*0.1;
+fire_rate = 100000;//room_speed*0.1;
 fire_rate_current = 0;
 can_fire = true;
 

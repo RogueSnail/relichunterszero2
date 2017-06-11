@@ -1,7 +1,7 @@
 ///Price + Buy
 event_inherited();
 
-if instance_exists(activationClient)
+if (activationClient != noone)
 {
     price = 0;
     

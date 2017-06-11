@@ -65,7 +65,7 @@ if (shy)
             y = teleportY;
         }
     }
-    else if (image_speed == 0) teleportTimeCurrent++;
+    else if (image_speed == 0) teleportTimeCurrent += delta_time;
 }
 
 ///AI & Movement
@@ -151,7 +151,7 @@ if instance_exists(ai_target)
 myEnemy = noone;
 myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_player,false,true);
 
-if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnemy)
+if (myEnemy) && (damage_timer_current >= damage_timer)// && instance_exists(myEnemy)
 {
     if (!myEnemy.dodging)
     {
@@ -185,7 +185,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         damage = originalDamage;
     }
 }
-else damage_timer_current++;
+else damage_timer_current += delta_time;
 
 //Self-destroy on level exit
 

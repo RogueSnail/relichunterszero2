@@ -6,7 +6,7 @@ if (unlock)
     else active = true;
 }
 
-if instance_exists(activationClient) && (active)
+if (activationClient != noone) && (active)
 {
     var p = activationClient.myPlayerId;
     

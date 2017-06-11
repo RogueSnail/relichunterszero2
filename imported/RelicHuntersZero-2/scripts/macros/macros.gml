@@ -69,3 +69,6 @@
 #macro lang_arabic 28
 #macro lang_ptpt 29
 #macro lang_suomi 30
+
+// events
+#macro EVENT_INSTANCE_REMOVED "instance_removed"

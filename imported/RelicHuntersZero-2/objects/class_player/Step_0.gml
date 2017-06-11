@@ -143,7 +143,7 @@ if (allowMovement)
         //Dodge
         if ( input_key_sprint() )
         {
-            dashTimeCurrent++;
+            dashTimeCurrent += delta_time;
         }
         
         double_tap_dodge = false;
@@ -170,7 +170,7 @@ if (allowMovement)
                 if (dodge_doubletap_direction == 270) && (dodge_doubletap_time_current < dodge_doubletap_time) double_tap_dodge = true;
                 else { dodge_doubletap_direction = 270; dodge_doubletap_time_current = 0; } 
             }
-            dodge_doubletap_time_current++;
+            dodge_doubletap_time_current += delta_time;
         }
         
         if ( (input_key_sprint_released() && (dashTimeCurrent <= dashTimeWindow) ) || (double_tap_dodge) ) && (!melee)
@@ -240,7 +240,7 @@ if (allowMovement)
         //Dodging
         if joy_check(joy,1)
         {
-            dashTimeCurrent++;
+            dashTimeCurrent += delta_time;
         }
         
         if joy_check_released(joy,1)
@@ -351,7 +351,7 @@ else sprinting = false;
 // Reset Dodge
 if (dodging)
 {
-    dodge_time++
+    dodge_time += delta_time;
     if dodge_time >= dodge_duration
     {
         dodge_time = 0;
@@ -443,7 +443,7 @@ var playFootstepSound = false;
 
 if (animation_current == "walk") || (animation_current == "sprint")
 {
-    footStepTimeCurrent++;
+    footStepTimeCurrent += delta_time;
     if (footStepTimeCurrent >= footStepTime)
     {
         playFootstepSound = true;
@@ -693,25 +693,10 @@ if (instance_exists(weapon2)) && (!instance_exists(weapon1))
 //Health
 if (hp >= hp_max) hp = hp_max;
 
-if (hp <= 0) 
-{
-    global.playerAlive[myPlayerId] = false;
-    corpse = instance_create_layer(x,y,"Interactive",fx_corpse_player);
-    if (global.character[myPlayerId] == char_jimmy) corpse.sprite_index = spr_jimmy_death;
-    if (global.character[myPlayerId] == char_pinky) corpse.sprite_index = spr_pinky_death;
-    if (global.character[myPlayerId] == char_raff) corpse.sprite_index = spr_raff_death;
-    if (global.character[myPlayerId] == char_biu) corpse.sprite_index = spr_biu_death;
-    if (global.character[myPlayerId] == char_punny) corpse.sprite_index = spr_punny_death;
-    if (global.character[myPlayerId] == char_ass) corpse.sprite_index = spr_ass_death;
-    if (global.character[myPlayerId] == char_rider) corpse.sprite_index = spr_rider_death;
-    instance_destroy();
-}
-else hp = round(hp);
-
 //Shield
 if energy < (energy_max+overshield)
 {
-    energy_regen_time_current++;
+    energy_regen_time_current += delta_time;
     if energy_regen_time_current >= energy_regen_time
     {
         if (!energy) energy = 1;
@@ -761,7 +746,7 @@ if (superShield){
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
     }
     
-    if (superShieldTimeCurrent < superShieldTime) superShieldTimeCurrent++;
+    if (superShieldTimeCurrent < superShieldTime) superShieldTimeCurrent += delta_time;
     else{
         superShieldTimeCurrent = 0;
         superShieldTime = 0;
@@ -798,11 +783,15 @@ else
     
     if joy_check(joy,3) 
     {
-        if (allowPickup) pickupTimeCurrent++;
+        if (allowPickup) {
+			pickupTimeCurrent += delta_time;
+		}
     }
     else 
     {
-        if (pickupTimeCurrent) pickupTimeCurrent--; 
+        if (pickupTimeCurrent) {
+			pickupTimeCurrent -= delta_time;
+		}
         allowPickup = true;
     }
     
@@ -834,16 +823,22 @@ if (instance_exists(class_interactive_master))
         if (instance_exists(pickupCurrent))
         {
             var pickupDist = point_distance(x,y,pickupCurrent.x,pickupCurrent.y);
-            if (pickupDist <= pickupCurrent.range) && (pickupCurrent.isInteractiveObjectActive) ds_priority_add(myPickupList, pickupCurrent, pickupDist);
+            if (pickupDist <= pickupCurrent.range) && (pickupCurrent.isInteractiveObjectActive) {
+				ds_priority_add(myPickupList, pickupCurrent, pickupDist);
+			}				
         }
     }
     
     var myPickupInRange = noone;
-    if (!ds_priority_empty(myPickupList)) myPickupInRange = ds_priority_find_min(myPickupList);
+    if (!ds_priority_empty(myPickupList)) {
+		myPickupInRange = ds_priority_find_min(myPickupList);
+	}
     
     if (instance_exists(myPickupInRange))
     {
-        if (myPickupInRange.isClientLocked == false) myPickupInRange.activationClient = id;
+        if (myPickupInRange.isClientLocked == false) {
+			myPickupInRange.activationClient = id;
+		}
         
         if (interactionKey) 
         {
@@ -907,7 +902,9 @@ if (global.relicDetected)
 }
 else isDigging = false;
 
-if (digRateCurrent < digRate) digRateCurrent++;
+if (digRateCurrent < digRate) {
+	digRateCurrent += delta_time;
+}
 
 if (isDigging)
 {

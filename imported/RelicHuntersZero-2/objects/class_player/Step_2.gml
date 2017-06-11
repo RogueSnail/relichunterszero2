@@ -1,3 +1,20 @@
+//HP & death
+if (hp <= 0) 
+{
+    global.playerAlive[myPlayerId] = false;
+    corpse = instance_create_layer(x,y,"Interactive",fx_corpse_player);
+    if (global.character[myPlayerId] == char_jimmy) corpse.sprite_index = spr_jimmy_death;
+    if (global.character[myPlayerId] == char_pinky) corpse.sprite_index = spr_pinky_death;
+    if (global.character[myPlayerId] == char_raff) corpse.sprite_index = spr_raff_death;
+    if (global.character[myPlayerId] == char_biu) corpse.sprite_index = spr_biu_death;
+    if (global.character[myPlayerId] == char_punny) corpse.sprite_index = spr_punny_death;
+    if (global.character[myPlayerId] == char_ass) corpse.sprite_index = spr_ass_death;
+    if (global.character[myPlayerId] == char_rider) corpse.sprite_index = spr_rider_death;
+	
+    instance_destroy();
+}
+else hp = round(hp);
+
 ///Crosshair Position & AutoAim
 if (global.input[myPlayerId] == K_INPUT_KEYBOARD)
 {
@@ -123,7 +140,7 @@ if (global.input[myPlayerId] != K_INPUT_KEYBOARD) && instance_exists(class_playe
 ///Release Input Lock
 
 if (inputLocked) {
-    if (inputLockTimeCurrent < inputLockTime) inputLockTimeCurrent++;
+    if (inputLockTimeCurrent < inputLockTime) inputLockTimeCurrent += delta_time;
     else {
         inputLocked = false;
         inputLockTimeCurrent = 0;
