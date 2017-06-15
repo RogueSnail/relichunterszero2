@@ -24,7 +24,7 @@ part_emitter_region(global.smoke_system, smoke_emitter, x-5, x+5, y-5, y+5, ps_s
 part_emitter_burst(global.smoke_system, smoke_emitter, smoke_particle, 1);
 
 ///Main Shit
-immortalTimer = room_speed*0.1;
+immortalTimer = 100000;//room_speed*0.1;
 damage = 0;
 radius = 75;
 range = 0;

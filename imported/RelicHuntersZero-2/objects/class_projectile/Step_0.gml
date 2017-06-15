@@ -53,7 +53,7 @@ if (playLoop)
 
 if (isBouncing)
 {
-    if (bounceTimeCurrent < bounceTime) bounceTimeCurrent++;
+    if (bounceTimeCurrent < bounceTime) bounceTimeCurrent += delta_time;
     else
     {
         isBouncing = false;

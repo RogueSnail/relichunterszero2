@@ -32,12 +32,12 @@ if (hit_taken)
     
     if (!shield)
     {
-        hit_taken_count++;
+        hit_taken_count += delta_time;
         
         if (hit_taken_count >= hit_taken_max) hit_taken = false;
         if (image_index == image_number-1) image_speed = 0;
         
-        if hit_taken_count = 1
+        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
         {
             sprite_index = sprite_hit;
             image_speed = 0.2;

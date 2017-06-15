@@ -79,7 +79,7 @@ ds_list_add(global.particle_type_list, smoke_particle);
 
 if (isExploding)
 {
-    timeCurrent++;
+    timeCurrent += delta_time;
     
     shake = 0.5*shake_max;
     
@@ -119,7 +119,7 @@ if (!global.pause) && (isExploding)
 {
     emissionRate += emissionRateGrowth;
     
-    emissionRateCurrent += emissionRate;
+    emissionRateCurrent += emissionRate * delta_time * ms_to_s;
     if (emissionRateCurrent >= 1)
     {
         emissionRateCurrent = 0;

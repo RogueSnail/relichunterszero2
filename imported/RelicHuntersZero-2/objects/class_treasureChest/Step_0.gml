@@ -3,7 +3,7 @@
 event_inherited();
 
 if (!canActivate) {
-    if (activateTimeCurrent < activateTime) activateTimeCurrent++;
+    if (activateTimeCurrent < activateTime) activateTimeCurrent += delta_time;
     else canActivate = true;
 }
 

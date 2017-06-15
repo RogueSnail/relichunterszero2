@@ -63,7 +63,7 @@ collision_mass = 1+random(1);
 
 //VFX
 hit_taken = false;
-hit_taken_max = room_speed*0.1;
+hit_taken_max = 100000;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 

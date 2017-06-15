@@ -12,7 +12,7 @@ unlock = false;
 fxObject = fx_chestRegular;
 
 canActivate = false;
-activateTime = room_speed*0.6;
+activateTime = 600000;//room_speed*0.6;
 activateTimeCurrent = 0;
 
 image_speed = 0.2;

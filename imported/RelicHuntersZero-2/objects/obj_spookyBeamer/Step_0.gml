@@ -1,6 +1,6 @@
 ///Mega Beam Charge
 
-if (input_held) && (!reloading) && (isActive) megaBeamTimeCurrent++;
+if (input_held) && (!reloading) && (isActive) megaBeamTimeCurrent += delta_time;
 else {
     megaBeamTimeCurrent = 0;
     megaBeam = false;

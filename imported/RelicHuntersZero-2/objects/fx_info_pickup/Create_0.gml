@@ -2,7 +2,7 @@
 owner = noone;
 
 allowDraw = false;
-allowDrawTime = room_speed*0.75;
+allowDrawTime = 750000;//room_speed*0.75;
 allowDrawTimeCurrent = 0;
 drawCompleted = false;
 

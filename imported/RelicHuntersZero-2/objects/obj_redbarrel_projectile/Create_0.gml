@@ -4,7 +4,7 @@ image_speed = 0;
 
 isInvulnerable = true;
 invulnerableTime = 0;
-invulnerableDuration = room_speed*0.5;
+invulnerableDuration = 500000;//room_speed*0.5;
 
 trampleDamage = 200;
 damage = 0;

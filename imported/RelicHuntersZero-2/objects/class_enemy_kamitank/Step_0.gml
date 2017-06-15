@@ -24,17 +24,17 @@ if (transforming) || (defenseMode)
         sprite_index = sprite_defense;
         if (hit_taken)
         {   
-                hit_taken_count++;
+            hit_taken_count++;
                 
-                if (hit_taken_count >= hit_taken_max) hit_taken = false;
-                if (image_index == image_number-1) image_speed = 0;
+            if (hit_taken_count >= hit_taken_max) hit_taken = false;
+            if (image_index == image_number-1) image_speed = 0;
                 
-                if hit_taken_count = 1
-                {
-                    sprite_index = sprite_hit_defense;
-                    image_speed = 0.05;
-                    image_index = 0;
-                }
+            if hit_taken_count = 1
+            {
+                sprite_index = sprite_hit_defense;
+                image_speed = 0.05;
+                image_index = 0;
+            }
         }
         else { hit_taken_count = 0; image_speed = 0.2; }
     }
@@ -43,17 +43,17 @@ else
 {
     if (hit_taken)
     {   
-            hit_taken_count++;
-            
-            if (hit_taken_count >= hit_taken_max) hit_taken = false;
-            if (image_index == image_number-1) image_speed = 0;
-            
-            if hit_taken_count = 1
-            {
-                sprite_index = sprite_hit;
-                image_speed = 0.2;
-                image_index = 0;
-            }
+        hit_taken_count += delta_time;
+        
+        if (hit_taken_count >= hit_taken_max) hit_taken = false;
+        if (image_index == image_number-1) image_speed = 0;
+        
+        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
+        {
+            sprite_index = sprite_hit;
+            image_speed = 0.2;
+            image_index = 0;
+        }
     }
     else
     {

@@ -98,7 +98,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if (isInvulnerable)
 {
-    invulnerableTime++;
+    invulnerableTime += delta_time;
     if (invulnerableTime >= invulnerableDuration) isInvulnerable = false;
 
 }

@@ -40,7 +40,7 @@ weaponClass = "rocket";
 
 //Mega Beam Charge
 megaBeam = false;
-megaBeamTime = room_speed*1.6;
+megaBeamTime = 1600000;//room_speed*1.6;
 megaBeamTimeCurrent = 0;
 megaBeamThickness = 20;
 megaBeamDamageMultiplier = 2;

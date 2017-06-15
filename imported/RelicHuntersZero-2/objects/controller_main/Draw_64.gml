@@ -92,7 +92,7 @@ while (p <= global.playerCount)
         if (curPlayer.overshield) && (energy > curPlayer.energy_max) charShieldColor = make_color_rgb(86,216,255);
         if (curPlayer.superShield) charShieldColor = K_BETU_ORANGE;
         var charBarDelaySpeed = 0.008;
-        var charBarDelayTime = room_speed*0.6;
+        var charBarDelayTime = 600000;//room_speed*0.6;
         
         //Health
         draw_set_color(c_black);
@@ -847,7 +847,7 @@ if ((fps/room_speed) < 0.9)
     ///Low Performance Check
     if (!global.lowPerfChecked)
     {
-        if (global.lowPerfTimeCurrent < global.lowPerfTime) global.lowPerfTimeCurrent++;
+        if (global.lowPerfTimeCurrent < global.lowPerfTime) global.lowPerfTimeCurrent += delta_time;
         else
         {
             global.persistent_toggle = false;

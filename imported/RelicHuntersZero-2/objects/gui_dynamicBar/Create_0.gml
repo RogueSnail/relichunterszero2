@@ -21,7 +21,7 @@ draw_healthbar_delayed_init(barShields);
 draw_healthbar_delayed_init(barHp);
 
 charBarDelaySpeed = 0.012;
-charBarDelayTime = room_speed*0.6;
+charBarDelayTime = 600000;//room_speed*0.6;
 
 healthColor = make_color_rgb(184,49,35);
 shieldColor = make_color_rgb(50,133,158);

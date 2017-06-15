@@ -16,7 +16,7 @@ else active = false;
 myAlpha = 0;
 myAlphaSpeed = 2/room_speed;
 
-lifeTime = room_speed*3;
+lifeTime = 3000000;//room_speed*3;
 lifeTimeCurrent = 0;
 timeToDie = false;
 myAlphaDieSpeed = 1/room_speed;

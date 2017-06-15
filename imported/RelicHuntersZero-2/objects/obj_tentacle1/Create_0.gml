@@ -24,7 +24,7 @@ push_direction = 0;
 push_speed = 0;
 
 hit_taken = false;
-hit_taken_max = room_speed*0.1;
+hit_taken_max = 100000;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 

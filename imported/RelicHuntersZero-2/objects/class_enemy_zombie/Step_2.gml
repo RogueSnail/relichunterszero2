@@ -11,7 +11,7 @@ if (hp <= 0)
     {
         if (!critical_death)
         {
-            if (global.allowKillFreeze) global.pause = room_speed*0.05;
+            if (global.allowKillFreeze) global.pause = 50000;//room_speed*0.05;
             score_add(myRegularScore,false);
             
             var randomDeath = irandom_range(1,2)
@@ -20,7 +20,7 @@ if (hp <= 0)
         }
         else
         {
-            if (global.allowKillFreeze) global.pause = room_speed*0.075;
+            if (global.allowKillFreeze) global.pause = 75000;//room_speed*0.075;
             score_add(myRegularScore+myPrecisionScore,true);
             
             var randomDeath = irandom_range(1,3)

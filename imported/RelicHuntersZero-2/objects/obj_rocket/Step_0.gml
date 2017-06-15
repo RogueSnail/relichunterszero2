@@ -9,7 +9,7 @@ if (!global.pause)
         speed_reset = false;
     }
     
-    immortalTimer--;
+    immortalTimer -= delta_time;
     image_angle = direction;
     speed -= decay;
     if (speed > maxSpeed) speed = maxSpeed;

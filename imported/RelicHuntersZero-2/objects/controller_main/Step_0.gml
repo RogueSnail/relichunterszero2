@@ -2,7 +2,7 @@
 /// Pause
 if (global.pause)
 {
-    global.pause--;
+    global.pause -= delta_time;
     if global.pause < 0 global.pause = 0;
 }
 

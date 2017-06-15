@@ -18,7 +18,7 @@ bounceMax = 1;
 bounceCurrent = 0;
 
 isBouncing = false;
-bounceTime = room_speed*0.1;
+bounceTime = 100000;//room_speed*0.1;
 bounceTimeCurrent = 0;
 
 goesThroughWalls = false;

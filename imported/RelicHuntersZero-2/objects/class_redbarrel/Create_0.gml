@@ -13,7 +13,7 @@ emissionRateGrowth = 0.01;
 emissionRateCurrent = 0;
 
 isExploding = false;
-timeToExplode = room_speed*1.5;
+timeToExplode = 1500000;//room_speed*1.5;
 timeCurrent = 0;
 
 hasImpactSound = true;

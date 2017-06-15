@@ -28,12 +28,12 @@ if (hit_taken)
     
     if (!shield)
     {
-        hit_taken_count++;
+        hit_taken_count += delta_time;
         
         if (hit_taken_count >= hit_taken_max) hit_taken = false;
         if (image_index == image_number-1) image_speed = 0;
         
-        if hit_taken_count = 1
+        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
         {
             sprite_index = sprite_hit;
             image_speed = 0.2;
@@ -275,7 +275,7 @@ var fireRocket = false;
 var fireAngleModifier = 0;
 
 
-if (rocketTimeCurrent < rocketTime) && (!wantToFire) rocketTimeCurrent++;
+if (rocketTimeCurrent < rocketTime) && (!wantToFire) rocketTimeCurrent += delta_time;
 else wantToFire = true;
 
 if (wantToFire) 
@@ -293,7 +293,7 @@ if (wantToFire)
             rocketFireBurst--;
             fireRocket = true;
         }
-        else rocketFireBurstRateCurrent++;
+        else rocketFireBurstRateCurrent += delta_time;
     }
     else
     {

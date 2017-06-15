@@ -17,12 +17,12 @@ if (allowInput) && (display)
 
 if (display)
 {
-    global.pause = 99;
+    global.pause = 500000;
 }
 else 
 {
-    show_debug_message("CARALHO");
-    global.pause = 9;
+    show_debug_message("ERROR");
+    global.pause = 50000;
     instance_destroy();
 }
 

@@ -83,7 +83,7 @@ collision_mass = 1+random(1);
 no_score = false;
 
 hit_taken = false;
-hit_taken_max = room_speed*0.1;
+hit_taken_max = 100000;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 
@@ -150,9 +150,9 @@ if my_gun == noone
 
 rocketFireBurstMax = 3;
 rocketFireBurst = rocketFireBurstMax;
-rocketFireBurstRate = room_speed*0.65;
+rocketFireBurstRate = 650000;//room_speed*0.65;
 rocketFireBurstRateCurrent = rocketFireBurstRate;
-rocketTime = room_speed*22;
+rocketTime = 22000000;//room_speed*22;
 rocketTimeCurrent = rocketTime-100;
 
 /*

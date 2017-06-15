@@ -6,7 +6,7 @@ if (image_index >= trigger_frame)
 
     if (radius < radiusFinal) radius += min(radiusSpeed, (radiusFinal-radius) );
     
-    radiusAlpha -= radiusAlphaSpeed;
+    radiusAlpha -= radiusAlphaSpeed * delta_time * ms_to_s;
 }
 
 ///Damage
@@ -46,8 +46,8 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                     repeat(10) 
                     {
                         blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
-                        blood.vertical_speed_start = random_range(5,10);
-                        blood.speed = random_range(5,9);
+                        blood.vertical_speed_start = random_range(5,10) * fps;
+                        blood.speed = random_range(5,9) * fps;
                     }
                 }
                 else poor_guy.energy -= damage;
@@ -58,8 +58,8 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                 repeat(10) 
                 {
                     blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
-                    blood.vertical_speed_start = random_range(5,10);
-                    blood.speed = random_range(5,9);
+                    blood.vertical_speed_start = random_range(5,10) * fps;
+                    blood.speed = random_range(5,9) * fps;
                 }
             }
             
@@ -99,7 +99,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if (want_to_pause) && (image_index >= trigger_frame)
 {
-    if (global.allowKillFreeze) global.pause = room_speed*0.07;
+    if (global.allowKillFreeze) global.pause = 70000;//room_speed*0.07;
     want_to_pause = false;
 }
 

@@ -27,7 +27,7 @@ moving = false;
 ai_active = false;
 want_to_activate = false;
 ai_activation_range = 600;
-aiActivationTime = room_speed*3.5;
+aiActivationTime = 3500000;//room_speed*3.5;
 aiActivationTimeCurrent = 0;
 
 aggro = random_range(0,50);
@@ -78,7 +78,7 @@ collision_mass = 1+random(1);
 no_score = false;
 
 hit_taken = false;
-hit_taken_max = room_speed*0.1;
+hit_taken_max = 100000;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 

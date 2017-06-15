@@ -66,7 +66,7 @@ if (activated) {
     
     //Animation
     if (allTheWayUp) {
-        damageTimeCurrent++;
+        damageTimeCurrent += delta_time;
         
         if (damageTimeCurrent >= damageTime) {
             allTheWayUp = false;

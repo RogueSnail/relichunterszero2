@@ -4,14 +4,14 @@ sprite_subimage = 0;
 draw_height = -40;
 
 sprite_angle = 0;
-angular_min = -10;
-angular_max = 10;
+angular_min = -10 * fps;
+angular_max = 10 * fps;
 angular_speed = random_range(angular_min,angular_max);
 
-vertical_speed_start = random_range(3,6);
+vertical_speed_start = random_range(3,6) * fps;
 vertical_speed = -vertical_speed_start;
-vertical_speed_start_min = 0.5;
-fake_gravity = 0.3;
+vertical_speed_start_min = 0.5 * fps;
+fake_gravity = 10;//0.3;
 
 timeToBounce = false;
 firstBounce = false;

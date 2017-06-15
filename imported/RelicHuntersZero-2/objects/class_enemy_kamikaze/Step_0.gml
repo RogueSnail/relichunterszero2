@@ -11,17 +11,17 @@ else image_xscale = -1;
 //Hit Taken
 if (hit_taken)
 {   
-        hit_taken_count++;
+    hit_taken_count += delta_time;
         
-        if (hit_taken_count >= hit_taken_max) hit_taken = false;
-        if (image_index == image_number-1) image_speed = 0;
+    if (hit_taken_count >= hit_taken_max) hit_taken = false;
+    if (image_index == image_number-1) image_speed = 0;
         
-        if hit_taken_count = 1
-        {
-            sprite_index = sprite_hit;
-            image_speed = 0.2;
-            image_index = 0;
-        }
+    if (hit_taken_count > 0) && (sprite_index != sprite_hit)
+    {
+        sprite_index = sprite_hit;
+        image_speed = 0.2;
+        image_index = 0;
+    }
 }
 else
 {
