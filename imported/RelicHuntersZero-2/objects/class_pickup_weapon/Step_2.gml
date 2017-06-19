@@ -1,6 +1,6 @@
 ///Pick Up
 
-if instance_exists(activationClient) 
+if (activationClient != noone) 
 {
     var p = activationClient.myPlayerId;
     

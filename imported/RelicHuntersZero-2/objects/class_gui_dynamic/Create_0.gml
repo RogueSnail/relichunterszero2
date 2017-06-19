@@ -16,8 +16,5 @@ activeAccel = 0.4;
 activeSpeedMax = 10;
 
 timedActive = false;
-activeTime = room_speed*3.5;
+activeTime = 3500000;//room_speed*3.5;
 activeTimeCurrent = 0;
-
-
-

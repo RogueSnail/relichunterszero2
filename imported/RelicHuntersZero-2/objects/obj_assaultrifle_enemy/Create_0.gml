@@ -10,6 +10,6 @@ projectile_range = 600;
 
 accuracy = 3;
 fire_burst = 3;
-fire_burst_rate = room_speed*0.05;
-fire_rate = room_speed*1;
+fire_burst_rate = 50000;//room_speed*0.05;
+fire_rate = 1000000;//room_speed*1;
 

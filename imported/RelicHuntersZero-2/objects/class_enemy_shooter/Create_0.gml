@@ -27,7 +27,7 @@ moving = false;
 ai_active = false;
 want_to_activate = false;
 ai_activation_range = 600;
-aiActivationTime = room_speed*3.5;
+aiActivationTime = 3500000;//room_speed*3.5;
 aiActivationTimeCurrent = 0;
 
 aggro = random_range(0,50);
@@ -42,7 +42,7 @@ aggro_cost_sight_forbidden = 5;
 aggro_min_chase = 120;
 
 ai_target = noone;
-ai_target_change = room_speed*2;
+ai_target_change = 2000000;//room_speed*2;
 ai_target_change_current = ai_target_change;
 ai_shutdown_range = 1000;
 
@@ -66,7 +66,7 @@ ai_grenade_chance = 0.12;
 ai_grenade_cover_multiplier = 5;
 ai_myGrenade = noone;
 ai_dash_chance = 0;
-ai_dash_cooldown = room_speed*1;
+ai_dash_cooldown = 1000000;//room_speed*1;
 ai_dash_cooldown_current = ai_dash_cooldown;
 
 ai_path = path_add();
@@ -78,7 +78,7 @@ collision_mass = 1+random(1);
 no_score = false;
 
 hit_taken = false;
-hit_taken_max = room_speed*0.1;
+hit_taken_max = 100000;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 
@@ -86,12 +86,12 @@ pushed = false;
 push_direction = 0;
 push_speed = 0;
 push_friction = 0.3;
-push_duration = room_speed*1.5;
+push_duration = 1500000;//room_speed*1.5;
 push_duration_current = 0;
 
 //Shield
 shield = true;
-energy_regen_time = room_speed*5;
+energy_regen_time = 5000000;//room_speed*5;
 energy_regen_time_current = 0;
 energy_regen_speed = 1;
 
@@ -133,4 +133,5 @@ audio_emitter = audio_emitter_create();
 audio_emitter_falloff(audio_emitter, global.falloffMinorDist, global.falloffMinorMax, global.falloffMinorFactor );
 audio_emitter_gain(audio_emitter,global.soundVolume);
 
-
+//
+dispatch_event("created", id);

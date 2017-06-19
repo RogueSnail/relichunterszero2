@@ -20,11 +20,11 @@ accuracy_aiming = 2;
 ammo = 2;
 ammo_cost = 25;
 ammo_type = type_heavy;
-reload_time = room_speed*3;
-fire_rate = room_speed*1;
+reload_time = 3000000;//room_speed*3;
+fire_rate = 1000000;//room_speed*1;
 fire_automatic = false;
 fire_burst = 1;
-fire_burst_rate = room_speed*0.05;
+fire_burst_rate = 50000;//room_speed*0.05;
 crosshair_recoil = 0.8;
 
 sound = "rocket";

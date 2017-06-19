@@ -1,7 +1,8 @@
 1.0.0←ed6a955d-5826-4f98-a450-10b414266c27←ed6a955d-5826-4f98-a450-10b414266c27|{
     "option_gameguid": "{3BBAAB69-2449-44F4-8CE3-54D349E2B5FA}",
     "option_steam_app_id": "382490",
-    "option_game_speed": 60
+    "option_game_speed": 60,
+    "option_lastchanged": "11 June 2017 3:50:27"
 }←be5f1418-b31b-48af-a023-f04cdf6e5121|{
     "textureGroups": {
         "Additions": [

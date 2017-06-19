@@ -9,7 +9,7 @@ event_inherited();
 
 if (!allowBounce)
 {
-    if (allowBounceTimeCurrent < allowBounceTime) allowBounceTimeCurrent++;
+    if (allowBounceTimeCurrent < allowBounceTime) allowBounceTimeCurrent += delta_time;
     else allowBounce = true;
 }
 
@@ -44,7 +44,7 @@ reflection_object_setup(draw_height,spr_grenadeNew,image_index);
 
 ///Detonation Control
 
-if (!vertical_speed_start) detonationTimeCurrent++;
+if (!vertical_speed_start) detonationTimeCurrent += delta_time;
 
 if (detonationTimeCurrent >= detonationTime)
 {

@@ -7,13 +7,13 @@ shyTrigger = false;
 activationFX = noone;
 shyMaxDistance = 650;
 
-teleportTime = room_speed*4;
+teleportTime = 4000000;//room_speed*4;
 teleportTimeCurrent = 0;
 
 //Attack
 look_direction = 1;
 damage = 100;
-damage_timer = room_speed*1.5;
+damage_timer = 1500000;//room_speed*1.5;
 damage_timer_current = damage_timer;
 
 //Sprites

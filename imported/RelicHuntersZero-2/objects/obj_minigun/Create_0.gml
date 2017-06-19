@@ -17,14 +17,14 @@ accuracy_aiming = 6;
 ammo = 200;
 ammo_type = type_light;
 ammo_cost = 0.5;
-reload_time = room_speed*4.2;
+reload_time = 4200000;//room_speed*4.2;
 
-fire_rate = room_speed*0.3;
+fire_rate = 300000;//room_speed*0.3;
 fire_automatic = true;
 
 fireRateDecay = -2;
-fireRateDecayRecovery = 0.2;
-fireRateDecayMin = -room_speed*0.25;
+fireRateDecayRecovery = 200000;//0.2;
+fireRateDecayMin = -250000;//-room_speed*0.25;
 fireRateDecayMax = 0;
 
 crosshair_recoil = 0.1;

@@ -1,5 +1,5 @@
 ///Buy
-if instance_exists(activationClient) && (!unlock)
+if (activationClient != noone) && (!unlock)
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;   
 

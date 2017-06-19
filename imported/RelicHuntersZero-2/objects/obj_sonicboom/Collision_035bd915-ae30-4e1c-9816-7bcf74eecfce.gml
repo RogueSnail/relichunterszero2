@@ -42,7 +42,6 @@ if instance_exists(other)
                     damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
                     damage_fx.damage = ffDamage;
             
-                    ds_list_add(global.audio_cleaner,audio_emitter);
                     if (!instance_exists(hit)) && (global.count_particles < global.max_particles)
                     {
                         hit = instance_create_layer(x,y,"Interactive",fx_hit);
@@ -51,7 +50,6 @@ if instance_exists(other)
                     
                     if (!piercing) 
                     {
-                        ds_list_add(global.audio_cleaner,audio_emitter);
                         instance_destroy();
                     }
                     else piercing--;
@@ -91,7 +89,6 @@ if instance_exists(other)
             damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
             damage_fx.damage = damage;
     
-            ds_list_add(global.audio_cleaner,audio_emitter);
             if (!instance_exists(hit)) && (global.count_particles < global.max_particles)
             {
                 hit = instance_create_layer(x,y,"Interactive",fx_hit);

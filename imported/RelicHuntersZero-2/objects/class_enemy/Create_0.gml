@@ -27,3 +27,9 @@ push_direction = 0;
 push_speed = 0;
 
 isVulnerable = true;
+
+//AI
+ai_target = noone;
+
+//Audio
+audio_emitter = 0;

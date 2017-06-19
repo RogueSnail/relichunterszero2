@@ -24,17 +24,17 @@ if (transforming) || (defenseMode)
         sprite_index = sprite_defense;
         if (hit_taken)
         {   
-                hit_taken_count++;
+            hit_taken_count++;
                 
-                if (hit_taken_count >= hit_taken_max) hit_taken = false;
-                if (image_index == image_number-1) image_speed = 0;
+            if (hit_taken_count >= hit_taken_max) hit_taken = false;
+            if (image_index == image_number-1) image_speed = 0;
                 
-                if hit_taken_count = 1
-                {
-                    sprite_index = sprite_hit_defense;
-                    image_speed = 0.05;
-                    image_index = 0;
-                }
+            if hit_taken_count = 1
+            {
+                sprite_index = sprite_hit_defense;
+                image_speed = 0.05;
+                image_index = 0;
+            }
         }
         else { hit_taken_count = 0; image_speed = 0.2; }
     }
@@ -43,17 +43,17 @@ else
 {
     if (hit_taken)
     {   
-            hit_taken_count++;
-            
-            if (hit_taken_count >= hit_taken_max) hit_taken = false;
-            if (image_index == image_number-1) image_speed = 0;
-            
-            if hit_taken_count = 1
-            {
-                sprite_index = sprite_hit;
-                image_speed = 0.2;
-                image_index = 0;
-            }
+        hit_taken_count += delta_time;
+        
+        if (hit_taken_count >= hit_taken_max) hit_taken = false;
+        if (image_index == image_number-1) image_speed = 0;
+        
+        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
+        {
+            sprite_index = sprite_hit;
+            image_speed = 0.2;
+            image_index = 0;
+        }
     }
     else
     {
@@ -83,64 +83,21 @@ else
     }
 }
 
-///Life & Death
+///Life
 
 if (hp > hp_max) hp = hp_max;
 
-if hp <= 0
-{
-    var corpseSprite = sprite_death;
-    
-    if (no_score == false)
-    {
-        var randomDeath = irandom_range(1,3)
-        if (randomDeath == 1) corpseSprite = sprite_death;
-        if (randomDeath == 2) corpseSprite = sprite_death2;
-        if (randomDeath == 3) corpseSprite = sprite_death3;
-        
-        if (!critical_death)
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.05;
-            score_add(myRegularScore,false);
-        }
-        else
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.075;
-            score_add(myRegularScore+myPrecisionScore,true);
-        }
-    }
-    
-    repeat(myCoinDropAmount) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
-    roll_ammo_drop(x,y);
-    
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
-    myCorpse.image_xscale = image_xscale;
-    myCorpse.sprite_index = corpseSprite;
-    
-    if (pushed)
-    {
-        myCorpse.speed = push_speed*2;
-        myCorpse.direction = push_direction;
-    }
-    
-    audio_play(audio_emitter,false,1,deathSfx);
-    
-    if (critical_death) audio_play_exclusive(audio_emitter,false,1,sfx_precision_kill1,sfx_precision_kill2,sfx_precision_kill3,sfx_precision_kill4,sfx_precision_kill5);
-    
-    ds_list_add(global.audio_cleaner,audio_emitter);
-    instance_destroy();
-}
 
 ///Defense Mode
 
-if (defenseCooldownCurrent < defenseCooldown) defenseCooldownCurrent++;
+if (defenseCooldownCurrent < defenseCooldown) defenseCooldownCurrent += delta_time;
 else if (!transforming) && (!defenseMode) {
     transforming = true;
 }
 
 if (defenseMode)
 {
-    defenseModeDurationCurrent++;
+    defenseModeDurationCurrent += delta_time;
     if (defenseModeDurationCurrent >= defenseModeDuration)
     {
         defenseMode = false;
@@ -162,7 +119,10 @@ if (defenseMode)
             radiusAlpha -= radiusAlphaSpeed;
         }
         
-        if (defenseModeDurationCurrent == room_speed*2) || (defenseModeDurationCurrent == room_speed*3)
+		//TODO
+		//Antes contava frames, entao funcionava
+		//if (defenseModeDurationCurrent == room_speed*2) || (defenseModeDurationCurrent == room_speed*3)
+        if (defenseModeDurationCurrent == 2000000) || (defenseModeDurationCurrent == 3000000)
         {
             radius = radiusStart;
             radiusAlpha = 1;
@@ -241,7 +201,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     }
     else 
     {
-        ai_target_change_current++;
+        ai_target_change_current += delta_time;
         if (ai_target = myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
@@ -351,7 +311,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             push_direction = dash_direction;
             exit;
         }
-        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current++;
+        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
     }
     
     
@@ -388,7 +348,7 @@ if (pushed)
     
     if push_speed < 0 push_speed = 0;
     
-    push_duration_current++;
+    push_duration_current += delta_time;
     if push_duration_current >= push_duration
     {
         push_duration_current = 0;
@@ -470,7 +430,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         myEnemy.hit_taken = true;
     }
 }
-else damage_timer_current++;
+else damage_timer_current += delta_time;
 
 ///Audio
 audio_emitter_position(audio_emitter, x, y, 0);

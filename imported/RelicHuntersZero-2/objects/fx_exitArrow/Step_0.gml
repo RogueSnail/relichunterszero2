@@ -2,7 +2,7 @@
 
 if (image_speed == 0)
 {
-    if (animationDelayCurrent < animationDelay) animationDelayCurrent++;
+    if (animationDelayCurrent < animationDelay) animationDelayCurrent += delta_time;
     else image_speed = animationSpeed;
 }
 

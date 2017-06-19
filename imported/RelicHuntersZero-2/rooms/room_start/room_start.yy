@@ -49788,7 +49788,7 @@
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
-            "hierarchyVisible": false,
+            "hierarchyVisible": true,
             "inheritLayerDepth": false,
             "inheritLayerSettings": false,
             "inheritSubLayers": false,
@@ -49800,7 +49800,7 @@
             "m_serialiseFrozen": false,
             "name": "Compatibility_Instances_Depth_999999",
             "userdefined_depth": true,
-            "visible": false,
+            "visible": true,
             "instances": [
                 {
                     "id": "81b323ae-d518-44d8-9f6d-e3f9ef4050b8",

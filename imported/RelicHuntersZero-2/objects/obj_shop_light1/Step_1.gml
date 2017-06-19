@@ -9,7 +9,7 @@ if (unlock)
     ammo_object = obj_pickup_lightammo;
     
     //Pickup
-    if (activationClient) && instance_exists(activationClient)
+    if (activationClient) && (activationClient != noone)
     {
         var p = activationClient.myPlayerId;
         

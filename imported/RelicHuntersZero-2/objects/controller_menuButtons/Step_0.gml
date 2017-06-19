@@ -72,7 +72,7 @@ if (allowInput)
                     }
                     else
                     {
-                        joyCanSwitchTimeCurrent[joy]++;
+                        joyCanSwitchTimeCurrent[joy] += delta_time;
                         if (joyCanSwitchTimeCurrent[joy] >= joyCanSwitchTime)
                         { 
                             joyCanSwitch[joy] = true;

@@ -15,7 +15,7 @@ var backColor = argument8;
 var delayColor = argument9;
 
 drawHealthbarCatchupSpeed[iD] = argument10; //Suggested: 0.0025;
-drawHealthbarDelayTime[iD] = argument11; //Suggested: room_speed*2;
+drawHealthbarDelayTime[iD] = argument11; //Suggested: 2000000;//room_speed*2;
 
 var dir = argument12;
 var showBack = argument13;
@@ -28,7 +28,7 @@ if (value == drawHealthbarStoredTargetValue[iD])
     if (!drawHealthbarIsUpdating[iD])
     {
         //Countdown, then trigger Update
-        drawHealthbarDelayTimeCurrent[iD]++;
+        drawHealthbarDelayTimeCurrent[iD] += delta_time;
         if (drawHealthbarDelayTimeCurrent[iD] >= drawHealthbarDelayTime[iD])
         {
             drawHealthbarIsUpdating[iD] = true;

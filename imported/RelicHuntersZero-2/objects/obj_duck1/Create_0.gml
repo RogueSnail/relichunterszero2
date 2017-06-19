@@ -20,7 +20,7 @@ speed_walk = 2.5;
 speed_sprint = 3.2;
 
 ai_dash_chance = 2.5;
-ai_dash_cooldown = room_speed*5;
+ai_dash_cooldown = 5000000;//room_speed*5;
 
 ai_cover_hp_threshold = hp_max*0.35;
 

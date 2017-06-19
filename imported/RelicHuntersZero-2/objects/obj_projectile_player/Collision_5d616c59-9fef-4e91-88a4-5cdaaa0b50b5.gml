@@ -41,12 +41,6 @@ if (global.friendlyFire)
                 damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
                 damage_fx.damage = ffDamage;
         
-                ds_list_add(global.audio_cleaner,audio_emitter);
-                if (!instance_exists(hit)) && (global.count_particles < global.max_particles)
-                {
-                    hit = instance_create_layer(x,y,"Interactive",fx_hit);
-                    hit.type = ammo_type;
-                }
                 instance_destroy();
             }
             

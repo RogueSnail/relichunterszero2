@@ -1,7 +1,7 @@
 ///Unlock
 event_inherited();
 
-if instance_exists(activationClient)
+if (activationClient != noone)
 {   
     if (unlock) && (spawnObject)
     {

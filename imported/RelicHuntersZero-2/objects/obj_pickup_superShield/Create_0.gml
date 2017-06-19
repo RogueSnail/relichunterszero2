@@ -1,3 +1,3 @@
 event_inherited();
-superShieldTime = room_speed*12;
+superShieldTime = 12000000;//room_speed*12;
 

@@ -3,11 +3,11 @@
 event_inherited();
 
 if (!canActivate) {
-    if (activateTimeCurrent < activateTime) activateTimeCurrent++;
+    if (activateTimeCurrent < activateTime) activateTimeCurrent += delta_time;
     else canActivate = true;
 }
 
-if instance_exists(activationClient) && (canActivate)
+if (activationClient != noone) && (canActivate)
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;
 

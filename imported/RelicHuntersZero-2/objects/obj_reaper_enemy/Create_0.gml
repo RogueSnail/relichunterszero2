@@ -13,6 +13,6 @@ projectile_range = 1200;
 accuracy = 50;
 
 fire_burst = irandom_range(6,9);
-fire_burst_rate = room_speed*0.1;
-fire_rate = irandom_range(room_speed*2,room_speed*4);
+fire_burst_rate = 100000;//room_speed*0.1;
+fire_rate = irandom_range(2,4) * 1000000;//irandom_range(room_speed*2,room_speed*4);
 

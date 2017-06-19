@@ -177,7 +177,7 @@ global.total_value = 0;
 //Relics
 global.midnightDamageMultiplier = 0.5;
 global.crystalBaconRegen = 8;
-global.devPotionRegenTime = room_speed*0.75;
+global.devPotionRegenTime = 750000;//room_speed*0.75;
 global.watchfulEyePickupBonus = 1.5;
 global.relicHpBonus = 1;
 global.relicEnergyBonus = 1;
@@ -199,7 +199,7 @@ global.dailyRankDebug = -1;
 global.drawGridDebug = false;
 
 //Low Performance Detection
-global.lowPerfTime = room_speed*4.2;
+global.lowPerfTime = 4200000;//room_speed*4.2;
 global.lowPerfTimeCurrent = 0;
 
 ///Enemy Tracker
@@ -227,17 +227,17 @@ global.astar_grid = mp_grid_create(0,0,round(room_width/64),round(room_height/64
 mp_grid_add_instances(global.astar_grid,class_solid,false);
 
 
-score_time = room_speed*1.2;
+score_time = 1200000;//room_speed*1.2;
 score_time_current = 0;
 score_value = 10;
 score_string = "KILL";
 
 guiShieldAlertDraw = false;
-guiShieldAlertTime = room_speed*0.5;
+guiShieldAlertTime = 500000;//room_speed*0.5;
 guiShieldAlertTimeCurrent = 0;
 
 guiReloadAlertDraw = false;
-guiReloadAlertTime = room_speed*0.5;
+guiReloadAlertTime = 500000;//room_speed*0.5;
 guiReloadAlertTimeCurrent = 0;
 
 //Dynamic GUI

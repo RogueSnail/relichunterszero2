@@ -23,9 +23,9 @@ superShield = false;
 hp_max = 100;
 hp = hp_max;
 
-hp_regen_time = room_speed*1;
-hp_regen_time_current = 0;
-hp_regen_amount = 2;
+//hp_regen_time = room_speed*1;
+//hp_regen_time_current = 0;
+//hp_regen_amount = 2;
 
 stamina_max = 100;
 stamina = stamina_max;
@@ -58,20 +58,20 @@ move_accel = 1.5;
 move_friction = 0.45; //0.4
 
 dodge_speed = 35;
-dodge_duration = room_speed*0.4;
+dodge_duration = 400000;//room_speed*0.4;
 dodge_time = 0;
 dodgeFriction = 0.2;
-dodge_doubletap_time = room_speed*0.2;
+dodge_doubletap_time = 200000;//room_speed*0.2;
 dodge_doubletap_time_current = dodge_doubletap_time;
 dodge_doubletap_direction = 0;
 
 myGrenadeObject = obj_grenadeNew;
 grenade_speed = 7;
 
-dashTimeWindow = room_speed*0.25;
+dashTimeWindow = 250000;//room_speed*0.25;
 dashTimeCurrent = 0;
 
-pickupTimeWindow = room_speed*0.35;
+pickupTimeWindow = 350000;//room_speed*0.35;
 pickupTimeCurrent = 0;
 allowPickup = false;
 
@@ -99,7 +99,7 @@ reloadBarObj.owner = id;
 animation_priority = 0;
 animation_index = 0;
 animation_current = "noone";
-footStepTime = ((room_speed*0.2) * 1);
+footStepTime = 200000;//((room_speed*0.2) * 1);
 footStepTimeCurrent = 0;
 animation_play("idle",0.2,an_loop,1,1);
 image_speed = 0;
@@ -108,9 +108,9 @@ image_speed = 0;
 myPickupList = ds_priority_create();
 
 // Power Ups
-serendipity = false;
-serendipity_duration = room_speed*10;
-serendipity_duration_current = 0;
+//serendipity = false;
+//serendipity_duration = 10000000;//room_speed*10;
+//serendipity_duration_current = 0;
 
 //Hit Taken
 hit_taken = false;
@@ -118,10 +118,9 @@ hit_taken = false;
 //Shield
 shield = true;
 
-energy_regen_time = room_speed*2.5;
+energy_regen_time = 2500000;//room_speed*2.5;
 energy_regen_time_regular = energy_regen_time;
 energy_regen_time_relic = energy_regen_time;
-
 energy_regen_time_current = energy_regen_time;
 energy_regen_speed = 0.25;
 energy_regen_speed_regular = energy_regen_speed;
@@ -192,12 +191,12 @@ isDigging = false;
 digDepth = 0;
 digSpeed = 4;
 digDepthMax = 42;
-digRate = room_speed*0.3;
+digRate = 300000;//room_speed*0.3;
 digRateCurrent = digRate;
 
 //Global Input Lock on Game Enter + Unpause
 inputLocked = true;
-inputLockTime = room_speed*0.25;
+inputLockTime = 250000;//room_speed*0.25;
 inputLockTimeCurrent = 0;
 
 //Joystick
@@ -241,4 +240,3 @@ receivedCrystalBaconHealing = false;
 //Special Character Stuff
 riderGrenadeCost = 0;
 riderDodgeAttack = noone;
-

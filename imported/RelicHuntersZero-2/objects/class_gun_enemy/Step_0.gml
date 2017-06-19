@@ -55,12 +55,12 @@ if (stepHasTarget)
     if (!can_fire) && (fire_burst_current >= fire_burst)
     {
         if (!is_sniper) 
-			fire_rate_current++;
+			fire_rate_current += delta_time;
         else if (owner.firing) 
-			fire_rate_current++;
+			fire_rate_current += delta_time;
         
         if (global.challengeBloodlust) 
-			fire_rate_current += global.challengeBloodlustRate;
+			fire_rate_current += delta_time * global.challengeBloodlustRate;
         
         if fire_rate_current >= fire_rate
         {
@@ -73,7 +73,7 @@ if (stepHasTarget)
     //Burst Fire
     if (fire_burst_current < fire_burst) && (!can_fire) && (owner.firing)
     {
-        fire_burst_rate_current++;
+        fire_burst_rate_current += delta_time;
         if fire_burst_rate_current >= fire_burst_rate
         {
             fire_burst_rate_current = 0;

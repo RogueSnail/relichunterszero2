@@ -24,7 +24,7 @@ joyCanSwitch[K_INPUT_JOYSTICK2] = true;
 joyCanSwitchTimeCurrent[K_INPUT_JOYSTICK1] = 0;
 joyCanSwitchTimeCurrent[K_INPUT_JOYSTICK2] = 0;
 
-joyCanSwitchTime = room_speed*0.25;
+joyCanSwitchTime = 250000;//room_speed*0.25;
 
 oldMouseX = mouse_x;
 oldMouseY = mouse_y;

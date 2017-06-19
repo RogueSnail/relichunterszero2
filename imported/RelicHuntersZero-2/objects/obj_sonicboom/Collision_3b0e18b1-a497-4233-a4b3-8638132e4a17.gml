@@ -64,7 +64,6 @@ if instance_exists(other)
         
         if (!piercing) 
         {
-            ds_list_add(global.audio_cleaner,audio_emitter);
             instance_destroy();
         }
         else piercing--;

@@ -5,13 +5,13 @@
     "name": "obj_roots1",
     "eventList": [
         {
-            "id": "b168412c-27bd-4fbc-9201-9b21b0a08ac7",
+            "id": "1d3a78c7-275b-4ad0-8a91-85173538af61",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 1,
-            "eventtype": 3,
+            "enumb": 0,
+            "eventtype": 0,
             "m_owner": "679e92ef-d01b-443d-9702-72ff0271d01e"
         }
     ],

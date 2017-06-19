@@ -32,12 +32,12 @@ if (hit_taken)
     
     if (!shield)
     {
-        hit_taken_count++;
+        hit_taken_count += delta_time;
         
         if (hit_taken_count >= hit_taken_max) hit_taken = false;
         if (image_index == image_number-1) image_speed = 0;
         
-        if hit_taken_count = 1
+        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
         {
             sprite_index = sprite_hit;
             image_speed = 0.2;
@@ -74,89 +74,21 @@ else
     hit_taken_count = 0;
 }
 
-///Life, Shield & Death
+///Life, Energy
 
 if (hp > hp_max) hp = hp_max;
 if (energy > energy_max) energy = energy_max;
+
+//Shield
 
 if (!elite)
 {
     shield = false;
 }
 
-if hp <= 0
-{
-    if (!no_score)
-    {
-        if (!critical_death)
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.05;
-            score_add(global.score_kill,false);
-        }
-        else
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.07;
-            score_add(global.score_kill+global.score_headshot,true);
-        }
-    }
-    
-    repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
-    roll_ammo_drop(x,y);
-    
-    if (drop_gun)
-    {
-        if (random(1)<=drop_gun_chance) && (global.gameMode == gamemode_adventure) instance_create_layer(x,y,"Interactive",drop_gun);
-        else 
-        {
-            var broken_gun = noone;
-            if (drop_gun == obj_pickup_pistol) broken_gun = spr_broken_pistol;
-            if (drop_gun == obj_pickup_pistol_assault) broken_gun = spr_broken_pistol_assault;
-            if (drop_gun == obj_pickup_pistol_heavy) broken_gun = spr_broken_pistol_heavy;
-            if (drop_gun == obj_pickup_sniper_rifle) broken_gun = spr_broken_sniper_rifle;
-            if (drop_gun == obj_pickup_assault_rifle) broken_gun = spr_broken_assault_rifle;
-            if (drop_gun == obj_pickup_shotgun) broken_gun = spr_broken_shotgun;
-            if (drop_gun == obj_pickup_submachinegun) broken_gun = spr_broken_submachinegun;
-            if (drop_gun == obj_pickup_machinegun) broken_gun = spr_broken_machinegun;
-            if (drop_gun == obj_pickup_rocketlauncher) broken_gun = spr_broken_rocketlauncher;
-            if (sprite_exists(broken_gun)) draw_persistent(broken_gun,0,x,y,1,1,irandom(360),c_white,1);
-        }
-    }
-
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
-    myCorpse.image_xscale = image_xscale;
-    if (pushed)
-    {
-        if (!critical_death) myCorpse.speed = push_speed*2;
-        else myCorpse.speed = push_speed*4;
-            
-        myCorpse.direction = push_direction;
-        random_death = irandom_range(1,3)
-        if (random_death == 1) myCorpse.sprite_index = sprite_death;
-        if (random_death == 2) myCorpse.sprite_index = sprite_death2;
-        if (random_death == 3) myCorpse.sprite_index = sprite_death3;
-    }
-    
-    if (critical_death)
-    {
-        audio_play_exclusive(audio_emitter,false,1,sfx_precision_kill1,sfx_precision_kill2,sfx_precision_kill3,sfx_precision_kill4,sfx_precision_kill5);
-        
-        myCorpse.sprite_index = sprite_death_precision;
-        
-        var mySkull = instance_create_layer(x+(11*image_xscale),y-49,"Interactive",fx_skull);
-        mySkull.image_xscale = image_xscale;
-    }
-    
-    if (elite) audio_play(audio_emitter,false,1,sfx_duck_death);
-    else audio_play(audio_emitter,false,1,sfx_turtle_death);
-    
-    ds_list_add(global.audio_cleaner,audio_emitter);
-    instance_destroy();
-}
-
-//Shield
 if energy < energy_max
 {
-    energy_regen_time_current++;
+    energy_regen_time_current += delta_time;
     if energy_regen_time_current >= energy_regen_time
     {
         if (!energy) energy = 1;
@@ -233,7 +165,7 @@ if (!ai_active)
 			owner_add_owned_instance(activationFX);
         }
     }
-    else aiActivationTimeCurrent++;
+    else aiActivationTimeCurrent += delta_time;
 }
 
 //Resolve AI
@@ -246,7 +178,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 		distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
 	} 
     
-    if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
+    if (ai_target_change_current >= ai_target_change || (ai_target = noone))
     {
         ai_target_change_current = 0;
         
@@ -263,7 +195,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     }
     else 
     {
-        ai_target_change_current++;
+        ai_target_change_current += delta_time;
         if (ai_target == myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
@@ -293,6 +225,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             ai_state = "COVER";
         }
         
+		//@TODO - remove instance exists - new event?
         if instance_exists(class_grenadeNew)
         {
             wow_look_out_dude = instance_nearest(x,y,class_grenadeNew);
@@ -501,7 +434,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             push_speed = dash_speed;
             exit;
         }
-        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current++;
+        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
 		//*/	
     }
 }
@@ -552,7 +485,7 @@ if (pushed)
         dodging = false;
     }
     
-    push_duration_current++;
+    push_duration_current += delta_time;
     if push_duration_current >= push_duration
     {
         push_duration_current = 0;

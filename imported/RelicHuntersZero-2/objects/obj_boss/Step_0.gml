@@ -28,12 +28,12 @@ if (hit_taken)
     
     if (!shield)
     {
-        hit_taken_count++;
+        hit_taken_count += delta_time;
         
         if (hit_taken_count >= hit_taken_max) hit_taken = false;
         if (image_index == image_number-1) image_speed = 0;
         
-        if hit_taken_count = 1
+        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
         {
             sprite_index = sprite_hit;
             image_speed = 0.2;
@@ -82,29 +82,11 @@ if (!elite)
     shield = false;
 }
 
-if hp <= 0
-{
-    repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
-    
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse_boss);
-    myCorpse.image_xscale = image_xscale;
-    myCorpse.image_yscale = image_yscale;
-    
-    if (pushed)
-    {
-        myCorpse.speed = push_speed*2;
-        myCorpse.direction = push_direction;
-    }
-    
-    //audio_play(audio_emitter,false,1,sfx_duck_death);
-    ds_list_add(global.audio_cleaner,audio_emitter);
-    instance_destroy();
-}
 
 //Shield
 if energy < energy_max
 {
-    energy_regen_time_current++;
+    energy_regen_time_current += delta_time;
     if energy_regen_time_current >= energy_regen_time
     {
         if (!energy) energy = 1;
@@ -280,7 +262,7 @@ if (hpMilestoneCurrent == 3)
         speed_sprint = 3.2;
         
         ai_dash_chance = 0;
-        ai_dash_cooldown = room_speed*9999999999;
+        ai_dash_cooldown = 0;//room_speed*9999999999;
         
         ai_supression = false;
     }   
@@ -293,7 +275,7 @@ var fireRocket = false;
 var fireAngleModifier = 0;
 
 
-if (rocketTimeCurrent < rocketTime) && (!wantToFire) rocketTimeCurrent++;
+if (rocketTimeCurrent < rocketTime) && (!wantToFire) rocketTimeCurrent += delta_time;
 else wantToFire = true;
 
 if (wantToFire) 
@@ -311,7 +293,7 @@ if (wantToFire)
             rocketFireBurst--;
             fireRocket = true;
         }
-        else rocketFireBurstRateCurrent++;
+        else rocketFireBurstRateCurrent += delta_time;
     }
     else
     {
@@ -382,7 +364,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     }
     else 
     {
-        ai_target_change_current++;
+        ai_target_change_current += delta_time;
         if (ai_target == faction_player) distance_to_target = distance_to_player;
     }
     
@@ -615,7 +597,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             push_speed = dash_speed;
             exit;
         }
-        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current++;
+        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
     }
 }
 
@@ -645,7 +627,7 @@ if (pushed) && (isMoveable)
     push_speed -= push_friction;
     if push_speed < 0 push_speed = 0;
     
-    push_duration_current++;
+    push_duration_current += delta_time;
     if push_duration_current >= push_duration
     {
         push_duration_current = 0;

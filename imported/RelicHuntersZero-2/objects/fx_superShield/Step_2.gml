@@ -21,7 +21,7 @@ if (animationTrigger){
     }
 }
 else{
-    animationTriggerTimeCurrent++;
+    animationTriggerTimeCurrent += delta_time;
     if (animationTriggerTimeCurrent >= animationTriggerTime){
         animationTrigger = true;
         animationTriggerTimeCurrent=0;
@@ -29,8 +29,8 @@ else{
 }
 
 if (instance_exists(owner)){
-    if (owner.superShieldTime - owner.superShieldTimeCurrent) <= room_speed*3.5{
-        animationTriggerTime = room_speed*0.5;
+    if (owner.superShieldTime - owner.superShieldTimeCurrent) <= 3500000/*room_speed*3.5*/{
+        animationTriggerTime = 500000;//room_speed*0.5;
     }
 }
 

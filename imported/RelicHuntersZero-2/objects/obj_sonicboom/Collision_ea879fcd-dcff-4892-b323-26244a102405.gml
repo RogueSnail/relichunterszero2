@@ -64,7 +64,6 @@ if faction == f_player && instance_exists(other)
         
         if (!piercing) 
         {
-            ds_list_add(global.audio_cleaner,audio_emitter);
             instance_destroy();
         }
         else piercing--;

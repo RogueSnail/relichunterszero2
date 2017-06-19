@@ -18,7 +18,6 @@ if (!global.pause)
 
     if (distance_travelled > (1.5*range))
     {
-        ds_list_destroy(damage_list);
         instance_destroy();
     }
     //Fade if range is almost over
@@ -54,7 +53,7 @@ if (playLoop)
 
 if (isBouncing)
 {
-    if (bounceTimeCurrent < bounceTime) bounceTimeCurrent++;
+    if (bounceTimeCurrent < bounceTime) bounceTimeCurrent += delta_time;
     else
     {
         isBouncing = false;

@@ -14,7 +14,7 @@ image_speed = 0;
 
 damageList = ds_list_create();
 
-damageTime = room_speed*1;
+damageTime = 100000;//room_speed*1;
 damageTimeCurrent = 0;
 
 

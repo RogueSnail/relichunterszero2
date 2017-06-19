@@ -2,7 +2,7 @@
 
 priceCurrent = priceArray [ min(priceTier,9) ];
 
-if instance_exists(activationClient)
+if (activationClient != noone)
 {
     var displayWarning = false;
     

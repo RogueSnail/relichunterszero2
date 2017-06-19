@@ -1,6 +1,6 @@
 ///Pick Up
 
-if instance_exists(activationClient) && (isInteractiveObjectActive)
+if (activationClient != noone) && (isInteractiveObjectActive)
 {
     player = activationClient;
     p = player.myPlayerId;

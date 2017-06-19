@@ -21,7 +21,7 @@ dynamicHeight = -60;
 canRicochet = true;
 
 allowBounce = false;
-allowBounceTime = room_speed*0.4;
+allowBounceTime = 400000;//room_speed*0.4;
 allowBounceTimeCurrent = 0;
 
 ///Particle Trail
@@ -65,7 +65,7 @@ enemyTrigger = noone;
 triggerRadiusForPlayers = 16;
 triggerRadiusForEnemies = 32;
 
-detonationTime = room_speed*1;
+detonationTime = 100000;//room_speed*1;
 detonationTimeCurrent = 0;
 detonationRadius = 75;
 

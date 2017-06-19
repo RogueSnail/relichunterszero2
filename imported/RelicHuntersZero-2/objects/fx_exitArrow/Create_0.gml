@@ -8,7 +8,7 @@ owner = noone;
 animationSpeed = 0.1;
 image_speed = animationSpeed;
 
-animationDelay = room_speed*4;
+animationDelay = 4000000;//room_speed*4;
 animationDelayCurrent = 0;
 
 positionFound = false;

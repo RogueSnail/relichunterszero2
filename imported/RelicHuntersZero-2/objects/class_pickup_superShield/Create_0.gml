@@ -2,7 +2,7 @@ event_inherited();
 
 range = 130;
 in_range = false;
-superShieldTime = room_speed*5;
+superShieldTime = 5000000;//room_speed*5;
 active = false;
 
 myPrompt = instance_create_layer(x+10,y-25,"Interactive_Over",fx_prompt_e);

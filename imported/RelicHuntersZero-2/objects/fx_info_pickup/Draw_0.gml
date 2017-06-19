@@ -4,7 +4,7 @@ if instance_exists(owner)
     if (owner.in_range)
     {
         if (!allowDraw){
-            if (allowDrawTimeCurrent < allowDrawTime) allowDrawTimeCurrent++;
+            if (allowDrawTimeCurrent < allowDrawTime) allowDrawTimeCurrent += delta_time;
             else allowDraw = true;
         }
         else{

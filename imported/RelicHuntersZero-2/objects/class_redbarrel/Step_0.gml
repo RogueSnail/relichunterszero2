@@ -79,14 +79,13 @@ ds_list_add(global.particle_type_list, smoke_particle);
 
 if (isExploding)
 {
-    timeCurrent++;
+    timeCurrent += delta_time;
     
     shake = 0.5*shake_max;
     
     if (timeCurrent >= timeToExplode)
     {
         audio_play_exclusive(audio_emitter,false,1,sfx_debris1,sfx_debris2,sfx_debris3);
-        ds_list_add(global.audio_cleaner,audio_emitter);
     
         myProjectile = instance_create_layer(x+lengthdir_x(fakeMovement,explosionDirection),y+lengthdir_y(fakeMovement,explosionDirection),"Interactive",obj_redbarrel_projectile);
         myProjectile.direction = explosionDirection;
@@ -120,7 +119,7 @@ if (!global.pause) && (isExploding)
 {
     emissionRate += emissionRateGrowth;
     
-    emissionRateCurrent += emissionRate;
+    emissionRateCurrent += emissionRate * delta_time * ms_to_s;
     if (emissionRateCurrent >= 1)
     {
         emissionRateCurrent = 0;

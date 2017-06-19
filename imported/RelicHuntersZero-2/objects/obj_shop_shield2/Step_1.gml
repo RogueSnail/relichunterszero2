@@ -10,7 +10,7 @@ if (unlock)
     pack.want_to_die = false;
         
     //Pickup
-    if (activationClient) && instance_exists(activationClient)
+    if (activationClient) && (activationClient != noone)
     {
         if (activationClient.overshield < activationClient.energy_max)
         {

@@ -92,7 +92,7 @@ while (p <= global.playerCount)
         if (curPlayer.overshield) && (energy > curPlayer.energy_max) charShieldColor = make_color_rgb(86,216,255);
         if (curPlayer.superShield) charShieldColor = K_BETU_ORANGE;
         var charBarDelaySpeed = 0.008;
-        var charBarDelayTime = room_speed*0.6;
+        var charBarDelayTime = 600000;//room_speed*0.6;
         
         //Health
         draw_set_color(c_black);
@@ -297,8 +297,8 @@ while (p <= global.playerCount)
                 draw_sprite_ext(spr_icon_health,0,pGrenadesX+grOffsetX+8, pGrenadesY+grOffsetY+8, 1, 1, 0, K_BETU_RED, main_hud_alpha);
             }
         
-        //gui_score Objects
-        if instance_exists(gui_score)
+        //draw gui_score
+        if (global.guiScore.showScore)
         {
             draw_set_halign(fa_center);
             draw_set_valign(fa_center);
@@ -306,11 +306,13 @@ while (p <= global.playerCount)
             var drawScoreX = width*0.5;
             var drawScoreY = height*0.15;
             
-            draw_set_font(global.font_numberLarge);
-            draw_text_dropoutline_ext_transformed(drawScoreX,drawScoreY,gui_score.myString,c_white,c_white,c_black,0.7,4,1,1,0,main_hud_alpha);
-            
+			if (global.guiScore.myString != "") {
+				draw_set_font(global.font_numberLarge);
+				draw_text_dropoutline_ext_transformed(drawScoreX,drawScoreY,global.guiScore.myString,c_white,c_white,c_black,0.7,4,1,1,0,main_hud_alpha);
+            }
+			
             draw_set_font(global.font_numberVeryLarge);
-            draw_text_dropoutline_ext_transformed(drawScoreX,drawScoreY+43,"+"+string(gui_score.value),c_white,c_white,c_black,0.7,4,gui_score.size_current,gui_score.size_current,0,main_hud_alpha);
+            draw_text_dropoutline_ext_transformed(drawScoreX,drawScoreY+43,"+"+string(global.guiScore.value),c_white,c_white,c_black,0.7,4,global.guiScore.size_current,global.guiScore.size_current,0,main_hud_alpha);
         }
         
         //fx_bigMessage Objects  
@@ -845,7 +847,7 @@ if ((fps/room_speed) < 0.9)
     ///Low Performance Check
     if (!global.lowPerfChecked)
     {
-        if (global.lowPerfTimeCurrent < global.lowPerfTime) global.lowPerfTimeCurrent++;
+        if (global.lowPerfTimeCurrent < global.lowPerfTime) global.lowPerfTimeCurrent += delta_time;
         else
         {
             global.persistent_toggle = false;

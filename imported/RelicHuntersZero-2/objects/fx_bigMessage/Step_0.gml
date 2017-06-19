@@ -15,14 +15,14 @@ if (!active)
 else{
     if (!timeToDie)
     {
-        if (myAlpha < 1) myAlpha += myAlphaSpeed;
+        if (myAlpha < 1) myAlpha += myAlphaSpeed * delta_time * ms_to_s;
         
-        if (lifeTimeCurrent < lifeTime) lifeTimeCurrent++;
+        if (lifeTimeCurrent < lifeTime) lifeTimeCurrent += delta_time;
         else timeToDie = true;
     }
     else
     {
-        if (myAlpha > 0) myAlpha -= myAlphaDieSpeed;
+        if (myAlpha > 0) myAlpha -= myAlphaDieSpeed * delta_time * ms_to_s;
         else instance_destroy();
     }
 }

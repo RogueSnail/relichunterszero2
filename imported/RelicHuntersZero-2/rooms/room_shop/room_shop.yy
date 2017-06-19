@@ -10,6 +10,14 @@
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
         "2778c11d-788f-49e4-bdd4-7d41567b5a01",
+        "d1f33600-a69c-4722-879a-71db0a62be68",
+        "b72a5fe2-8d1f-42c9-b334-f7997c970d57",
+        "9af98a13-d763-494b-bb6a-1a48ff6a326c",
+        "df8b033a-7079-4d32-8c0e-febcea18a24e",
+        "35830471-3570-48d9-9c8b-974ddff2631b",
+        "fcadde28-6b93-4f12-a6a5-d23994c7a361",
+        "387eee94-9733-42da-ac96-e083f9e23732",
+        "e2fb8261-182f-4376-96bd-c5ec6aef582b",
         "7a2abffa-5a15-40e0-b98f-edd4ef210a94",
         "a2403bfd-a16d-41f0-a8d5-7817746394f4",
         "d6531572-badc-48e9-bebc-f232875c2ba7",
@@ -43,7 +51,6 @@
         "ca739634-fe2f-49f4-b584-e03c0345e18f",
         "6978d84d-4bb1-4950-9ff5-fb0c0bbba595",
         "5554eaac-8365-477b-86ff-ebd4f46f6609",
-        "d1f33600-a69c-4722-879a-71db0a62be68",
         "b43d9b9e-3d1b-46a9-a4f4-14c17ae60cc4",
         "c07229f1-3dad-4ee4-9833-5f2b03c75df0",
         "f8c81ae8-c8d8-4693-a600-5aa5d7d1cfd5",
@@ -206,14 +213,7 @@
         "f841d58c-57c0-49c8-bb6e-dd93219ded8c",
         "2e591d51-20c1-416f-8e28-6622832b2483",
         "7476499f-e009-4b65-97ea-6536374bdc5e",
-        "f096bbd7-c1f7-456e-b558-f6da8dff470c",
-        "e2fb8261-182f-4376-96bd-c5ec6aef582b",
-        "b72a5fe2-8d1f-42c9-b334-f7997c970d57",
-        "9af98a13-d763-494b-bb6a-1a48ff6a326c",
-        "df8b033a-7079-4d32-8c0e-febcea18a24e",
-        "35830471-3570-48d9-9c8b-974ddff2631b",
-        "fcadde28-6b93-4f12-a6a5-d23994c7a361",
-        "387eee94-9733-42da-ac96-e083f9e23732"
+        "f096bbd7-c1f7-456e-b558-f6da8dff470c"
     ],
     "layers": [
         {
@@ -12155,29 +12155,6 @@
             "userdefined_depth": true,
             "visible": true,
             "assets": [
-                {
-                    "__type": "GMRGraphic_Model:#YoYoStudio.MVCFormat",
-                    "id": "2e66bfe9-cca1-4769-ba4e-9771f448c775",
-                    "modelName": "GMRGraphic",
-                    "mvc": "1.0",
-                    "ignore": false,
-                    "inheritItemSettings": false,
-                    "m_originalParentID": "00000000-0000-0000-0000-000000000000",
-                    "m_serialiseFrozen": false,
-                    "name": "inst_DAD6C983",
-                    "x": 640,
-                    "y": 1408,
-                    "colour": {
-                        "Value": 4294967295
-                    },
-                    "h": 64,
-                    "spriteId": "2eb694bf-28fe-41ca-a11c-b7b5cc7bff24",
-                    "u0": 4,
-                    "u1": 68,
-                    "v0": 148,
-                    "v1": 212,
-                    "w": 64
-                },
                 {
                     "__type": "GMRGraphic_Model:#YoYoStudio.MVCFormat",
                     "id": "6f86a92c-20f0-4b22-b47f-a7f8cf90b8df",

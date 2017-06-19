@@ -23,7 +23,7 @@ else {
     allowBuy = false;
 }
 
-if instance_exists(activationClient) && (allowBuy)
+if (activationClient != noone) && (allowBuy)
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) && (price) in_range = true;    
   

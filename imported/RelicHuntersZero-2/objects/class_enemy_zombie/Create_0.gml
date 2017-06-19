@@ -39,7 +39,7 @@ aggro_min_chase = 100;
 ai_sprint_distance = 120;
 
 ai_target = noone;
-ai_target_change = room_speed*2;
+ai_target_change = 2000000;//room_speed*2;
 ai_target_change_current = ai_target_change;
 ai_shutdown_range = 650;
 
@@ -55,7 +55,7 @@ ai_cover_check_range = 400;
 ai_cover_hp_threshold = hp_max*0.5;
 
 ai_dash_chance = 0;
-ai_dash_cooldown = room_speed*1;
+ai_dash_cooldown = 1000000;//room_speed*1;
 ai_dash_cooldown_current = ai_dash_cooldown;
 
 ai_path = path_add();
@@ -65,7 +65,7 @@ collision_mass = 1+random(1);
 
 //VFX
 hit_taken = false;
-hit_taken_max = room_speed*0.1;
+hit_taken_max = 100000;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 
@@ -73,7 +73,7 @@ pushed = false;
 push_direction = 0;
 push_speed = 0;
 push_friction = 0.75;
-push_duration = room_speed*0.2;
+push_duration = 200000;//room_speed*0.2;
 push_duration_current = 0;
 
 no_score = false;
@@ -84,7 +84,7 @@ mySprintFx = noone;
 //Attack
 look_direction = 1;
 damage = 20;
-damage_timer = room_speed*1;
+damage_timer = 1000000;//room_speed*1;
 damage_timer_current = damage_timer;
 
 //Sprites & Death

@@ -27,7 +27,7 @@ if (timedActive)
 {
     isActive = true;    
 
-    if (activeTimeCurrent < activeTime) activeTimeCurrent++;
+    if (activeTimeCurrent < activeTime) activeTimeCurrent += delta_time;
     else {
         timedActive = false;
         activeTimeCurrent = 0;
@@ -62,7 +62,7 @@ if (timedActive)
 {
     isActive = true;    
 
-    if (activeTimeCurrent < activeTime) activeTimeCurrent++;
+    if (activeTimeCurrent < activeTime) activeTimeCurrent += delta_time;
     else {
         timedActive = false;
         activeTimeCurrent = 0;

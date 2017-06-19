@@ -9,14 +9,14 @@ magnet_player = noone;
 ammoType = type_light;
 myAmmo = 4;
 isInteractive = true;
-interactionTime = room_speed*2;
+interactionTime = room_speed*2; // used for alarm
 
 alpha = 1;
-alpha_duration = room_speed*0.1;
+alpha_duration = 100000;//room_speed*0.1;
 alpha_duration_current = 0;
 myTime = 0;
-life_time = room_speed*(random_range(12,15));
-alert_time = room_speed*8;
+life_time = (random_range(12,15)) * 1000000;//room_speed*(random_range(12,15));
+alert_time = 8000000;//room_speed*8;
 
 sprite = spr_pickup_ammo;
 sprite_subimage = 0; // 0=heavy 1=light 2=medium

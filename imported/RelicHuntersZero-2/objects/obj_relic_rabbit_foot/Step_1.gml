@@ -36,7 +36,7 @@ if (toggle)
     }
 
     /* BUGGED CODE, DELETE AFTER DONE:
-    if (instance_exists(activationClient))
+    if ((activationClient != noone))
     {
         if (activationClient.myChar != char_ass)
         {

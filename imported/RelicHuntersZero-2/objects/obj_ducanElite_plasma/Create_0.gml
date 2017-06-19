@@ -22,7 +22,7 @@ speed_walk = 2.5;
 speed_sprint = 3.2;
 
 ai_dash_chance = 6;
-ai_dash_cooldown = room_speed*1;
+ai_dash_cooldown = 1000000;//room_speed*1;
 
 sprite_hit = spr_ducanElite_hit;
 sprite_walk = spr_ducanElite_walk;

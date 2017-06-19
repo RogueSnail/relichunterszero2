@@ -7,7 +7,7 @@ x = room_width/2;
 y = room_height*1.25;
 
 
-timeToBlack = room_speed*2;
+timeToBlack = 2000000;//room_speed*2;
 timeToBlackCurrent = 0;
 blackAlpha = 0
 blackAlphaSpeed = 0.01;

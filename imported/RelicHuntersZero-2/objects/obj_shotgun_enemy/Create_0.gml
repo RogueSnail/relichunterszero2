@@ -8,7 +8,7 @@ projectile_damage = 6;
 projectile_range = 350;
 
 accuracy = 20;
-fire_rate = room_speed*2;
+fire_rate = 2000000;//room_speed*2;
 
 fire_amount = 9;
 

@@ -23,13 +23,13 @@ accuracy_aiming = 12;
 ammo = 32;
 ammo_cost = 0.5;
 ammo_type = type_medium;
-reload_time = room_speed*1;
-fire_rate = room_speed*0.5;
+reload_time = 1000000;//room_speed*1;
+fire_rate = 500000;//room_speed*0.5;
 
 fire_amount = 1;
 
 fire_burst = 20;
-fire_burst_rate = room_speed*0.015;
+fire_burst_rate = 15000;//room_speed*0.015;
 fire_automatic = false;
 crosshair_recoil = 0.02;
 

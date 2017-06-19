@@ -2,7 +2,7 @@
 
 if !(instance_exists(myBarrel))
 {
-    spawnTimeCurrent++;
+    spawnTimeCurrent += delta_time;
     
     if (spawnTimeCurrent >= spawnTimeWarning) && (!startAnimating)
     {

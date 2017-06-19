@@ -7,5 +7,5 @@ if (reviveTimeCurrent >= reviveTime) && (!speed) && (!image_speed)   {
     myRevive.image_xscale = image_xscale;
     instance_destroy();
 }
-else reviveTimeCurrent++;
+else reviveTimeCurrent += delta_time;
 

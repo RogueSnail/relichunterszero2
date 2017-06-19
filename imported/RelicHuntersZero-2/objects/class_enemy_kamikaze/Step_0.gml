@@ -11,17 +11,17 @@ else image_xscale = -1;
 //Hit Taken
 if (hit_taken)
 {   
-        hit_taken_count++;
+    hit_taken_count += delta_time;
         
-        if (hit_taken_count >= hit_taken_max) hit_taken = false;
-        if (image_index == image_number-1) image_speed = 0;
+    if (hit_taken_count >= hit_taken_max) hit_taken = false;
+    if (image_index == image_number-1) image_speed = 0;
         
-        if hit_taken_count = 1
-        {
-            sprite_index = sprite_hit;
-            image_speed = 0.2;
-            image_index = 0;
-        }
+    if (hit_taken_count > 0) && (sprite_index != sprite_hit)
+    {
+        sprite_index = sprite_hit;
+        image_speed = 0.2;
+        image_index = 0;
+    }
 }
 else
 {
@@ -50,57 +50,8 @@ else
     hit_taken_count = 0;
 }
 
-///Life & Death
-
+/// Life
 if (hp > hp_max) hp = hp_max;
-
-if hp <= 0
-{
-    var corpseSprite = sprite_death;
-    
-    if (no_score == false)
-    {
-        if (!critical_death)
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.05;
-            score_add(myRegularScore,false);
-            
-            var randomDeath = irandom_range(1,2)
-            if (randomDeath == 1) corpseSprite = sprite_death;
-            if (randomDeath == 2) corpseSprite = sprite_death2;
-        }
-        else
-        {
-            if (global.allowKillFreeze) global.pause = room_speed*0.075;
-            score_add(myRegularScore+myPrecisionScore,true);
-            
-            var randomDeath = irandom_range(1,3)
-            if (randomDeath == 1) corpseSprite = sprite_precision1;
-            if (randomDeath == 2) corpseSprite = sprite_precision2;
-            if (randomDeath == 3) corpseSprite = sprite_precision3;
-        }
-    }
-    
-    repeat(myCoinDropAmount) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
-    roll_ammo_drop(x,y);
-    
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
-    myCorpse.image_xscale = image_xscale;
-    myCorpse.sprite_index = corpseSprite;
-    
-    if (pushed)
-    {
-        myCorpse.speed = push_speed*2;
-        myCorpse.direction = push_direction;
-    }
-    
-    audio_play(audio_emitter,false,1,deathSfx);
-    
-    if (critical_death) audio_play_exclusive(audio_emitter,false,1,sfx_precision_kill1,sfx_precision_kill2,sfx_precision_kill3,sfx_precision_kill4,sfx_precision_kill5);
-    
-    ds_list_add(global.audio_cleaner,audio_emitter);
-    instance_destroy();
-}
 
 ///AI & Movement
 
@@ -164,7 +115,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     }
     else 
     {
-        ai_target_change_current++;
+        ai_target_change_current += delta_time;
         if (ai_target = myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
@@ -264,7 +215,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             push_speed = dash_speed;
             exit;
         }
-        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current++;
+        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
     }
     
     
@@ -314,7 +265,7 @@ if (pushed)
     push_speed -= push_friction;
     if push_speed < 0 push_speed = 0;
     
-    push_duration_current++;
+    push_duration_current += delta_time;
     if push_duration_current >= push_duration
     {
         push_duration_current = 0;
@@ -378,7 +329,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         damage = originalDamage;
     }
 }
-else damage_timer_current++;
+else damage_timer_current += delta_time;
 
 /* */
 ///Audio

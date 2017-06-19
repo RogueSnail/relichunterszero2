@@ -11,6 +11,6 @@ rocketList = ds_list_create();
 reflectRocketMin = -12;
 reflectRocketMax = 12;
 
-animationTriggerTime = room_speed*2.5;
+animationTriggerTime = 2500000;//room_speed*2.5;
 animationTriggerTimeCurrent = 0;
 

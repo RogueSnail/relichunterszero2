@@ -15,5 +15,5 @@ speed_walk = 3;
 speed_sprint = 3;
 
 ai_dash_chance = 5;
-ai_dash_cooldown = room_speed*2;
+ai_dash_cooldown = 2000000;//room_speed*2;
 

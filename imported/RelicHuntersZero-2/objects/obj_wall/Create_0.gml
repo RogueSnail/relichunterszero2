@@ -2,6 +2,7 @@
 
 reflection_object_setup(0,-1,image_index);
 shadow_object_setup(0,-1,-1,global.default_shadow_yscale);
+audio_emitter = 0;
 
 image_speed = 0;
 
@@ -11,7 +12,7 @@ shake_direction = 0;
 shake_recovery = 0.35;
 shake_max = 9;
 
-maxhp = 9999;
+maxhp = 999999;
 hp = maxhp;
 hp_medium = maxhp;
 hp_low = maxhp;

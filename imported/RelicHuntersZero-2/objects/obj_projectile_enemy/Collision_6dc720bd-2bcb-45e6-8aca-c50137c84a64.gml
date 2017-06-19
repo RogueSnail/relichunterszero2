@@ -28,7 +28,6 @@ if faction == f_enemy //&& instance_exists(other)
         
         audio_play(audio_emitter,false,1,sfx_impact_flesh1,sfx_impact_flesh2,sfx_impact_flesh3,sfx_impact_flesh4);
         
-        ds_list_add(global.audio_cleaner,audio_emitter);
         if (!instance_exists(hit)) && (global.count_particles < global.max_particles)
         {
             hit = instance_create_layer(x,y,"Interactive",fx_hit);

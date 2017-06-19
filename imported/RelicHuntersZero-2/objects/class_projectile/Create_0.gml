@@ -18,7 +18,7 @@ bounceMax = 1;
 bounceCurrent = 0;
 
 isBouncing = false;
-bounceTime = room_speed*0.1;
+bounceTime = 100000;//room_speed*0.1;
 bounceTimeCurrent = 0;
 
 goesThroughWalls = false;
@@ -44,3 +44,4 @@ audio_emitter_gain(audio_emitter,global.soundVolume);
 playLoop = false;
 playLoopSound = -1;
 
+ammo_type = type_light;
