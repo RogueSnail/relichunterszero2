@@ -48,6 +48,9 @@ joy_init();
 
 volume_update();
 
+//global target fps
+global.target_fps = game_get_speed(gamespeed_fps);
+
 //create guiInfo
 global.guiInfo = instance_create_depth(0,0,0,gui_info);
 

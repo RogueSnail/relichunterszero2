@@ -7,7 +7,7 @@ if (vertical_speed_start)
     draw_height += vertical_speed * delta_time * ms_to_s;
     sprite_angle += angular_speed * delta_time * ms_to_s;
 
-    vertical_speed += fake_gravity;
+    vertical_speed += fake_gravity * delta_time * ms_to_s;
 }
 
 if ( (draw_height >= 0) && (vertical_speed_start) ) {
@@ -16,7 +16,7 @@ if ( (draw_height >= 0) && (vertical_speed_start) ) {
 
 if (timeToBounce)
 {
-    vertical_speed_start -= random_range(bounce_min,bounce_max);
+    vertical_speed_start -= irandom_range(bounce_min,bounce_max);
     
     firstBounce = true;
     timeToBounce = false;
@@ -32,7 +32,7 @@ if (timeToBounce)
     }
     else 
     {
-        angular_speed = random_range(angular_min,angular_max);
+        angular_speed = irandom_range(angular_min,angular_max);
         vertical_speed = -vertical_speed_start;
     }
 }

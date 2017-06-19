@@ -1,12 +1,11 @@
 ///Spawn Chance and Sprites
+event_inherited();
 
 if (room != room_boss)
 {
     barrelSpawnChance = irandom(3);
     if (barrelSpawnChance) instance_destroy();
 }
-
-event_inherited();
 
 maxhp = 100;
 sprite = spr_redbarrel;
@@ -17,5 +16,4 @@ reflection_object_setup(0,spr_redbarrel_reflection,image_index);
 
 depth = -y+96;
 
-
-
+wall_calculate_hp_ranges();

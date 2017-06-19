@@ -46,8 +46,8 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                     repeat(10) 
                     {
                         blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
-                        blood.vertical_speed_start = random_range(5,10) * fps;
-                        blood.speed = random_range(5,9) * fps;
+                        blood.vertical_speed_start = random_range(5,10) * global.target_fps;
+                        blood.speed = random_range(5,9) * global.target_fps;
                     }
                 }
                 else poor_guy.energy -= damage;
@@ -58,8 +58,8 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                 repeat(10) 
                 {
                     blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
-                    blood.vertical_speed_start = random_range(5,10) * fps;
-                    blood.speed = random_range(5,9) * fps;
+                    blood.vertical_speed_start = random_range(5,10) * global.target_fps;
+                    blood.speed = random_range(5,9) * global.target_fps;
                 }
             }
             

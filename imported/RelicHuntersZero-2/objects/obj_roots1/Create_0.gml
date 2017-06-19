@@ -1,3 +1,5 @@
+event_inherited();
+
 maxhp = 150;
 sprite = spr_root1;
 sprite_hit = spr_root1_hit;

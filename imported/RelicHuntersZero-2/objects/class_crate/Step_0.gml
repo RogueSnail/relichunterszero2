@@ -11,6 +11,8 @@ if (hp < 0)
             repeat(irandom_range(1,3)) instance_create_layer(x,y,"GUI",obj_pickup_candyLarge);
         }
     }
+	
+	instance_create_layer(x,y,"Interactive",breakObject);
         
     instance_destroy();
 }

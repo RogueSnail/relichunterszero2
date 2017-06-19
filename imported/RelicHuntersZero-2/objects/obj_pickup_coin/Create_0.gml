@@ -1,6 +1,6 @@
 ///Bouncing Coins
 magnet_range = 110;
-magnet_accel = 540;
+magnet_accel = 720;
 magnet_speed_max = 720;
 magnet_friction = 30;
 
@@ -25,11 +25,11 @@ vertical_speed = -vertical_speed_start;
 vertical_speed_start_min = 80;
 bounce_min = 50;
 bounce_max = 100;
-fake_gravity = 540;
+fake_gravity = 720;
 
 
 speed_per_second = irandom_range(30,100);
-//friction_per_second = 0.05 * fps;
+//friction_per_second = 0.05 * global.target_fps;
 
 //speed = random_range(2,4);
 //friction = 0.05;

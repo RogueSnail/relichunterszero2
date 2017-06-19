@@ -1,6 +1,7 @@
+audio_emitter = 0; //prevent error on cage destroyed by chance
 cage_chance = irandom_range(0,3);
 if (cage_chance != 0)
-{
+{	
     instance_create_layer(x,y+95,"Interactive",obj_longbox);
     instance_destroy();
 }
@@ -37,5 +38,3 @@ audio_emitter_gain(audio_emitter,global.soundVolume);
 impactSound1 = sfx_debris1;
 impactSound2 = sfx_debris2;
 impactSound3 = sfx_debris3;
-
-
