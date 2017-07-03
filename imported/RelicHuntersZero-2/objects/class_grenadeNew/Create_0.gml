@@ -5,16 +5,17 @@ sprite = spr_grenadeNew;
 
 angular_min = -10;
 angular_max = 10;
-angular_speed = random_range(angular_min,angular_max);
+angular_speed = irandom_range(angular_min,angular_max);
 
-vertical_speed_start = 8;
+vertical_speed_start = 6 * global.target_fps; //8
 vertical_speed = -vertical_speed_start;
 
-speed = 4;
+//speed = 4;
+speed_per_second = 4 * global.target_fps;
 
 //Bounce min/max is reduced from vertical speed at each bounce, higher = bounces less
-bounce_min = 2;
-bounce_max = 2.5;
+bounce_min = 2 * global.target_fps; //2
+bounce_max = 2.5 * global.target_fps; //2.5
 
 dynamicHeight = -60;
 
@@ -78,5 +79,3 @@ speedReset = false;
 oldSpeed = 0;
 
 reflection_object_setup(draw_height,spr_grenadeNew,image_index);
-
-
