@@ -1411,7 +1411,7 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Pause",
+            "name": "GUI",
             "userdefined_depth": true,
             "visible": true,
             "instances": [

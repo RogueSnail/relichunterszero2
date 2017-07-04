@@ -12,7 +12,7 @@ if (relic != noone)
     
     if (instance_exists(fx_bigMessage)) with (fx_bigMessage) instance_destroy();
         
-    relic.announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+    relic.announce = instance_create_layer(x,y,"GUI",fx_bigMessage);
     relic.announce.textBig = loc_key("HUD_UNLOCK_RELIC_PIECE");
     relic.announce.textSmall = loc_key("HUD_UNLOCK_RELIC_ALLPIECES");
     relic.announce.relicSprite1 = relic.relicSprite1;

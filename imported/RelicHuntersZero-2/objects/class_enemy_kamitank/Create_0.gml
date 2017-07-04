@@ -127,7 +127,7 @@ reflection_object_setup(0,-1,image_index);
 shadow_object_setup(0,-1,-1,global.default_shadow_yscale);
 
 //Lifebar
-//myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
+//myDynamicBar = instance_create_layer(x,y,"Interactive_Over",gui_dynamicBarEnemy);
 //owner_add_owned_instance(myDynamicBar);
 //myDynamicBar.owner = id;
 

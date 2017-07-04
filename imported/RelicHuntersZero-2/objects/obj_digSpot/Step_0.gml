@@ -18,8 +18,8 @@ if (activate)
                 fxY = y;
             }
             
-            var effect = instance_create_layer(fxX,fxY,"Interactive",fx_digItem);
-            var relic = instance_create_layer(x,y,"Interactive",myItem);
+            var effect = instance_create_layer(fxX,fxY,"GUI",fx_digItem);
+            var relic = instance_create_layer(x,y,"GUI",myItem);
             
             effect.relic = myItem;
             effect.itemSprite = relic.sprite_index;
@@ -41,7 +41,7 @@ if (activate)
                 oY = y;
             }
             audio_stop_all();
-            instance_create_layer(oX,oY,"Interactive",myItem);
+            instance_create_layer(oX,oY,"GUI",myItem);
             if (global.ambientSound) audio_play_sound(global.ambientSound,9,true);
         }
     }
