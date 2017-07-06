@@ -3,6 +3,7 @@
 
 //Level Build
 level_built = false;
+room_speed = global.target_fps;
 
 //Initialization
 draw_texture_flush();

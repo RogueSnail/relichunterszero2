@@ -1,5 +1,8 @@
 ///Main Shit
 
+//Create owned intances list
+owned = [];
+
 var bossBar = 666;
 draw_healthbar_delayed_init(bossBar);
 
