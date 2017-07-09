@@ -24,11 +24,11 @@ instance_deactivate_object(global.pauseWeapon2);
 instance_deactivate_object(global.pausePlayerInfo);
 
 //Flushes textures
-draw_texture_flush();
+//draw_texture_flush();
 
 //Return all tile layers and music volume
-tile_layer_show(-9999);
-tile_layer_show(-99999);
-tile_layer_show(-999999);
+//tile_layer_show(-9999);
+//tile_layer_show(-99999);
+//tile_layer_show(-999999);
 
 volume_update();

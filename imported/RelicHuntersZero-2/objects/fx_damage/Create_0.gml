@@ -7,11 +7,12 @@ myString = round(damage);
 drawOutline = false;
 myFont = global.font_numberSmall;
 
-lifeMax = 700000;//room_speed*0.7;
+lifeMax = 0.70;//room_speed*0.7;
 
 lockToOwner = false;
 
 myScale = 1;
+myOriginalScale = 1;
 scaleGrow = 1.6;
 scaleShrink = 1;
 //scaleFinal = 1;
@@ -21,4 +22,5 @@ scaleSpeedShrink = 0.03;
 
 offsetY = random_range(-10,10);
 offsetX = random_range(-20,20);
+
 

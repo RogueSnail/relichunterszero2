@@ -5,8 +5,8 @@ if (my_gun != noone)
     my_gun.depth = depth-2;
 }
 
-//death
 
+//death
 if hp <= 0
 {
     repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
@@ -25,4 +25,3 @@ if hp <= 0
 	
     instance_destroy();
 }
-

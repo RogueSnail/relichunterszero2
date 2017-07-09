@@ -38,16 +38,6 @@ else if (speed_reset == false)
 ///Audio
 audio_emitter_position(audio_emitter, x, y, 0);
 
-///Explode
-if (explode)
-{
-    var kami = instance_create_layer(drawX,drawY,"Interactive",obj_kamiAlly);
-    
-    audio_emitter_free(audio_emitter);
-    instance_destroy();
-}
-
-
 
 
 

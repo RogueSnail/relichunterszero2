@@ -55,7 +55,7 @@ if (global.relic_crystal_bacon ==2) && (instance_exists(controller_main)){
                 
         audio_play(audio_emitter,false,1,sfx_pickup_health);
                 
-		gui_info_show_at(id, x, y, "Interactive", c_white, loc_key("INFO_HEALTHPLUS"));
+		gui_info_show_at(id, x, y, "Interactive_Over", c_white, loc_key("INFO_HEALTHPLUS"));
         //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
         //guiInfo.colorMain = c_white;
         //guiInfo.myString = loc_key("INFO_HEALTHPLUS");
@@ -191,7 +191,7 @@ if (allowMovement)
             }
             else{
                 //Low Stamina Feedback
-				gui_info_show_at(id, x, y, "Interactive", K_BETU_RED, loc_key("INFO_LOWSTAMINA"));
+				gui_info_show_at(id, x, y, "Interactive_Over", K_BETU_RED, loc_key("INFO_LOWSTAMINA"));
                 //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
                 //guiInfo.colorMain = K_BETU_RED;
                 //guiInfo.myString = loc_key("INFO_LOWSTAMINA");
@@ -264,7 +264,7 @@ if (allowMovement)
                 }
                 else{
                     //Low Stamina Feedback
-					gui_info_show_at(id, x, y, "Interactive", K_BETU_RED, loc_key("INFO_LOWSTAMINA"));
+					gui_info_show_at(id, x, y, "Interactive_Over", K_BETU_RED, loc_key("INFO_LOWSTAMINA"));
                     //guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
                     //guiInfo.colorMain = K_BETU_RED;
                     //guiInfo.myString = loc_key("INFO_LOWSTAMINA");

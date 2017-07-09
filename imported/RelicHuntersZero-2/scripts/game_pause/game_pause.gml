@@ -89,9 +89,9 @@ if (global.pauseInput != K_INPUT_KEYBOARD) global.mouseActive = false;
 
 //TODO: fix these depths
 //Hide tiles and stop the music
-tile_layer_hide(-9999);
-tile_layer_hide(-99999);
-tile_layer_hide(-999999); //Too lazy to fix this on the rooms :p
+//tile_layer_hide(-9999);
+//tile_layer_hide(-99999);
+//tile_layer_hide(-999999); //Too lazy to fix this on the rooms :p
 
 audio_group_set_gain(ag_music, 0, 400000);//room_speed*0.4);
 audio_play_sound(sfx_menu_pause,1,false);

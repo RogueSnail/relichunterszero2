@@ -39,7 +39,7 @@ if (activationClient != noone) && (isInteractiveObjectActive)
 			guiInfoColor = c_white;
             //
             //guiInfo.owner = player;
-			gui_info_show_at(player.id, player.x, player.y, "Interactive", guiInfoColor, guiInfoString);
+			gui_info_show_at(player.id, player.x, player.y, "Interactive_Over", guiInfoColor, guiInfoString);
             
             audio_play(player.audio_emitter,false,1,sfx_pickup_weapon);
             isInteractiveObjectActive = false;
@@ -47,7 +47,7 @@ if (activationClient != noone) && (isInteractiveObjectActive)
         
         if (isAmmoFull)
         {
-			gui_info_show_at(player.id, player.x, player.y, "Interactive", c_white, loc_key("INFO_FULLAMMO"));
+			gui_info_show_at(player.id, player.x, player.y, "Interactive_Over", c_white, loc_key("INFO_FULLAMMO"));
             //guiInfo = instance_create_layer(player.x,player.y,"Interactive",gui_info);
             //guiInfo.myString = loc_key("INFO_FULLAMMO");
             //guiInfo.colorMain = c_white;

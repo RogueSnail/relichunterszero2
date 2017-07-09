@@ -41,7 +41,7 @@
         },
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-            "id": "eaaa0aa7-1baa-42a6-bada-3c9f38b8dd72",
+            "id": "eb7fc2c8-06b5-4342-b947-5e0c33db215a",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
             "depth": -13000,
@@ -58,7 +58,7 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "Controllers",
+            "name": "GUI_Pause",
             "userdefined_depth": true,
             "visible": true,
             "instances": [
@@ -67,7 +67,7 @@
         },
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-            "id": "eb7fc2c8-06b5-4342-b947-5e0c33db215a",
+            "id": "eaaa0aa7-1baa-42a6-bada-3c9f38b8dd72",
             "modelName": "GMRInstanceLayer",
             "mvc": "1.0",
             "depth": -12000,
@@ -84,7 +84,7 @@
             ],
             "m_parentID": "00000000-0000-0000-0000-000000000000",
             "m_serialiseFrozen": false,
-            "name": "GUI_Pause",
+            "name": "Controllers",
             "userdefined_depth": true,
             "visible": true,
             "instances": [

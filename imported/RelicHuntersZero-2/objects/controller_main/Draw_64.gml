@@ -415,7 +415,8 @@ while (p <= global.playerCount)
         }
         
         //Boss Fight Lifebar
-        if instance_exists(obj_boss)
+		var roomname = room_get_name(room);
+        if ((roomname == "room_boss") && instance_exists(obj_boss))
         {
             draw_set_halign(fa_center);
             draw_set_valign(fa_center);

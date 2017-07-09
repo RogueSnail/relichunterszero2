@@ -10,7 +10,7 @@ if (vertical_speed_start < interactive_speed) && (instance_exists(other)) &&  (i
     
     if (isAmmoFull)
     {
-		gui_info_show_at(other.id, other.x, other.y, "Interactive", c_white, loc_key("INFO_FULLAMMO"));
+		gui_info_show_at(other.id, other.x, other.y, "Interactive_Over", c_white, loc_key("INFO_FULLAMMO"));
         //guiInfo = instance_create_layer(other.x,other.y,"Interactive",gui_info);
         //guiInfo.myString = loc_key("INFO_FULLAMMO");
         //guiInfo.colorMain = c_white;

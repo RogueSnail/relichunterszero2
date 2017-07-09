@@ -63,3 +63,19 @@ if (hp <= 0)
     
     instance_destroy();
 }
+
+///Anti-Bug: Destroy If Inside Wall
+
+if collision_point(x,y,obj_limit,false,true)
+{
+    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
+    myCorpse.image_xscale = image_xscale;
+    if (pushed)
+    {
+        myCorpse.speed = push_speed*2;
+        myCorpse.direction = push_direction;
+        myCorpse.sprite_index = sprite_death;
+    }
+    
+    instance_destroy();
+}
