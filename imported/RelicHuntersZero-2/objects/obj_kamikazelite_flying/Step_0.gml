@@ -74,16 +74,6 @@ if (flightSpeed)
     direction = targetDirection;
 }
 
-///Landing
-
-if (flightState == "complete")
-{
-    var landed = instance_create_layer(x,y,"Interactive",obj_kamikazelite);
-    landed.hp = hp;
-	
-    instance_destroy();
-}
-
 ///Update Shadow Draw Position
 shadow_object_setup(myHeight,-1,-1,global.default_shadow_yscale);
 

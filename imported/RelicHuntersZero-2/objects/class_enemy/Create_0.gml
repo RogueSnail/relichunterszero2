@@ -18,7 +18,7 @@ hp = hp_max;
 energy = 0;
 shield = false;
 
-myDynamicBar = instance_create_layer(x,y,"Interactive",gui_dynamicBarEnemy);
+myDynamicBar = instance_create_layer(x,y,"Interactive_Over",gui_dynamicBarEnemy);
 owner_add_owned_instance(myDynamicBar);
 //myDynamicBar.owner = id;
 

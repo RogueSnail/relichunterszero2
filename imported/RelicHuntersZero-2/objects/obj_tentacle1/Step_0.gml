@@ -1,11 +1,6 @@
 ///Life & Death
 if (hp > hp_max) hp = hp_max;
 
-if hp < 0
-{
-    score_add(global.score_kill,false);
-    instance_destroy();
-}
     
 
 ///Hit Taken

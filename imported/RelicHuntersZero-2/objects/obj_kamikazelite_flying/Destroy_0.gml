@@ -1,3 +1,7 @@
-///Cleanup
-if audio_emitter_exists(audio_emitter) audio_emitter_free(audio_emitter);
+/// @description cleanup, dispatch events
 
+if (audio_emitter > 0) {
+	ds_list_add(global.audio_cleaner,audio_emitter);
+}
+
+dispatch_event(EVENT_INSTANCE_REMOVED, id);

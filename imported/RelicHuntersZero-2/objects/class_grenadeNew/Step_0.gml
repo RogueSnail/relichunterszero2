@@ -15,7 +15,7 @@ if (!allowBounce)
 
 if (draw_height >= dynamicHeight) && (allowBounce)
 {
-    if (place_meeting(x,y,obj_wall)) && (speed)
+    if (place_meeting(x,y,obj_wall)) && (speed_per_second)
     {
         if (vertical_speed)
         {
@@ -77,7 +77,7 @@ if (!global.pause)
 {
     if (speedReset)
     {
-        speed = oldSpeed;
+        speed_per_second = oldSpeed;
         speedReset = false;
     }
 }
@@ -85,8 +85,8 @@ else
 {
     if (!speedReset)
     {
-        oldSpeed = speed;
-        speed = 0;
+        oldSpeed = speed_per_second;
+        speed_per_second = 0;
         speedReset = true;
     }
 }

@@ -3,6 +3,8 @@
 targetX = -1;
 targetY = -1;
 
+ai_target = noone;
+
 flightState = "up";
 hp = 0;
 

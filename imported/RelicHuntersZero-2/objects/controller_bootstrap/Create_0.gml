@@ -9,6 +9,12 @@ randomize();
 save_sync_read();
 screen_update();
 
+//set game speed
+game_set_speed(60, gamespeed_fps);
+
+//turn vsync on
+display_reset(0, true);
+
 //Version
 global.currentVersionNumber = "YEAR 2 - UPDATE 14";
 
@@ -50,6 +56,7 @@ volume_update();
 
 //global target fps
 global.target_fps = game_get_speed(gamespeed_fps);
+show_debug_message(global.target_fps);
 
 //create guiInfo
 global.guiInfo = instance_create_depth(0,0,0,gui_info);

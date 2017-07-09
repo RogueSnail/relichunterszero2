@@ -6,8 +6,8 @@ if (!targetSetup)
     
     var virtualHeight = draw_height;
     var virtualVerticalSpeed = vertical_speed;
-    var virtualHorizontalSpeed = speed;
-    var virtualFriction = friction;
+    var virtualHorizontalSpeed = speed_per_second;
+    var virtualFriction = friction_per_second;
     var virtualGravity = fake_gravity;
     var totalDistance = 0;
     

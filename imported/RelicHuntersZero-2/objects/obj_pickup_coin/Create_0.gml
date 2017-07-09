@@ -19,7 +19,7 @@ sprite = sprite1;
 sprite_subimage = 0;
 draw_height = -40;
 
-vertical_speed_start = irandom_range(200,300);
+vertical_speed_start = random_range(3,6) * global.target_fps;
 interactive_speed = vertical_speed_start;
 vertical_speed = -vertical_speed_start;
 vertical_speed_start_min = 80;
