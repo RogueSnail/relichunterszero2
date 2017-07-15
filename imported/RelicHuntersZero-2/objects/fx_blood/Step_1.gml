@@ -1,4 +1,5 @@
 ///Randomize Direction
+if (!active) return;
 
 if (!randomizeDir) 
 {   

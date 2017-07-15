@@ -1,6 +1,10 @@
-global.bloodPool = create_object_pool();
-//global.casingPool = create_object_pool();
+/// init game object pools
 
-fill_object_pool(global.bloodPool, abs(global.max_casings * 0.5), fx_blood, "Interactive");
-//fill_object_pool(global.casingPool, abs(global.max_casings * 0.5), fx_blood, "Interactive");
+global.pool = array_create(pool_count);
+global.pool_at = array_create(pool_count, 0);
 
+var psize = floor(global.max_casings * 0.5);
+global.pool_size = array_create(pool_count, psize);
+
+create_object_pool(blood_pool, fx_blood, psize, "Interactive");
+create_object_pool(casing_pool, fx_casing, psize, "Interactive");

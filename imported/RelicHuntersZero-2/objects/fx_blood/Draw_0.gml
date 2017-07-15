@@ -8,6 +8,6 @@ reflection_add_sprite_update(sprite,sprite_subimage,x,y-draw_height,1,1,sprite_a
 if (!vertical_speed_start)
 {
     draw_persistent(sprite,sprite_subimage,x,y+draw_height,1,1,sprite_angle,image_blend,1);
-    add_object_to_pool(global.bloodPool, id);
+	active = false;
+	visible = false;
 }
-

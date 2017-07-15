@@ -1,3 +1,4 @@
+show_debug_message("controller_main must be the first instance on each playable room");
 
 ///Main Configuration
 
@@ -1013,3 +1014,6 @@ if (global.gameMode == gamemode_endless) && (ds_exists(global.challengeList,ds_t
 //Apply these right here, right now
     if (global.challengeDucanWeapons) global.enemyProjectileSpeed = global.challengeDucanWeaponsSpeed;
 /**/
+
+//create object pools
+init_object_pools();

@@ -62,13 +62,14 @@ if (faction == f_player) /*&& instance_exists(other)*/
             }
         }
         
-        bloodAmount = min(bloodAmount, (global.max_casings-global.count_casings) );
-        if (bloodAmount) && (global.max_casings) repeat(bloodAmount) 
+        //bloodAmount = min(bloodAmount, (global.max_casings-global.count_casings) );
+        if (bloodAmount) && (global.max_casings) 
 		{
-			//blood = instance_create_layer(x,y,"Interactive",fx_blood);
-			blood = get_object_from_pool(global.bloodPool);
-			with (blood) {
-				reset_blood_instance(x, y, "Interactive");
+			repeat(bloodAmount) 
+			{
+				//blood = instance_create_layer(x,y,"Interactive",fx_blood);
+				blood = get_object_from_pool(blood_pool);
+				reset_blood_instance(blood, x, y, "Interactive");
 			}
 		}
         

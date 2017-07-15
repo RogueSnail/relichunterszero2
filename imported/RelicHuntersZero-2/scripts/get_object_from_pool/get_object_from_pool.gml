@@ -1,12 +1,8 @@
-var pool = argument0;
-
-if (ds_stack_empty(pool)) 
-{
-	fill_object_pool(pool, 1, fx_blood, "Interactive");
-}
-
-{
-    var instance = ds_stack_pop(pool);
-    instance_activate_object(instance);
-	return instance;
-}
+///get_object_from_pool(pool_index)
+//see macros, create_object_pool, init_object_pools
+var pool_index = argument0;
+var instance = global.pool[pool_index, global.pool_at[pool_index]++];
+instance.active = true
+instance.visible = true;
+global.pool_at[pool_index] = global.pool_at[pool_index] mod global.pool_size[pool_index];
+return instance;
