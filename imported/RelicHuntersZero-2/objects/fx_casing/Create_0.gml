@@ -5,14 +5,14 @@ ammo_type = type_light;
 
 casing_angle = 0;
 casing_subimage = 0;
-angular_min = -10;
-angular_max = 10;
+angular_min = -10 * global.target_fps;
+angular_max = 10 * global.target_fps;
 angular_speed = irandom_range(angular_min,angular_max);
 
 vertical_speed_start = irandom_range(3,6) * global.target_fps;
 vertical_speed = -vertical_speed_start;
 vertical_speed_start_min = 0.5 * global.target_fps;
-fake_gravity = 15 * global.target_fps;//0.3;
+fake_gravity = 18 * global.target_fps;//0.3;
 
 bounce_min = 1 * global.target_fps;
 bounce_max = 2 * global.target_fps;

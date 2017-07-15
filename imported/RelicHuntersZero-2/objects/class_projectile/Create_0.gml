@@ -9,6 +9,7 @@ type = 0;
 push_power = 0;
 faction = f_player;
 distance_travelled = 0;
+bloodAmount = 0;
 
 allowPrecision = true;
 piercing = 0;

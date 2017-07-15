@@ -803,9 +803,6 @@ if (instance_exists(gui_info_lowPerformance))
     draw_text(rectX,rectY+textSpacing,string_hash_to_newline(loc_key("SETTINGS_LOWPERF3")));
 }
 
-
-
-
 draw_set_alpha(1);
 surface_reset_target();
 var surfaceXScale = window_get_width()/1920;

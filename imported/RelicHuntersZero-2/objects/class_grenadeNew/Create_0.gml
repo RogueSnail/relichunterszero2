@@ -3,15 +3,16 @@
 event_inherited();
 sprite = spr_grenadeNew;
 
-angular_min = -10;
-angular_max = 10;
+angular_min = -10 * global.target_fps;
+angular_max = 10 * global.target_fps;
 angular_speed = irandom_range(angular_min,angular_max);
 
-vertical_speed_start = 6 * global.target_fps; //8
+vertical_speed_start = 8 * global.target_fps; //8
 vertical_speed = -vertical_speed_start;
 
 //speed = 4;
-speed_per_second = 4 * global.target_fps;
+speed_per_second = 6 * global.target_fps;
+friction_per_second = 1 * global.target_fps;
 
 //Bounce min/max is reduced from vertical speed at each bounce, higher = bounces less
 bounce_min = 2 * global.target_fps; //2

@@ -5,22 +5,22 @@ isAvailable = true;
 
 labelString = loc_key("PERFORMANCE_DYNAMICS");
 
-if (global.max_casings == 100)
+if (global.max_casings == 1000)
 {
     myVariable = 3;
-    myValueString = "100";
+    myValueString = "1000";
 }
 
-if (global.max_casings == 50)
+if (global.max_casings == 500)
 {
     myVariable = 2;
-    myValueString = "50";
+    myValueString = "500";
 }
 
-if (global.max_casings == 20)
+if (global.max_casings == 200)
 {
     myVariable = 1;
-    myValueString = "20";
+    myValueString = "200";
 }
 
 if (global.max_casings == 0)

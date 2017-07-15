@@ -58,12 +58,19 @@ if (faction == f_player) /*&& instance_exists(other)*/
             if (isPrecise)
             {
                 other.critical_death = true;
-                bloodAmount += 40;
+                bloodAmount += 80;//40;
             }
         }
         
         bloodAmount = min(bloodAmount, (global.max_casings-global.count_casings) );
-        if (bloodAmount) && (global.max_casings) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+        if (bloodAmount) && (global.max_casings) repeat(bloodAmount) 
+		{
+			//blood = instance_create_layer(x,y,"Interactive",fx_blood);
+			blood = get_object_from_pool(global.bloodPool);
+			with (blood) {
+				reset_blood_instance(x, y, "Interactive");
+			}
+		}
         
         damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
         if (isPrecise) && (!other.shield) damageEffect.critical = true;

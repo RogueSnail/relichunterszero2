@@ -67,4 +67,7 @@ global.guiScore = instance_create_depth(0,0,0,gui_score);
 //create event controller
 global.eventManager = instance_create_depth(0,0,0,controller_eventManager);
 
+//create object pools
+init_object_pools();
+
 room_goto_next();

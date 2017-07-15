@@ -21,7 +21,8 @@ global.pauseWeapon1 = instance_create_layer(0,0,"GUI_Pause",gui_weaponInfo);
 global.pauseWeapon2 = instance_create_layer(0,0,"GUI_Pause",gui_weaponInfo);
 
 global.pauseController = instance_create_layer(0,0,"Controllers",controller_pause);
-global.pauseMenuButtonController = instance_create_layer(0,0,"Controllers",controller_menuButtons);
+global.pauseMenuButtonController = instance_create_layer(0,0,"GUI_Pause",controller_menuButtons);
+global.pauseMenuButtonController.depth -= 1000;
 
 //All Pause Menu objects must start the game deactivated
 instance_deactivate_object(global.pauseFX);

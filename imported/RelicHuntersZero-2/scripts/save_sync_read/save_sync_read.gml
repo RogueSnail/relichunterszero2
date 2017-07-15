@@ -242,7 +242,7 @@ ini_open(working_directory + "\\saveData.ini");
     global.shadows_toggle = ini_read_real("Quality","shadows",defaultEffects);
     global.persistent_toggle = ini_read_real("Quality","persistent effects",defaultEffects);
     global.max_particles = ini_read_real("Quality","max particles",5);
-    global.max_casings = ini_read_real("Quality","max casings",100);
+    global.max_casings = ini_read_real("Quality","max casings",1000);
     global.alwaysShowAmmo = ini_read_real("Quality","Always Show Ammo",false);
     
     
