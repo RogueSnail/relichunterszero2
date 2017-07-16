@@ -233,7 +233,7 @@ ini_open(working_directory + "\\saveData.ini");
     global.screenShakeRatio = ini_read_real("Quality","screenshake",1.0);
     global.vibrationRatio = ini_read_real("Quality","controller vibration",1.0);
     
-    global.allowKillFreeze = ini_read_real("Quality","allowKillFreeze",true);
+    global.allowKillFreeze = false;//ini_read_real("Quality","allowKillFreeze",true);
     global.friendlyFire = ini_read_real("Quality","friendlyFire",false);
     
     global.screenResolution = ini_read_real("Quality","resolution",1.0);

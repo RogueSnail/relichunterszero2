@@ -108,7 +108,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if (want_to_pause) && (image_index >= trigger_frame)
 {
-    if (global.allowKillFreeze) global.pause = 70000;//room_speed*0.07;
+    //if (global.allowKillFreeze) global.pause = 70000;//room_speed*0.07;
     want_to_pause = false;
 }
 

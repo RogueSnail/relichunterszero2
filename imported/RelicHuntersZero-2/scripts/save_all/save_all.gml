@@ -251,7 +251,7 @@ ini_open(working_directory + "\\saveData.ini");
     ini_write_real("Quality","persistent effects",global.persistent_toggle);
     ini_write_real("Quality","max particles",global.max_particles);
     ini_write_real("Quality","max casings",global.max_casings);
-    ini_write_real("Quality","allowKillFreeze",global.allowKillFreeze);
+    //ini_write_real("Quality","allowKillFreeze",global.allowKillFreeze);
     
     //Keyboard&Mouse Input
     ini_write_real("Mapping","Keyboard Fire1",global.inputFire1);

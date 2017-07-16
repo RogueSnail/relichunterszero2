@@ -80,7 +80,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 if (want_to_pause)
 {
-    if (global.allowKillFreeze) global.pause = room_speed*0.07;
+    ////if (global.allowKillFreeze) global.pause = room_speed*0.07;
     want_to_pause = false;
 }
 

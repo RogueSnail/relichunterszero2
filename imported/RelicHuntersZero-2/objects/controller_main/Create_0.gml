@@ -506,7 +506,7 @@ if (global.gameMode == gamemode_endless)
 
 main_camera = instance_create_layer(x,y,"Controllers",controller_camera);
 
-main_effects = instance_create_layer(x,y,"Controllers",controller_effects);
+main_effects = instance_create_layer(x,y,"Shadows",controller_effects);
 
 
 //Pause Menu
