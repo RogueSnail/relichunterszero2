@@ -8,7 +8,7 @@ text=argument2;
 
 if (owner != noone)
 {
-	gui_info_show_at(owner.id, owner.x, owner.y, "Interactive", color, text);    
+	gui_info_show_at(owner.id, owner.x, owner.y, "Interactive_Over", color, text);    
     return true;
 }
 else return false;

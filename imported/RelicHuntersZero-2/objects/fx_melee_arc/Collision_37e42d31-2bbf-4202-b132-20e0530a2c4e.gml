@@ -29,7 +29,12 @@ if instance_exists(other) && instance_exists(owner)
         else 
         {
             other.hp -= damage;
-            repeat(round(damage/10)) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+            //repeat(round(damage/10)) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+			repeat(round(damage/10)) 
+			{
+				blood = get_object_from_pool(blood_pool);
+				reset_blood_instance(blood, x, y, "Interactive");
+			}
         }
         other.hit_taken = true;
         if (hasJoy) joy_rumble(joy,7,7);

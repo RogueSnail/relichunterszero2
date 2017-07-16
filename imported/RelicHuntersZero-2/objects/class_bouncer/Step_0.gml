@@ -1,5 +1,4 @@
 ///"Physics"
-if (!active) return;
 
 if (vertical_speed_start)
 {

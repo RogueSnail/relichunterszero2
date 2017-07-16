@@ -58,7 +58,7 @@ if (faction == f_player) /*&& instance_exists(other)*/
             if (isPrecise)
             {
                 other.critical_death = true;
-                bloodAmount += 80;//40;
+                bloodAmount += 40;
             }
         }
         

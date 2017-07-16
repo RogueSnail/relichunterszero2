@@ -1,5 +1,5 @@
 ///Physics
-if (!active) return;
+//if (!active) return;
 
 depth= -y;
 

@@ -120,12 +120,9 @@ if (owner != noone)
 	            //casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
 	            casing = get_object_from_pool(casing_pool);
 				//layer_add_instance("interactive", casing);
-				reset_casing_instance(casing, x, y+16, "Interactive");
-				casing.direction = shoot_direction+180+random_range(casing.dirMin,casing.dirMax);
-				casing.ammo_type = ammo_type;
-				if (ammo_type == type_light) casing.casing_subimage = 0;
-				else if (ammo_type == type_medium) casing.casing_subimage = 1;
-				else if (ammo_type == type_heavy) casing.casing_subimage = 2;
+				reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);
+				//blood = get_object_from_pool(blood_pool);
+				//reset_blood_instance(blood, x, y, "Interactive");								
 	        }
 	    //}
             

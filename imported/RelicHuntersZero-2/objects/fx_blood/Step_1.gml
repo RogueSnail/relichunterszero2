@@ -1,6 +1,6 @@
 ///Randomize Direction
-if (!active) return;
-
+//if (!active) return;
+/*
 if (!randomizeDir) 
 {   
     sprite_subimage = irandom(3);
@@ -8,6 +8,6 @@ if (!randomizeDir)
     
     direction = random(360);
 }
-
+*/
 
 

@@ -45,9 +45,13 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                     }
                     repeat(10) 
                     {
-                        blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
-                        blood.vertical_speed_start = random_range(5,10) * global.target_fps;
-                        blood.speed = random_range(5,9) * global.target_fps;
+                        //blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
+                        //blood.vertical_speed_start = random_range(5,10) * global.target_fps;
+                        //blood.speed = random_range(5,9) * global.target_fps;
+						blood = get_object_from_pool(blood_pool);
+						reset_blood_instance(blood, poor_guy.x, poor_guy.y, "Interactive");
+						blood.vertical_speed_start = random_range(5,10) * global.target_fps;
+	                    blood.speed = random_range(5,9) * global.target_fps;
                     }
                 }
                 else poor_guy.energy -= damage;
@@ -57,8 +61,13 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
                 poor_guy.hp -= damage;
                 repeat(10) 
                 {
-                    blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
-                    blood.vertical_speed_start = random_range(5,10) * global.target_fps;
+                    //blood = instance_create_layer(poor_guy.x,poor_guy.y,"Interactive",fx_blood);
+                    //blood.vertical_speed_start = random_range(5,10) * global.target_fps;
+                    //blood.speed = random_range(5,9) * global.target_fps;
+					
+					blood = get_object_from_pool(blood_pool);
+					reset_blood_instance(blood, poor_guy.x, poor_guy.y, "Interactive");
+					blood.vertical_speed_start = random_range(5,10) * global.target_fps;
                     blood.speed = random_range(5,9) * global.target_fps;
                 }
             }

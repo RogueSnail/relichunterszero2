@@ -601,8 +601,15 @@ if ( (grenade_input) && (!melee) && (!throw) )
             hp -= riderGrenadeCost;
             throw = true;
             audio_play(audio_emitter,false,1,sfx_melee);
-            bloodAmount = min(5, (global.max_casings-global.count_casings));
-            if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+            //bloodAmount = min(5, (global.max_casings-global.count_casings));
+            //if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+            bloodAmount = 5;
+            if (bloodAmount) repeat(bloodAmount) 
+			{
+				blood = get_object_from_pool(blood_pool);
+				reset_blood_instance(blood, x, y, "Interactive");
+			}
+			
             hit_taken = true;
             var spreadX = irandom_range(-15,15);
             var spreadY = irandom_range(-15,15);

@@ -1016,4 +1016,5 @@ if (global.gameMode == gamemode_endless) && (ds_exists(global.challengeList,ds_t
 /**/
 
 //create object pools
+global.max_casings = 1000;
 init_object_pools();
