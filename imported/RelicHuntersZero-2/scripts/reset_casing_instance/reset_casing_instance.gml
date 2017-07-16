@@ -2,7 +2,7 @@ instance = argument0;
 instance.x = argument1;
 instance.y = argument2;
 layer_name = argument3;
-//layer_add_instance(layer_get_id(argument3), instance);
+layer_add_instance(layer_get_id(argument3), instance);
 shoot_direction = argument4;
 ammo_type = argument5;
 

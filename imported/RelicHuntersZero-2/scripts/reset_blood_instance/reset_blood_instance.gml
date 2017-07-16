@@ -1,7 +1,7 @@
 instance = argument0;
 instance.x = argument1;
 instance.y = argument2;
-//layer_add_instance(layer_get_id(argument3), instance);
+layer_add_instance(layer_get_id(argument3), instance);
 layer_name = argument3;
 
 instance.angular_min = -10 * global.target_fps;

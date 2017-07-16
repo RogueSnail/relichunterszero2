@@ -5,6 +5,12 @@ isAvailable = true;
 
 labelString = loc_key("PERFORMANCE_DYNAMICS");
 
+if (global.max_casings == 2000)
+{
+    myVariable = 4;
+    myValueString = "2000";
+}
+
 if (global.max_casings == 1000)
 {
     myVariable = 3;
@@ -29,5 +35,5 @@ if (global.max_casings == 0)
     myValueString = "0";
 }
 
-myVariableMax = 3;
+myVariableMax = 4;
 

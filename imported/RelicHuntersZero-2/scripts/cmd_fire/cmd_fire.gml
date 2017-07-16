@@ -121,8 +121,10 @@ if (owner != noone)
 	            casing = get_object_from_pool(casing_pool);
 				//layer_add_instance("interactive", casing);
 				reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);
-				//blood = get_object_from_pool(blood_pool);
-				//reset_blood_instance(blood, x, y, "Interactive");								
+				/*repeat(80) {
+					blood = get_object_from_pool(blood_pool);
+					reset_blood_instance(blood, x, y, "Interactive");
+				}*/								
 	        }
 	    //}
             
