@@ -1017,3 +1017,12 @@ if (global.gameMode == gamemode_endless) && (ds_exists(global.challengeList,ds_t
 
 //create object pools
 init_object_pools();
+
+//create guiInfo
+global.guiInfo = instance_create_depth(0,0,0,gui_info);
+
+//create guiScore
+global.guiScore = instance_create_depth(0,0,0,gui_score);
+
+//create event controller
+global.eventManager = instance_create_depth(0,0,0,controller_eventManager);

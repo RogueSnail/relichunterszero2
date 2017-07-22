@@ -34,6 +34,7 @@ overshield = global.overshield[myPlayerId];
     }
     else
     {
+		show_debug_message("here");
         weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol_jimmy);
         weapon1.owner = id;
         draw_gun(weapon1);

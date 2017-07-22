@@ -37,7 +37,7 @@ if instance_exists(owner)
             
             spreadX = irandom_range(-15,15);
             spreadY = irandom_range(-15,15);
-            damage_fx = instance_create_layer(fucker.x+spreadX,fucker.y+spreadY,"Interactive",fx_damage);
+            damage_fx = instance_create_layer(fucker.x+spreadX,fucker.y+spreadY,"Interactive_Over",fx_damage);
             damage_fx.damage = damage;
             damage_fx.critical = true;
         }

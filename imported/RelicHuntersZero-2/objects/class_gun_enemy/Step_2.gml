@@ -4,4 +4,6 @@ if (owner != noone)
     x = owner.x;
     y = owner.y-15;
 }
-
+else {
+	instance_destroy();
+}

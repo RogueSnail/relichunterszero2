@@ -7,6 +7,7 @@ myChar = char_jimmy;
 
 setup_initial = false;
 interactionKey = false;
+reloadKey = false;
 
 myDynamicBar = instance_create_layer(x,y,"Interactive_Over",gui_dynamicBar);
 //myDynamicBar.owner = id;

@@ -345,7 +345,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
             
             spreadX = irandom_range(-15,15);
             spreadY = irandom_range(-15,15);
-            damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
+            damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive_Over",fx_damage);
             damage_fx.damage = damage;
             
     
@@ -375,21 +375,7 @@ audio_emitter_position(audio_emitter, x, y, 0);
 /* */
 }
 }
-///Anti-Bug: Destroy If Inside Wall
 
-if collision_point(x,y,obj_limit,false,true)
-{
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
-    myCorpse.image_xscale = image_xscale;
-    if (pushed)
-    {
-        myCorpse.speed = push_speed*2;
-        myCorpse.direction = push_direction;
-        myCorpse.sprite_index = sprite_death;
-    }
-    
-    instance_destroy();
-}
 
 /* */
 /*  */

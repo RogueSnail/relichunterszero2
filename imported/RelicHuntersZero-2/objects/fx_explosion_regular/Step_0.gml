@@ -74,7 +74,7 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
             
             var spreadX = irandom_range(-15,15);
             var spreadY = irandom_range(-15,15);
-            var damage_fx = instance_create_layer(poor_guy.x+spreadX,poor_guy.y+spreadY,"Interactive",fx_damage);
+            var damage_fx = instance_create_layer(poor_guy.x+spreadX,poor_guy.y+spreadY,"Interactive_Over",fx_damage);
             damage_fx.damage = damage;
             
             if (poor_guy.hp <= 0) want_to_pause = true;

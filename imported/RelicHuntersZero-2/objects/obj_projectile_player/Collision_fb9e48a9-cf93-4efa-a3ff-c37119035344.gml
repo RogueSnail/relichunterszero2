@@ -73,7 +73,7 @@ if (faction == f_player) /*&& instance_exists(other)*/
 			}
 		}
         
-        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
         if (isPrecise) && (!other.shield) damageEffect.critical = true;
         damageEffect.damage = damage;        
         
@@ -90,7 +90,7 @@ if (faction == f_player) /*&& instance_exists(other)*/
     if (other.dodging) && (ds_list_find_index(damage_list,other.id) < 0)
     {
         ds_list_add(damage_list,other.id);
-        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
     }
 }
 

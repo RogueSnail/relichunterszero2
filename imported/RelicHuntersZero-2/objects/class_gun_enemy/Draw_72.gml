@@ -1,7 +1,15 @@
 /// @description check events and refs
 if (owner != noone) {
+	for (var i = array_length_1d(global.eventManager.removedInstances) - 1; i > -1; i--;)
+	{
+		if (owner == (global.eventManager.removedInstances[i])) {
+			owner = noone;
+			break;
+		}
+	}
+}
 
-	/// @description check events and refs
+if (owner != noone) {
 	if (owner.ai_target != noone) {
 
 		for (var i = array_length_1d(global.eventManager.removedInstances) - 1; i > -1; i--;)
@@ -10,14 +18,6 @@ if (owner != noone) {
 				owner.ai_target = noone;
 				break;
 			}
-		}
-	}
-
-	for (var i = array_length_1d(global.eventManager.removedInstances) - 1; i > -1; i--;)
-	{
-		if (owner == (global.eventManager.removedInstances[i])) {
-			owner = noone;
-			break;
 		}
 	}
 }

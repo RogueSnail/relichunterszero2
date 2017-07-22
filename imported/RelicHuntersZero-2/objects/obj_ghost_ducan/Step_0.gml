@@ -176,7 +176,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer)// && instance_exists(myEn
         
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
-        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
+        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive_Over",fx_damage);
         damage_fx.damage = damage;
         
         

@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description delta-time based movement & death
 // You can write your code in this editor
 if hp <= 0
 {
@@ -73,4 +73,21 @@ if hp <= 0
     else audio_play(audio_emitter,false,1,sfx_turtle_death);
     
     instance_destroy();
+}
+else {
+	///Anti-Bug: Destroy If Inside Wall
+
+	if collision_point(x,y,obj_limit,false,true)
+	{
+	    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
+	    myCorpse.image_xscale = image_xscale;
+	    if (pushed)
+	    {
+	        myCorpse.speed = push_speed*2;
+	        myCorpse.direction = push_direction;
+	        myCorpse.sprite_index = sprite_death;
+	    }
+    
+	    instance_destroy();
+	}
 }

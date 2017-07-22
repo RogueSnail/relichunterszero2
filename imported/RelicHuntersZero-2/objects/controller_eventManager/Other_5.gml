@@ -1,2 +1,3 @@
 /// @description removed - free memory
-//removedInstances = 0;
+removedInstances = 0;
+instance_destroy();

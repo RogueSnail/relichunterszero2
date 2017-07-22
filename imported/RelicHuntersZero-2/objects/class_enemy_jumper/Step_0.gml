@@ -160,11 +160,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
                 
                 if ( collision_circle(fly_target_x, fly_target_y, 50, class_solid, false, true) < 0 )
                 {
-                    iAmFlying = instance_create_layer(x,y,"Interactive",obj_kamikazelite_flying);
-                    iAmFlying.targetX = fly_target_x;
-                    iAmFlying.targetY = fly_target_y;
-                    iAmFlying.hp = hp;
-                    instance_destroy();
+					create_flight_object = true;
                     exit;
                 }
             }
@@ -312,7 +308,7 @@ if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnem
         
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
-        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive",fx_damage);
+        damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive_Over",fx_damage);
         damage_fx.damage = damage;
         
         if (!is_player)
@@ -333,20 +329,5 @@ else damage_timer_current += delta_time;
 audio_emitter_position(audio_emitter, x, y, 0);
 
 }
-}
-///Anti-Bug: Destroy If Inside Wall
-
-if collision_point(x,y,obj_limit,false,true)
-{
-    myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse);
-    myCorpse.image_xscale = image_xscale;
-    if (pushed)
-    {
-        myCorpse.speed = push_speed*2;
-        myCorpse.direction = push_direction;
-        myCorpse.sprite_index = sprite_death;
-    }
-    
-    instance_destroy();
 }
 

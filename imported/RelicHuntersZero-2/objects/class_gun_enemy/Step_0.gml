@@ -85,7 +85,7 @@ if (stepHasTarget)
 
 
 ///Death
-if (!instance_exists(owner)) instance_destroy();
+//if (!instance_exists(owner)) instance_destroy();
 
 }
 }

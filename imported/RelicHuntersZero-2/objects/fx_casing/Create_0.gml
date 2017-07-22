@@ -28,4 +28,4 @@ direction = 180 + random_range(dirMin,dirMax);
 //friction = 0.05;
 friction_per_second = 0.05 * global.target_fps;
 
-show_debug_message("fx_casing create instance");
+//show_debug_message("fx_casing create instance");

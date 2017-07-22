@@ -58,7 +58,7 @@ if faction == f_player && instance_exists(other)
         spreadX = irandom_range(-15,15);
         spreadY = irandom_range(-15,15);
         
-        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
         if (isPrecise) && (!other.shield) damageEffect.critical = true;
         damageEffect.damage = damage;
         
