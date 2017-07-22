@@ -1,5 +1,5 @@
 ///Pickup
-if ((vertical_speed_start < interactive_speed) && (other != noone))
+if ((vertical_speed_start < interactive_speed) && (instance_exists_fast(other)))
 {
     var myScore = 10;
     if (global.character[1] == char_ass || global.character[2] == char_ass) myScore += 12;
