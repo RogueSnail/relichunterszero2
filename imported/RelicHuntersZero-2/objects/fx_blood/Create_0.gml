@@ -1,6 +1,6 @@
 ///Init
 event_inherited();
-//active = false;
+active = true;
 sprite = spr_blood_bits;
 
 bounce_min = 3 * global.target_fps;

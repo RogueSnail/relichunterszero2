@@ -39,12 +39,14 @@ if (isAvailable)
         ini_close();
         
          //start daily
-         instance_create_layer(x,y,"Interactive",controller_main); // This runs the "Create" event of the controller_main before going into level1_1. No time to go by the required Globals and refactoring the code right now =(
+         //instance_create_layer(x,y,"Interactive",controller_main); // This runs the "Create" event of the controller_main before going into level1_1. No time to go by the required Globals and refactoring the code right now =(
          room_goto(level1_1);
          executeAction=false;
     }
 }
 else{
-    if (!instance_exists(controller_steamAsync)) instance_create_layer(x,y,"Interactive",controller_steamAsync);
+    if (!instance_exists(controller_steamAsync)) {
+		instance_create_layer(x,y,"Controllers",controller_steamAsync);
+	}
 }
 

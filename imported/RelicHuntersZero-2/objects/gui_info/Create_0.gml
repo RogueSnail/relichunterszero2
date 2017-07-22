@@ -12,4 +12,3 @@ drawOutline = false;
 colorOutline = c_white;
 
 visible = false;
-persistent = true;

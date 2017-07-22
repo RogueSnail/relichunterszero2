@@ -613,7 +613,7 @@ if ( (grenade_input) && (!melee) && (!throw) )
             hit_taken = true;
             var spreadX = irandom_range(-15,15);
             var spreadY = irandom_range(-15,15);
-            damage_fx = instance_create_layer(x+spreadX,y+spreadY,"Interactive",fx_damage);
+            damage_fx = instance_create_layer(x+spreadX,y+spreadY,"Interactive_Over",fx_damage);
             damage_fx.damage = riderGrenadeCost;
         }
 }

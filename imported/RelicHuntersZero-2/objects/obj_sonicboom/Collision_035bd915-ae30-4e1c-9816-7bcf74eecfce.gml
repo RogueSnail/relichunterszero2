@@ -45,7 +45,7 @@ if instance_exists(other)
                     
                     spreadX = irandom_range(-15,15);
                     spreadY = irandom_range(-15,15);
-                    damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+                    damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
                     damage_fx.damage = ffDamage;
             
                     if (!instance_exists(hit)) && (global.count_particles < global.max_particles)
@@ -98,7 +98,7 @@ if instance_exists(other)
             other.hit_taken = true;
             
             
-            damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+            damage_fx = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
             damage_fx.damage = damage;
     
             if (!instance_exists(hit)) && (global.count_particles < global.max_particles)
@@ -112,7 +112,7 @@ if instance_exists(other)
         if (other.dodging) && (ds_list_find_index(damage_list,other.id) < 0)
         {
             ds_list_add(damage_list,other.id);
-            damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+            damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
         }
     }
 }

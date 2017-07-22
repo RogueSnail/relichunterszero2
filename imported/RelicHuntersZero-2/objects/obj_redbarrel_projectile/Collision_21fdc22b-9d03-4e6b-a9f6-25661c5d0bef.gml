@@ -38,7 +38,7 @@ else
         
         
         
-        trampleDamageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+        trampleDamageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
         if (type == 2) && (!other.shield) trampleDamageEffect.critical = true;
         trampleDamageEffect.damage = trampleDamage;
         
@@ -52,7 +52,7 @@ else
     if (other.dodging) && (ds_list_find_index(hitList,other.id) < 0)
     {
         ds_list_add(hitList,other.id);
-        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive",fx_damage);
+        damageEffect = instance_create_layer(other.x+spreadX,other.y+spreadY,"Interactive_Over",fx_damage);
     }
 }
 
