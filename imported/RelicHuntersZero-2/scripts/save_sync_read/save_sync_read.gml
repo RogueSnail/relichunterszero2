@@ -1,7 +1,7 @@
 ///save_sync_read()
 //Opens the main save file and synchronizes everything. Called by the Create event of controller_main
 
-ini_open(working_directory + "\\saveData.ini");
+ini_open(working_directory + "saveData.ini"); //tava com \\saveData.ini
     
     global.currentVersionNumber = ini_read_string("Version","Version","YEAR 2 - UPDATE 14");
     global.language = ini_read_real("Language","Language",lang_english);

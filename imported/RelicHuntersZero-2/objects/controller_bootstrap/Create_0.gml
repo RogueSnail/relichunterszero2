@@ -12,9 +12,6 @@ screen_update();
 //set game speed
 game_set_speed(60, gamespeed_fps);
 
-//turn vsync on
-display_reset(0, true);
-
 //Version
 global.currentVersionNumber = "YEAR 2 - UPDATE 14";
 
