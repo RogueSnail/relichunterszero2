@@ -122,7 +122,7 @@ if (defenseMode)
 		//TODO
 		//Antes contava frames, entao funcionava
 		//if (defenseModeDurationCurrent == room_speed*2) || (defenseModeDurationCurrent == room_speed*3)
-        if (defenseModeDurationCurrent == 2000000) || (defenseModeDurationCurrent == 3000000)
+        if (defenseModeDurationCurrent >= 2000000) && (defenseModeDurationCurrent <= 3000000)
         {
             radius = radiusStart;
             radiusAlpha = 1;
@@ -152,14 +152,14 @@ firing = false;
 var myClosestPlayer = faction_player;
 
 distance_to_player = 0;
-if (instance_exists(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+if (instance_exists_fast(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
 
 //Activate AI
 if (hit_taken) want_to_activate = true;
 
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && instance_exists(myClosestPlayer) && (!want_to_activate)
+    if (distance_to_player < ai_activation_range) && instance_exists_fast(myClosestPlayer) && (!want_to_activate)
     {
         if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
@@ -176,15 +176,15 @@ if (!ai_active)
 }
 
 //Resolve AI
-if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists(myClosestPlayer))
+if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists_fast(myClosestPlayer))
 {
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,faction_ducan);
-    if (instance_exists(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+    if (instance_exists_fast(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
     else distance_to_enemy = 9999;
     
     
-    if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
+    if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
         ai_target_change_current = 0;
         
@@ -208,15 +208,15 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
         
     // Resolve AI with Target found
     
-    if instance_exists(ai_target) && (!pushed)
+    if instance_exists_fast(ai_target) && (!pushed)
     {
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
         if (ai_state == "PATROL") aggro += aggro_add_patrol;
-        if (ai_state == "CHASE") aggro -= aggro_cost_chase;
+        else if (ai_state == "CHASE") aggro -= aggro_cost_chase;
         
         if (aggro < 0) aggro = 0;
-        if (aggro > aggro_max) aggro = aggro_max;
+        else if (aggro > aggro_max) aggro = aggro_max;
 
         
         //State Switches
@@ -239,7 +239,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
         }
         
         
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if aggro >= aggro_min_chase
             {
@@ -263,7 +263,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if (ai_patrol_x) && (ai_patrol_y)
             {
@@ -331,7 +331,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 }
 
 //Look Direction
-if instance_exists(ai_target)
+if instance_exists_fast(ai_target)
 {
     if (ai_target.x > x) look_direction = 1;   
     else look_direction = 0;
@@ -372,7 +372,7 @@ if (!myEnemy) {
     if (myEnemy) isWall = true;
 }
 
-if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnemy) && (!hit_taken)
+if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists_fast(myEnemy) && (!hit_taken)
 {
     if (!isWall)
     {
