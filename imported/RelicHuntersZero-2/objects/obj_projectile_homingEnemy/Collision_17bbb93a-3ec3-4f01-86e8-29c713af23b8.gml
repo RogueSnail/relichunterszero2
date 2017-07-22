@@ -21,8 +21,14 @@ if (faction == f_enemy) && (instance_exists(other))
             other.hp -= damage;
             audio_play(other.audio_emitter,false,1,sfx_impact_flesh1,sfx_impact_flesh2,sfx_impact_flesh3,sfx_impact_flesh4);
             
-            bloodAmount = min(round(damage/5), (global.max_casings-global.count_casings), 5);
-            if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+            //bloodAmount = min(round(damage/5), (global.max_casings-global.count_casings), 5);
+            //if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+			bloodAmount = min(round(damage/5), 5);
+			if (bloodAmount) repeat(bloodAmount)
+			{
+				blood = get_object_from_pool(blood_pool);
+				reset_blood_instance(blood, x, y, "Interactive");
+			}
         }
         other.hit_taken = true;
         

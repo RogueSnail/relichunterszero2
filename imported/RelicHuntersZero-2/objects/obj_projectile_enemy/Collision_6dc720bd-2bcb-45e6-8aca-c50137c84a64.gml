@@ -13,8 +13,13 @@ if faction == f_enemy //&& instance_exists(other)
         else 
         {
             other.hp -= damage;
-            bloodAmount = min(round(damage/5), (global.max_casings-global.count_casings), 5);
-            if (bloodAmount) repeat(bloodAmount) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+            bloodAmount = min(round(damage/5), 5);//min(round(damage/5), (global.max_casings-global.count_casings), 5);
+            if (bloodAmount) repeat(bloodAmount) 
+			{
+				//blood = instance_create_layer(x,y,"Interactive",fx_blood);
+				blood = get_object_from_pool(blood_pool);
+				reset_blood_instance(blood, x, y, "Interactive");
+			}
         }
         if (other.hp <= 0) other.no_score = true;
         other.hit_taken = true;

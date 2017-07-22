@@ -87,7 +87,7 @@ shadow_add_object_tall(obj_wall_stage2);
 shadow_add_object_tall(obj_wall_stage4);
 shadow_add_object_tall(obj_wall_halloween);
 
-tall_object = instance_create_layer(x,y,"Shadows",controller_shadow_tall);
+tall_object = instance_create_layer(x,y,"Interactive_Over",controller_shadow_tall);
 //tall_object = instance_create_layer(x,y,"Interactive",controller_shadow_tall);
 
 ///Clean-Up

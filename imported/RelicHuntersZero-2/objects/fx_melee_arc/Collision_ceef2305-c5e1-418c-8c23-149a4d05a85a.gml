@@ -28,7 +28,12 @@ if (global.friendlyFire)
                     else 
                     {
                         other.hp -= ffDamage;
-                        repeat(round(ffDamage/10)) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+                        //repeat(round(ffDamage/10)) blood = instance_create_layer(x,y,"Interactive",fx_blood);
+					    repeat(round(ffDamage/10)) 
+						{
+							blood = get_object_from_pool(blood_pool);
+							reset_blood_instance(blood, x, y, "Interactive");
+						}
                         
                         if (other.hp <= 0) achievement_give("ACHIEVEMENT_TEAMKILL");
                     }

@@ -9,7 +9,7 @@
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-        "49565932-de59-4770-95e0-3143d903af36",
+        "e1e6602d-1a1c-451a-a97d-1dd6599a97d1",
         "81b323ae-d518-44d8-9f6d-e3f9ef4050b8",
         "4c8ba421-86c8-4cc2-81a9-0dfb910deff6",
         "ab9d6929-5588-41e7-a7e0-40a0aaeb6cef",
@@ -477,16 +477,16 @@
             "visible": true,
             "instances": [
                 {
-                    "id": "49565932-de59-4770-95e0-3143d903af36",
+                    "id": "e1e6602d-1a1c-451a-a97d-1dd6599a97d1",
                     "modelName": "GMRInstance",
                     "mvc": "1.0",
                     "ignore": false,
                     "inheritItemSettings": false,
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
-                    "name": "inst_6A99F004",
-                    "x": 480,
-                    "y": 1056,
+                    "name": "inst_241E56A1",
+                    "x": 384,
+                    "y": 416,
                     "IsDnD": false,
                     "colour": {
                         "Value": 4294967295
@@ -494,7 +494,7 @@
                     "creationCodeFile": "",
                     "creationCodeType": "",
                     "inheritCode": false,
-                    "name_with_no_file_rename": "inst_6A99F004",
+                    "name_with_no_file_rename": "inst_241E56A1",
                     "objId": "dacdbc1c-3b5a-4717-91e8-929a8db816c7",
                     "rotation": 0,
                     "scaleX": 1,
@@ -601,6 +601,32 @@
                     "scaleX": 1,
                     "scaleY": 1
                 }
+            ]
+        },
+        {
+            "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
+            "id": "36b21a5a-ced7-4c1b-839d-6b54ddbf2d3f",
+            "modelName": "GMRInstanceLayer",
+            "mvc": "1.0",
+            "depth": 5000,
+            "grid_x": 32,
+            "grid_y": 32,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+                
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "name": "Dynamics",
+            "userdefined_depth": true,
+            "visible": true,
+            "instances": [
+                
             ]
         },
         {

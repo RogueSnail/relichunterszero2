@@ -587,10 +587,7 @@ screen_update();
 global.count_particles = instance_number(fx_hit);
 
 //Maximum Number of Shot Casings
-global.count_casings = instance_number(fx_casing) + instance_number(fx_blood);
-
-
-
+//global.count_casings = instance_number(fx_casing) + instance_number(fx_blood);
 
 ///DEBUG COMMANDS   
   

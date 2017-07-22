@@ -11,7 +11,8 @@
         "b819b937-1050-4f9f-892d-02ec6f9e41f3",
         "a026118d-e227-4b4f-9e2e-baba52bb5c15",
         "13b546f9-b757-46d4-b5c5-5d59f327bb32",
-        "e537e54d-2668-4fae-b89a-eef5192e1912"
+        "e537e54d-2668-4fae-b89a-eef5192e1912",
+        "e2dc25fd-b568-40ed-8eee-6904a448764d"
     ],
     "filterType": "GMObject",
     "folderName": "Data Objects",

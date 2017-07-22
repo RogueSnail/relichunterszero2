@@ -53,15 +53,12 @@ if (owner != noone)
         
     recoil_speed = 4;
         
-    if (global.count_casings < global.max_casings) 
-    {
+    //if (global.count_casings < global.max_casings) 
+    //{
         if (!is_rocket) {
-            casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
-            casing.direction = shoot_direction+180+random_range(casing.dirMin,casing.dirMax);
-            casing.ammo_type = ammo_type;
-			if (ammo_type == type_light) casing.casing_subimage = 0;
-			else if (ammo_type == type_medium) casing.casing_subimage = 1;
-			else if (ammo_type == type_heavy) casing.casing_subimage = 2;
+            //casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
+	        casing = get_object_from_pool(casing_pool);
+			reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);
         }
-    }
+    //}
 }

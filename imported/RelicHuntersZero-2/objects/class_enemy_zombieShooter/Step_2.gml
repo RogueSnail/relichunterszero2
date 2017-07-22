@@ -6,12 +6,12 @@ if hp <= 0
     {
         if (!critical_death)
         {
-            if (global.allowKillFreeze) global.pause = 100000;//room_speed*0.1;
+            ////if (global.allowKillFreeze) global.pause = 100000;//room_speed*0.1;
             score_add(global.score_kill,false);
         }
         else
         {
-            if (global.allowKillFreeze) global.pause = 150000;//room_speed*0.15;
+            ////if (global.allowKillFreeze) global.pause = 150000;//room_speed*0.15;
             score_add(global.score_kill+global.score_headshot,true);
         }
     }
