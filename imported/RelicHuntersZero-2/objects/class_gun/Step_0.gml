@@ -1,7 +1,9 @@
-var __b__;
+
+/*var __b__;
 __b__ = action_if(global.pause);
 if !__b__
-{
+*/
+if (!global.pause)
 {
 ///Animation and Rotation
 
@@ -59,14 +61,11 @@ if instance_exists(owner)
             }
             else image_xscale = 1;
         }   
-        
-        depth = (owner.depth)-1;
     }
     else
     {
         if (owner.look_direction == 0) { image_angle = 225; image_xscale = -1}
         else { image_angle = 135; image_xscale = 1; }
-        depth = (owner.depth)+1;
     }
 }
 
@@ -308,7 +307,6 @@ if (isActive) && (owner) && instance_exists(owner)
 ///Death
 if (!instance_exists(owner)) instance_destroy();
 
-}
 }
 ///Set Camera Distance When Zoomed
 if (isActive) && instance_exists(controller_camera)

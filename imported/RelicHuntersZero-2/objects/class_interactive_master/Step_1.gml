@@ -7,6 +7,7 @@ if (!activationOverride){
 }
 
 /// @description check events and refs
+/* ~~~~REMOVI PQ ACHO QUE NAO PRECISA~~~~~
 if (activationClient != noone) {
 
 	for (var i = array_length_1d(global.eventManager.removedInstances) - 1; i > -1; i--;)
@@ -17,7 +18,7 @@ if (activationClient != noone) {
 		}
 	}
 }
-
+*/
 
 ///Release Client Lock (bug-proofing)
 

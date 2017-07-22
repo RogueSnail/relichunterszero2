@@ -1,6 +1,6 @@
 ///Pick Up
 
-if (activationClient != noone)
+if (instance_exists_fast(activationClient))
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;
 
