@@ -2,7 +2,7 @@
 if (sprite_exists(sprite_index)) 
 	draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale,image_yscale,image_angle,c_white,1);
 
-if (owner != noone)
+if (instance_exists_fast(owner))
 {
     if (owner.firing) && (is_sniper) && (owner.ai_target != noone)
     {

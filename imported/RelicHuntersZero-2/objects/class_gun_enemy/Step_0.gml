@@ -1,25 +1,19 @@
-var __b__;
-__b__ = action_if(global.pause);
-if !__b__
-{
-{
 ///Animation and Rotation
+if ((!global.pause) && instance_exists_fast(owner))
+{
 
 stepHasTarget = false;
-if (owner != noone)
+
+if (owner.ai_target != noone)
 {
-    if (owner.ai_target != noone)
-    {
-		stepHasTarget = true;
-        image_angle = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
-        if owner.look_direction == 0 image_angle = image_angle+180;
-    }
-    
-    if owner.look_direction == 0 image_xscale = -1;
-    if owner.look_direction == 1 image_xscale = 1; 
-    
-    depth = (owner.depth)-1;
+	stepHasTarget = true;
+	image_angle = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
+    if owner.look_direction == 0 image_angle = image_angle+180;
 }
+    
+if owner.look_direction == 0 image_xscale = -1;
+if owner.look_direction == 1 image_xscale = 1; 
+
 
 //Recoil
 recoil_current += recoil_speed;
@@ -41,7 +35,6 @@ drawX = x +lengthdir_x( (-1*image_xscale*recoil_current), image_angle );
 drawY = y +lengthdir_y( (-1*image_xscale*recoil_current), image_angle );
 
 ///Firing Control
-
 if (stepHasTarget)
 {
     shoot_direction = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
@@ -80,12 +73,5 @@ if (stepHasTarget)
             cmd_fire_enemy();
         }   
     }
-}
-
-
-
-///Death
-//if (!instance_exists(owner)) instance_destroy();
-
 }
 }
