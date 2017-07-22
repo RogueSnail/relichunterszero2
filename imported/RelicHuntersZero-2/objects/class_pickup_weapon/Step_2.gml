@@ -32,6 +32,7 @@ if (instance_exists_fast(activationClient))
                 draw_gun(weapon2);
             }
     
+			dispatch_event(EVENT_INSTANCE_REMOVED, id);
             instance_destroy();
             exit;
         }
