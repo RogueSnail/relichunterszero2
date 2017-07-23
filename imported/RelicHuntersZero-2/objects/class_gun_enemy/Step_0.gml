@@ -38,7 +38,7 @@ if ((!global.pause) && (owner != noone))
 	    shoot_direction = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);
 	    if (owner.firing) && (can_fire)
 	    {
-	        shot_type = 0;
+	        //shot_type = 0;
 	        cmd_fire_enemy();
 	    }
     
@@ -50,11 +50,8 @@ if ((!global.pause) && (owner != noone))
 			else
 				var timeToAdd = delta_time;
 				
-	        if (!is_sniper) fire_rate_current += timeToAdd;
-	        else {
-				if (owner.firing) fire_rate_current += timeToAdd;
-				else fire_rate_current -= min(fire_rate_current,timeToAdd);
-			}
+	        if (!is_sniper) || (drawLaserSight) fire_rate_current += timeToAdd;
+	        else fire_rate_current -= min(fire_rate_current,timeToAdd);
         
 	        if fire_rate_current >= fire_rate
 	        {
@@ -67,13 +64,8 @@ if ((!global.pause) && (owner != noone))
 	    //Burst Fire
 	    if (fire_burst_current < fire_burst) && (!can_fire) && (owner.firing)
 	    {
-	        //fire_burst_rate_current += delta_time;
-			
-			if (!is_sniper) fire_burst_rate_current += delta_time;
-	        else {
-				if (owner.firing) fire_burst_rate_current += delta_time;
-				else fire_burst_rate_current -= min(fire_burst_rate_current,delta_time);
-			}
+			if (!is_sniper) || (drawLaserSight) fire_burst_rate_current += delta_time;
+	        else fire_burst_rate_current -= min(fire_burst_rate_current,delta_time);
 			
 	        if fire_burst_rate_current >= fire_burst_rate
 	        {
@@ -84,7 +76,10 @@ if ((!global.pause) && (owner != noone))
 	}
 	
 	//Sniper Laser Sight
-	if (is_sniper){
+	if (is_sniper)
+	{
+		drawLaserSight = false;
+		
 		if (owner.firing) && (owner.ai_target != noone)
 	    {
 	        aiming_direction = point_direction(x,y,owner.ai_target.x,owner.ai_target.y);

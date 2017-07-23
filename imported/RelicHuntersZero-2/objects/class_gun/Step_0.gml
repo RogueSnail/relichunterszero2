@@ -243,7 +243,6 @@ if (isActive) && (owner) && instance_exists(owner)
         if (!reloading) && (can_fire) owner.sprinting = false;
     }
     
-    shot_type = 0;
     
     if (input_held) && (fire_automatic)
     {
