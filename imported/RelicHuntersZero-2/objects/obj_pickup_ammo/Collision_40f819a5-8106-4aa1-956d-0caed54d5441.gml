@@ -6,30 +6,34 @@ if (vertical_speed_start < interactive_speed) && (instance_exists(other)) &&  (i
     
     if (ammoType == type_light) 
 	{
-		if (global.ammo_light[p] < global.ammo_light_max) { 
+		if (global.ammo_light[p] < global.ammo_light_max) 
+		{ 
 			global.ammo_light[p] += myAmmo; 
 		} 
-		else {
+		else 
+		{
 			isAmmoFull = true;
 		}
 	}
     else if (ammoType == type_medium) 
 	{
-		if (global.ammo_medium[p] < global.ammo_medium_max) { 
+		if (global.ammo_medium[p] < global.ammo_medium_max) 
+		{ 
 			global.ammo_medium[p] += myAmmo; 
 		} 
-		else {
+		else 
+		{
 			isAmmoFull = true;
 		}
 	}
     else if (ammoType == type_heavy) 
 	{
-		if (global.ammo_heavy[p] < global.ammo_heavy_max) { 
-			global.ammo_heavy[p] += myAmmo; 
-			} 
-			else {
-				isAmmoFull = true;
-			}
+		if (global.ammo_heavy[p] < global.ammo_heavy_max) 
+		{ 
+		global.ammo_heavy[p] += myAmmo; 
+		} 
+		else {
+			isAmmoFull = true;
 		}
 	}
     
