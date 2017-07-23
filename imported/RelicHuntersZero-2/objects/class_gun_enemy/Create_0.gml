@@ -15,7 +15,7 @@ fire_burst_rate = 100000;//room_speed*0.1;
 fire_burst_rate_current = 0;
 fire_rate = 100000;//room_speed*0.1;
 fire_rate_current = 0;
-can_fire = true;
+can_fire = false;
 
 accuracy = 5;
 
