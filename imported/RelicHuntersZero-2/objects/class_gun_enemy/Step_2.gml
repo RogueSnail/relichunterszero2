@@ -1,4 +1,4 @@
-/// @description follow, cleanup, check events
+
 
 if (instance_exists_fast(owner)) {
     x = owner.x;

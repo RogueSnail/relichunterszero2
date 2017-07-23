@@ -131,7 +131,7 @@ firing = false;
 var myClosestPlayer = instance_nearest(x,y,faction_player);
 
 distance_to_player = 0;
-if (instance_exists(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+if (instance_exists_fast(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
 
 if (grenade_count > grenade_count_max) grenade_count = grenade_count_max;
 
@@ -164,7 +164,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 {
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,faction_monster);
-    if (instance_exists(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+    if (instance_exists_fast(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
     else distance_to_enemy = 99999;
     
     
@@ -192,7 +192,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
         
     // Resolve AI with Target found
     
-    if instance_exists(ai_target) && (!pushed)
+    if instance_exists_fast(ai_target) && (!pushed)
     {
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
@@ -422,14 +422,14 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 }
 
 //Look Direction
-if instance_exists(ai_target)
+if instance_exists_fast(ai_target)
 {
     if (ai_target.x > x) look_direction = 1;   
     else look_direction = 0;
 }
 
 //Force to stop when firing a burst
-if (my_gun) && (my_gun!= noone)
+if (my_gun) && (my_gun != noone)
 {
     if (my_gun.fire_burst_current)
     {

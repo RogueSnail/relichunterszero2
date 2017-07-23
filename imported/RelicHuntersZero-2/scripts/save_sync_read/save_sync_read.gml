@@ -74,7 +74,7 @@ ini_open(working_directory + "saveData.ini"); //tava com \\saveData.ini
     global.dailyCompletedScore = ini_read_real("Persistence","dailyCompletedScore",0);
     global.dailyCompletedBadge = ini_read_real("Persistence","dailyCompletedBadge",0);
         
-    global.unlockEndless = ini_read_real("Persistence","UnlockEndless",0);
+    global.unlockEndless = 1;//ini_read_real("Persistence","UnlockEndless",0);
     global.unlockPinky = ini_read_real("Persistence","UnlockPinky",1);
     global.unlockRaff = ini_read_real("Persistence","UnlockRaff",0);
     global.unlockBiu = ini_read_real("Persistence","UnlockBiu",0);

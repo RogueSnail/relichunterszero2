@@ -68,16 +68,16 @@ firing = false;
 var myClosestPlayer = instance_nearest(x,y,faction_player);
 
 distance_to_player = 0;
-if (instance_exists(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+if (instance_exists_fast(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
 
-if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists(myClosestPlayer))
+if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists_fast(myClosestPlayer))
 {
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,faction_ducan);
-    if (instance_exists(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+    if (instance_exists_fast(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
     else distance_to_enemy = 9999;
     
-    if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
+    if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
         ai_target_change_current = 0;
         
@@ -97,7 +97,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
     else 
     {
         ai_target_change_current += delta_time;
-        if (ai_target = myClosestPlayer) 
+        if (ai_target == myClosestPlayer) 
         {
             distance_to_target = distance_to_player;
             myHomingTargetClass = class_player;
@@ -111,15 +111,15 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
         
     // Resolve AI with Target found
     
-    if instance_exists(ai_target) && (!pushed)
+    if instance_exists_fast(ai_target) && (!pushed)
     {
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
         if (ai_state == "PATROL") aggro += aggro_add_patrol;
-        if (ai_state == "CHASE") aggro -= aggro_cost_chase;
+        else if (ai_state == "CHASE") aggro -= aggro_cost_chase;
         
         if (aggro < 0) aggro = 0;
-        if (aggro > aggro_max) aggro = aggro_max;
+        else if (aggro > aggro_max) aggro = aggro_max;
 
         
         //State Switches
@@ -167,7 +167,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
         }
         
         
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if aggro >= aggro_min_chase
             {
@@ -177,7 +177,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
         }
         
         //State Descriptions
-        if ai_state == "CHASE"
+        else if ai_state == "CHASE"
         {
             if (damage_timer_current >= damage_timer)
             {
@@ -234,7 +234,7 @@ if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance
 }
 
 //Look Direction
-if instance_exists(ai_target)
+if instance_exists_fast(ai_target)
 {
     if (ai_target.x > x) look_direction = 1;   
     else look_direction = 0;
@@ -288,7 +288,7 @@ myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_pl
 if (!myEnemy) myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_ducan,false,true);
 else is_player = true;
 
-if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists(myEnemy) && (!hit_taken)
+if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists_fast(myEnemy) && (!hit_taken)
 {
     if (!myEnemy.dodging)
     {
