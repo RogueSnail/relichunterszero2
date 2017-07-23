@@ -1,22 +1,8 @@
-var __b__;
-__b__ = action_if(global.pause);
-if !__b__
+
+if (!instance_exists_fast(owner)) owner = noone;
+
+if (!global.pause)
 {
-{
-
-	/// @description check events and refs
-	if (owner != noone) {
-
-		for (var i = array_length_1d(global.eventManager.removedInstances) - 1; i > -1; i--;)
-		{
-			if (owner == (global.eventManager.removedInstances[i])) {
-				owner = noone;
-				break;
-			}
-		}
-	}
-
-
 	if (visible == true) {
 		///Update Alpha and Duration
 
@@ -45,6 +31,5 @@ if !__b__
 		    else myScale = scaleShrink
 		}
 	}
+}
 
-}
-}

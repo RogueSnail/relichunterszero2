@@ -5,5 +5,5 @@ if (audio_emitter > 0) {
 }
 
 
-show_debug_message("destroying instance " + id);
+show_debug_message("destroying instance");
 dispatch_event(EVENT_INSTANCE_REMOVED, id);

@@ -19,8 +19,8 @@ if (owner != noone)
 	        projectileX = x+(lengthdir_x(spawn_distance_from_barrel,shoot_direction));
 	        projectileY = y+(lengthdir_y(spawn_distance_from_barrel,shoot_direction));
 				
-			show_debug_message("cmd_fire layer");
-			show_debug_message(layer);
+			//show_debug_message("cmd_fire layer");
+			//show_debug_message(layer);
 	        projectile = instance_create_layer(projectileX,projectileY,"Interactive",projectile_obj); 
 	        projectile.speed = projectile_speed;
 	        projectile.decay = projectile_speed_decay;

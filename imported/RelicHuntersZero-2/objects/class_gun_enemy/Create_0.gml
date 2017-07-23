@@ -3,6 +3,10 @@ owner = noone;
 sound = "pistol";
 ammo_type = type_light;
 is_sniper = false;
+drawLaserSight = false;
+laserLineX = 0;
+laserLineY = 0;
+laserDrawRange = 0;
 
 fire_amount = 1;
 fire_burst = 1;
