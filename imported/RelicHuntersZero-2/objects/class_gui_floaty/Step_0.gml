@@ -1,5 +1,4 @@
 ///Float Up
-
 if (visible == true) {
 	if (lockToOwner)
 	{
