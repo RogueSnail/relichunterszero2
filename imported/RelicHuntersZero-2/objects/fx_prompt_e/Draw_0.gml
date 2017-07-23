@@ -1,13 +1,11 @@
 ///Main Draw
-if instance_exists(owner)
+if (owner != noone)
 {
     if (owner.in_range)
     {
         draw_self();
-        if instance_exists(owner.activationClient)
-        {
-            var player = owner.activationClient;
-            
+        if (player != noone)
+        {   
             if (global.input[player.myPlayerId] == K_INPUT_KEYBOARD) sprite_index = spr_prompt_e;
             else  sprite_index = spr_prompt_x;
     

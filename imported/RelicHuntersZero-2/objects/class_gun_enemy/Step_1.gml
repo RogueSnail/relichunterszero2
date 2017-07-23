@@ -1,4 +1,5 @@
 /// @description check events and refs
+/*
 if (owner != noone) {
 	for (var i = array_length_1d(global.eventManager.removedInstances) - 1; i > -1; i--;)
 	{
