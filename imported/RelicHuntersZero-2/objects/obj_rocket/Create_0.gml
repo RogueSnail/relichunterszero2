@@ -1,6 +1,6 @@
 ///Particle Trail
 
-global.smoke_system = part_system_create();
+global.smoke_system = part_system_create_layer(layer_get_id("Interactive"), false);
 ds_list_add(global.particle_list,global.smoke_system);
 part_system_depth( global.smoke_system, depth-2 );
 part_system_automatic_update(global.smoke_system, false);
