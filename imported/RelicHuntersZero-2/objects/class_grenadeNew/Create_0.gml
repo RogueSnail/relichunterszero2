@@ -28,7 +28,7 @@ allowBounceTimeCurrent = 0;
 
 ///Particle Trail
 
-global.smokeSystem[id] = part_system_create();
+global.smokeSystem[id] = part_system_create_layer(layer_get_id("Interactive"), false);
 ds_list_add(global.particle_list,global.smokeSystem[id]);
 part_system_depth(global.smokeSystem[id], depth+1 );
 part_system_automatic_update(global.smokeSystem[id], false);
