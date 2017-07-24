@@ -36,7 +36,7 @@ if (hp <= 0) && (!isExploding)
         }
         
         targetSearch = true;
-        if (instance_exists(curveTarget)) explosionDirection = point_direction(x,y,curveTarget.x,curveTarget.y);
+        if (instance_exists_fast(curveTarget)) explosionDirection = point_direction(x,y,curveTarget.x,curveTarget.y);
     }
     
         
@@ -53,13 +53,13 @@ if (hp <= 0) && (!isExploding)
     emissionY = collisionY + lengthdir_y(radius,explosionDirection+180);
     
     ///Particle Ejection    
-    global.smoke_system = part_system_create_layer(layer_get_id("Interactive"),false);
-    ds_list_add(global.particle_list,global.smoke_system);
+    smoke_system = part_system_create_layer(layer_get_id("Interactive_Over"),false);
+    ds_map_add(global.particle_list,smoke_system,smoke_system);
     //part_system_depth( global.smoke_system, depth-999 );
-    part_system_automatic_update(global.smoke_system, false);
+    part_system_automatic_update(smoke_system, false);
     
     smoke_particle = part_type_create();
-ds_list_add(global.particle_type_list, smoke_particle);
+    ds_map_add(global.particle_type_list, smoke_particle, smoke_particle);
     part_type_shape(smoke_particle, pt_shape_square);
     part_type_size(smoke_particle, 0.1, 0.5, 0.05, 0);
     part_type_scale(smoke_particle,0.15,0.15);
@@ -72,9 +72,10 @@ ds_list_add(global.particle_type_list, smoke_particle);
     part_type_blend(smoke_particle, true);
     part_type_life(smoke_particle, room_speed*0.4, room_speed*0.7);
     
-    smoke_emitter = part_emitter_create(global.smoke_system);
-    part_emitter_region(global.smoke_system, smoke_emitter, emissionX-5, emissionX+5, emissionY-5, emissionY+5, ps_shape_ellipse, ps_distr_linear);
-    part_emitter_burst(global.smoke_system, smoke_emitter, smoke_particle, 1);
+    smoke_emitter = part_emitter_create(smoke_system);
+	ds_map_add(global.particle_emitter_list,smoke_emitter,smoke_system);
+    part_emitter_region(smoke_system, smoke_emitter, emissionX-5, emissionX+5, emissionY-5, emissionY+5, ps_shape_ellipse, ps_distr_linear);
+    part_emitter_burst(smoke_system, smoke_emitter, smoke_particle, 1);
 }
 
 if (isExploding)
@@ -98,8 +99,6 @@ if (isExploding)
         myProjectile.faction = f_player;
         myProjectile.damage = 350;
         
-        part_system_destroy(global.smoke_system);
-        ds_priority_destroy(targetList);
         instance_destroy();
     }
 }
@@ -108,8 +107,6 @@ if (hp < instantExplosionThreshold)
 {
     var explosion = instance_create_layer(x,y,"Interactive",fx_explosion_regular);
     explosion.radius = instantExplosionRadius;
-    part_system_destroy(global.smoke_system);
-    ds_priority_destroy(targetList);
     instance_destroy();
 }
 
@@ -123,7 +120,7 @@ if (!global.pause) && (isExploding)
     if (emissionRateCurrent >= 1)
     {
         emissionRateCurrent = 0;
-        part_emitter_burst(global.smoke_system, smoke_emitter, smoke_particle, 1);
+        part_emitter_burst(smoke_system, smoke_emitter, smoke_particle, 1);
     }
 }
 

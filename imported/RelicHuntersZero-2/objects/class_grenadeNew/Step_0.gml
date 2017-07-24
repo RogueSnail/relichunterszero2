@@ -65,8 +65,8 @@ if (playAudio)
 
 if (vertical_speed_start)
 {
-    part_emitter_region(global.smokeSystem[id], smoke_emitter, x, x, y+draw_height, y+draw_height, ps_shape_ellipse, ps_distr_linear);
-    part_emitter_burst(global.smokeSystem[id], smoke_emitter, smoke_particle, 1);
+    part_emitter_region(smoke_system, smoke_emitter, x, x, y+draw_height, y+draw_height, ps_shape_ellipse, ps_distr_linear);
+    part_emitter_burst(smoke_system, smoke_emitter, smoke_particle, 1);
 }
 
 }

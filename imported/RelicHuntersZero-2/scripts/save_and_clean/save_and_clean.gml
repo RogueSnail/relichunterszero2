@@ -7,18 +7,26 @@ if surface_exists(global.reflection_surface) surface_free(global.reflection_surf
 if surface_exists(global.persistent_draw) surface_free(global.persistent_draw);
 
 //Particle Systems cleanup
-while (!ds_list_empty(global.particle_type_list))
+while (!ds_map_empty(global.particle_emitter_list))
 {
-    particle_type = ds_list_find_value(global.particle_type_list,0);
-    part_type_destroy(particle_type);
-    ds_list_delete(global.particle_type_list,0);
+    particle_emitter = ds_map_find_first(global.particle_emitter_list);
+	particle_system = ds_map_find_value(global.particle_emitter_list, particle_emitter);
+    part_emitter_destroy(particle_system, particle_emitter);
+    ds_map_delete(global.particle_emitter_list, particle_emitter);
 }
 
-while (!ds_list_empty(global.particle_list))
+while (!ds_map_empty(global.particle_type_list))
 {
-    particle_system = ds_list_find_value(global.particle_list,0);
+    particle_type = ds_map_find_first(global.particle_type_list);
+    part_type_destroy(particle_type);
+    ds_map_delete(global.particle_type_list,particle_type);
+}
+
+while (!ds_map_empty(global.particle_list))
+{
+    particle_system = ds_map_find_first(global.particle_list);
     part_system_destroy(particle_system);
-    ds_list_delete(global.particle_list,0);
+    ds_map_delete(global.particle_list,particle_system);
 }
 
 save_all();

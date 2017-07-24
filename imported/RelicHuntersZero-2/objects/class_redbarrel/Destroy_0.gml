@@ -1,5 +1,7 @@
-///Cleanup
-audio_emitter_free(audio_emitter);
+/// @description cleanup
+event_inherited()
+
+ds_priority_destroy(targetList);
 
 if (smoke_emitter != noone) 
 {

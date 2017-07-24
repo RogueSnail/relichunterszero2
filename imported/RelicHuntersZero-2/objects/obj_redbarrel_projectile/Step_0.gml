@@ -71,8 +71,8 @@ if (!global.pause)
     
     //part_system_depth(global.smoke_trail,depth+1);
     part_type_direction(smoke_particle, (direction+180)-20,(direction+180)+20, 0, 5);
-    part_emitter_region(global.smoke_trail, smoke_emitter, emissionX-5, emissionX+5, emissionY-5, emissionY+5, ps_shape_ellipse, ps_distr_linear);
-    part_emitter_burst(global.smoke_trail, smoke_emitter, smoke_particle, 1);
+    part_emitter_region(smoke_system, smoke_emitter, emissionX-5, emissionX+5, emissionY-5, emissionY+5, ps_shape_ellipse, ps_distr_linear);
+    part_emitter_burst(smoke_system, smoke_emitter, smoke_particle, 1);
     
     
     //Shake

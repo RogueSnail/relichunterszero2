@@ -1,6 +1,7 @@
-///Cleanup
-audio_emitter_free(audio_emitter);
+/// @description cleanup
 
+audio_emitter_free(audio_emitter);
+	
 if (smoke_emitter != noone) 
 {
 	part_emitter_destroy(smoke_system, smoke_emitter);

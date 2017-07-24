@@ -521,9 +521,17 @@ if (global.level_complete)
 
 ///Particle Systems Manager
 
-if (!ds_list_empty(global.particle_list)) && (!global.pause)
+if (!global.pause)
 {
-    for (i=0; i<ds_list_size(global.particle_list); i++)
+	var particle_systems = ds_map_size(global.particle_list) ;
+	var psKey = ds_map_find_first(global.particle_list);
+	for (var i = 0; i < particle_systems; i++;)
+	{
+		part_system_update(psKey);		
+		psKey = ds_map_find_next(global.particle_list, psKey);
+	}
+/*
+    for (i=0; i<ds_map_size(global.particle_list); i++)
     {
         particle_system = ds_list_find_value(global.particle_list,i);
         part_system_update(particle_system);
@@ -535,6 +543,7 @@ if (!ds_list_empty(global.particle_list)) && (!global.pause)
             ds_list_delete(global.particle_list,i);
         }
     }
+*/
 }
 
 

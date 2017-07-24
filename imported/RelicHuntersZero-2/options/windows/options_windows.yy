@@ -31,7 +31,7 @@
         "build": 0,
         "major": 1,
         "minor": 0,
-        "revision": 43
+        "revision": 44
     },
     "option_windows_vsync": true
 }
