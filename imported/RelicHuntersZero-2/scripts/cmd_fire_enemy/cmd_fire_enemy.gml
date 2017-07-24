@@ -21,7 +21,6 @@ if (owner != noone)
         projectile.direction = shoot_direction+precision;
                         
         projectile.faction = f_enemy;
-        projectile.type = shot_type;
             
         var damageBonus = round(projectile_damage * (global.challengeWanted*global.challengeWantedMultiplier));
         if (ammo_type == type_light) damageBonus += round(projectile_damage * (global.challengeLightFocus*global.challengeLightFocusMultiplier));

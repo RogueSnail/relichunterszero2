@@ -54,9 +54,9 @@ targetSearch = false;
 
 ///Particle Trail
 
-global.smoke_trail = part_system_create();
+global.smoke_trail = part_system_create_layer(layer_get_id("Interactive"), false);
 ds_list_add(global.particle_list,global.smoke_trail);
-part_system_depth( global.smoke_trail, depth-2 );
+//part_system_depth( global.smoke_trail, depth-2 );
 part_system_automatic_update(global.smoke_trail, false);
 
 smoke_particle = part_type_create();

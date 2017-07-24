@@ -6,10 +6,7 @@ if (global.challengeCatapult) && (!catapultApplied) {
     catapultApplied = true;
 }
 
-var __b__;
-__b__ = action_if(global.pause);
-if !__b__
-{
+if (!global.pause)
 {
 ///Animation & VFX
 
@@ -501,5 +498,5 @@ audio_emitter_position(audio_emitter, x, y, 0);
 
 
 }
-}
+
 
