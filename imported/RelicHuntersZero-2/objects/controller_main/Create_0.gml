@@ -285,8 +285,9 @@ if (room == levelHalloween_3) {global.survivalWaves = 3; survivalWaveSize = 3;}
 
 ///Particle Systems
 
-global.particle_list = ds_list_create();
-global.particle_type_list = ds_list_create();
+global.particle_list = ds_map_create();
+global.particle_type_list = ds_map_create();
+global.particle_emitter_list = ds_map_create();
 
 
 //Relics

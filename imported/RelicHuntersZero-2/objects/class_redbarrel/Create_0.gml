@@ -36,6 +36,8 @@ curveTarget = noone;
 targetList = ds_priority_create();
 targetSearch = false;
 
-
+smoke_system = noone;
+smoke_emitter = noone;
+smoke_particle = noone;
 
 

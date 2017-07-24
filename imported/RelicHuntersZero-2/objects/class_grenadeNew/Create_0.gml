@@ -28,13 +28,17 @@ allowBounceTimeCurrent = 0;
 
 ///Particle Trail
 
-global.smokeSystem[id] = part_system_create_layer(layer_get_id("Interactive"), false);
-ds_list_add(global.particle_list,global.smokeSystem[id]);
+smoke_system = noone;
+smoke_emitter = noone;
+smoke_particle = noone;
+
+smoke_system = part_system_create_layer(layer_get_id("Interactive_Over"), false);
+ds_map_add(global.particle_list, smoke_system, smoke_system);
 //part_system_depth(global.smokeSystem[id], depth+1 );
-part_system_automatic_update(global.smokeSystem[id], false);
+part_system_automatic_update(smoke_system, false);
 
 smoke_particle = part_type_create();
-ds_list_add(global.particle_type_list, smoke_particle);
+ds_map_add(global.particle_type_list, smoke_particle, smoke_particle);
 part_type_shape(smoke_particle, pt_shape_square);
 part_type_size(smoke_particle, 0.5, 2, 0, 0);
 part_type_scale(smoke_particle,0.15,0.15);
@@ -47,9 +51,10 @@ part_type_orientation(smoke_particle, 0, 0, 0, 0, 1);
 part_type_blend(smoke_particle, true);
 part_type_life(smoke_particle, room_speed*0.3, room_speed*0.5);
 
-smoke_emitter = part_emitter_create(global.smokeSystem[id]);
-part_emitter_region(global.smokeSystem[id], smoke_emitter, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
-part_emitter_burst(global.smokeSystem[id], smoke_emitter, smoke_particle, 1);
+smoke_emitter = part_emitter_create(smoke_system);
+ds_map_add(global.particle_emitter_list,smoke_emitter,smoke_system);
+part_emitter_region(smoke_system, smoke_emitter, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
+part_emitter_burst(smoke_system, smoke_emitter, smoke_particle, 1);
 
 ///Grenade Stuff
 

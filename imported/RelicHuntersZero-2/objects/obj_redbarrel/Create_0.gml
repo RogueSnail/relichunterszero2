@@ -14,6 +14,6 @@ sprite_dirt = spr_crate_dirt;
 
 reflection_object_setup(0,spr_redbarrel_reflection,image_index);
 
-depth = -y+96;
+//depth = -y+96;
 
 wall_calculate_hp_ranges();

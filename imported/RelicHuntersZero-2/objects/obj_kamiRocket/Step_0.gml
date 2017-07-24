@@ -15,8 +15,8 @@ if (!global.pause)
     if (speed > maxSpeed) speed = maxSpeed;
     
     //part_system_depth(global.smoke_system,depth+1);
-    part_emitter_region(global.smoke_system, smoke_emitter, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
-    part_emitter_burst(global.smoke_system, smoke_emitter, smoke_particle, 1);
+    part_emitter_region(smoke_system, smoke_emitter, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
+    part_emitter_burst(smoke_system, smoke_emitter, smoke_particle, 1);
     
     
     //Shake
