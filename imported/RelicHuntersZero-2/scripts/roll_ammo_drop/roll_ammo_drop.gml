@@ -23,21 +23,20 @@ while (p <= global.playerCount)
         var hasMedium = false;
         var hasHeavy = false;
         
-        var playerInstanceCount = instance_number(class_player);
         var curPlayer = instance_find(class_player,playerInstanceNumber);
         
-        if (curPlayer) && instance_exists(curPlayer)
+        if (curPlayer) && instance_exists_fast(curPlayer)
         {
             var playerId = curPlayer.myPlayerId;
             
-            if instance_exists(curPlayer.weapon1)
+            if instance_exists_fast(curPlayer.weapon1)
             {
                 if (curPlayer.weapon1.ammo_type == type_light) hasLight = true;
                 else if (curPlayer.weapon1.ammo_type == type_medium) hasMedium = true;
                 else if (curPlayer.weapon1.ammo_type == type_heavy) hasHeavy = true;
             }
         
-            if instance_exists(curPlayer.weapon2)
+            if instance_exists_fast(curPlayer.weapon2)
             {
                 if (curPlayer.weapon2.ammo_type == type_light) hasLight = true;
                 else if (curPlayer.weapon2.ammo_type == type_medium) hasMedium = true;
@@ -87,10 +86,9 @@ while (p <= global.playerCount)
             if (hasMedium) actualChanceMedium = 1;
             if (hasHeavy) actualChanceHeavy = 1;
         }
-        
-        p++;
-        playerInstanceNumber++;
     }
+    p++;
+    playerInstanceNumber++;
 }
 
 // Test drop chances and drop
