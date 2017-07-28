@@ -1,6 +1,8 @@
 ///Main Variables
 event_inherited();
 
+depth = -y+96;
+
 instantExplosionThreshold = -maxhp;
 instantExplosionRadius = 100;
 

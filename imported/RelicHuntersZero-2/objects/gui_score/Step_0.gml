@@ -1,6 +1,8 @@
 ///Animation
 
-if (headshot) myString = loc_key("HUD_PRECISIONKILL");
+if (headshot) {
+	myString = loc_key("HUD_PRECISIONKILL");
+}	
 
 if (orientation == 0)
 {
