@@ -14,13 +14,19 @@ var layer_id = layer_get_id("GUI");
 layer_add_instance(layer_id, global.guiScore);
 global.statKills++; 
 with (global.guiScore) {
+	showScore = true;
+	orientation = 0; //0=growth, 1=shrink, 2=stable
+	size_current = size_start;
+	size_speed_current = 0;
+	duration_current = 0;
+	coin = false;
+	setup = false;	
+	
+	value += argument0;
+	kill_count++;
 
-showScore = true;
-value += argument0;
-kill_count++;
-
-if (argument1) 
-	headshot = true;
-else 
-	headshot = false;
+	if (argument1) 
+		headshot = true;
+	else 
+		headshot = false;
 }

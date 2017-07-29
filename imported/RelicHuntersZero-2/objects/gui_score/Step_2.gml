@@ -3,9 +3,9 @@ if (!setup)
 {
     if (!coin)
     {
-        if kill_count == 1 myString = loc_key("HUD_KILL1");
-        
-        if kill_count == 2
+        if (kill_count == 1)
+			myString = loc_key("HUD_KILL1");
+        else if kill_count == 2
         {
             myString = loc_key("HUD_KILL2");
             value += global.score_doublekill;
@@ -16,23 +16,21 @@ if (!setup)
                 global.scoreEndless += global.score_doublekill;
             }
         }
-        
-        if kill_count == 3 
+        else if kill_count == 3 
         {
             myString = loc_key("HUD_KILL3");
             value += global.score_triplekill;
             global.score_total += global.score_triplekill;
         }
-        
-        if kill_count > 3 
+        else if kill_count > 3 
         {
             if (kill_count == 4) myString = loc_key("HUD_KILL4");
-            if (kill_count == 5) myString = loc_key("HUD_KILL5");
-            if (kill_count == 6) myString = loc_key("HUD_KILL6");
-            if (kill_count == 7) myString = loc_key("HUD_KILL7");
-            if (kill_count == 8) myString = loc_key("HUD_KILL8");
-            if (kill_count == 9) myString = loc_key("HUD_KILL9");
-            if (kill_count >= 10) myString = loc_key("HUD_KILL10");
+            else if (kill_count == 5) myString = loc_key("HUD_KILL5");
+            else if (kill_count == 6) myString = loc_key("HUD_KILL6");
+            else if (kill_count == 7) myString = loc_key("HUD_KILL7");
+            else if (kill_count == 8) myString = loc_key("HUD_KILL8");
+            else if (kill_count == 9) myString = loc_key("HUD_KILL9");
+            else if (kill_count >= 10) myString = loc_key("HUD_KILL10");
             
             value += global.score_multikill;
             if (global.gameMode == gamemode_adventure) global.score_total += global.score_multikill;
@@ -42,10 +40,13 @@ if (!setup)
                 global.scoreEndless += global.score_multikill;
             }
             //Achievement
-            if (kill_count >= 10) achievement_give("ACHIEVEMENT_KILLCOMBO");
+            if (kill_count >= 10) 
+				achievement_give("ACHIEVEMENT_KILLCOMBO");
         }
     }
-    else myString = loc_key("HUD_BOUNTY");
+    else {
+		myString = loc_key("HUD_BOUNTY");
+	}
     setup = true;
 }
 
