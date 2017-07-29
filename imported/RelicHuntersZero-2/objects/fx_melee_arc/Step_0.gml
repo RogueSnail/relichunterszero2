@@ -1,5 +1,5 @@
 ///Damage and Death
-if instance_exists(owner)
+if instance_exists_fast(owner)
 {
     depth = owner.depth+2;
     image_xscale = owner.image_xscale;
@@ -8,7 +8,7 @@ if instance_exists(owner)
     //Player back damage
     fucker = collision_ellipse(owner.bbox_left,owner.bbox_top,owner.bbox_right,owner.bbox_bottom,class_enemy,false,true);
     
-    if instance_exists(fucker)
+    if instance_exists_fast(fucker)
     {
         
         if (ds_list_find_index(damage_list,fucker.id) < 0) && (ds_list_size(damage_list) < max_hits) && (fucker.isVulnerable)
@@ -45,7 +45,7 @@ if instance_exists(owner)
     else
     {
         fucker = collision_ellipse(owner.bbox_left,owner.bbox_top,owner.bbox_right,owner.bbox_bottom,obj_wall,false,true);
-        if instance_exists(fucker)
+        if instance_exists_fast(fucker)
         {
             if (ds_list_find_index(damage_list_solid,fucker.id) < 0)
             {

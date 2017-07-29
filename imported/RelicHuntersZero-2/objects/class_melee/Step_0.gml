@@ -1,5 +1,5 @@
 ///Weapon Level
-if (instance_exists(owner)){
+if (instance_exists_fast(owner)){
     if (!storeOriginalDamage) || (storeOriginalName == "") {
 
         weaponLevelBonus[0] = 0;
@@ -27,7 +27,7 @@ if (instance_exists(owner)){
 
 ///Animation & Movement
 
-if instance_exists(owner)
+if instance_exists_fast(owner)
 {
     x = owner.x;
     y = owner.y;

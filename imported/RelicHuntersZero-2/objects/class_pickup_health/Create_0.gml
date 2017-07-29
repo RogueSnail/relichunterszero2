@@ -18,4 +18,4 @@ depth=-y-2;
 reflection_object_setup(25,-1,image_index);
 
 on_top_of_object = false;
-
+myObject = noone;

@@ -24,7 +24,7 @@ else sprite_index = sprite_idle;
 
 player = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,class_player,false,true);
 
-if (player) && (damage_timer_current >= damage_timer) && instance_exists(player)
+if (player) && (damage_timer_current >= damage_timer) && instance_exists_fast(player)
 {
     if (!player.dodging)
     {

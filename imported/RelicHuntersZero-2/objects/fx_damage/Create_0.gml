@@ -7,7 +7,7 @@ myString = round(damage);
 drawOutline = false;
 myFont = global.font_numberSmall;
 
-lifeMax = 0.70;//room_speed*0.7;
+lifeMax = 0.7;//room_speed*0.7;
 
 lockToOwner = false;
 

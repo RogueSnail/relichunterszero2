@@ -62,14 +62,14 @@ else
         
         if (dodging)
         {
-            if (!instance_exists(myDash))
+            if (!instance_exists_fast(myDash))
             {
                 myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
                 myDash.owner = id;
                 myDash.slowness = 2;
                 myDash.alpha = 100;
             }
-            if (!instance_exists(myDash2))
+            if (!instance_exists_fast(myDash2))
             {
                 myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
                 myDash.owner = id;

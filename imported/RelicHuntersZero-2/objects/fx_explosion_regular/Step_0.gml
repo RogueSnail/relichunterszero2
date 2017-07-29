@@ -92,7 +92,7 @@ if (image_index >= trigger_frame) && (image_index <= end_frame) && (damage) && (
     }
     
     poor_object = collision_circle(x,y,radiusFinal,obj_wall,false,true);
-    if instance_exists(poor_object) && (ds_list_find_index(damage_list,poor_object) < 0)
+    if (poor_object != noone) && (ds_list_find_index(damage_list,poor_object) < 0)
     {
         ds_list_add(damage_list,poor_object);
         poor_object.hp -= damage*2;

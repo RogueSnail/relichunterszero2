@@ -2,9 +2,9 @@
 
 var timeToDie = false;
 
-if (instance_exists(owner)) 
+if (instance_exists_fast(owner)) 
 {
-    if (instance_exists(owner.owner))
+    if (instance_exists_fast(owner.owner))
     {
         x = owner.owner.x;
         y = owner.owner.y;
@@ -27,10 +27,13 @@ if (isActive)
         image_speed = animationSpeed;
         animationTrigger = false;
         
-        if (instance_exists(owner)) if (instance_exists(owner.owner))
-        {
-            audio_play_exclusive(owner.owner.audio_emitter,false,1,sfx_biu_shield_hit1,sfx_biu_shield_hit2,sfx_biu_shield_hit3,sfx_biu_shield_hit4,sfx_biu_shield_hit5,sfx_biu_shield_hit6,sfx_biu_shield_hit7);
-        }
+        if (instance_exists_fast(owner)) 
+		{
+			if (instance_exists_fast(owner.owner))
+	        {
+	            audio_play_exclusive(owner.owner.audio_emitter,false,1,sfx_biu_shield_hit1,sfx_biu_shield_hit2,sfx_biu_shield_hit3,sfx_biu_shield_hit4,sfx_biu_shield_hit5,sfx_biu_shield_hit6,sfx_biu_shield_hit7);
+	        }
+		}
     }
 }
 

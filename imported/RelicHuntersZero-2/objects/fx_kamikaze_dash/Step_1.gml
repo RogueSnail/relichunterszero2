@@ -1,6 +1,6 @@
 time++;
 
-if instance_exists(owner) && (time >= slowness)
+if instance_exists_fast(owner) && (time >= slowness)
 {
     x = owner.x;
     y = owner.y;
