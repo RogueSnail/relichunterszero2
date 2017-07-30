@@ -891,7 +891,7 @@ if (global.relicDetected)
                 audio_play_sound(sfx_relic_on,00,false); //Dig Spot Found Sound Will Go Here Someday
                 
                 if instance_exists(fx_bigMessage) with (fx_bigMessage) instance_destroy();
-                var announceRelic = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+                var announceRelic = instance_create_layer(x,y,"GUI",fx_bigMessage);
                 announceRelic.textBig = loc_key("HUD_RELIC_FOUND");
                 if (global.input[1] == K_INPUT_KEYBOARD) announceRelic.textSmall = loc_key("HUD_RELIC_FOUND_KEY");
                 else announceRelic.textSmall = loc_key("HUD_RELIC_FOUND_JOY");

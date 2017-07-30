@@ -26,7 +26,7 @@ else if (ammo_type == type_heavy) casing.casing_subimage = 2;
 
 //activate
 instance.active = true;
-//instance.visible = true;
+instance.visible = true;
 
 /*if collision_point(x,y,obj_limit,false,true)
 { 

@@ -23,4 +23,4 @@ instance.direction = random(360);
 
 //activate
 instance.active = true;
-//instance.visible = true;
+instance.visible = true;

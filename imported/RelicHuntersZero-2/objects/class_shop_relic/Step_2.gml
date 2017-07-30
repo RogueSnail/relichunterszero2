@@ -11,7 +11,7 @@ if (activationClient != noone) && (!unlock)
             unlock = true;
             audio_play(activationClient.audio_emitter,false,1,sfx_buy);
             
-            announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+            announce = instance_create_layer(x,y,"GUI",fx_bigMessage);
             announce.textBig = loc_key("HUD_UNLOCK_RELIC_PIECE");
             announce.textSmall = loc_key("HUD_UNLOCK_RELIC_ALLPIECES");
             announce.relicSprite1 = relicSprite1;
