@@ -71,7 +71,8 @@ enemyPool = ds_list_create();
 switch (room)
 {
     case level1_1:
-        ds_list_add(enemyPool, ducan_turtlesquad1_1, ducan_turtlesquad1_1, ducan_turtlesquad1_1, ducan_turtlesquad1_1 );
+        //ds_list_add(enemyPool, ducan_turtlesquad1_1, ducan_turtlesquad1_1, ducan_turtlesquad1_1, ducan_turtlesquad1_1 );
+        ds_list_add(enemyPool, monster_kamikaze_3, monster_kamikaze_3, monster_kamikaze_3, monster_kamikaze_3 );
         break;
         
     case level1_2:

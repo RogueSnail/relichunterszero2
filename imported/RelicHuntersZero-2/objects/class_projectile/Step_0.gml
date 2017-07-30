@@ -5,15 +5,16 @@ if (!global.pause)
     //Speed Reset After Pause
     if (speed_reset)
     {
-        speed = old_speed;
+        speed_per_second = old_speed;
         speed_reset = false;
     }
     
     image_angle = direction;
+    speed_per_second -= decay * delta_time * ms_to_s_60;
+    if speed_per_second < 5 speed_per_second = 5;
+	
+	speed = speed_per_second * delta_time * ms_to_s_60;
     distance_travelled += speed;
-    speed -= decay;
-    if speed < 5 speed = 5;
-    
     //Max Range is 1.5 (Damage reduced at maximum range = 1)
 
     if (distance_travelled > (1.5*range))
@@ -31,8 +32,8 @@ if (!global.pause)
 }
 else if (speed_reset == false)
 {
-    old_speed = speed;
-    speed = 0;
+    old_speed = speed_per_second;
+    speed_per_second = 0;
     speed_reset = true;
 }
 /*

@@ -41,6 +41,7 @@ piercing = 0;
 
 speed_reset = false;
 old_speed = 0;
+speed_per_second = maxSpeed;
 
 image_speed = 0.5;
 

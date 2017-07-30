@@ -91,7 +91,7 @@ if (isExploding)
         myProjectile = instance_create_layer(x+lengthdir_x(fakeMovement,explosionDirection),y+lengthdir_y(fakeMovement,explosionDirection),"Interactive",obj_redbarrel_projectile);
         myProjectile.direction = explosionDirection;
         
-        myProjectile.speed = 0.4;
+        myProjectile.speed_per_second = 0.4;
         myProjectile.decay = -0.15;
         myProjectile.range = 1000;
         myProjectile.push_power = 10;

@@ -102,7 +102,7 @@ var allowMovement;
 if (isDigging) || (animation_current == "dig") allowMovement = false;
 else {
     allowMovement = true;
-    speed = move_speed;
+    speed = move_speed * delta_time * ms_to_s_60;
     direction = move_direction;
 }
 
@@ -179,7 +179,7 @@ if (allowMovement)
             {
                 stamina -= dodge_stamina;
                 dodging = true;
-                speed = dodge_speed;
+                speed = dodge_speed * delta_time * ms_to_s_60;
                 if (dodge_direction == -1)
                 {
                     dodge_direction = 180 + point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
@@ -252,7 +252,7 @@ if (allowMovement)
                     sprinting = false;
                     stamina -= dodge_stamina;
                     dodging = true;
-                    speed = dodge_speed;
+                    speed = dodge_speed * delta_time * ms_to_s_60;
                     
                     if (dodge_direction == -1)
                     {
@@ -299,8 +299,8 @@ if (allowMovement)
     //Melee Step
     if (melee) && (animation_current = "melee") &&(animation_index = melee_hit_frame)
     {
-        speed = melee_step_speed;
-        if (instance_exists_fast(myGun)) if (myGun.isMeleeWeapon) speed = myGun.meleeStepSpeed;
+        speed = melee_step_speed * delta_time * ms_to_s_60;
+        if (instance_exists_fast(myGun)) if (myGun.isMeleeWeapon) speed = myGun.meleeStepSpeed * delta_time * ms_to_s_60;
         direction = point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
         melee_dash = true;
         
@@ -327,9 +327,9 @@ if (allowMovement)
     var maxSpeed = move_speed_max*totalSpeedVector;
     var maxSpeedSprint = move_speed_sprint*totalSpeedVector;
     
-    if speed > maxSpeedAiming && (aiming) speed -=min(move_accel,speed-maxSpeedAiming);
-    if speed > maxSpeed && (!sprinting) speed -= min(move_accel,speed-maxSpeed);
-    if speed > maxSpeedSprint && (sprinting) speed -= min(move_accel,speed-maxSpeedSprint);
+    if speed > maxSpeedAiming && (aiming) speed -= min(move_accel,speed-maxSpeedAiming) * delta_time * ms_to_s_60;
+    if speed > maxSpeed && (!sprinting) speed -= min(move_accel,speed-maxSpeed) * delta_time * ms_to_s_60;
+    if speed > maxSpeedSprint && (sprinting) speed -= min(move_accel,speed-maxSpeedSprint) * delta_time * ms_to_s_60;
     
     if (melee_dash) && (speed == 0) melee_dash = false;
 }

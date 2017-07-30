@@ -2,7 +2,7 @@
 
 if (isActive)
 {
-    var newpeed = other.speed;
+    var newSpeed = other.speed_per_second;
     var newDirection = other.direction + 180 + random_range(reflectAngleMin,reflectAngleMax);
     var newDecay = other.decay;
     var newRange = other.range;
@@ -14,7 +14,7 @@ if (isActive)
     
     newProjectile = instance_create_layer(other.x,other.y,"Interactive",obj_projectile_player);
     
-    newProjectile.speed = newpeed;
+    newProjectile.speed_per_second = newSpeed;
     newProjectile.direction = newDirection;
     newProjectile.decay = newDecay;
     newProjectile.range = newRange;

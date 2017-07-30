@@ -11,8 +11,8 @@ else flightState = "complete";
 // Flight State Machine
 if (flightState == "up")
 {
-    verticalSpeed -= verticalFriction;
-    verticalSpeed += verticalAccel;
+    verticalSpeed -= verticalFriction * delta_time * ms_to_s_60;
+    verticalSpeed += verticalAccel * delta_time * ms_to_s_60;
     if (verticalSpeed >= verticalSpeedMax) verticalSpeed = verticalSpeedMax;
     
     myHeight += verticalSpeed;
@@ -25,7 +25,7 @@ if (flightState == "up")
 
 if (flightState == "go")
 {
-    verticalSpeed -= verticalFriction;
+    verticalSpeed -= verticalFriction * delta_time * ms_to_s_60;
     
     if (myHeight != targetHeight)
     {
@@ -33,8 +33,8 @@ if (flightState == "go")
         if (myHeight < targetHeight) myHeight = targetHeight;
     }   
     
-    flightSpeed -= flightFriction;
-    flightSpeed += flightAccel;
+    flightSpeed -= flightFriction * delta_time * ms_to_s_60;
+    flightSpeed += flightAccel * delta_time * ms_to_s_60;
     if (flightSpeed > flightSpeedMax) flightSpeed = flightSpeedMax;
     
     if (targetDistance <= landingDistance)
@@ -52,8 +52,8 @@ if (flightState == "down")
     }
     if (flightSpeed < 0) flightSpeed = 0;
 
-    verticalSpeed -= verticalFriction;
-    verticalSpeed += verticalAccel;
+    verticalSpeed -= verticalFriction * delta_time * ms_to_s_60;
+    verticalSpeed += verticalAccel * delta_time * ms_to_s_60;
     
     if (verticalSpeed >= verticalSpeedMax) verticalSpeed = verticalSpeedMax;
     
@@ -70,7 +70,7 @@ if (flightState == "down")
 //Resolve Horizontal Movement
 if (flightSpeed)
 {
-    speed = flightSpeed;
+    speed = flightSpeed * delta_time * ms_to_s_60;
     direction = targetDirection;
 }
 

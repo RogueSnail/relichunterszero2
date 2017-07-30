@@ -12,8 +12,8 @@ if (hp <= 0)
     {
         var randomDeath = irandom_range(1,3)
         if (randomDeath == 1) corpseSprite = sprite_death;
-        if (randomDeath == 2) corpseSprite = sprite_death2;
-        if (randomDeath == 3) corpseSprite = sprite_death3;
+        else if (randomDeath == 2) corpseSprite = sprite_death2;
+        else if (randomDeath == 3) corpseSprite = sprite_death3;
         
         if (!critical_death)
         {

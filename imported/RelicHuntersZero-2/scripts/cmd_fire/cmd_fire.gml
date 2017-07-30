@@ -22,7 +22,7 @@ if (owner != noone)
 			//show_debug_message("cmd_fire layer");
 			//show_debug_message(layer);
 	        projectile = instance_create_layer(projectileX,projectileY,"Interactive",projectile_obj); 
-	        projectile.speed = projectile_speed;
+	        projectile.speed_per_second = projectile_speed;
 	        projectile.decay = projectile_speed_decay;
 	        projectile.range = projectile_range;
 	        projectile.push_power = projectile_power;

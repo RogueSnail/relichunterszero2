@@ -273,7 +273,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             if (throwGrenade)
             {
                 ai_myGrenade = instance_create_layer(x,y,"Interactive",obj_grenade_enemyNew);
-                ai_myGrenade.speed = 8;
+                ai_myGrenade.speed_per_second = 8;
                 ai_myGrenade.direction = point_direction(x,y,ai_target.x,ai_target.y);
                 grenade_count--;
             }

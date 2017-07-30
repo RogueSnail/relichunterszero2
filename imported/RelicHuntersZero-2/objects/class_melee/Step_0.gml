@@ -33,11 +33,11 @@ if instance_exists_fast(owner)
     y = owner.y;
     
     if (owner.animation_current == "idle")      sprite_index = animationIdle;
-    if (owner.animation_current == "walk")      sprite_index = animationWalk;
-    if (owner.animation_current == "sprint")    sprite_index = animationSprint;
-    if (owner.animation_current == "dash")      sprite_index = animationDash;
-    if (owner.animation_current == "hit")       sprite_index = animationHit;
-    if (owner.animation_current == "melee")     sprite_index = animationMelee;
+    else if (owner.animation_current == "walk")      sprite_index = animationWalk;
+    else if (owner.animation_current == "sprint")    sprite_index = animationSprint;
+    else if (owner.animation_current == "dash")      sprite_index = animationDash;
+    else if (owner.animation_current == "hit")       sprite_index = animationHit;
+    else if (owner.animation_current == "melee")     sprite_index = animationMelee;
     
     image_speed = owner.animation_speed;
     image_xscale = owner.image_xscale;
