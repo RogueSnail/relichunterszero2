@@ -16,7 +16,7 @@ if instance_exists_fast(owner)
     image_xscale = owner.image_xscale;
     depth = owner.depth-1;
 }
-else instance_destroy();
+//else instance_destroy();
 
 
 ///Weapon Level

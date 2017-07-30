@@ -1,3 +1,5 @@
+event_inherited();
+
 ///Basic Stuff
 range = 100;
 activationClient = noone;

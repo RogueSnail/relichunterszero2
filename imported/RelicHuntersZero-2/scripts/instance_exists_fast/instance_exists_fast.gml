@@ -13,7 +13,6 @@ else
 	{
 		if (argument0 == (global.eventManager.removedInstances[i])) 
 		{
-			argument0 = noone;
 			toReturn = false;
 			break;
 		}

@@ -27,7 +27,7 @@ if (instance_exists_fast(activationClient))
 if (!on_top_of_object)
 {
     myObject = collision_point(x,y,obj_wall,false,true);
-    if (instance_exists_fast(myObject)) on_top_of_object = true; 
+    if (myObject != noone) on_top_of_object = true; 
 }
 
 if (on_top_of_object)

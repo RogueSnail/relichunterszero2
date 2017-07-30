@@ -13,7 +13,7 @@ storeOriginalDamage = -1;
 storeOriginalName = "";
 
 myShieldObject = instance_create_layer(x,y,"Interactive",obj_shield_biu);
-myShieldObject.owner = id;
+owner_add_owned_instance(myShieldObject);
 
 shake_amount = 0;
 

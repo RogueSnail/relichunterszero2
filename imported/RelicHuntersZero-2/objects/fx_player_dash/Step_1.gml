@@ -1,15 +1,20 @@
 time++;
 
-if instance_exists(owner) && (time >= slowness)
+if instance_exists_fast(owner) 
 {
-    sprite_dash_fx = owner.sprite_dash_fx;
-    sprite_index = sprite_dash_fx;
+	if (time >= slowness)
+	{
+	    sprite_dash_fx = owner.sprite_dash_fx;
+	    sprite_index = sprite_dash_fx;
 
-    x = owner.x;
-    y = owner.y;
+	    x = owner.x;
+	    y = owner.y;
     
-    image_xscale = owner.image_xscale;
+	    image_xscale = owner.image_xscale;
     
-    time = 0;
+	    time = 0;
+	}
 }
-
+else {
+	owner = noone;
+}

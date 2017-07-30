@@ -3,3 +3,4 @@
 
 owner_invalidate_owned_instances();
 owner_destroy_owned_instances();
+owner_invalidate_activated_instances();

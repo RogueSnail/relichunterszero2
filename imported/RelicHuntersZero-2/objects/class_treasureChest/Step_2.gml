@@ -9,7 +9,7 @@ if (unlock){
     open.spawnSprite = spawnSprite;
     open.spawnCoins = spawnCoins;
     open.spawnChallenge = spawnChallenge;
-    open.activationClient = activationClient;
+	owner_add_activated_instance_ex(open, activationClient);
     instance_destroy();
 }
 

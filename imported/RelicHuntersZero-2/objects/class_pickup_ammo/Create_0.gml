@@ -6,11 +6,11 @@ sprite_index = spr_pickup_light;
 ammo = 50;
 
 myPrompt = instance_create_layer(x+10,y-25,"Interactive_Over",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 name = "I AM ERROR";
 myInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
-myInfo.owner = id;
+owner_add_owned_instance(myInfo);
 
 depth=-y-2;
 

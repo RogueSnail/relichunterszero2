@@ -22,9 +22,9 @@ if (instance_exists(ai_target)){
 //Animate
 if (!shy) 
 {
-    if (shyTrigger) && (!instance_exists(activationFX)){
+    if (shyTrigger) && (!instance_exists_fast(activationFX)){
         activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-        activationFX.owner = id;
+        owner_add_owned_instance(activationFX);
     }
     shyTrigger = false;
     
@@ -79,12 +79,12 @@ move_speed = speed_walk;
 
 var myClosestPlayer = instance_nearest(x,y,faction_player);
 distance_to_player = 0;
-if (instance_exists(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y); 
+if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y); 
 
 //Activate AI
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && instance_exists(myClosestPlayer) && (!want_to_activate)
+    if (distance_to_player < ai_activation_range) && instance_exists_fast(myClosestPlayer) && (!want_to_activate)
     {
         if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
@@ -96,7 +96,7 @@ if (!ai_active)
     {
         ai_active = true;
         activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-        activationFX.owner = id;
+        owner_add_owned_instance(activationFX);
     }
 }
 
@@ -106,7 +106,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     distance_to_target = distance_to_player;
     ai_target = myClosestPlayer;
     
-    if instance_exists(ai_target)
+    if instance_exists_fast(ai_target)
     {
         //Aggro Control
         ai_state = "CHASE";
@@ -145,13 +145,15 @@ if instance_exists(ai_target)
     if (ai_target.x > x) look_direction = 1;   
     else look_direction = 0;
 }
+else {
+	ai_target= noone;
+}
 
 ///Damage
 
 myEnemy = noone;
 myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_player,false,true);
-
-if (myEnemy) && (damage_timer_current >= damage_timer)// && instance_exists(myEnemy)
+if (myEnemy != noone) && (damage_timer_current >= damage_timer)// && instance_exists(myEnemy)
 {
     if (!myEnemy.dodging)
     {

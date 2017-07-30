@@ -33,16 +33,16 @@ else
         if (!instance_exists(myDash))
         {
             myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
-            myDash.owner = id;
+            owner_add_owned_instance(myDash);
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
-            myDash.owner = id;
-            myDash.slowness = 4;
-            myDash.alpha = 60;
+            myDash2 = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
+            owner_add_owned_instance(myDash2);
+            myDash2.slowness = 4;
+            myDash2.alpha = 60;
         }
         sprite_index = sprite_dash;
     }
@@ -89,7 +89,7 @@ if (!ai_active)
     {
         ai_active = true;
         activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-        activationFX.owner = id;
+        owner_add_owned_instance(activationFX);
     }
 }
 
@@ -98,11 +98,11 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 {
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,faction_monster);
-    if (instance_exists(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+    if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
     else distance_to_enemy = 9999;
     
     
-    if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
+    if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
         ai_target_change_current = 0;
         

@@ -16,7 +16,7 @@ overshield = global.overshield[myPlayerId];
         show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
         
         weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
-        weapon2.owner = id;
+        owner_add_owned_instance(weapon2);
         weapon2.weaponLevel = global.weapon2Level[myPlayerId];
         draw_gun(weapon2);
         if (room!=room_start) weapon2.ammo_current = global.weapon2_ammo[myPlayerId];
@@ -27,7 +27,7 @@ overshield = global.overshield[myPlayerId];
         show_debug_message("weapon1[myPlayerId] returns "+string(global.weapon1[myPlayerId]));
         
         weapon1 = instance_create_layer(x,y,"Interactive",global.weapon1[myPlayerId]);
-        weapon1.owner = id;
+        owner_add_owned_instance(weapon1);
         weapon1.weaponLevel = global.weapon1Level[myPlayerId];
         draw_gun(weapon1);
         if (room!=room_start) weapon1.ammo_current = global.weapon1_ammo[myPlayerId];
@@ -36,27 +36,21 @@ overshield = global.overshield[myPlayerId];
     {
 		show_debug_message("here");
         weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol_jimmy);
-        weapon1.owner = id;
+        owner_add_owned_instance(weapon1);
         draw_gun(weapon1);
     }
        
     //Draw Correct Gun
     if (global.currentlyEquippedWeapon[myPlayerId] == 1) draw_gun(weapon1);
-    if (global.currentlyEquippedWeapon[myPlayerId] == 2) draw_gun(weapon2);
+    else if (global.currentlyEquippedWeapon[myPlayerId] == 2) draw_gun(weapon2);
     global.currentlyEquippedWeapon[myPlayerId] = 0;
         
     //Crosshair Position
     global.crosshairX[myPlayerId] = x;
     global.crosshairY[myPlayerId] = y;
-    
-    //Crosshair Position
-    global.crosshairX[myPlayerId] = x;
-    global.crosshairY[myPlayerId] = y;
-    
+     
     //Done
     setup_initial = false;
     
-	show_debug_message("player layer: "+string(self.layer));
-	show_debug_message("player depth: "+string(self.depth));
-
-
+//	show_debug_message("player layer: "+string(self.layer));
+//	show_debug_message("player depth: "+string(self.depth));

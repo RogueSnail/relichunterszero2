@@ -1,6 +1,6 @@
 ///Interaction
 
-if (activationClient != noone) && (active)
+if (instance_exists_fast(activationClient) && (active))
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;   
 
@@ -30,7 +30,7 @@ if (buy = true) && (!active)
     else if (myLevel == 2) myPrice = global.price_checkpoint2;
     else if (myLevel == 3) myPrice = global.price_checkpoint3;
     
-    if (activationClient != noone)
+    if (instance-exists_fast(activationClient))
     {
         if (point_distance(x,y,activationClient.x,activationClient.y) <= range) in_range = true;   
         

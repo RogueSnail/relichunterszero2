@@ -9,10 +9,10 @@ range = 40;
 in_range = false;
 
 myPrompt = instance_create_layer(x,y-60,"GUI",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 myEffect = instance_create_layer(x,y,"Interactive",fx_teleporter);
-myEffect.owner = id;
+owner_add_owned_instance(myEffect);
 
 myLevel = -1;
 myPrice = 0;

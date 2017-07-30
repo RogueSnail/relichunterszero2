@@ -2,6 +2,7 @@
 
 
 if (!instance_exists_fast(magnet_player)) {
+	magnet_player = false;
 	speed_per_second = max(0, speed_per_second - (magnet_friction * delta_time * ms_to_s));
 }
 else {

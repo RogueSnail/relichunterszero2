@@ -519,7 +519,7 @@ if (instance_exists_fast(myGun)){
         if (animation_index = melee_hit_frame)
         {
             meleeArc = instance_create_layer(x,y,"Interactive",fx_melee_arc);
-            meleeArc.owner = id;
+            owner_add_owned_instance(meleeArc);
             meleeArc.damage = melee_damage;
             
             meleeArc.push_power = melee_push_power;
@@ -549,7 +549,7 @@ if (myChar == char_rider) && (!instance_exists_fast(riderDodgeAttack)) {
     if (dodging) {
         if (!riderDodgeAttack){
             riderDodgeAttack = instance_create_layer(x,y,"Interactive",fx_melee_arc);
-            riderDodgeAttack.owner = id;
+            owner_add_owned_instance(riderDodgeAttack);
             riderDodgeAttack.damage = melee_damage;  
             riderDodgeAttack.push_power = melee_push_power;
             riderDodgeAttack.max_hits = 1;
@@ -594,7 +594,7 @@ if ( (grenade_input) && (!melee) && (!throw) )
             guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
             guiInfo.colorMain = K_BETU_RED;
             guiInfo.myString = loc_key("INFO_OUTOFGRENADES");
-            guiInfo.owner = id;
+            owner_add_owned_instance(guiInfo);
             audio_play(audio_emitter, false, 1, sfx_pickup_full);
         }
         else{
@@ -715,7 +715,7 @@ if energy < (energy_max+overshield)
     {
         myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);  
         audio_play(audio_emitter,false,1,sfx_shield_regen_start);
-        myRecharge.owner = id;
+        owner_add_owned_instance(myRecharge);
     }
     
     if (energy < 0) energy = 0;
@@ -729,13 +729,13 @@ if (!energy) && (shield == true) && (energy_max)
         guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
         guiInfo.colorMain = K_BETU_RED;
         guiInfo.myString = loc_key("INFO_SHIELDLOST");
-        guiInfo.owner = id;
+        owner_add_owned_instance(guiInfo);
     }
     
     myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
-    myShieldEffect.owner = id;
+    owner_add_owned_instance(myShieldEffect);
     mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
-    mySparks.owner = id;
+    owner_add_owned_instance(mySparks);
     shield = false;
     
     if (global.challengeOvercharge) hp -= global.challengeOverchargeDamage;
@@ -749,7 +749,7 @@ if (superShield){
 
     if (!instance_exists_fast(mySuperShieldFx)) {
         mySuperShieldFx = instance_create_layer(x,y,"Interactive",fx_superShield);
-        mySuperShieldFx.owner = id;
+        owner_add_owned_instance(mySuperShieldFx);
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
     }
     
@@ -815,7 +815,7 @@ if (reloadKey)
     if (instance_exists(global.dynamicAmmo1))
     {
         if (myPlayerId == 1) { global.dynamicAmmo1.timedActive = true; global.dynamicAmmo1.activeTimeCurrent = 0; }
-        if (myPlayerId == 2) { global.dynamicAmmo2.timedActive = true; global.dynamicAmmo2.activeTimeCurrent = 0; }
+        else if (myPlayerId == 2) { global.dynamicAmmo2.timedActive = true; global.dynamicAmmo2.activeTimeCurrent = 0; }
     }
 }
 
@@ -844,7 +844,7 @@ if (instance_exists(class_interactive_master))
     if (instance_exists(myPickupInRange))
     {
         if (myPickupInRange.isClientLocked == false) {
-			myPickupInRange.activationClient = id;
+			owner_add_activated_instance(myPickupInRange);
 		}
         
         if (interactionKey) 

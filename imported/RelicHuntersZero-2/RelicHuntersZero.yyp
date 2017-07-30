@@ -2991,6 +2991,14 @@
             }
         },
         {
+            "Key": "2dad07f6-4ced-441a-a218-4df6b4b5638f",
+            "Value": {
+                "id": "d392e85d-46d0-47b7-9eef-c4800907144b",
+                "resourcePath": "scripts\\owner_add_activated_instance\\owner_add_activated_instance.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2dd0055d-c5d9-40da-a5d9-13d558ce90bd",
             "Value": {
                 "id": "5c0e22e1-01c0-433c-aaab-787264514be3",
@@ -3036,6 +3044,14 @@
                 "id": "60407d5e-af19-42d7-93c8-4f39839699b7",
                 "resourcePath": "objects\\obj_pistol_blast\\obj_pistol_blast.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "2f05f21f-07cb-4c35-832f-0f030d88a179",
+            "Value": {
+                "id": "63f59c2e-2b6a-4642-833b-886a5a36d586",
+                "resourcePath": "scripts\\owner_invalidate_activated_instances\\owner_invalidate_activated_instances.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -14559,6 +14575,14 @@
             }
         },
         {
+            "Key": "ea73072c-1cd5-440b-9507-14e0d5976486",
+            "Value": {
+                "id": "f09e3c62-c7d2-44de-9602-694ee766d802",
+                "resourcePath": "scripts\\owner_add_activated_instance_ex\\owner_add_activated_instance_ex.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "eaab2142-56f7-47d1-bb13-3594a46294c7",
             "Value": {
                 "id": "61e03406-e54b-42a8-a076-aaba97bcdae1",
@@ -16088,6 +16112,9 @@
         "0be506df-ae00-4ca8-a780-9674634fc354",
         "03b64bd5-258a-48b3-b278-c222ca52cf54",
         "11d90df3-8615-4b8d-83be-6ec7fe46edd1",
+        "2dad07f6-4ced-441a-a218-4df6b4b5638f",
+        "2f05f21f-07cb-4c35-832f-0f030d88a179",
+        "ea73072c-1cd5-440b-9507-14e0d5976486",
         "a9cae357-8b0b-477b-8710-e0a8e434b114",
         "04c4f864-b0a9-44de-a6ca-09a9df821977",
         "d2e12bf8-bc3c-4429-8b0a-02fa15e6dd1b",

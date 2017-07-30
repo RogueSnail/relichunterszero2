@@ -14,7 +14,7 @@ idToSpawn = -1;
 image_speed = 0.2;
 
 myPrompt = instance_create_layer(x-42,y+38,"Interactive",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 depth=-y-2;
 

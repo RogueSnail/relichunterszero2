@@ -6,7 +6,7 @@ colorOutline = c_black;
 myFont = global.font_tinyText;
 drawOutline = false;
 
-lifeMax = 0.25;//room_speed*0.25;
+lifeMax = 1;//0.25;//room_speed*0.25;
 lifeCurrent = 0;
 
 myAlpha = 1;

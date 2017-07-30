@@ -7,11 +7,11 @@ range = 80;
 in_range = false;
 
 myPrompt = instance_create_layer(x-30,y-21,"Interactive",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 name = "I AM ERROR";
 myWeaponInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
-myWeaponInfo.owner = id;
+owner_add_owned_instance(myWeaponInfo);
 
 
 gun_ammo_current = 999;

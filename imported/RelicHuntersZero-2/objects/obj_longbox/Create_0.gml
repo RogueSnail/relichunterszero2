@@ -24,7 +24,7 @@ else{
     
     if (irandom(2) = 0) {
         myFlag = instance_create_layer(x+62,y-68,"Interactive",fx_ducanFlag);
-        myFlag.owner = id;
+        owner_add_owned_instance(myFlag);
     }
 }
 

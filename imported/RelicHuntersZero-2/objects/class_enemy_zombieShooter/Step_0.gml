@@ -55,16 +55,16 @@ else
         if (!instance_exists(myDash))
         {
             myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
-            myDash.owner = id;
+            owner_add_owned_instance(myDash);
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
-            myDash.owner = id;
-            myDash.slowness = 4;
-            myDash.alpha = 60;
+            myDash2 = instance_create_layer(x,y,"Interactive",fx_duck_dash);
+            owner_add_owned_instance(myDash2);
+            myDash2.slowness = 4;
+            myDash2.alpha = 60;
         }
         sprite_index = sprite_dash;
     }
@@ -98,7 +98,7 @@ if energy < energy_max
     if energy_regen_time_current = energy_regen_time
     {
         myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);   
-        myRecharge.owner = id;
+        owner_add_owned_instance(myRecharge);
         myRecharge.blue = false;
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
     }
@@ -107,11 +107,11 @@ if energy < energy_max
 if (!energy) && (shield == true)
 {
     myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
-    myShieldEffect.owner = id;
+    owner_add_owned_instance(myShieldEffect);
     myShieldEffect.blue = false;
     
     mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
-    mySparks.owner = id;
+	owner_add_owned_instance(mySparks);
     mySparks.blue = false;
     
     shield = false;
@@ -131,7 +131,7 @@ firing = false;
 var myClosestPlayer = instance_nearest(x,y,faction_player);
 
 distance_to_player = 0;
-if (instance_exists_fast(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
 
 if (grenade_count > grenade_count_max) grenade_count = grenade_count_max;
 
@@ -140,7 +140,7 @@ if (hit_taken) want_to_activate = true;
 
 if (!ai_active)
 {
-    if (aiActivationTimeCurrent >= aiActivationTime){
+    if (aiActivationTimeCurrent >= aiActivationTime) {
         if (distance_to_player < ai_activation_range) && instance_exists(myClosestPlayer) && (!want_to_activate)
         {
             if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
@@ -153,7 +153,7 @@ if (!ai_active)
         {
             ai_active = true;
             activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-            activationFX.owner = id;
+            owner_add_owned_instance(activationFX);
         }
     }
     else aiActivationTimeCurrent++;
@@ -164,7 +164,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 {
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,faction_monster);
-    if (instance_exists_fast(fuckingEnemy)) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+    if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
     else distance_to_enemy = 99999;
     
     
@@ -197,10 +197,9 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
         if (ai_state == "PATROL" || ai_state == "COVER") aggro += aggro_add_patrol;
-        if (ai_state == "CHASE") aggro -= aggro_cost_chase;
+        else if (ai_state == "CHASE") aggro -= aggro_cost_chase;
         
         if (ai_state == "PATROL" && distance_to_target > ai_patrol_max) aggro += aggro_add_close;
-        
         
         if (aggro < 0) aggro = 0;
         if (aggro > aggro_max) aggro = aggro_max;
@@ -221,7 +220,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
         }
         
         //State Switches
-        if ai_state == "CHASE"
+        if (ai_state == "CHASE")
         {
             if (aggro <= 0) 
             { 
@@ -237,7 +236,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "COVER"
+        else if ai_state == "COVER"
         {
             if (energy >= energy_max) 
             { 
@@ -251,7 +250,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if aggro >= aggro_min_chase
             {
@@ -295,7 +294,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             if (sight_forbidden) && (ai_supression) aggro -= aggro_cost_sight_forbidden;
         }
         
-        if ai_state == "COVER"
+        else if ai_state == "COVER"
         {
             move_speed = speed_sprint;
             sight_blocked = (collision_line(x,y,ai_target.x,ai_target.y,class_solid,false,true));

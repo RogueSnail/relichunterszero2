@@ -37,7 +37,7 @@ if (endlessRelic != noone)
 {
     var myRelic = instance_create_layer(0,0,"Interactive",endlessRelic);
     myRelic.activationOverride = true;
-    myRelic.activationClient = activationClient;
+	owner_add_activated_instance_ex(myRelic, activationClient);
     myRelic.toggle = true;
     with (myRelic) {
         event_perform(ev_step,ev_step_begin);
