@@ -1,5 +1,6 @@
-///Main Variables
+event_inherited();
 
+///Main Variables
 reflection_object_setup(0,-1,image_index);
 shadow_object_setup(0,-1,-1,global.default_shadow_yscale);
 audio_emitter = 0;

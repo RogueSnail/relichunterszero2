@@ -22,8 +22,13 @@ if (instance_exists(targetObject))
         }
     }
     else {
-        if (isEnemyProjectile) curveTarget = instance_nearest(x,y,targetObject);
-        else curveTarget = find_enemy_autoaim(x,y,direction,180,range);
+		curveTarget = noone;
+        if (isEnemyProjectile) {
+			curveTarget = instance_nearest(x,y,targetObject);
+		}
+        else {
+			curveTarget = find_enemy_autoaim(x,y,direction,180,range);
+		}
     }
     
     if (speed > maxSpeed) speed = maxSpeed;

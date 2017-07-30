@@ -7,9 +7,9 @@ if (activationClient != noone)
         if (activationClient.weapon2 == noone)
         {
             activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
-            activationClient.weapon2.owner = activationClient.id;
             with (activationClient)
             {
+				owner_add_owned_instance(weapon2);
                 draw_gun(weapon2);
             }
     
@@ -29,9 +29,9 @@ if (activationClient != noone)
                 }
                 
                 activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
-                activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
                 activationClient.weapon1.ammo_current = gun_ammo_current;
@@ -48,9 +48,9 @@ if (activationClient != noone)
                 }
                 
                 activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
                 activationClient.weapon2.ammo_current = gun_ammo_current;
@@ -72,9 +72,9 @@ if (activationClient != noone)
                 }
                 
                 activationClient.weapon1 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
-                activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
                 activationClient.weapon1.ammo_current = gun_ammo_current;
@@ -91,9 +91,9 @@ if (activationClient != noone)
                 }
                 
                 activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
                 activationClient.weapon2.ammo_current = gun_ammo_current;
@@ -118,9 +118,9 @@ if (activationClient != noone)
             if (gun != obj_gloves) && (gun != obj_buckler)
             {
                 activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon1.owner = activationClient.id;
                 with (activationClient)
-                {
+                {	
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
                 activationClient.weapon1.ammo_current = gun_ammo_current;
@@ -129,9 +129,9 @@ if (activationClient != noone)
             {
                 instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_gloves);
                 activationClient.weapon2 = obj_gloves;
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
             }
@@ -139,9 +139,9 @@ if (activationClient != noone)
             {
                 instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_buckler);
                 activationClient.weapon2 = obj_buckler;
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
             }
@@ -165,9 +165,9 @@ if (activationClient != noone)
             if (gun != obj_gloves) && (gun != obj_buckler)
             {
                 activationClient.weapon2 = instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",gun);
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
                 activationClient.weapon2.ammo_current = gun_ammo_current;
@@ -176,9 +176,9 @@ if (activationClient != noone)
             {
                 instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",obj_gloves);
                 activationClient.weapon2 = obj_gloves;
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
             }
@@ -186,9 +186,9 @@ if (activationClient != noone)
             {
                 instance_create_layer(activationClient.x,activationClient.y,"Interactive_Over",obj_buckler);
                 activationClient.weapon2 = obj_buckler;
-                activationClient.weapon2.owner = activationClient.id;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
             }

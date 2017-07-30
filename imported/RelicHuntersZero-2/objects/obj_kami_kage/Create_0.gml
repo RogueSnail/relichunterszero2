@@ -1,3 +1,5 @@
+event_inherited();
+
 audio_emitter = 0; //prevent error on cage destroyed by chance
 cage_chance = irandom_range(0,3);
 if (cage_chance != 0)
