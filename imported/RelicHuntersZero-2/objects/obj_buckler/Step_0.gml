@@ -1,26 +1,26 @@
 ///Animation & Movement
 
-if instance_exists(owner)
+if instance_exists_fast(owner)
 {
     x = owner.x;
     y = owner.y;
     
     if (owner.animation_current == "idle")      sprite_index = spr_buckler_idle;
-    if (owner.animation_current == "walk")      sprite_index = spr_buckler_walk;
-    if (owner.animation_current == "sprint")    sprite_index = spr_buckler_sprint;
-    if (owner.animation_current == "dash")      sprite_index = spr_buckler_dash;
-    if (owner.animation_current == "hit")       sprite_index = spr_buckler_hit;
-    if (owner.animation_current == "melee")     sprite_index = spr_buckler_melee;
+    else if (owner.animation_current == "walk")      sprite_index = spr_buckler_walk;
+    else if (owner.animation_current == "sprint")    sprite_index = spr_buckler_sprint;
+    else if (owner.animation_current == "dash")      sprite_index = spr_buckler_dash;
+    else if (owner.animation_current == "hit")       sprite_index = spr_buckler_hit;
+    else if (owner.animation_current == "melee")     sprite_index = spr_buckler_melee;
     
     image_speed = owner.animation_speed;
     image_xscale = owner.image_xscale;
     depth = owner.depth-1;
 }
-else instance_destroy();
+//else instance_destroy();
 
 
 ///Weapon Level
-if (instance_exists(myShieldObject)){
+if (instance_exists_fast(myShieldObject)){
     if (!storeOriginalDamage) || (storeOriginalName == "") {
         projectile_damage = myShieldObject.reflectDamageMultiplier;
         weaponLevelBonus[0] = 0;

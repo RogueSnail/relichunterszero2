@@ -19,7 +19,7 @@ if (activationClient != noone) && (!unlock)
             {
                 var p = activationClient.myPlayerId;
                 if (p == 1) { global.dynamicAmmo1.timedActive = true; global.dynamicAmmo1.activeTimeCurrent = 0; }
-                if (p == 2) { global.dynamicAmmo2.timedActive = true; global.dynamicAmmo2.activeTimeCurrent = 0; }
+                else if (p == 2) { global.dynamicAmmo2.timedActive = true; global.dynamicAmmo2.activeTimeCurrent = 0; }
             }
         }
         else

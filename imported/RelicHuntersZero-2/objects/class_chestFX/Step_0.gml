@@ -8,7 +8,7 @@ if (!spawned) && (image_index >= spawnFrame){
         spawn.itemSprite = spawnSprite;
         spawn.endlessRelic = spawnRelic;
         spawn.endlessWeapon = spawnWeapon;
-        spawn.activationClient = activationClient;
+		owner_add_activated_instance_ex(spawn, activationClient);
     }
     else {
         alarm[0] = 1;

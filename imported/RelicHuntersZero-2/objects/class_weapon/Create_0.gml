@@ -1,5 +1,5 @@
 ///Currently a dummy class
-
+event_inherited();
 isRelicWeapon = false; //<-- class starts to become useful :-)
 
 //Just for referencing in the code atm

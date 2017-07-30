@@ -42,7 +42,6 @@ if (magnet_player == noone)
 	if (vertical_speed_start < interactive_speed) && instance_exists(class_player)
 	{
 	    var candidate_magnet_player = instance_nearest(x,y,class_player);
-      
 	    if point_distance(x,y,candidate_magnet_player.x,candidate_magnet_player.y) <= magnet_range
 	    {
 			magnet_player = candidate_magnet_player;

@@ -13,7 +13,7 @@ range = 95;
 in_range = false;
 
 myPrompt = instance_create_layer(x,y-21,"GUI",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 toggle = false;
 

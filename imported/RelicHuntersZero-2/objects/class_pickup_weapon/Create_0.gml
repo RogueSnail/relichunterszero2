@@ -10,11 +10,11 @@ gun_ammo_current = 99999;
 active = false;
 
 myPrompt = instance_create_layer(x+10,y-25,"Interactive_Over",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 name = "I AM ERROR";
 myWeaponInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
-myWeaponInfo.owner = id;
+owner_add_owned_instance(myWeaponInfo);
 
 depth=-y-5;
 image_speed = 0;
@@ -22,6 +22,7 @@ image_speed = 0;
 reflection_object_setup(25,-1,image_index);
 
 on_top_of_object = false;
+myObject = noone;
 image_speed = 0;
 
 wantToActivate = false;

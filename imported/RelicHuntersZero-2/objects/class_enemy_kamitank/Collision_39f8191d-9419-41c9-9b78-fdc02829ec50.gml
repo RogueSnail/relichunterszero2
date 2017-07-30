@@ -15,7 +15,7 @@ if (defenseMode)
         var newDamage = round(other.damage * reflectDamageMultiplier);
         
         newProjectile = instance_create_layer(other.x,other.y,"Interactive",obj_projectile_player);
-        
+        owner_add_owned_instance(newProjectile);
         newProjectile.speed = newpeed;
         newProjectile.direction = newDirection;
         newProjectile.decay = newDecay;
@@ -25,7 +25,6 @@ if (defenseMode)
         newProjectile.faction = newFaction;
         newProjectile.type = newType;
         newProjectile.damage = newDamage;
-        newProjectile.owner = id;
         
         with (other) instance_destroy();
     }

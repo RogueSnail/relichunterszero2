@@ -13,7 +13,7 @@ push_power = 10;
 
 faction = f_enemy;
 
-if (instance_exists(owner)) audio_play(owner.audio_emitter,false,1,sfx_rocket_start);
+if (instance_exists_fast(owner)) audio_play(owner.audio_emitter,false,1,sfx_rocket_start);
 
 //Target Acquisition
 

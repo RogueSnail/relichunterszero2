@@ -6,16 +6,16 @@ colorOutline = c_black;
 myFont = global.font_tinyText;
 drawOutline = false;
 
-lifeMax = 1;//room_speed*0.25;
+lifeMax = 1;//0.25;//room_speed*0.25;
 lifeCurrent = 0;
 
 myAlpha = 1;
-fadeSpeed = 1;//0.2; = 5 frames, 
+fadeSpeed = 0.2;//0.2; = 5 frames, 
 lockToOwner = true;
 
 offsetY = 0;
 offsetX = 0;
-floatSpeed = 60;
+floatSpeed = 1.0;
 
 bounceSpeed = 2.5;
 bounceGravity = 0.1;

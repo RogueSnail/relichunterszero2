@@ -23,7 +23,7 @@ event_inherited(); // <- Calling the Gun scripts afterwards to ensure damage wil
 
 ///Looping Sound FX
 
-if (!reloading) && (ammo_current) && (owner) && (instance_exists(owner)) && (isActive)
+if (!reloading) && (ammo_current) && (owner) && (instance_exists_fast(owner)) && (isActive)
 {
     if (input_pressed)
     {

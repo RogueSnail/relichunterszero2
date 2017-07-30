@@ -10,12 +10,12 @@ if (global.unlock_sniper_rifle)
 if (!on_top_of_object)
 {
     myObject = collision_point(x,y,obj_wall,false,true);
-    if (instance_exists(myObject)) on_top_of_object = true;
+    if (myObject != noone) on_top_of_object = true; 
 }
 
 if (on_top_of_object)
 {
-    if (!instance_exists(myObject))
+    if (!instance_exists_fast(myObject))
     {
         y+=32;
         on_top_of_object = false;

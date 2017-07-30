@@ -25,11 +25,10 @@ range = 130;
 in_range = false;
 
 myPrompt = instance_create_layer(x+10,y-25,"Interactive_Over",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 name = loc_key("INFO_TREASURECHEST");
 myWeaponInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
-myWeaponInfo.owner = id;
+owner_add_owned_instance(myWeaponInfo);
 
 reflection_object_setup(25,-1,image_index);
-

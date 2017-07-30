@@ -158,7 +158,6 @@ if (!ai_active)
         {
             ai_active = true;
             activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-            //activationFX.owner = id;
 			owner_add_owned_instance(activationFX);
         }
     }

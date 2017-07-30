@@ -1,3 +1,4 @@
+event_inherited();
 depth=-y;
 
 price1 = 0;

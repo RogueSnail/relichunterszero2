@@ -46,8 +46,7 @@ if (global.input[myPlayerId] != K_INPUT_KEYBOARD) && instance_exists(class_playe
         if (global.auto_aim != K_AUTOAIM_OFF)
         {
             targetEnemy = find_enemy_autoaim(x,y, joyLookTargetAngle, autoAimAngle, myGun.projectile_range );
-            
-            if (targetEnemy) && instance_exists(targetEnemy)
+            if (targetEnemy != noone)
             {
                 joyAimLocked = true;
             }
@@ -55,7 +54,7 @@ if (global.input[myPlayerId] != K_INPUT_KEYBOARD) && instance_exists(class_playe
         
         if (joyAimLocked)
         {
-            if (targetEnemy) && instance_exists(targetEnemy)
+            if (targetEnemy) && instance_exists_fast(targetEnemy)
             {
                 joyLookDirection = autoaim_angle(x,y,targetEnemy);
                 if (abs(angle_difference(joyLookDirection,joyLookTargetAngle) > autoAimAngle)) joyAimLocked = false;
@@ -81,7 +80,7 @@ if (global.input[myPlayerId] != K_INPUT_KEYBOARD) && instance_exists(class_playe
                 targetEnemy = candidate;
             }
                
-            if (targetEnemy) && instance_exists(targetEnemy)
+            if (targetEnemy) && instance_exists_fast(targetEnemy)
             {
                 var targetEnemyBBoxCenter = get_bbox_center(targetEnemy);
                 var aimingX = targetEnemyBBoxCenter[0];

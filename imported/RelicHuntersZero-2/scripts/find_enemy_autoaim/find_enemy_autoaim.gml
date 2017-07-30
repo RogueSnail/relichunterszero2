@@ -7,7 +7,7 @@ var aimAngle = argument2;
 var maxAngle = argument3;
 var maxRange = argument4;
 
-toReturn = -1;
+toReturn = noone;
 
 var priorityList = ds_priority_create();
 

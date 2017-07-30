@@ -23,7 +23,7 @@ else {
     allowBuy = false;
 }
 
-if (activationClient != noone) && (allowBuy)
+if (instance_exists_fast(activationClient) && (allowBuy))
 {
     if (point_distance(x,y,activationClient.x,activationClient.y) <= range) && (price) in_range = true;    
   
@@ -63,9 +63,9 @@ if instance_exists(class_player)
     
     if (distToPlayer <= 280) && (!instance_exists(obj_endless_balloon))
     {
-            myBalloon = instance_create_layer(x,y,"GUI",obj_endless_balloon);
-            if (!image_xscale) myBalloon.x -= 50;
-            myBalloon.owner = id;
+        myBalloon = instance_create_layer(x,y,"GUI",obj_endless_balloon);
+		owner_add_owned_instance(myBalloon);
+        if (!image_xscale) myBalloon.x -= 50;        
     }
 }
 

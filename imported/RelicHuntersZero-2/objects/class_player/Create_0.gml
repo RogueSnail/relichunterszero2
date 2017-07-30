@@ -94,7 +94,7 @@ weapon1 = noone;
 weapon2 = noone;
 
 reloadBarObj = instance_create_depth(x,y,self.depth+2,gui_reload_bar);
-reloadBarObj.owner = id;
+owner_add_owned_instance(reloadBarObj);
 
 // Animation
 animation_priority = 0;
@@ -142,7 +142,7 @@ inputShield = false;
 
 //Dash
 myDash = instance_create_depth(x,y,self.depth+3,fx_player_dash);
-myDash.owner = id;
+owner_add_owned_instance(myDash);
 
 //Melee
 meleeDamageUpdated = false;

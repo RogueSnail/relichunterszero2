@@ -8,7 +8,7 @@ if (instance_exists(targetObject))
     if (curveRatio > curveRatioMin) curveRatio -= curveRatioDecay
     
     //Target Adjustment
-    if (instance_exists(curveTarget))
+    if (instance_exists_fast(curveTarget))
     {
         var targetDir = point_direction(x,y,curveTarget.x,curveTarget.y);
         var angleDiff = angle_difference(direction,targetDir);
@@ -22,8 +22,13 @@ if (instance_exists(targetObject))
         }
     }
     else {
-        if (isEnemyProjectile) curveTarget = instance_nearest(x,y,targetObject);
-        else curveTarget = find_enemy_autoaim(x,y,direction,180,range);
+		curveTarget = noone;
+        if (isEnemyProjectile) {
+			curveTarget = instance_nearest(x,y,targetObject);
+		}
+        else {
+			curveTarget = find_enemy_autoaim(x,y,direction,180,range);
+		}
     }
     
     if (speed > maxSpeed) speed = maxSpeed;

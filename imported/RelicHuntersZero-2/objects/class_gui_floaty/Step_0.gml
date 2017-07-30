@@ -6,9 +6,9 @@ if (visible == true) {
 	    {
 	        x = owner.x;
 	        y = owner.y;
-	        offsetY -= floatSpeed * delta_time * ms_to_s;
+	        offsetY -= floatSpeed;
 	    }
-	    else y -= floatSpeed * delta_time * ms_to_s;
+	    else y -= floatSpeed;
 	}
 	else
 	{

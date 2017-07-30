@@ -51,16 +51,16 @@ else
         if (!instance_exists(myDash))
         {
             myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
-            myDash.owner = id;
+            owner_add_owned_instance(myDash);
             myDash.slowness = 2;
             myDash.alpha = 100;
         }
         if (!instance_exists(myDash2))
         {
-            myDash = instance_create_layer(x,y,"Interactive",fx_duck_dash);
-            myDash.owner = id;
-            myDash.slowness = 4;
-            myDash.alpha = 60;
+            myDash2 = instance_create_layer(x,y,"Interactive",fx_duck_dash);
+            owner_add_owned_instance(myDash2);
+            myDash2.slowness = 4;
+            myDash2.alpha = 60;
         }
         sprite_index = sprite_dash;
     }
@@ -98,7 +98,7 @@ if energy < energy_max
     if energy_regen_time_current = energy_regen_time
     {
         myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);   
-        myRecharge.owner = id;
+        owner_add_owned_instance(myRecharge);
         myRecharge.blue = false;
     }
 }
@@ -106,11 +106,11 @@ if energy < energy_max
 if (!energy) && (shield == true)
 {
     myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
-    myShieldEffect.owner = id;
+    owner_add_owned_instance(myShieldEffect);
     myShieldEffect.blue = false;
     
     mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
-    mySparks.owner = id;
+    owner_add_owned_instance(mySparks);
     mySparks.blue = false;
     
     shield = false;
@@ -310,7 +310,7 @@ if (fireRocket)
 {
     var myRocket = instance_create_layer(x,y,"Interactive",obj_rocket_homing);
     if (my_gun != noone) myRocket.direction = fireAngleModifier + my_gun.shoot_direction;
-    myRocket.owner = id;
+    owner_add_owned_instance(myRocket);
     myRocket.damage = 160;
     fireRocket = false;
 }
@@ -347,7 +347,7 @@ if (!ai_active)
     {
         ai_active = true;
         activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
-        activationFX.owner = id;
+        owner_add_owned_instance(activationFX);
     }
 }
 
@@ -355,7 +355,7 @@ if (!ai_active)
 if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) )
 {
     //Find my Target 
-    if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
+    if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
         ai_target_change_current = 0;
 
@@ -371,18 +371,18 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
         
     // Resolve AI with Target found
     
-    if instance_exists(ai_target) && (!pushed)
+    if instance_exists_fast(ai_target) && (!pushed)
     {
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
         if (ai_state == "PATROL" || ai_state == "COVER") aggro += aggro_add_patrol;
-        if (ai_state == "CHASE") aggro -= aggro_cost_chase;
+        else if (ai_state == "CHASE") aggro -= aggro_cost_chase;
         
         if (ai_state == "PATROL" && distance_to_target > ai_patrol_max) aggro += aggro_add_close;
         
         
         if (aggro < 0) aggro = 0;
-        if (aggro > aggro_max) aggro = aggro_max;
+        else if (aggro > aggro_max) aggro = aggro_max;
         
         if (energy <= ai_cover_shield_threshold) && (hp > ai_cover_hp_threshold) && (elite)
         {
@@ -416,7 +416,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "COVER"
+        else if ai_state == "COVER"
         {
             if (energy >= energy_max) 
             { 
@@ -430,7 +430,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             }
         }
         
-        if ai_state == "PATROL"
+        else if ai_state == "PATROL"
         {
             if aggro >= aggro_min_chase
             {
@@ -475,7 +475,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             if (sight_forbidden) && (ai_supression) aggro -= aggro_cost_sight_forbidden;
         }
         
-        if ai_state == "COVER"
+        else if ai_state == "COVER"
         {
             move_speed = speed_sprint;
             sight_blocked = (collision_line(x,y,ai_target.x,ai_target.y,class_solid,false,true));

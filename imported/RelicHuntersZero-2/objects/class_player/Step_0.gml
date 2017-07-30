@@ -84,7 +84,7 @@ if (global.challengeHeavyBurden) && (!staminaChallengeUpdated) {
 
 //Achievements
 if (global.gameMode == gamemode_endless) {
-    if (instance_exists(weapon1)) && (instance_exists(weapon2)){
+    if (instance_exists_fast(weapon1)) && (instance_exists_fast(weapon2)){
         if (weapon1.isRelicWeapon) && (weapon2.isRelicWeapon) achievement_give("ACHIEVEMENT_RELICWEAPONS");    
     }
 }
@@ -300,7 +300,7 @@ if (allowMovement)
     if (melee) && (animation_current = "melee") &&(animation_index = melee_hit_frame)
     {
         speed = melee_step_speed;
-        if (instance_exists(myGun)) if (myGun.isMeleeWeapon) speed = myGun.meleeStepSpeed;
+        if (instance_exists_fast(myGun)) if (myGun.isMeleeWeapon) speed = myGun.meleeStepSpeed;
         direction = point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
         melee_dash = true;
         
@@ -370,7 +370,7 @@ if stamina > stamina_max stamina = stamina_max;
 // Stop Aiming When Reloading
 global.check_weapon_reloading = false;
 
-if (myGun) && (instance_exists(myGun)) with(myGun)
+if (myGun) && (instance_exists_fast(myGun)) with(myGun)
 {
     if (reloading) global.check_weapon_reloading = true;
 }
@@ -500,7 +500,7 @@ else
     else inputShield = false;
 }
 
-if (instance_exists(myGun)){
+if (instance_exists_fast(myGun)){
     if (!melee) && (!throw)
     {
         if (input_melee) || ( myGun.isMeleeWeapon && input_meleeWeapon )
@@ -519,7 +519,7 @@ if (instance_exists(myGun)){
         if (animation_index = melee_hit_frame)
         {
             meleeArc = instance_create_layer(x,y,"Interactive",fx_melee_arc);
-            meleeArc.owner = id;
+            owner_add_owned_instance(meleeArc);
             meleeArc.damage = melee_damage;
             
             meleeArc.push_power = melee_push_power;
@@ -545,11 +545,11 @@ if (instance_exists(myGun)){
 
 //Rider's Dash attack
     
-if (myChar == char_rider) && (!instance_exists(riderDodgeAttack)) {
+if (myChar == char_rider) && (!instance_exists_fast(riderDodgeAttack)) {
     if (dodging) {
         if (!riderDodgeAttack){
             riderDodgeAttack = instance_create_layer(x,y,"Interactive",fx_melee_arc);
-            riderDodgeAttack.owner = id;
+            owner_add_owned_instance(riderDodgeAttack);
             riderDodgeAttack.damage = melee_damage;  
             riderDodgeAttack.push_power = melee_push_power;
             riderDodgeAttack.max_hits = 1;
@@ -594,7 +594,7 @@ if ( (grenade_input) && (!melee) && (!throw) )
             guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
             guiInfo.colorMain = K_BETU_RED;
             guiInfo.myString = loc_key("INFO_OUTOFGRENADES");
-            guiInfo.owner = id;
+            owner_add_owned_instance(guiInfo);
             audio_play(audio_emitter, false, 1, sfx_pickup_full);
         }
         else{
@@ -631,7 +631,7 @@ if (throw) && (animation_current == "melee")
 
         if (global.relic_midnight_beer == 2) myGrenade.damage += round(myGrenade.damage*global.midnightDamageMultiplier ); //Midnight Beer
         if (global.relic_midnight_meal == 2) myGrenade.damage += round(myGrenade.damage*global.midnightDamageMultiplier ); //Midnight Meal
-        if (instance_exists(myGun)) myGrenade.damage += round((myGrenade.damage * myGun.weaponLevel)/3); //Weapon Level
+        if (instance_exists_fast(myGun)) myGrenade.damage += round((myGrenade.damage * myGun.weaponLevel)/3); //Weapon Level
     }
 
     if (animation_index >= (animation_frames-1))
@@ -688,7 +688,7 @@ if (switch_input)
     }
 }
 
-if (instance_exists(weapon2)) && (!instance_exists(weapon1))
+if (instance_exists_fast(weapon2)) && (!instance_exists_fast(weapon1))
 {
     weapon1 = weapon2;
     weapon2 = noone;
@@ -715,7 +715,7 @@ if energy < (energy_max+overshield)
     {
         myRecharge = instance_create_layer(x,y,"Interactive",fx_shield_up);  
         audio_play(audio_emitter,false,1,sfx_shield_regen_start);
-        myRecharge.owner = id;
+        owner_add_owned_instance(myRecharge);
     }
     
     if (energy < 0) energy = 0;
@@ -729,13 +729,13 @@ if (!energy) && (shield == true) && (energy_max)
         guiInfo = instance_create_layer(x,y,"Interactive",gui_info);
         guiInfo.colorMain = K_BETU_RED;
         guiInfo.myString = loc_key("INFO_SHIELDLOST");
-        guiInfo.owner = id;
+        owner_add_owned_instance(guiInfo);
     }
     
     myShieldEffect = instance_create_layer(x,y,"Interactive",fx_shield_explosion);
-    myShieldEffect.owner = id;
+    owner_add_owned_instance(myShieldEffect);
     mySparks = instance_create_layer(x,y,"Interactive",fx_shield_down);
-    mySparks.owner = id;
+    owner_add_owned_instance(mySparks);
     shield = false;
     
     if (global.challengeOvercharge) hp -= global.challengeOverchargeDamage;
@@ -747,9 +747,9 @@ if (superShield){
     energy = energy_max+overshield;
     shield = true;
 
-    if (!instance_exists(mySuperShieldFx)) {
+    if (!instance_exists_fast(mySuperShieldFx)) {
         mySuperShieldFx = instance_create_layer(x,y,"Interactive",fx_superShield);
-        mySuperShieldFx.owner = id;
+        owner_add_owned_instance(mySuperShieldFx);
         audio_play(audio_emitter,false,9,sfx_shield_regen_start);
     }
     
@@ -758,7 +758,7 @@ if (superShield){
         superShieldTimeCurrent = 0;
         superShieldTime = 0;
         superShield = false;
-        if (instance_exists(mySuperShieldFx)) with (mySuperShieldFx){instance_destroy();}
+        if (instance_exists_fast(mySuperShieldFx)) with (mySuperShieldFx){instance_destroy();}
         instance_create_layer(x,y,"Interactive",fx_explosion_shield);
     }   
 }
@@ -815,7 +815,7 @@ if (reloadKey)
     if (instance_exists(global.dynamicAmmo1))
     {
         if (myPlayerId == 1) { global.dynamicAmmo1.timedActive = true; global.dynamicAmmo1.activeTimeCurrent = 0; }
-        if (myPlayerId == 2) { global.dynamicAmmo2.timedActive = true; global.dynamicAmmo2.activeTimeCurrent = 0; }
+        else if (myPlayerId == 2) { global.dynamicAmmo2.timedActive = true; global.dynamicAmmo2.activeTimeCurrent = 0; }
     }
 }
 
@@ -844,7 +844,7 @@ if (instance_exists(class_interactive_master))
     if (instance_exists(myPickupInRange))
     {
         if (myPickupInRange.isClientLocked == false) {
-			myPickupInRange.activationClient = id;
+			owner_add_activated_instance(myPickupInRange);
 		}
         
         if (interactionKey) 

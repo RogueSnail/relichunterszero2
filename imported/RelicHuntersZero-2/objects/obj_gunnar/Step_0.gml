@@ -1,7 +1,7 @@
 ///Price + Buy
 event_inherited();
 
-if (activationClient != noone)
+if (instance_exists_fast(activationClient))
 {
     price = 0;
     
@@ -24,7 +24,7 @@ if (activationClient != noone)
                 global.statTotalWeaponUpgrades++;
                 global.hasPurchasedAnything = true;
                 if (gun.weaponLevel == 3) achievement_give("ACHIEVEMENT_GUNNAR_3");
-                if (gun.weaponLevel == 9) achievement_give("ACHIEVEMENT_GUNNAR_9");
+                else if (gun.weaponLevel == 9) achievement_give("ACHIEVEMENT_GUNNAR_9");
                 steam_set_stat_int("STAT_TOTAL_UPGRADES", steam_get_stat_int("STAT_TOTAL_UPGRADES") + 1  ); 
                 if (steam_get_stat_int("STAT_TOTAL_UPGRADES") >= 360) achievement_give("ACHIEVEMENT_GUNNAR_360");
 

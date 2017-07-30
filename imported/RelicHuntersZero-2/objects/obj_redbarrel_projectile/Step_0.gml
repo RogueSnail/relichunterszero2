@@ -37,7 +37,7 @@ if (!global.pause)
     }
     
     //Target Adjustment
-    if (instance_exists(curveTarget))
+    if (instance_exists_fast(curveTarget))
     {
         var targetDir = point_direction(x,y,curveTarget.x,curveTarget.y);
         var angleDiff = angle_difference(direction,targetDir);

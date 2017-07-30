@@ -29,7 +29,7 @@ if (global.shadows)
                 if (x-global.offset_viewX > 0) && (y-global.offset_viewY > 0)
                 {
                     lightsource = instance_nearest(x,y,class_lightsource);
-                    if instance_exists(lightsource)
+                    if (lightsource != noone)
                     {
                         //
                         my_shadow_sprite = sprite_index;
@@ -77,7 +77,7 @@ if (global.shadows)
                 if (x-global.offset_viewX > 0) && (y-global.offset_viewY > 0)
                 {
                     lightsource = instance_nearest(x,y,class_lightsource);
-                    if instance_exists(lightsource)
+                    if (lightsource != noone)
                     {
                         my_shadow_sprite = sprite_index;
                         my_shadow_subimage = image_index;

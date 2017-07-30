@@ -2,9 +2,9 @@
 
 isActive = false;
 
-if (instance_exists(owner))
+if (instance_exists_fast(owner))
 {
-    if (owner.isActive) && (instance_exists(owner.owner))
+    if (owner.isActive) && (instance_exists_fast(owner.owner))
     {        
         if (owner.owner.inputShield)
         {

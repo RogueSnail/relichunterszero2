@@ -13,11 +13,11 @@ range = 120;
 in_range = false;
 
 myPrompt = instance_create_layer(x-42,y+30,"GUI",fx_prompt_e);
-myPrompt.owner = id;
+owner_add_owned_instance(myPrompt);
 
 name = loc_key("GUNNAR_INFO_ENDLESS_UNLOCK");
 myInfo = instance_create_layer(x,y,"GUI",fx_info_pickup);
-myInfo.owner = id;
+owner_add_owned_instance(myInfo);
 
 myBalloon = noone;
 

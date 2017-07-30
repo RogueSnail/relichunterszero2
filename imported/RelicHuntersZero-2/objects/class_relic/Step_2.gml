@@ -12,9 +12,10 @@ if (activationClient != noone) && (full_relic) && (active)
 
 ///myTable
 
-if (myTable = noone) myTable = instance_nearest(x,y,obj_altar_relic);
-
-if instance_exists(myTable)
+if (myTable == noone) {
+	myTable = instance_nearest(x,y,obj_altar_relic);
+}
+else 
 {
     if (full_relic) && (active) && (equipped) myTable.active = true;
     else myTable.active = false;

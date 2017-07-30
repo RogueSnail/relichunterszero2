@@ -24,15 +24,14 @@ if (instance_exists_fast(activationClient))
     
         if (activationClient.weapon2 == noone)
         {
-            activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-            activationClient.weapon2.owner = activationClient.id;
+            activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);	
             activationClient.weapon2.weaponLevel = weaponLevel;
             with (activationClient)
             {
+				owner_add_owned_instance(weapon2);
                 draw_gun(weapon2);
             }
     
-			dispatch_event(EVENT_INSTANCE_REMOVED, id);
             instance_destroy();
             exit;
         }
@@ -50,13 +49,13 @@ if (instance_exists_fast(activationClient))
                 }
                 
                 activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon1.owner = activationClient.id;
                 activationClient.weapon1.weaponLevel = weaponLevel;
+                activationClient.weapon1.ammo_current = gun_ammo_current;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
-                activationClient.weapon1.ammo_current = gun_ammo_current;
                 
                 instance_destroy();
                 exit;
@@ -71,10 +70,10 @@ if (instance_exists_fast(activationClient))
                 }
                 
                 activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon2.owner = activationClient.id;
                 activationClient.weapon2.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
                 activationClient.weapon2.ammo_current = gun_ammo_current;
@@ -97,10 +96,10 @@ if (instance_exists_fast(activationClient))
                 }
                 
                 activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon1.owner = activationClient.id;
                 activationClient.weapon1.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
                 activationClient.weapon1.ammo_current = gun_ammo_current;
@@ -118,10 +117,10 @@ if (instance_exists_fast(activationClient))
                 }
                 
                 activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon2.owner = activationClient.id;
                 activationClient.weapon2.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
                 activationClient.weapon2.ammo_current = gun_ammo_current;
@@ -148,10 +147,10 @@ if (instance_exists_fast(activationClient))
             if (gun != obj_gloves) && (gun != obj_buckler) 
             {
                 activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon1.owner = activationClient.id;
                 activationClient.weapon1.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
                 activationClient.weapon1.ammo_current = gun_ammo_current;
@@ -160,10 +159,10 @@ if (instance_exists_fast(activationClient))
             {
                 instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_gloves);
                 activationClient.weapon1 = obj_gloves;
-                activationClient.weapon1.owner = activationClient.id;
                 activationClient.weapon1.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
             }
@@ -171,10 +170,10 @@ if (instance_exists_fast(activationClient))
             {
                 instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_buckler);
                 activationClient.weapon1 = obj_buckler;
-                activationClient.weapon1.owner = activationClient.id;
                 activationClient.weapon1.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon1);
                     draw_gun(weapon1);
                 }
             }
@@ -200,10 +199,10 @@ if (instance_exists_fast(activationClient))
             if (gun != obj_gloves) && (gun != obj_buckler) 
             {
                 activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
-                activationClient.weapon2.owner = activationClient.id;
                 activationClient.weapon2.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
                 activationClient.weapon2.ammo_current = gun_ammo_current;
@@ -212,10 +211,10 @@ if (instance_exists_fast(activationClient))
             {
                 instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_gloves);
                 activationClient.weapon2 = obj_gloves;
-                activationClient.weapon2.owner = activationClient.id;
                 activationClient.weapon2.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
             }
@@ -223,10 +222,10 @@ if (instance_exists_fast(activationClient))
             {
                 instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,obj_buckler);
                 activationClient.weapon2 = obj_buckler;
-                activationClient.weapon2.owner = activationClient.id;
                 activationClient.weapon2.weaponLevel = weaponLevel;
                 with (activationClient)
                 {
+					owner_add_owned_instance(weapon2);
                     draw_gun(weapon2);
                 }
             }
@@ -247,7 +246,7 @@ else{
 if (!on_top_of_object)
 {
     myObject = collision_point(x,y,obj_wall,false,true);
-    if (myObject) on_top_of_object = true;
+    if (myObject != noone) on_top_of_object = true; 
 }
 
 if (on_top_of_object)
