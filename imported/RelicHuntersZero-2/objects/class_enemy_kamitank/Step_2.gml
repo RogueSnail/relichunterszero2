@@ -36,7 +36,7 @@ if (hp <= 0)
     
     if (pushed)
     {
-        myCorpse.speed = push_speed*2;
+        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
         myCorpse.direction = push_direction;
     }
     
@@ -55,7 +55,7 @@ else {
 	    myCorpse.image_xscale = image_xscale;
 	    if (pushed)
 	    {
-	        myCorpse.speed = push_speed*2;
+	        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
 	        myCorpse.direction = push_direction;
 	        myCorpse.sprite_index = sprite_death;
 	    }

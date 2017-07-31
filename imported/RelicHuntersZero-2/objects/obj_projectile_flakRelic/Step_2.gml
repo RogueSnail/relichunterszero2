@@ -10,7 +10,7 @@ if (!hasSpawnedBrothers)
         brother.hasSpawnedBrothers = true;
         
         brother.damage = damage;
-        brother.speed = speed;
+        brother.speed_per_second = speed_per_second;
         brother.decay = decay;
         brother.range = range/2;
         brother.push_power = push_power;

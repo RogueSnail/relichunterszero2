@@ -10,8 +10,10 @@ if (!global.pause)
     }
     
     image_angle = direction;
-    speed_per_second -= decay * delta_time * ms_to_s_60;
+    speed_per_second -= decay;
     if speed_per_second < 5 speed_per_second = 5;
+	if (maxSpeed > 0 && speed_per_second > maxSpeed) speed_per_second = maxSpeed;
+	
 	
 	speed = speed_per_second * delta_time * ms_to_s_60;
     distance_travelled += speed;

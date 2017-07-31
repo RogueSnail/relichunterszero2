@@ -1,7 +1,7 @@
 ///Homing Setup + myHomingTargetClass
 event_inherited();
 
-speed = 4;
+speed_per_second = 4;
 maxSpeed = 12;
 decay = -0.02;
 

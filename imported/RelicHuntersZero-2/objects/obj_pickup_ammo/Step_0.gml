@@ -3,17 +3,17 @@
 depth= -y;
 
 if (vertical_speed_start) 
-	vertical_speed += fake_gravity * delta_time * ms_to_s;
+	vertical_speed += fake_gravity;
 else 
 	depth = layer_get_depth("Interactive_Under");
 
-draw_height += vertical_speed * delta_time * ms_to_s;
+draw_height += vertical_speed * delta_time * ms_to_s_60;
 
 if draw_height >= 0 && (vertical_speed_start)
 {
     draw_height = 0;
     vertical_speed = 0;
-    vertical_speed_start -= irandom_range(bounce_min,bounce_max);
+    vertical_speed_start -= random_range(bounce_min,bounce_max);
         
     if (vertical_speed_start <= vertical_speed_start_min) 
 	{

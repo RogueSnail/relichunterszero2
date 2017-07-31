@@ -17,7 +17,7 @@ if (!targetSetup)
         virtualHeight += virtualVerticalSpeed;
         virtualVerticalSpeed += virtualGravity;
         
-        //if (virtualHorizontalSpeed) virtualHorizontalSpeed -= min(virtualFriction, virtualHorizontalSpeed);
+        if (virtualHorizontalSpeed) virtualHorizontalSpeed -= min(virtualFriction, virtualHorizontalSpeed);
         totalDistance += virtualHorizontalSpeed;
     }
     

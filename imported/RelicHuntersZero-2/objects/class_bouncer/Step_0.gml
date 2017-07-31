@@ -3,10 +3,11 @@
 if (vertical_speed_start)
 {
     depth = -y;
-    
+	
+	vertical_speed += fake_gravity;
+	    
     draw_height += vertical_speed * delta_time * ms_to_s_60;
-    sprite_angle += angular_speed * delta_time * ms_to_s_60;
-    vertical_speed += fake_gravity * delta_time * ms_to_s_60;
+    sprite_angle += angular_speed * delta_time * ms_to_s_60;    
 }
 
 if ( (draw_height >= 0) && (vertical_speed_start) ) {

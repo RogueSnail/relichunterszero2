@@ -9,20 +9,19 @@ ammo_type = argument5;
 //Casing shit
 instance.casing_height = -40;
 instance.casing_angle = 0;
-instance.angular_speed = irandom_range(instance.angular_min,instance.angular_max);
+instance.angular_speed = random_range(instance.angular_min,instance.angular_max);
 
-instance.vertical_speed_start = irandom_range(3,6) * global.target_fps;
+instance.vertical_speed_start = random_range(3,6);
 instance.vertical_speed = -instance.vertical_speed_start;
 
-instance.speed_per_second = irandom_range(1, 2) * global.target_fps;
-instance.direction = 180 + random_range(instance.dirMin,instance.dirMax);
+instance.speed_per_second = random_range(2,4);
 
 //shot properties
-casing.direction = shoot_direction+180+random_range(casing.dirMin,casing.dirMax);
-casing.ammo_type = ammo_type;
-if (ammo_type == type_light) casing.casing_subimage = 0;
-else if (ammo_type == type_medium) casing.casing_subimage = 1;
-else if (ammo_type == type_heavy) casing.casing_subimage = 2;
+instance.direction = shoot_direction+180+random_range(instance.dirMin,instance.dirMax);
+instance.ammo_type = ammo_type;
+if (ammo_type == type_light) instance.casing_subimage = 0;
+else if (ammo_type == type_medium) instance.casing_subimage = 1;
+else if (ammo_type == type_heavy) instance.casing_subimage = 2;
 
 //activate
 instance.active = true;

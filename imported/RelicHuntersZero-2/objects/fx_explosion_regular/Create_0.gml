@@ -5,14 +5,14 @@ currentTargets = 0;
 radiusStart = 12;
 radiusFinal = 122;
 
-radiusAccel = 10;//0.3;
-radiusSpeedMax = 8 * global.target_fps;
+radiusAccel = 0.3;
+radiusSpeedMax = 8;
 radiusSpeed = 0;
 
 radius = radiusStart;
 
 radiusAlpha = 1;
-radiusAlphaSpeed = 0.025 * global.target_fps;
+radiusAlphaSpeed = 0.025;
 
 damage = 200;
 push_power = 20;

@@ -116,7 +116,7 @@ if (!global.pause) && (isExploding)
 {
     emissionRate += emissionRateGrowth;
     
-    emissionRateCurrent += emissionRate * delta_time * ms_to_s;
+    emissionRateCurrent += emissionRate * delta_time * ms_to_s_60;
     if (emissionRateCurrent >= 1)
     {
         emissionRateCurrent = 0;

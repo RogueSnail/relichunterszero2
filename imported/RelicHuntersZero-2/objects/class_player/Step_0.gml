@@ -626,7 +626,7 @@ if (throw) && (animation_current == "melee")
         global.grenades[myPlayerId]--;
     
         myGrenade = instance_create_layer(x,y,"Interactive",myGrenadeObject);
-        myGrenade.speed = grenade_speed;
+        myGrenade.speed_per_second = grenade_speed;
         myGrenade.direction = point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
 
         if (global.relic_midnight_beer == 2) myGrenade.damage += round(myGrenade.damage*global.midnightDamageMultiplier ); //Midnight Beer

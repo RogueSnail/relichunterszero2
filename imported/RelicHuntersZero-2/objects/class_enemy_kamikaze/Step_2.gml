@@ -40,7 +40,7 @@ if hp <= 0
     
     if (pushed)
     {
-        myCorpse.speed = push_speed*2;
+        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
         myCorpse.direction = push_direction;
     }
     
@@ -48,7 +48,6 @@ if hp <= 0
     
     if (critical_death) audio_play_exclusive(audio_emitter,false,1,sfx_precision_kill1,sfx_precision_kill2,sfx_precision_kill3,sfx_precision_kill4,sfx_precision_kill5);
     
-	show_debug_message("k instance destroy " + string(id));
     instance_destroy();
 }
 
@@ -60,11 +59,10 @@ if collision_point(x,y,obj_limit,false,true)
     myCorpse.image_xscale = image_xscale;
     if (pushed)
     {
-        myCorpse.speed = push_speed*2;
+        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
         myCorpse.direction = push_direction;
         myCorpse.sprite_index = sprite_death;
     }
     
-	show_debug_message("k instance destroy " + string(id));
     instance_destroy();
 }

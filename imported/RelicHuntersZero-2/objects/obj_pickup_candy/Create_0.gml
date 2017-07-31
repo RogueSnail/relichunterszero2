@@ -12,6 +12,3 @@ sprite1 = spr_candySmall_drop;
 sprite2 = spr_candySmall_ground;
 sprite = sprite1;
 sprite_subimage = 0;
-
-
-
