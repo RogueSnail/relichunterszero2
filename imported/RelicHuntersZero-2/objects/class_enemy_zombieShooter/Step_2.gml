@@ -49,8 +49,8 @@ if hp <= 0
      
     if (pushed)
     {
-        if (!critical_death) myCorpse.speed = push_speed*2;
-        else myCorpse.speed = push_speed*4;
+        if (!critical_death) myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
+        else myCorpse.speed = push_speed*4 * delta_time * ms_to_s_60;
             
         myCorpse.direction = push_direction;
         random_death = irandom_range(1,3);
@@ -83,7 +83,7 @@ else {
 	    myCorpse.image_xscale = image_xscale;
 	    if (pushed)
 	    {
-	        myCorpse.speed = push_speed*2;
+	        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
 	        myCorpse.direction = push_direction;
 	        myCorpse.sprite_index = sprite_death;
 	    }

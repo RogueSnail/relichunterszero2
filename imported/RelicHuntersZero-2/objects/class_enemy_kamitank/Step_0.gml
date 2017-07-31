@@ -24,7 +24,7 @@ if (transforming) || (defenseMode)
         sprite_index = sprite_defense;
         if (hit_taken)
         {   
-            hit_taken_count++;
+            hit_taken_count += delta_time;
                 
             if (hit_taken_count >= hit_taken_max) hit_taken = false;
             if (image_index == image_number-1) image_speed = 0;
@@ -36,14 +36,18 @@ if (transforming) || (defenseMode)
                 image_index = 0;
             }
         }
-        else { hit_taken_count = 0; image_speed = 0.2; }
+        else 
+		{ 
+			hit_taken_count = 0; 
+			image_speed = 0.2; 
+		}
     }
 }
 else
 {
     if (hit_taken)
     {   
-        hit_taken_count += delta_time;
+        hit_taken_count ++	;
         
         if (hit_taken_count >= hit_taken_max) hit_taken = false;
         if (image_index == image_number-1) image_speed = 0;
@@ -90,7 +94,9 @@ if (hp > hp_max) hp = hp_max;
 
 ///Defense Mode
 
-if (defenseCooldownCurrent < defenseCooldown) defenseCooldownCurrent += delta_time;
+if (defenseCooldownCurrent < defenseCooldown) {
+	defenseCooldownCurrent += delta_time;
+}
 else if (!transforming) && (!defenseMode) {
     transforming = true;
 }
@@ -110,7 +116,7 @@ if (defenseMode)
     else
     {
         ///Expand Radius
-        if (defenseModeDurationCurrent >= 1)
+        if (defenseModeDurationCurrent >= 1000000)
         {
             if (radiusSpeed < radiusSpeedMax) radiusSpeed += min ( radiusAccel, (radiusSpeedMax-radiusSpeed));
         
@@ -311,7 +317,10 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             push_direction = dash_direction;
             exit;
         }
-        else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
+        else if (ai_dash_cooldown_current < ai_dash_cooldown) 
+		{
+			ai_dash_cooldown_current += delta_time;
+		}
     }
     
     

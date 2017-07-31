@@ -15,15 +15,25 @@ if (!active)
 else{
     if (!timeToDie)
     {
-        if (myAlpha < 1) myAlpha += myAlphaSpeed * delta_time * ms_to_s;
-        
+        if (myAlpha < 1) {
+			//myAlpha += myAlphaSpeed * delta_time * ms_to_s;
+			myAlphaCurrentTime += delta_time;
+			myAlpha = min(1, lerp(0, 1, myAlphaCurrentTime/myAlphaTime));
+        }
+		
         if (lifeTimeCurrent < lifeTime) lifeTimeCurrent += delta_time;
         else timeToDie = true;
     }
     else
     {
-        if (myAlpha > 0) myAlpha -= myAlphaDieSpeed * delta_time * ms_to_s;
-        else instance_destroy();
+        if (myAlpha > 0) {
+			//myAlpha -= myAlphaDieSpeed * delta_time * ms_to_s;
+			myAlphaCurrentDieTime += delta_time;
+			myAlpha = max(0, lerp(1, 0, myAlphaCurrentDieTime/myAlphaDieTime));		
+		}
+        else {
+			instance_destroy();
+		}
     }
 }
 

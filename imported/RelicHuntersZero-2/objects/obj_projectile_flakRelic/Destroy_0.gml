@@ -6,7 +6,7 @@ repeat(10)
     else projectile = instance_create_layer(x,y,"Interactive",obj_projectile_enemy); 
     
     projectile.damage = damage;
-    projectile.speed = speed;
+    projectile.speed_per_second = speed_per_second;
     projectile.decay = decay;
     projectile.range = range/2;
     projectile.push_power = push_power;

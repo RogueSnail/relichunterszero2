@@ -29,6 +29,8 @@ fade = 0.2;
 
 speed_reset = false;
 old_speed = 0;
+speed_per_second = 0;
+maxSpeed = 0;
 
 image_speed = 1;
 

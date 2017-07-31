@@ -413,7 +413,7 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                 audio_play_sound(sfx_relic_on,00,false);
                 
                 global.relicDetected = true;
-                var announceRelic = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+                var announceRelic = instance_create_layer(x,y,"GUI",fx_bigMessage);
                 announceRelic.textBig = loc_key("HUD_TREASURE_DETECT");
                 announceRelic.textBigColor = K_BETU_RED;
                 if (global.input[1] == K_INPUT_KEYBOARD) announceRelic.textSmall = loc_key("HUD_RELIC_DETECT_KEY");
@@ -856,7 +856,7 @@ if (global.statTotalBounty >= 80000) && (!global.unlockPunny)
 {
     global.unlockPunny = true;
     achievement_give("ACHIEVEMENT_UNLOCKPUNNY");
-    announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+    announce = instance_create_layer(x,y,"GUI",fx_bigMessage);
     announce.textBig = loc_key("HUD_UNLOCK_HUNTER");
     announce.textSmall = loc_key("HUD_UNLOCK_PUNNY");
     announce.hunterUnlockSprite = spr_hud_face_punny;
@@ -866,7 +866,7 @@ if (global.statKilledByBoss >= 5) && (!global.unlockAss)
 {
     global.unlockAss = true;
     achievement_give("ACHIEVEMENT_UNLOCKASS");
-    announce = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+    announce = instance_create_layer(x,y,"GUI",fx_bigMessage);
     announce.textBig = loc_key("HUD_UNLOCK_HUNTER");
     announce.textSmall = loc_key("HUD_UNLOCK_ASS");
     announce.hunterUnlockSprite = spr_hud_face_ass;

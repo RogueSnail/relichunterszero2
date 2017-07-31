@@ -11,7 +11,7 @@ if (owner != noone)
             
         projectile = instance_create_layer(projectileX,projectileY,"Interactive",projectile_obj);
         projectile.myGun = id;
-        projectile.speed = projectile_speed * global.enemyProjectileSpeed;
+        projectile.speed_per_second = projectile_speed * global.enemyProjectileSpeed;
         projectile.decay = projectile_speed_decay * global.enemyProjectileSpeed;
         projectile.range = projectile_range;
         projectile.push_power = projectile_power;

@@ -19,17 +19,26 @@ if (myTime >= life_time)
 	instance_destroy();
 }
 
-if (!instance_exists_fast(magnet_player)) {
-	speed_per_second = max(0, speed_per_second - (magnet_friction * delta_time * ms_to_s));
+if (!instance_exists_fast(magnet_player)) 
+{
+	if (vertical_speed_start < interactive_speed) 
+	{
+		speed_per_second = max(0, speed_per_second - (magnet_friction));
+	}		
 }
-else {
-	if (point_distance(x,y,magnet_player.x,magnet_player.y) > magnet_range) magnet_player = noone;
-	else{
-		speed_per_second = min(magnet_speed_max, speed_per_second + (magnet_accel * delta_time * ms_to_s));
+else 
+{
+	if (point_distance(x,y,magnet_player.x,magnet_player.y) > magnet_range) 
+	{
+		magnet_player = noone;
+	}
+	else
+	{
+		speed_per_second = min(magnet_speed_max, speed_per_second + (magnet_accel));
 		direction = point_direction(x,y,magnet_player.x,magnet_player.y);
 	}
 }
-speed = speed_per_second * delta_time * ms_to_s;
-//friction = friction_per_second * delta_time * ms_to_s;
 
+speed_per_second = max(0, speed_per_second - (friction_per_second * delta_time * ms_to_s_60));
+speed = speed_per_second * delta_time * ms_to_s_60;
 

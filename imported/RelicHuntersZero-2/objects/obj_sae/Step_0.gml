@@ -6,7 +6,7 @@ if instance_exists(class_player)
     
     if (distToPlayer <= 300) && (!instance_exists(obj_sae_balloon))
     {
-            myBalloon = instance_create_layer(x-22,y,"Interactive",obj_sae_balloon);
+            myBalloon = instance_create_layer(x-22,y,"Interactive_Over",obj_sae_balloon);
             if (!image_xscale) myBalloon.x -= 50;
     }
 }

@@ -5,14 +5,14 @@ if (!global.pause)
     //Speed Reset After Pause
     if (speed_reset)
     {
-        speed = old_speed;
+        speed_per_second = old_speed;
         speed_reset = false;
     }
     
     immortalTimer -= delta_time;
     image_angle = direction;
-    speed -= decay;
-    if (speed > maxSpeed) speed = maxSpeed;
+    speed_per_second -= decay;
+    if (speed_per_second > maxSpeed) speed_per_second = maxSpeed;
     
     //part_system_depth(global.smoke_system,depth+1);
     part_emitter_region(smoke_system, smoke_emitter, x-5, x+5, y-5, y+5, ps_shape_ellipse, ps_distr_linear);
@@ -30,8 +30,8 @@ if (!global.pause)
 }
 else if (speed_reset == false)
 {
-    old_speed = speed;
-    speed = 0;
+    old_speed = speed_per_second;
+    speed_per_second = 0;
     speed_reset = true;
 }
 

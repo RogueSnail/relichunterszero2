@@ -1,4 +1,5 @@
 #macro ms_to_s 0.000001
+#macro ms_to_s_60 0.00006
 #macro fade_depth -16000
 #macro bottom_depth -16000
 //game modes

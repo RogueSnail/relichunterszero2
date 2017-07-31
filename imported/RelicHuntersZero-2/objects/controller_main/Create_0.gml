@@ -984,7 +984,7 @@ if (global.gameMode == gamemode_endless) && (ds_exists(global.challengeList,ds_t
             ds_list_add(global.challengeForbiddenList, listName);
         }
         
-        var announceChallenge = instance_create_layer(x,y,"Interactive",fx_bigMessage);
+        var announceChallenge = instance_create_layer(x,y,"GUI",fx_bigMessage);
         announceChallenge.textBigColor = K_BETU_RED;
         if (chUnique) announceChallenge.hunterUnlockSprite = spr_challengeUnique;
         else announceChallenge.hunterUnlockSprite = spr_challengeCommon;

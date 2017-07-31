@@ -12,8 +12,8 @@ if (hp <= 0)
     {
         var randomDeath = irandom_range(1,3)
         if (randomDeath == 1) corpseSprite = sprite_death;
-        if (randomDeath == 2) corpseSprite = sprite_death2;
-        if (randomDeath == 3) corpseSprite = sprite_death3;
+        else if (randomDeath == 2) corpseSprite = sprite_death2;
+        else if (randomDeath == 3) corpseSprite = sprite_death3;
         
         if (!critical_death)
         {
@@ -36,7 +36,7 @@ if (hp <= 0)
     
     if (pushed)
     {
-        myCorpse.speed = push_speed*2;
+        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
         myCorpse.direction = push_direction;
     }
     
@@ -55,7 +55,7 @@ else {
 	    myCorpse.image_xscale = image_xscale;
 	    if (pushed)
 	    {
-	        myCorpse.speed = push_speed*2;
+	        myCorpse.speed = push_speed*2 * delta_time * ms_to_s_60;
 	        myCorpse.direction = push_direction;
 	        myCorpse.sprite_index = sprite_death;
 	    }

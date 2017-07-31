@@ -38,7 +38,7 @@ if (activated) {
 						blood = get_object_from_pool(blood_pool);
 						reset_blood_instance(blood, poor_guy.x, poor_guy.y, "Interactive");
                         blood.vertical_speed_start = random_range(5,10);
-                        blood.speed = random_range(5,9);
+                        blood.speed_per_second = random_range(5,9);
                     }
                 }
                 else poor_guy.energy -= damage;
@@ -52,7 +52,7 @@ if (activated) {
 					blood = get_object_from_pool(blood_pool);
 					reset_blood_instance(blood, poor_guy.x, poor_guy.y, "Interactive");
                     blood.vertical_speed_start = random_range(5,10);
-                    blood.speed = random_range(5,9);
+                    blood.speed_per_second = random_range(5,9);
                 }
             }
             

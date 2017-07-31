@@ -4,12 +4,12 @@ if (hp <= 0)
     global.playerAlive[myPlayerId] = false;
     corpse = instance_create_layer(x,y,"Interactive",fx_corpse_player);
     if (global.character[myPlayerId] == char_jimmy) corpse.sprite_index = spr_jimmy_death;
-    if (global.character[myPlayerId] == char_pinky) corpse.sprite_index = spr_pinky_death;
-    if (global.character[myPlayerId] == char_raff) corpse.sprite_index = spr_raff_death;
-    if (global.character[myPlayerId] == char_biu) corpse.sprite_index = spr_biu_death;
-    if (global.character[myPlayerId] == char_punny) corpse.sprite_index = spr_punny_death;
-    if (global.character[myPlayerId] == char_ass) corpse.sprite_index = spr_ass_death;
-    if (global.character[myPlayerId] == char_rider) corpse.sprite_index = spr_rider_death;
+    else if (global.character[myPlayerId] == char_pinky) corpse.sprite_index = spr_pinky_death;
+    else if (global.character[myPlayerId] == char_raff) corpse.sprite_index = spr_raff_death;
+    else if (global.character[myPlayerId] == char_biu) corpse.sprite_index = spr_biu_death;
+    else if (global.character[myPlayerId] == char_punny) corpse.sprite_index = spr_punny_death;
+    else if (global.character[myPlayerId] == char_ass) corpse.sprite_index = spr_ass_death;
+    else if (global.character[myPlayerId] == char_rider) corpse.sprite_index = spr_rider_death;
 	
     instance_destroy();
 }

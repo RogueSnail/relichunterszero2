@@ -90,7 +90,7 @@ if energy < energy_max
     {
         if (!energy) energy = 1;
         shield = true;
-        energy += energy_regen_speed;
+        energy += energy_regen_speed * delta_time * ms_to_s_60;;
         if (energy > energy_max) energy = energy_max;
     }
     
@@ -127,7 +127,7 @@ ai_movetarget_x = -1;
 ai_movetarget_y = -1;
 distance_to_target = 99999;
 current_distance = 0;
-move_speed = speed_walk;
+move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
 
 var myClosestPlayer = instance_nearest(x,y,faction_player);
@@ -288,7 +288,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             if (throwGrenade)
             {
                 ai_myGrenade = instance_create_layer(x,y,"Interactive",obj_grenade_enemyNew);
-                ai_myGrenade.speed = 8;
+                ai_myGrenade.speed_per_second = 8;
                 ai_myGrenade.direction = point_direction(x,y,ai_target.x,ai_target.y);
                 grenade_count--;
             }
@@ -311,7 +311,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 		
         else if ai_state == "COVER"
         {
-            move_speed = speed_sprint;
+            move_speed = speed_sprint * delta_time * ms_to_s_60;
             sight_blocked = (collision_line(x,y,ai_target.x,ai_target.y,class_solid,false,true));
             if (distance_to_target <= fire_range) && (!sight_blocked) firing = true;
             
@@ -427,7 +427,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             dodging = true;
             pushed = true;
             push_direction = dash_direction;
-            push_speed = dash_speed;
+            push_speed = dash_speed * delta_time * ms_to_s_60;;
             exit;
         }
         else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
@@ -472,7 +472,7 @@ if (pushed)
     path_end();
     move_step_ext(x + lengthdir_x(push_speed, push_direction),y + lengthdir_y(push_speed, push_direction),0,class_solid,0,0,0,0,0,0);
 
-    push_speed -= push_friction;
+    push_speed -= push_friction * delta_time * ms_to_s_60;;
     if push_speed < 0 
     {
         push_speed = 0;

@@ -111,9 +111,9 @@ if (isActive)
         if (ammo_cost > 0)
         {
             if (ammo_type == type_light) ammoTotal = floor(global.ammo_light[p]/ammo_cost);
-            if (ammo_type == type_medium) ammoTotal = floor(global.ammo_medium[p]/ammo_cost);
-            if (ammo_type == type_heavy) ammoTotal = floor(global.ammo_heavy[p]/ammo_cost);
-            if (ammo_type == type_grenade) ammoTotal = floor(global.ammo_grenade[p]/ammo_cost);
+            else if (ammo_type == type_medium) ammoTotal = floor(global.ammo_medium[p]/ammo_cost);
+            else if (ammo_type == type_heavy) ammoTotal = floor(global.ammo_heavy[p]/ammo_cost);
+            else if (ammo_type == type_grenade) ammoTotal = floor(global.ammo_grenade[p]/ammo_cost);
         }
         
         if (ammoTotal)
@@ -140,9 +140,9 @@ if (isActive)
             ammo_current += ammo_diff;
             
             if (ammo_type = type_light) global.ammo_light[p] -= ammo_diff*ammo_cost;
-            if (ammo_type = type_medium) global.ammo_medium[p] -= ammo_diff*ammo_cost;
-            if (ammo_type = type_heavy) global.ammo_heavy[p] -= ammo_diff*ammo_cost;
-            if (ammo_type = type_grenade) global.ammo_grenade[p] -= ammo_diff*ammo_cost;
+            else if (ammo_type = type_medium) global.ammo_medium[p] -= ammo_diff*ammo_cost;
+            else if (ammo_type = type_heavy) global.ammo_heavy[p] -= ammo_diff*ammo_cost;
+            else if (ammo_type = type_grenade) global.ammo_grenade[p] -= ammo_diff*ammo_cost;
             
             if instance_exists(owner) audio_play(owner.audio_emitter,false,1,sfx_reload_end);
             if (audio_is_playing(sfx_reload_loop1)) audio_stop_sound(sfx_reload_loop1);

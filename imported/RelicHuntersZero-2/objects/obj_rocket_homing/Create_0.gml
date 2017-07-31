@@ -4,7 +4,7 @@ event_inherited();
 
 //Attributes
 owner = noone;
-speed = 4;
+speed_per_second = 4;
 maxSpeed = 8;
 decay = -0.013;
 damage = 200;

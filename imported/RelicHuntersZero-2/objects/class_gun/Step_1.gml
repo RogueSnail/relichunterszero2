@@ -50,13 +50,13 @@ if instance_exists(owner)
     if (isActive)
     {
         if (weaponClass == "undefined") owner.base_accuracy = 1;
-        if (weaponClass == "pistol") owner.base_accuracy = owner.accPistol;
-        if (weaponClass == "machinegun") owner.base_accuracy = owner.accMachinegun;
-        if (weaponClass == "shotgun") owner.base_accuracy = owner.accShotgun;
-        if (weaponClass == "sniper") owner.base_accuracy = owner.accSniper;
-        if (weaponClass == "smg") owner.base_accuracy = owner.accSmg;
-        if (weaponClass == "rocket") owner.base_accuracy = owner.accRocket;
-        if (weaponClass == "rifle") owner.base_accuracy = owner.accRifle;
+        else if (weaponClass == "pistol") owner.base_accuracy = owner.accPistol;
+        else if (weaponClass == "machinegun") owner.base_accuracy = owner.accMachinegun;
+        else if (weaponClass == "shotgun") owner.base_accuracy = owner.accShotgun;
+        else if (weaponClass == "sniper") owner.base_accuracy = owner.accSniper;
+        else if (weaponClass == "smg") owner.base_accuracy = owner.accSmg;
+        else if (weaponClass == "rocket") owner.base_accuracy = owner.accRocket;
+        else if (weaponClass == "rifle") owner.base_accuracy = owner.accRifle;
         
         //show_debug_message('I am a '+sound+' and my owner acc is '+string(owner.base_accuracy));
     }

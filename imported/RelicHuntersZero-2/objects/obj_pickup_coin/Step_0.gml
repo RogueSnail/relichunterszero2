@@ -2,17 +2,17 @@
 depth= -y;
 
 if (vertical_speed_start) 
-	vertical_speed += fake_gravity * delta_time * ms_to_s;
+	vertical_speed += fake_gravity;
 else 
 	depth = layer_get_depth("Interactive_Under");
 
-draw_height += vertical_speed * delta_time * ms_to_s;
+draw_height += vertical_speed * delta_time * ms_to_s_60;
 
 if draw_height >= 0 && (vertical_speed_start)
 {
     draw_height = 0;
     vertical_speed = 0;
-    vertical_speed_start -= irandom_range(bounce_min,bounce_max);
+    vertical_speed_start -= random_range(bounce_min,bounce_max);
         
     if (vertical_speed_start <= vertical_speed_start_min) 
 	{
@@ -46,7 +46,7 @@ if (magnet_player == noone)
 	    {
 			magnet_player = candidate_magnet_player;
 			//give initial speed
-			speed_per_second = min(magnet_speed_max, speed_per_second + (magnet_accel * delta_time * ms_to_s));
+			speed_per_second = min(magnet_speed_max, speed_per_second + (magnet_accel));
 	    }   
 		else 
 		{
@@ -58,8 +58,7 @@ if (magnet_player == noone)
 			    alpha_duration_current += delta_time;
 			    if alpha_duration_current >= alpha_duration
 			    {
-			        if (alpha == 1) 
-						alpha = 0.4;
+			        if (alpha == 1) alpha = 0.4;
 			        else alpha = 1;
 			        alpha_duration_current = 0;
 			    }

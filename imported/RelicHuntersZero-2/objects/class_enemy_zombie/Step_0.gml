@@ -64,7 +64,7 @@ ai_movetarget_x = -1;
 ai_movetarget_y = -1;
 distance_to_target = 99999;
 current_distance = 0;
-move_speed = speed_walk;
+move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
 
 var myClosestPlayer = faction_player;
@@ -187,9 +187,9 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
                     mySprintFx.image_xscale = image_xscale;
                     audio_play_exclusive(audio_emitter,false,1,sfx_sprint);
                 }
-                move_speed = speed_sprint;
+                move_speed = speed_sprint * delta_time * ms_to_s_60;
             }
-            else move_speed = speed_walk;
+            else move_speed = speed_walk * delta_time * ms_to_s_60;
         }
         
         if ai_state == "PATROL"
@@ -229,7 +229,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             dodging = true;
             pushed = true;
             push_direction = dash_direction;
-            push_speed = dash_speed;
+            push_speed = dash_speed * delta_time * ms_to_s_60;
             exit;
         }
         else if (ai_dash_cooldown_current < ai_dash_cooldown) ai_dash_cooldown_current += delta_time;
@@ -279,7 +279,7 @@ if (pushed)
     path_end();
     move_step_ext(x + lengthdir_x(push_speed, push_direction),y + lengthdir_y(push_speed, push_direction),0,class_solid,0,0,0,0,0,0);
 
-    push_speed -= push_friction;
+    push_speed -= push_friction * delta_time * ms_to_s_60;
     if push_speed < 0 push_speed = 0;
     
     push_duration_current += delta_time;
