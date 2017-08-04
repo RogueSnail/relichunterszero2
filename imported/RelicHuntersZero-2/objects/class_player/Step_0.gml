@@ -327,9 +327,19 @@ if (allowMovement)
     var maxSpeed = move_speed_max*totalSpeedVector;
     var maxSpeedSprint = move_speed_sprint*totalSpeedVector;
     
-    if speed > maxSpeedAiming && (aiming) speed -= min(move_accel,speed-maxSpeedAiming) * delta_time * ms_to_s_60;
-    if speed > maxSpeed && (!sprinting) speed -= min(move_accel,speed-maxSpeed) * delta_time * ms_to_s_60;
-    if speed > maxSpeedSprint && (sprinting) speed -= min(move_accel,speed-maxSpeedSprint) * delta_time * ms_to_s_60;
+	//speed limits
+	if (dodging) {
+		if (speed > dodge_speed) speed = dodge_speed;
+		
+		if (speed > maxSpeedAiming && (aiming)) speed -= min(move_accel,speed-maxSpeedAiming);
+		else if (speed > maxSpeed && (!sprinting)) speed -= min(move_accel,speed-maxSpeed);
+		else if (speed > maxSpeedSprint && (sprinting)) speed -= min(move_accel,speed-maxSpeedSprint);
+	}
+	else {
+	    if (speed > move_speed_aiming && (aiming)) speed = move_speed_aiming;
+	    else if (speed > maxSpeed && (!sprinting)) speed = move_speed_max;
+	    else if (speed > maxSpeedSprint && (sprinting)) speed = move_speed_sprint;
+	}
     
     if (melee_dash) && (speed == 0) melee_dash = false;
 }

@@ -10,6 +10,9 @@ room_speed = global.target_fps;
 draw_texture_flush();
 stringCurrentDate = string(current_day)+string(current_month)+string(current_year);
 
+//prepare stage gui
+layer_add_instance(layer_get_id("GUI"), global.gui_stage);
+
 if (!global.isDaily) randomize();
 //else random_set_seed(global.dailySeed);
 joy_init();

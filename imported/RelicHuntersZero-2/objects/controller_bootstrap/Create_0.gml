@@ -1,5 +1,6 @@
 ///Bootstrap
 global.pause = 0;
+global.pauseMenu = false;
 draw_texture_flush();
 randomize();
 //shadow_init(0.4);
@@ -13,7 +14,8 @@ screen_update();
 game_set_speed(60, gamespeed_fps);
 
 //Version
-global.currentVersionNumber = "YEAR 2 - UPDATE 14";
+global.currentVersionNumber = "YEAR 2 - UPDATE 15";
+
 
 //Multiplayer & Mode
 global.playerCount = 1;
@@ -51,8 +53,12 @@ joy_init();
 
 volume_update();
 
+//global stage gui
+global.gui_stage = instance_create_layer(x,y,"GUI",gui_stage);
+
 //global target fps
 global.target_fps = game_get_speed(gamespeed_fps);
 show_debug_message(global.target_fps);
+
 
 room_goto_next();

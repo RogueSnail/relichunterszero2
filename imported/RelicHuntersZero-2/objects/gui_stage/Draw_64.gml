@@ -1,5 +1,5 @@
 ///Draw Self
-if (!global.pauseMenu)
+if (!global.pauseMenu && visible)
 {
     myX = window_get_width()/2;
     myY = window_get_height()/2;
