@@ -44,6 +44,7 @@ draw_set_colour(c_white);
 draw_text(x,y+currentSpacing,string_hash_to_newline("Art by Betu Souza")); currentSpacing+=lineSpacing;
 draw_text(x,y+currentSpacing,string_hash_to_newline("Design and Code by Mark Venturelli")); currentSpacing+=lineSpacing;
 draw_text(x,y+currentSpacing,string_hash_to_newline("Sound Design by Raphael Muller")); currentSpacing+=lineSpacing;
+draw_text(x,y+currentSpacing,string_hash_to_newline("Code by Luiz Henrique Gama")); currentSpacing+=lineSpacing;
 currentSpacing+=lineSpacing;
 draw_text(x,y+currentSpacing,string_hash_to_newline("Music by Anders \"Goto80\" Carlsson")); currentSpacing+=lineSpacing;
 draw_text(x,y+currentSpacing,string_hash_to_newline("Additional Sound Design by Hermann Rauth")); currentSpacing+=lineSpacing;
@@ -72,7 +73,6 @@ currentSpacing+=lineSpacing;
 
 draw_set_colour(c_white);
 draw_text(x,y+currentSpacing,string_hash_to_newline("Luca-Leon Happel")); currentSpacing+=lineSpacing;
-draw_text(x,y+currentSpacing,string_hash_to_newline("Luiz Henrique Gama")); currentSpacing+=lineSpacing;
 draw_text(x,y+currentSpacing,string_hash_to_newline("Jonathan Quach")); currentSpacing+=lineSpacing;
 draw_text(x,y+currentSpacing,string_hash_to_newline("Alexander Drogin")); currentSpacing+=lineSpacing;
 currentSpacing += 4*lineSpacing;
