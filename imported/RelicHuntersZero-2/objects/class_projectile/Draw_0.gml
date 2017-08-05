@@ -13,8 +13,8 @@ else
 
 //Draw
 if (ammo_type == type_light) sprite_index = spr_bullet_small;
-if (ammo_type == type_medium) sprite_index = spr_bullet;
-if (ammo_type == type_heavy) sprite_index = spr_bullet_blue;
+else if (ammo_type == type_medium) sprite_index = spr_bullet;
+else if (ammo_type == type_heavy) sprite_index = spr_bullet_blue;
 
 image_angle = direction;
 

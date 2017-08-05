@@ -21,6 +21,5 @@ if (startAnimating)
     spawnTimeCurrent=0;
     image_speed = 0;
     startAnimating = false;
-    depth = 99999;
 }
 

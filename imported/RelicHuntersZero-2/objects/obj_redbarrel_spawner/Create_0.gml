@@ -1,6 +1,4 @@
 ///Main Stuff
-depth = layer_get_depth("Interactive_Under");
-
 image_speed = 0;
 
 myBarrel = noone;

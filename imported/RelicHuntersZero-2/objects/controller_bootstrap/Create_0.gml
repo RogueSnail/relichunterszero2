@@ -53,8 +53,7 @@ joy_init();
 
 volume_update();
 
-//global stage gui
-global.gui_stage = instance_create_layer(x,y,"GUI",gui_stage);
+global.gui_stage = noone;
 
 //global target fps
 global.target_fps = game_get_speed(gamespeed_fps);

@@ -10,7 +10,7 @@
     "option_windows_description_info": "",
     "option_windows_display_cursor": false,
     "option_windows_display_name": "Relic Hunters Zero",
-    "option_windows_enable_steam": false,
+    "option_windows_enable_steam": true,
     "option_windows_executable_name": "${project_name}",
     "option_windows_icon": "${options_dir}\\windows\\runner_icon.ico",
     "option_windows_installer_finished": "${options_dir}\\windows\\Runner_finish.bmp",
@@ -31,7 +31,7 @@
         "build": 0,
         "major": 1,
         "minor": 0,
-        "revision": 44
+        "revision": 45
     },
     "option_windows_vsync": true
 }
