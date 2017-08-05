@@ -6983,6 +6983,14 @@
             }
         },
         {
+            "Key": "6f01ed79-ed44-4f9c-9eb0-bb86326cc704",
+            "Value": {
+                "id": "f65c023d-00af-415e-bb14-51e451bc7d75",
+                "resourcePath": "timelines\\timeline0\\timeline0.yy",
+                "resourceType": "GMTimeline"
+            }
+        },
+        {
             "Key": "6f126e4c-bad9-4235-8277-6fde5138930d",
             "Value": {
                 "id": "7e100a56-2ad9-41f7-bee1-6df588440999",

@@ -57,7 +57,7 @@ if (owner != noone)
         if (!is_rocket) {
             //casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
 	        casing = get_object_from_pool(casing_pool);
-			reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);
+			if (instance_exists_fast(casing)) reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);
         }
     //}
 }

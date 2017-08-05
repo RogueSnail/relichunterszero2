@@ -608,7 +608,7 @@ if ( (grenade_input) && (!melee) && (!throw) )
             if (bloodAmount) repeat(bloodAmount) 
 			{
 				blood = get_object_from_pool(blood_pool);
-				reset_blood_instance(blood, x, y, "Interactive");
+				if (instance_exists_fast(blood)) reset_blood_instance(blood, x, y, "Interactive");
 			}
 			
             hit_taken = true;

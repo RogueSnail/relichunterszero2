@@ -31,7 +31,7 @@ if (faction == f_enemy) //&& (instance_exists(other))
 			{
 				//blood = instance_create_layer(x,y,"Interactive",fx_blood);
 				blood = get_object_from_pool(blood_pool);
-				reset_blood_instance(blood, x, y, "Interactive");
+				if (instance_exists_fast(blood)) reset_blood_instance(blood, x, y, "Interactive");
 			}
         }
         other.hit_taken = true;

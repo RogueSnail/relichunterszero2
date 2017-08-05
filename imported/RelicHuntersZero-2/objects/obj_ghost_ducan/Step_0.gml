@@ -7,7 +7,7 @@ if !__b__
 
 //Check Shy
 shy = false;
-if (instance_exists(ai_target)){
+if (instance_exists_fast(ai_target)){
     if (point_distance(x,y,ai_target.x,ai_target.y) <= shyMaxDistance){
         if (look_direction == 0){
             if (ai_target.look_direction == 1) shy = true;
@@ -140,7 +140,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 
 
 //Look Direction
-if instance_exists(ai_target)
+if instance_exists_fast(ai_target)
 {
     if (ai_target.x > x) look_direction = 1;   
     else look_direction = 0;

@@ -1,6 +1,6 @@
-/// @description Clear every 5 frames with no events
+/// @description Clear every 500 frames with no events
 
-if (array_length_1d(removedInstances) > 0 && stepsWithoutEvents = 5) {
+if (array_length_1d(removedInstances) > 0 && stepsWithoutEvents = 500) {
 
 	//reset vars
 	stepsWithoutEvents = 0;
