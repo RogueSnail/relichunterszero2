@@ -37,7 +37,7 @@ if (global.friendlyFire)
 					{
 						//blood = instance_create_layer(x,y,"Interactive",fx_blood);
 						blood = get_object_from_pool(blood_pool);
-						reset_blood_instance(blood, x, y, "Interactive");
+						if (instance_exists_fast(blood)) reset_blood_instance(blood, x, y, "Interactive");
 					}
                     
                     if (other.hp <= 0) achievement_give("ACHIEVEMENT_TEAMKILL");

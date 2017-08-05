@@ -37,37 +37,18 @@ else
 }
 
 ///Attraction and Pickup
-if (magnet_player == noone) 
+if (!instance_exists_fast(magnet_player)) 
 {
 	if (vertical_speed_start < interactive_speed) && instance_exists(class_player)
 	{
 	    var candidate_magnet_player = instance_nearest(x,y,class_player);
-	    if point_distance(x,y,candidate_magnet_player.x,candidate_magnet_player.y) <= magnet_range
-	    {
-			magnet_player = candidate_magnet_player;
-			//give initial speed
-			speed_per_second = min(magnet_speed_max, speed_per_second + (magnet_accel));
-	    }   
-		else 
-		{
-			///Life and Alpha
-			myTime += delta_time;
-
-			if (myTime >= alert_time)
-			{
-			    alpha_duration_current += delta_time;
-			    if alpha_duration_current >= alpha_duration
-			    {
-			        if (alpha == 1) alpha = 0.4;
-			        else alpha = 1;
-			        alpha_duration_current = 0;
-			    }
-			}
-
-			if (myTime >= life_time)
-			{
-			    instance_destroy();
-			}
+		if (candidate_magnet_player != noone) {
+		    if point_distance(x,y,candidate_magnet_player.x,candidate_magnet_player.y) <= magnet_range
+		    {
+				magnet_player = candidate_magnet_player;
+				//give initial speed
+				speed_per_second = min(magnet_speed_max, speed_per_second + (magnet_accel));
+		    }   
 		}
 	}
 }

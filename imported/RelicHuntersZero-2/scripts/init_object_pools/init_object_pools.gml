@@ -1,6 +1,6 @@
 /// init game object pools
 
-global.pool = array_create(pool_count);
+global.pool = array_create(pool_count, 0);
 global.pool_at = array_create(pool_count, 0);
 
 var psize = floor(global.max_casings * 0.5);

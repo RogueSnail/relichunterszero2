@@ -122,12 +122,7 @@ if (owner != noone)
 	        if (dropCasing) {
 	            //casing = instance_create_layer(x,y+16,"Interactive",fx_casing);
 	            casing = get_object_from_pool(casing_pool);
-				//layer_add_instance("interactive", casing);
-				reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);
-				/*repeat(80) {
-					blood = get_object_from_pool(blood_pool);
-					reset_blood_instance(blood, x, y, "Interactive");
-				}*/								
+				if (instance_exists_fast(casing)) reset_casing_instance(casing, x, y+16, "Interactive", shoot_direction, ammo_type);						
 	        }
 	    //}
             
