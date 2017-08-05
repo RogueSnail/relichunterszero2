@@ -1,5 +1,5 @@
 ///Main Shit
-
+event_inherited();
 speed_walk = 3.8;
 moving = false;
 shy = false;

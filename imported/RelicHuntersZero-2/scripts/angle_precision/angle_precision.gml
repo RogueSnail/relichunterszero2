@@ -10,6 +10,9 @@ var angle = argument4;
 
 var toReturn = -1;
 
+if (tX == -1 && tY == -1)
+	return toeReturn;
+
 var c = global.precisionDistance;
 var senC = dsin(180 - angle_difference(point_direction(myX,myY,tX,tY),angle));
 var b = point_distance(myX,myY,tX,tY);

@@ -24,7 +24,7 @@ if instance_exists(other)
             {
                 var otherBBoxCenter = get_bbox_center(other.id);
                 var precisionAngle = angle_precision(x,y,otherBBoxCenter[0],otherBBoxCenter[1],direction);
-                var angleToTarget = point_direction(x,y,otherBBoxCenter[0],otherBBoxCenter[1]);
+                //var angleToTarget = point_direction(x,y,otherBBoxCenter[0],otherBBoxCenter[1]);
                 if  (precisionAngle != -1) && (precisionAngle <= global.precisionAngle) isPrecise = true;
                 else isPrecise = false;
                 
