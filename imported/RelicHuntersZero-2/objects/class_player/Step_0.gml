@@ -102,7 +102,7 @@ var allowMovement;
 if (isDigging) || (animation_current == "dig") allowMovement = false;
 else {
     allowMovement = true;
-    speed = move_speed * delta_time * ms_to_s_60;
+    speed = move_speed;
     direction = move_direction;
 }
 
@@ -112,14 +112,14 @@ if (allowMovement)
     if (global.input[myPlayerId] == K_INPUT_KEYBOARD) && (!dodging) && (!melee_dash) && (!inputLocked)
     {   
         //Movement
-        if input_key_left() && !input_key_up() && !input_key_down() { motion_add(180,move_accel); dodge_direction = 180; }
-        if input_key_right() && !input_key_up() && !input_key_down() { motion_add(0,move_accel); dodge_direction = 0; }
-        if input_key_up() && !input_key_right() && !input_key_left() { motion_add(90,move_accel); dodge_direction = 90; }
-        if input_key_down() && !input_key_right() && !input_key_left() { motion_add(270,move_accel); dodge_direction = 270; }
-        if input_key_left() && input_key_up() { motion_add(135,move_accel); dodge_direction = 135; }
-        if input_key_left() && input_key_down() { motion_add(225,move_accel); dodge_direction = 225; }
-        if input_key_right() && input_key_up() { motion_add(45,move_accel); dodge_direction = 45; }
-        if input_key_right() && input_key_down() { motion_add(315,move_accel); dodge_direction = 315; }
+        if input_key_left() && !input_key_up() && !input_key_down() { motion_add(180,move_accel*delta_time*ms_to_s_60); dodge_direction = 180; }
+        if input_key_right() && !input_key_up() && !input_key_down() { motion_add(0,move_accel*delta_time*ms_to_s_60); dodge_direction = 0; }
+        if input_key_up() && !input_key_right() && !input_key_left() { motion_add(90,move_accel*delta_time*ms_to_s_60); dodge_direction = 90; }
+        if input_key_down() && !input_key_right() && !input_key_left() { motion_add(270,move_accel*delta_time*ms_to_s_60); dodge_direction = 270; }
+        if input_key_left() && input_key_up() { motion_add(135,move_accel*delta_time*ms_to_s_60); dodge_direction = 135; }
+        if input_key_left() && input_key_down() { motion_add(225,move_accel*delta_time*ms_to_s_60); dodge_direction = 225; }
+        if input_key_right() && input_key_up() { motion_add(45,move_accel*delta_time*ms_to_s_60); dodge_direction = 45; }
+        if input_key_right() && input_key_down() { motion_add(315,move_accel*delta_time*ms_to_s_60); dodge_direction = 315; }
         
         //Sprinting
         if (input_key_sprint_toggle()) sprintToggled = true;
@@ -179,7 +179,7 @@ if (allowMovement)
             {
                 stamina -= dodge_stamina;
                 dodging = true;
-                speed = dodge_speed * delta_time * ms_to_s_60;
+                speed = dodge_speed;
                 if (dodge_direction == -1)
                 {
                     dodge_direction = 180 + point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
@@ -218,7 +218,7 @@ if (allowMovement)
         if (joy_simple_deadzone( joy_xpos(joy), joy_ypos(joy), joyMoveDeadzoneMin))
         {
             var joy_direction = point_direction(x,y,(x+joy_xpos(joy)),(y+joy_ypos(joy)));
-            motion_add(joy_direction, move_accel);
+            motion_add(joy_direction, move_accel*delta_time*ms_to_s_60);
             dodge_direction = joy_direction;
         }
         
@@ -252,7 +252,7 @@ if (allowMovement)
                     sprinting = false;
                     stamina -= dodge_stamina;
                     dodging = true;
-                    speed = dodge_speed * delta_time * ms_to_s_60;
+                    speed = dodge_speed;
                     
                     if (dodge_direction == -1)
                     {
@@ -299,8 +299,8 @@ if (allowMovement)
     //Melee Step
     if (melee) && (animation_current = "melee") &&(animation_index = melee_hit_frame)
     {
-        speed = melee_step_speed * delta_time * ms_to_s_60;
-        if (instance_exists_fast(myGun)) if (myGun.isMeleeWeapon) speed = myGun.meleeStepSpeed * delta_time * ms_to_s_60;
+        speed = melee_step_speed;
+        if (instance_exists_fast(myGun)) if (myGun.isMeleeWeapon) speed = myGun.meleeStepSpeed;
         direction = point_direction(x,y,global.crosshairX[myPlayerId],global.crosshairY[myPlayerId]);
         melee_dash = true;
         
@@ -308,9 +308,9 @@ if (allowMovement)
         else look_direction = 0; 
     }
     
-    //Friction
-    if (!dodging) motion_add(direction-180,min(speed,move_friction));
-    else motion_add(direction-180,min(speed,dodgeFriction));
+	//Friction
+    if (!dodging) motion_add(direction-180,min(speed,(move_friction*delta_time*ms_to_s_60)));
+    else motion_add(direction-180,min(speed,(dodgeFriction*delta_time*ms_to_s_60)));
     
     //Resolve Movement
     var totalSpeedVector = 1;
@@ -327,24 +327,16 @@ if (allowMovement)
     var maxSpeed = move_speed_max*totalSpeedVector;
     var maxSpeedSprint = move_speed_sprint*totalSpeedVector;
     
-	//speed limits
-	if (dodging) {
-		if (speed > dodge_speed) speed = dodge_speed;
-		
-		if (speed > maxSpeedAiming && (aiming)) speed -= min(move_accel,speed-maxSpeedAiming);
-		else if (speed > maxSpeed && (!sprinting)) speed -= min(move_accel,speed-maxSpeed);
-		else if (speed > maxSpeedSprint && (sprinting)) speed -= min(move_accel,speed-maxSpeedSprint);
-	}
-	else {
-	    if (speed > move_speed_aiming && (aiming)) speed = move_speed_aiming;
-	    else if (speed > maxSpeed && (!sprinting)) speed = move_speed_max;
-	    else if (speed > maxSpeedSprint && (sprinting)) speed = move_speed_sprint;
-	}
-    
+    if speed > maxSpeedAiming && (aiming) speed -= min(move_accel,speed-maxSpeedAiming) *delta_time*ms_to_s_60;
+    if speed > maxSpeed && (!sprinting) speed -= min(move_accel,speed-maxSpeed) *delta_time*ms_to_s_60;
+    if speed > maxSpeedSprint && (sprinting) speed -= min(move_accel,speed-maxSpeedSprint) *delta_time*ms_to_s_60;
+	
+	
+	//Melee Cancel
     if (melee_dash) && (speed == 0) melee_dash = false;
 }
 
-//Resolve    
+//Resolve Everything 
 move_speed = speed;
 move_direction = direction;
 speed = 0;
@@ -352,10 +344,9 @@ direction = 0;
     
 if (move_speed)
 {
-    move_step_ext(x + lengthdir_x(move_speed, move_direction),y + lengthdir_y(move_speed, move_direction),0,class_solid,0,0,0,0,0,0); 
+    move_step_ext(x + lengthdir_x(move_speed*delta_time*ms_to_s_60, move_direction),y + lengthdir_y(move_speed*delta_time*ms_to_s_60, move_direction),0,class_solid,0,0,0,0,0,0); 
 }
 else sprinting = false;
-
 
 
 // Reset Dodge
