@@ -11,7 +11,12 @@ draw_texture_flush();
 stringCurrentDate = string(current_day)+string(current_month)+string(current_year);
 
 //prepare stage gui
-layer_add_instance(layer_get_id("GUI"), global.gui_stage);
+if (!instance_exists(global.gui_stage)) {
+	global.gui_stage = instance_create_layer(0,0,"GUI",gui_stage);
+}
+if (instance_exists(global.gui_stage)) {
+	layer_add_instance(layer_get_id("GUI"), global.gui_stage);
+}
 
 if (!global.isDaily) randomize();
 //else random_set_seed(global.dailySeed);

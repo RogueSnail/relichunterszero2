@@ -6,6 +6,8 @@ if surface_exists(global.shadow_surface_tall) surface_free(global.shadow_surface
 if surface_exists(global.reflection_surface) surface_free(global.reflection_surface);
 if surface_exists(global.persistent_draw) surface_free(global.persistent_draw);
 
+if instance_exists(global.gui_stage) instance_destroy(global.gui_stage);
+
 //Particle Systems cleanup
 while (!ds_map_empty(global.particle_emitter_list))
 {
