@@ -60,7 +60,7 @@ if (hp > hp_max) hp = hp_max;
 //Setup
 ai_movetarget_x = -1;
 ai_movetarget_y = -1;
-distance_to_target = 99999;
+distance_to_target = distance_far;
 current_distance = 0;
 move_speed = speed_walk;
 firing = false;
@@ -82,9 +82,7 @@ if (ai_active) && (on_screen(x,y))
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,class_enemy);
     if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
-    else distance_to_enemy = 9999;
-    
-    
+    else distance_to_enemy = 9999;   
     
     if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {

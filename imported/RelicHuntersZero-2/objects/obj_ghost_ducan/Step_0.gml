@@ -73,19 +73,21 @@ if (shy)
 //Setup
 ai_movetarget_x = -1;
 ai_movetarget_y = -1;
-distance_to_target = 99999;
+distance_to_target = distance_far;
 current_distance = 0;
 move_speed = speed_walk;
 
-var myClosestPlayer = instance_nearest(x,y,faction_player);
-distance_to_player = 0;
-if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y); 
+var myClosestPlayer = noone;
+distance_to_player = distance_to_closest_player_fast(x,y);;
 
 //Activate AI
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && (myClosestPlayer != noone) && (!want_to_activate)
+    if (distance_to_player < ai_activation_range) && (!want_to_activate)
     {
+		myClosestPlayer = instance_nearest(x,y,faction_player);
+		if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y); 
+
         if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
             want_to_activate = true;
@@ -101,10 +103,17 @@ if (!ai_active)
 }
 
 //Resolve AI
-if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (myClosestPlayer != noone)
-{    
-    distance_to_target = distance_to_player;
-    ai_target = myClosestPlayer;
+if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) )
+{
+	if (myClosestPlayer == noone) {
+		myClosestPlayer = instance_nearest(x,y,faction_player);
+		if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y); 
+	}
+	
+	if (myClosestPlayer != noone) {
+		distance_to_target = distance_to_player;
+		ai_target = myClosestPlayer;
+	}
     
     if instance_exists_fast(ai_target)
     {

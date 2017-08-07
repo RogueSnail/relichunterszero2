@@ -1,3 +1,6 @@
+//keep players positions
+if (level_built == true) {
+}
 
 ///Apply Global Buffs (Relics and Characters)
 

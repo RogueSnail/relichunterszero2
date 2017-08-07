@@ -320,7 +320,7 @@ if (fireRocket)
 //Setup
 ai_movetarget_x = -1;
 ai_movetarget_y = -1;
-distance_to_target = 99999;
+distance_to_target = distance_far;
 current_distance = 0;
 move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
@@ -501,7 +501,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             if (!ds_priority_empty(ai_cover_priority)) && (ai_cover_x == -1) && (ai_cover_y == -1)
             {
                 tile_size = 64;
-                current_distance = 99999;
+                current_distance = distance_far;
                 for (i=0; i<ds_priority_size(ai_cover_priority); i++)
                 {
                     cover_candidate = ds_priority_delete_min(ai_cover_priority);

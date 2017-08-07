@@ -2,6 +2,8 @@
 #macro ms_to_s_60 0.00006
 #macro fade_depth -16000
 #macro bottom_depth -16000
+#macro distance_far 999999
+#macro max_players 2
 //game modes
 #macro gamemode_adventure 0
 #macro gamemode_endless 1

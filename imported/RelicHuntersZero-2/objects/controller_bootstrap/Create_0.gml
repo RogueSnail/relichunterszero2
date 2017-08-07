@@ -22,6 +22,10 @@ global.playerCount = 1;
 global.gameMode = gamemode_adventure;
 global.currentLoop = 0;
 global.isDaily = false;
+global.characterPos[1, 0] = distance_far;
+global.characterPos[1, 1] = distance_far;
+global.characterPos[2, 0] = distance_far;
+global.characterPos[2, 1] = distance_far;
 
 //Global Data Structures
 global.challengeList = ds_list_create();

@@ -52,7 +52,11 @@ if (!level_built)
             if (global.character[p] == char_ass) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_assPlayer);
             if (global.character[p] == char_rider) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_rider);
             
-            playerSpawned.myPlayerId = p;
+			//playerPosition for fast access
+			global.characterPos[p, 0] = playerSpawned.x;
+			global.characterPos[p, 1] = playerSpawned.y;
+			
+            playerSpawned.myPlayerId = p;			
             with (playerSpawned) event_perform(ev_other,ev_user0);
         }
         p++;
@@ -260,6 +264,9 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                     if (global.character[p] == char_ass) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_assPlayer);
                     if (global.character[p] == char_rider) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_rider);
                     playerSpawned.myPlayerId = p;
+					
+					global.characterPos[p,0] = playerSpawned.x;
+					global.characterPos[p,1] = playerSpawned.y;
                     
                     //Reset weapons and HP
                     global.playerAlive[p] = true;

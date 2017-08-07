@@ -125,17 +125,13 @@ if (!energy) && (shield == true)
 //Setup
 ai_movetarget_x = -1;
 ai_movetarget_y = -1;
-distance_to_target = 99999;
+distance_to_target = distance_far;
 current_distance = 0;
 move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
 
-var myClosestPlayer = instance_nearest(x,y,faction_player);
-
-distance_to_player = 0;
-if (myClosestPlayer != noone) {
-	distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
-}
+var myClosestPlayer = noone;
+distance_to_player = distance_to_closest_player_fast(x,y);
 
 if (grenade_count > grenade_count_max) grenade_count = grenade_count_max;
 
@@ -145,6 +141,11 @@ if (hit_taken) want_to_activate = true;
 if (!ai_active)
 {
     if (aiActivationTimeCurrent >= aiActivationTime){
+	
+		myClosestPlayer = instance_nearest(x,y,faction_player);
+		if (myClosestPlayer != noone) {
+			distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+		}
 	
         if (myClosestPlayer != noone) && (distance_to_player < ai_activation_range) && (!want_to_activate)
         {
@@ -166,16 +167,25 @@ if (!ai_active)
 
 //Resolve AI
 if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) )
-{
-    //Find my Target (Faction Check)
-	distance_to_enemy = 99999;
-    fuckingEnemy = instance_nearest(x,y,faction_monster);
-    if (fuckingEnemy != noone) {
-		distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
-	} 
-    
-    if (ai_target_change_current >= ai_target_change || (ai_target = noone))
-    {
+{   
+	//if did not look for player yet this frame
+	if (myClosestPlayer == noone) 
+	{
+		myClosestPlayer = instance_nearest(x,y,faction_player);
+		if (myClosestPlayer != noone) {
+			distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+		}
+	}
+	
+	if (ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target)))
+    {				
+	    //Find my Target (Faction Check)
+		distance_to_enemy = distance_far;
+	    fuckingEnemy = instance_nearest(x,y,faction_monster);
+	    if (fuckingEnemy != noone) {
+			distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+		} 
+
         ai_target_change_current = 0;
         
         if (distance_to_enemy < distance_to_player)
@@ -197,7 +207,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     }
         
     // Resolve AI with Target found
-    if (ai_target != noone) && (!pushed)
+    if (instance_exists_fast(ai_target) && (!pushed))
     {
 		
         //Aggro Control
@@ -334,7 +344,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
             if (!ds_priority_empty(ai_cover_priority)) && (ai_cover_x == -1) && (ai_cover_y == -1)
             {
                 tile_size = 64;
-                current_distance = 99999;
+                current_distance = distance_far;
                 for (i=0; i<ds_priority_size(ai_cover_priority); i++)
                 {
                     cover_candidate = ds_priority_delete_min(ai_cover_priority);

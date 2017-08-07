@@ -2,8 +2,8 @@
 //Reset the saved values of all characters to the default starting values
     
     global.playerAlive[1] = true;
-    global.playerAlive[2] = true;
-
+    global.playerAlive[2] = true; 
+	
     global.weapon1[1] = noone;
     global.weapon2[1] = noone;
     global.weapon1Level[1] = 0;
