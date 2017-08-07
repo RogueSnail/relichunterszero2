@@ -325,8 +325,9 @@ current_distance = 0;
 move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
 
+var myClosestPlayer = instance_nearest(x,y,faction_player);
 distance_to_player = 0;
-if (instance_exists(faction_player)) distance_to_player = point_distance(x,y,faction_player.x,faction_player.y);
+if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
 
 if (grenade_count > grenade_count_max) grenade_count = grenade_count_max;
 
@@ -335,9 +336,9 @@ if (hit_taken) want_to_activate = true;
 
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && instance_exists(faction_player) && (!want_to_activate)
+    if (distance_to_player < ai_activation_range) && (myClosestPlayer != noone) && (!want_to_activate)
     {
-        if collision_line(x,y,faction_player.x,faction_player.y,obj_limit,false,true) < 0
+        if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
             want_to_activate = true;
         }
@@ -359,13 +360,13 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     {
         ai_target_change_current = 0;
 
-        ai_target = faction_player;
+        ai_target = myClosestPlayer;
         distance_to_target = distance_to_player;
     }
     else 
     {
         ai_target_change_current += delta_time;
-        if (ai_target == faction_player) distance_to_target = distance_to_player;
+        if (ai_target == myClosestPlayer) distance_to_target = distance_to_player;
     }
     
         

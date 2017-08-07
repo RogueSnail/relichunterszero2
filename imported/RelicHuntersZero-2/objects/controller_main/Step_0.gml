@@ -600,20 +600,6 @@ global.count_particles = instance_number(fx_hit);
 
 ///DEBUG COMMANDS   
   
-if keyboard_check_pressed(ord("M")) global.currentLoop++;
-     if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
-     //Debug: Kill Everything
-    if keyboard_check_pressed(vk_f9)
-    {
-        if instance_exists(class_enemy)
-        {
-            with (class_enemy)
-            {
-                instance_destroy();
-            }
-        }
-    } 
-     
 if (debug_mode)
 {
 if keyboard_check_pressed(ord("M")) global.currentLoop++;
@@ -748,7 +734,21 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
         steam_clear_achievement("ACHIEVEMENT_DESTROY_KAMIKAGES"); //set by the cage on its Destroy event (alongside Steam Stat);
     }
 }
-
+else {
+	if keyboard_check_pressed(ord("M")) global.currentLoop++;
+    if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
+     //Debug: Kill Everything
+    if keyboard_check_pressed(vk_f9)
+    {
+        if instance_exists(class_enemy)
+        {
+            with (class_enemy)
+            {
+                instance_destroy();
+            }
+        }
+    } 
+}
 ///Take Screenshot
 //steam_screenshot_check();
 

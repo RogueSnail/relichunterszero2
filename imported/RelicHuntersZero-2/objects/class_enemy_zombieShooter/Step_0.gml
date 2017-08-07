@@ -141,7 +141,7 @@ if (hit_taken) want_to_activate = true;
 if (!ai_active)
 {
     if (aiActivationTimeCurrent >= aiActivationTime) {
-        if (distance_to_player < ai_activation_range) && instance_exists(myClosestPlayer) && (!want_to_activate)
+        if (distance_to_player < ai_activation_range) && (myClosestPlayer != noone) && (!want_to_activate)
         {
             if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
             {
@@ -168,7 +168,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     else distance_to_enemy = 99999;
     
     
-    if ai_target_change_current >= ai_target_change || (!instance_exists(ai_target))
+    if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
         ai_target_change_current = 0;
         
@@ -186,7 +186,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     else 
     {
         ai_target_change_current += delta_time;
-        if (ai_target = myClosestPlayer) distance_to_target = distance_to_player;
+        if (ai_target == myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
         

@@ -84,7 +84,7 @@ if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestP
 //Activate AI
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && instance_exists_fast(myClosestPlayer) && (!want_to_activate)
+    if (distance_to_player < ai_activation_range) && (myClosestPlayer != noone) && (!want_to_activate)
     {
         if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
@@ -101,7 +101,7 @@ if (!ai_active)
 }
 
 //Resolve AI
-if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists(myClosestPlayer))
+if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (myClosestPlayer != noone)
 {    
     distance_to_target = distance_to_player;
     ai_target = myClosestPlayer;

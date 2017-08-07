@@ -63,17 +63,17 @@ current_distance = 0;
 move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
 
-var myClosestPlayer = faction_player;
+var myClosestPlayer = instance_nearest(x,y,faction_player);
 
 distance_to_player = 0;
-if (instance_exists(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
 
 //Activate AI
 if (hit_taken) want_to_activate = true;
 
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && instance_exists(myClosestPlayer) && (!want_to_activate)
+    if (distance_to_player < ai_activation_range) && (myClosestPlayer != noone) && (!want_to_activate)
     {
         if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
@@ -90,7 +90,7 @@ if (!ai_active)
 }
 
 //Resolve AI
-if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists(myClosestPlayer))
+if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (myClosestPlayer != noone)
 {
     //Find my Target (Faction Check)
     fuckingEnemy = instance_nearest(x,y,faction_ducan);
@@ -116,7 +116,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     else 
     {
         ai_target_change_current += delta_time;
-        if (ai_target = myClosestPlayer) distance_to_target = distance_to_player;
+        if (ai_target == myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
         
