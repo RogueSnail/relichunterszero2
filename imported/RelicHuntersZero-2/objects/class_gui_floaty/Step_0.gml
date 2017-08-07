@@ -2,7 +2,7 @@
 if (visible == true) {
 	if (lockToOwner)
 	{
-	    if (owner != noone)
+	    if (instance_exists_fast(owner))
 	    {
 	        x = owner.x;
 	        y = owner.y;
