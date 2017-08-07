@@ -1,5 +1,6 @@
 ///Owner joystick check (for vibration)
-if instance_exists_fast(owner) {
+if (owner != noone) 
+{
 	if (global.input[owner.myPlayerId] != K_INPUT_KEYBOARD)
 	{
 	    hasJoy = true;

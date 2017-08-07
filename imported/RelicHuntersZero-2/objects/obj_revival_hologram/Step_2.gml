@@ -18,6 +18,8 @@ if (activationClient != noone) && (active) && (price){
             playerSpawned.myPlayerId = idToSpawn;
                     
             global.playerAlive[idToSpawn] = true;
+			global.characterPosition[idToSpawn, 0] = playerSpawned.x;
+			global.characterPosition[idToSpawn, 1] = playerSpawned.y;
             global.weapon1[idToSpawn] = noone;
             global.weapon2[idToSpawn] = noone;
             global.weapon1Level[idToSpawn] = 0;

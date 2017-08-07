@@ -150,22 +150,23 @@ else{
 //Setup
 ai_movetarget_x = -1;
 ai_movetarget_y = -1;
-distance_to_target = 99999;
+distance_to_target = distance_far;
 current_distance = 0;
 move_speed = speed_walk;
 firing = false;
 
-var myClosestPlayer = faction_player;
-
-distance_to_player = 0;
-if (instance_exists_fast(myClosestPlayer)) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+var myClosestPlayer = noone;
+distance_to_player = distance_to_closest_player_fast(x,y);
 
 //Activate AI
 if (hit_taken) want_to_activate = true;
 
 if (!ai_active)
 {
-    if (distance_to_player < ai_activation_range) && instance_exists_fast(myClosestPlayer) && (!want_to_activate)
+	myClosestPlayer = instance_nearest(x,y,faction_player);
+	if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+
+    if (distance_to_player < ai_activation_range) && (myClosestPlayer != noone) && (!want_to_activate)
     {
         if collision_line(x,y,myClosestPlayer.x,myClosestPlayer.y,obj_limit,false,true) < 0
         {
@@ -182,17 +183,22 @@ if (!ai_active)
 }
 
 //Resolve AI
-if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists_fast(myClosestPlayer))
+if (ai_target != noone) && (!instance_exists_fast(ai_target)) ai_target = noone;
+if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)))
 {
-    //Find my Target (Faction Check)
-    fuckingEnemy = instance_nearest(x,y,faction_ducan);
-    if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
-    else distance_to_enemy = 9999;
-    
-    
+	if (myClosestPlayer == noone) {
+		myClosestPlayer = instance_nearest(x,y,faction_player);
+		if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+	}
+	
     if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
-        ai_target_change_current = 0;
+		ai_target_change_current = 0;
+				
+	    //Find my Target (Faction Check)
+	    fuckingEnemy = instance_nearest(x,y,faction_ducan);
+	    if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+	    else distance_to_enemy = 9999;   
         
         if (distance_to_enemy < distance_to_player)
         {
@@ -208,7 +214,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     else 
     {
         ai_target_change_current += delta_time;
-        if (ai_target = myClosestPlayer) distance_to_target = distance_to_player;
+        if (ai_target == myClosestPlayer) distance_to_target = distance_to_player;
         else distance_to_target = distance_to_enemy;
     }
         
@@ -371,75 +377,79 @@ else push_speed = 0;
 
 is_player = false;
 myEnemy = noone;
-myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_player,false,true);
-if (!myEnemy) myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_ducan,false,true);
-else is_player = true;
+damage_timer_current += delta_time;
+if (damage_timer_current >= damage_timer) && (!hit_taken) {
 
-var isWall = false;
-if (!myEnemy) {
-    myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_wall,false,true);
-    if (myEnemy) isWall = true;
-}
+	myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_player,false,true);
+	if (myEnemy == noone) myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_ducan,false,true);
+	else is_player = true;
 
-if (myEnemy) && (damage_timer_current >= damage_timer) && instance_exists_fast(myEnemy) && (!hit_taken)
-{
-    if (!isWall)
-    {
-        if (!myEnemy.dodging)
-        {
-            var originalDamage = damage;
+	var isWall = false;
+	if (myEnemy == noone) {
+	    myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_wall,false,true);
+	    if (myEnemy) isWall = true;
+	}
+
+	if (myEnemy != noone)
+	{
+	    if (!isWall)
+	    {
+	        if (!myEnemy.dodging)
+	        {
+	            var originalDamage = damage;
             
-            damage_timer_current = 0;
+	            damage_timer_current = 0;
             
-            if (myEnemy.energy)
-            {
-                if (is_player) if (myEnemy.superShield) damage = 0;
+	            if (myEnemy.energy)
+	            {
+	                if (is_player) if (myEnemy.superShield) damage = 0;
                 
-                damage = damage*2;
-                if (global.challengeSupressor) damage = damage*2;
-                myEnemy.energy -= damage*2;
+	                damage = damage*2;
+	                if (global.challengeSupressor) damage = damage*2;
+	                myEnemy.energy -= damage*2;
                 
                 
-                if (global.challengeJaws) myEnemy.energy = 0;
+	                if (global.challengeJaws) myEnemy.energy = 0;
                 
-                if (myEnemy.energy <= 0) audio_play(myEnemy.audio_emitter,false,1,sfx_shield_destroy);
-                else audio_play(myEnemy.audio_emitter,false,1,sfx_shield_hit1,sfx_shield_hit2);
-            }
-            else 
-            {
-                if (!is_player) damage = damage*3;
-                myEnemy.hp -= damage;
-            }
-            myEnemy.hit_taken = true;
+	                if (myEnemy.energy <= 0) audio_play(myEnemy.audio_emitter,false,1,sfx_shield_destroy);
+	                else audio_play(myEnemy.audio_emitter,false,1,sfx_shield_hit1,sfx_shield_hit2);
+	            }
+	            else 
+	            {
+	                if (!is_player) damage = damage*3;
+	                myEnemy.hp -= damage;
+	            }
+	            myEnemy.hit_taken = true;
             
-            spreadX = irandom_range(-15,15);
-            spreadY = irandom_range(-15,15);
-            damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive_Over",fx_damage);
-            damage_fx.damage = damage;
+	            spreadX = irandom_range(-15,15);
+	            spreadY = irandom_range(-15,15);
+	            damage_fx = instance_create_layer(myEnemy.x+spreadX,myEnemy.y+spreadY,"Interactive_Over",fx_damage);
+	            damage_fx.damage = damage;
             
-            if (!is_player)
-            {
-                myEnemy.pushed = true;
-                myEnemy.push_direction = point_direction(x,y,myEnemy.x,myEnemy.y);
-                myEnemy.push_speed += 4;
+	            if (!is_player)
+	            {
+	                myEnemy.pushed = true;
+	                myEnemy.push_direction = point_direction(x,y,myEnemy.x,myEnemy.y);
+	                myEnemy.push_speed += 4;
                 
-                if (myEnemy.hp <= 0) myEnemy.no_score = true;
-            }
+	                if (myEnemy.hp <= 0) myEnemy.no_score = true;
+	            }
             
-            audio_play(audio_emitter,false,1,sfx_kami_bite);
+	            audio_play(audio_emitter,false,1,sfx_kami_bite);
             
-            damage = originalDamage;
-        }
-    }
-    else{
-        myEnemy.hp -= damage*10;
-        myEnemy.shake_direction = irandom(360);
-        myEnemy.hitDirection = irandom(360);
-        myEnemy.shake += 2;
-        myEnemy.hit_taken = true;
-    }
+	            damage = originalDamage;
+	        }
+	    }
+	    else{
+	        myEnemy.hp -= damage*10;
+	        myEnemy.shake_direction = irandom(360);
+	        myEnemy.hitDirection = irandom(360);
+	        myEnemy.shake += 2;
+	        myEnemy.hit_taken = true;
+	    }
+	}
 }
-else damage_timer_current += delta_time;
+//else damage_timer_current += delta_time;
 
 ///Audio
 audio_emitter_position(audio_emitter, x, y, 0);

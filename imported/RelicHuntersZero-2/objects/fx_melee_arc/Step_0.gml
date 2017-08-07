@@ -1,5 +1,5 @@
 ///Damage and Death
-if instance_exists_fast(owner)
+if (owner != noone) 
 {
     depth = owner.depth+2;
     image_xscale = owner.image_xscale;

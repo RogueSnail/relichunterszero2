@@ -1,6 +1,6 @@
 time++;
 
-if instance_exists_fast(owner) 
+if (owner != noone) 
 {
 	if (time >= slowness)
 	{
@@ -14,7 +14,4 @@ if instance_exists_fast(owner)
     
 	    time = 0;
 	}
-}
-else {
-	owner = noone;
 }

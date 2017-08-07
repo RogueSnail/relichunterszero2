@@ -87,8 +87,8 @@ if ((!global.pause) && (owner != noone))
 	        range_to_solid = range_finder(x,y,aiming_direction,projectile_range,class_solid,false,true);
 	        range_to_enemy = range_finder(x,y,aiming_direction,projectile_range,class_player,false,true);
 	        {
-	            if (!range_to_solid) range_to_solid = 9999999;
-	            if (!range_to_enemy) range_to_enemy = 9999999;
+	            if (!range_to_solid) range_to_solid = distance_far;
+	            if (!range_to_enemy) range_to_enemy = distance_far;
 	            laserDrawRange = min(range_to_solid,range_to_enemy,projectile_range);
             
 	            laserLineX = x+lengthdir_x(laserDrawRange,aiming_direction);

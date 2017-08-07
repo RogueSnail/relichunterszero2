@@ -52,7 +52,11 @@ if (!level_built)
             if (global.character[p] == char_ass) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_assPlayer);
             if (global.character[p] == char_rider) playerSpawned = instance_create_layer(target_spawn.spawnX,target_spawn.spawnY,"Interactive",obj_rider);
             
-            playerSpawned.myPlayerId = p;
+			//playerPosition for fast access
+			global.characterPos[p, 0] = playerSpawned.x;
+			global.characterPos[p, 1] = playerSpawned.y;
+			
+            playerSpawned.myPlayerId = p;			
             with (playerSpawned) event_perform(ev_other,ev_user0);
         }
         p++;
@@ -260,6 +264,9 @@ if (!(room == room_start)) && (!(room == room_tutorial)) && (!(room == room_shop
                     if (global.character[p] == char_ass) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_assPlayer);
                     if (global.character[p] == char_rider) playerSpawned = instance_create_layer(revivePlayerX,revivePlayerY,"Interactive",obj_rider);
                     playerSpawned.myPlayerId = p;
+					
+					global.characterPos[p,0] = playerSpawned.x;
+					global.characterPos[p,1] = playerSpawned.y;
                     
                     //Reset weapons and HP
                     global.playerAlive[p] = true;
@@ -600,20 +607,6 @@ global.count_particles = instance_number(fx_hit);
 
 ///DEBUG COMMANDS   
   
-if keyboard_check_pressed(ord("M")) global.currentLoop++;
-     if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
-     //Debug: Kill Everything
-    if keyboard_check_pressed(vk_f9)
-    {
-        if instance_exists(class_enemy)
-        {
-            with (class_enemy)
-            {
-                instance_destroy();
-            }
-        }
-    } 
-     
 if (debug_mode)
 {
 if keyboard_check_pressed(ord("M")) global.currentLoop++;
@@ -748,7 +741,21 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
         steam_clear_achievement("ACHIEVEMENT_DESTROY_KAMIKAGES"); //set by the cage on its Destroy event (alongside Steam Stat);
     }
 }
-
+else {
+	if keyboard_check_pressed(ord("M")) global.currentLoop++;
+    if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
+     //Debug: Kill Everything
+    if keyboard_check_pressed(vk_f9)
+    {
+        if instance_exists(class_enemy)
+        {
+            with (class_enemy)
+            {
+                instance_destroy();
+            }
+        }
+    } 
+}
 ///Take Screenshot
 //steam_screenshot_check();
 

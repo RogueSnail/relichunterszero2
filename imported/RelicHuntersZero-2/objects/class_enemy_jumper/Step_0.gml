@@ -60,26 +60,27 @@ if (hp > hp_max) hp = hp_max;
 //Setup
 ai_movetarget_x = -1;
 ai_movetarget_y = -1;
-distance_to_target = 99999;
+distance_to_target = distance_far;
 current_distance = 0;
 move_speed = speed_walk * delta_time * ms_to_s_60;
 firing = false;
 
-var myClosestPlayer = instance_nearest(x,y,faction_player);
+var myClosestPlayer = noone;
+distance_to_player = distance_to_closest_player_fast(x,y);
 
-distance_to_player = 0;
-if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
-
-if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) ) && (instance_exists_fast(myClosestPlayer))
+if ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y)) )
 {
-    //Find my Target (Faction Check)
-    fuckingEnemy = instance_nearest(x,y,faction_ducan);
-    if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
-    else distance_to_enemy = 9999;
-    
+	myClosestPlayer = instance_nearest(x,y,faction_player);
+	if (myClosestPlayer != noone) distance_to_player = point_distance(x,y,myClosestPlayer.x,myClosestPlayer.y);
+   
     if ai_target_change_current >= ai_target_change || (!instance_exists_fast(ai_target))
     {
         ai_target_change_current = 0;
+
+	    //Find my Target (Faction Check)
+	    fuckingEnemy = instance_nearest(x,y,faction_ducan);
+	    if (fuckingEnemy != noone) distance_to_enemy = point_distance(x,y,fuckingEnemy.x,fuckingEnemy.y);
+	    else distance_to_enemy = 9999;
         
         if (distance_to_enemy < distance_to_player)
         {

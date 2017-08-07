@@ -1,7 +1,7 @@
 ///Draw Override
 draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale,image_yscale,image_angle,c_white,1);
 
-if (instance_exists_fast(owner))
+if (owner != noone)
 {
     if (owner.firing) && (is_sniper) && instance_exists_fast(owner.ai_target) && (fire_rate_current >= fireRateFeedback)
     {
@@ -10,8 +10,8 @@ if (instance_exists_fast(owner))
         range_to_solid = range_finder(x,y,aiming_direction,projectile_range,class_solid,false,true);
         range_to_enemy = range_finder(x,y,aiming_direction,projectile_range,class_player,false,true);
         {
-            if (!range_to_solid) range_to_solid = 9999999;
-            if (!range_to_enemy) range_to_enemy = 9999999;
+            if (!range_to_solid) range_to_solid = distance_far;
+            if (!range_to_enemy) range_to_enemy = distance_far;
             draw_range = min(range_to_solid,range_to_enemy,projectile_range);
             
             lineX = x+lengthdir_x(draw_range,aiming_direction);

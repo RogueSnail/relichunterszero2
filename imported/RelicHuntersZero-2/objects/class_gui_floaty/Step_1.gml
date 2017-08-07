@@ -1,6 +1,4 @@
 
-if (!instance_exists_fast(owner)) owner = noone;
-
 if (!global.pause)
 {
 	if (visible == true) {

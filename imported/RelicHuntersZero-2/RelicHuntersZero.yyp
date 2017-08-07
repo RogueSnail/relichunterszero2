@@ -9023,6 +9023,14 @@
             }
         },
         {
+            "Key": "8fddd3bf-f8e0-40d9-879f-a58f625806ef",
+            "Value": {
+                "id": "46d24832-1c5e-4b50-b29c-2356e2e7b0d1",
+                "resourcePath": "scripts\\distance_to_closest_player_fast\\distance_to_closest_player_fast.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "90177af6-fe6c-4834-a476-4f4cde0c6c38",
             "Value": {
                 "id": "10c042a1-5298-40e1-aec6-362c1935a89b",
@@ -11380,6 +11388,14 @@
                 "id": "81756ef1-abfd-448f-a696-ec9a3c66f9ae",
                 "resourcePath": "sprites\\spr_facebook_menu\\spr_facebook_menu.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b6c44f6d-c85f-4f71-aa66-e8b95069ffed",
+            "Value": {
+                "id": "b7740a33-562f-4f5d-821a-269d6c17e6c5",
+                "resourcePath": "scripts\\distance_to_player_fast\\distance_to_player_fast.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -16068,6 +16084,8 @@
         "60fe68e6-8166-4541-b716-c50e46928efa",
         "4e079909-4f85-4629-86eb-911fe612cc53",
         "211253b7-ad38-4a9a-a34f-171e0f3d7887",
+        "8fddd3bf-f8e0-40d9-879f-a58f625806ef",
+        "b6c44f6d-c85f-4f71-aa66-e8b95069ffed",
         "3e09d6e1-2981-46b3-8a6e-a64aac5c22bb",
         "fa27bd26-dc66-4254-9f88-b3d85dabdf05",
         "08d7912c-d8c2-4a31-a5d6-4dbfb2a24a26",

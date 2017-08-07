@@ -41,7 +41,7 @@ if (value == drawHealthbarStoredTargetValue[iD])
         if (drawHealthbarDelayedValue[iD] != value)
         {
             if (drawHealthbarDelayedValue[iD] > value) { drawHealthbarDelayOrientation[iD] = "minus"; drawHealthbarDelayedValue[iD] -= min( (drawHealthbarCatchupSpeed[iD]*valueMax), abs(drawHealthbarDelayedValue[iD]-value) ); } 
-            if (drawHealthbarDelayedValue[iD] < value) { drawHealthbarDelayOrientation[iD] = "plus"; drawHealthbarDelayedValue[iD] += min( (drawHealthbarCatchupSpeed[iD]*valueMax), abs(drawHealthbarDelayedValue[iD]-value) ); }
+            else if (drawHealthbarDelayedValue[iD] < value) { drawHealthbarDelayOrientation[iD] = "plus"; drawHealthbarDelayedValue[iD] += min( (drawHealthbarCatchupSpeed[iD]*valueMax), abs(drawHealthbarDelayedValue[iD]-value) ); }
         }
         else{
             drawHealthbarDelayedValue[iD] = value;
@@ -52,7 +52,7 @@ if (value == drawHealthbarStoredTargetValue[iD])
 else
 {
     if (value > drawHealthbarStoredTargetValue[iD]) drawHealthbarDelayOrientation[iD] = "plus";
-    if (value < drawHealthbarStoredTargetValue[iD]) drawHealthbarDelayOrientation[iD] = "minus";
+    else if (value < drawHealthbarStoredTargetValue[iD]) drawHealthbarDelayOrientation[iD] = "minus";
     
     drawHealthbarDelayTimeCurrent[iD] = 0;
     

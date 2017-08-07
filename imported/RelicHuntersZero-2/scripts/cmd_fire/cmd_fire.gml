@@ -130,8 +130,8 @@ if (owner != noone)
 	    joy_rumble(joy,joypadRumbleFactor, joypadRumbleFactor);
             
 	    //Fire Rate Decay Update
-	    fireRateDecayCurrent += fireRateDecay;
+	    fireRateDecayCurrent += fireRateDecay * delta_time * ms_to_s_60;
 	    if (fireRateDecayCurrent > fireRateDecayMax) fireRateDecayCurrent = fireRateDecayMax;
-	    if (fireRateDecayCurrent < fireRateDecayMin) fireRateDecayCurrent = fireRateDecayMin;
+	    else if (fireRateDecayCurrent < fireRateDecayMin) fireRateDecayCurrent = fireRateDecayMin;
 	}
 }

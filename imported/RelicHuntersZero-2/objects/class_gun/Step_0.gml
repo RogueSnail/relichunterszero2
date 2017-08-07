@@ -184,9 +184,9 @@ if instance_exists(owner) && (isActive)
             }
         }
         
-        if (!range_to_solid) range_to_solid = 9999999;
-        if (!range_to_enemy) range_to_enemy = 9999999;
-        if (!range_to_friendly) range_to_friendly = 9999999;
+        if (!range_to_solid) range_to_solid = distance_far;
+        if (!range_to_enemy) range_to_enemy = distance_far;
+        if (!range_to_friendly) range_to_friendly = distance_far;
 
         if (!goesThroughWalls) draw_range = min(range_to_solid,range_to_enemy,range_to_friendly,projectile_range);
         else draw_range = projectile_range;
@@ -288,7 +288,7 @@ if (isActive) && (owner) && instance_exists(owner)
     //Rate of Fire Decay Recovery
     if (!input_held) || (reloading) || (!ammo_current)
     {
-        fireRateDecayCurrent += fireRateDecayRecovery;
+        fireRateDecayCurrent += fireRateDecayRecovery * delta_time * ms_to_s_60;
     }
     
     //Burst Fire
