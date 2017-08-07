@@ -13,8 +13,6 @@ push_power = 10;
 
 faction = f_enemy;
 
-if (instance_exists_fast(owner)) audio_play(owner.audio_emitter,false,1,sfx_rocket_start);
-
 //Target Acquisition
 
 weapon_homing_setup(3,0.008,0.1,180,5,100,1200);

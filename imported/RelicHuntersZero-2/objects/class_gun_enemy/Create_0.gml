@@ -1,4 +1,6 @@
 ///Main Shit
+event_inherited();
+
 owner = noone;
 sound = "pistol";
 ammo_type = type_light;

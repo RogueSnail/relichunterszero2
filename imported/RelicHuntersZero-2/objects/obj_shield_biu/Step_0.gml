@@ -2,7 +2,7 @@
 
 isActive = false;
 
-if (instance_exists_fast(owner))
+if (owner != noone) 
 {
     if (owner.isActive) && (instance_exists_fast(owner.owner))
     {        

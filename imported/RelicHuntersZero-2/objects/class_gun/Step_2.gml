@@ -1,5 +1,5 @@
 /// Follow Owner Position
-if instance_exists_fast(owner)
+if (owner != noone)
 {
     x = owner.x;
     if (isActive) 

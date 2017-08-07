@@ -1,5 +1,5 @@
 ///Weapon Level
-if (instance_exists_fast(owner)){
+if (owner != noone){
     if (!storeOriginalDamage) || (storeOriginalName == "") {
 
         weaponLevelBonus[0] = 0;
@@ -23,12 +23,10 @@ if (instance_exists_fast(owner)){
         damage = owner.melee_damage + meleeDamage;
         projectile_damage = damage;
     }
-}
+
 
 ///Animation & Movement
 
-if instance_exists_fast(owner)
-{
     x = owner.x;
     y = owner.y;
     
@@ -43,8 +41,6 @@ if instance_exists_fast(owner)
     image_xscale = owner.image_xscale;
     depth = owner.depth-1;
 }
-else instance_destroy();
-
 
 ///Set Camera Distance When Zoomed
 if (isActive) && instance_exists(controller_camera)

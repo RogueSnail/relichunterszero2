@@ -1,6 +1,6 @@
 ///Animation & Movement
 
-if instance_exists_fast(owner)
+if (owner != noone)
 {
     x = owner.x;
     y = owner.y;

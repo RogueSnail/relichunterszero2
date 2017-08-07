@@ -2,7 +2,7 @@
 
 var timeToDie = false;
 
-if (instance_exists_fast(owner)) 
+if (owner != noone)  
 {
     if (instance_exists_fast(owner.owner))
     {
@@ -27,7 +27,7 @@ if (isActive)
         image_speed = animationSpeed;
         animationTrigger = false;
         
-        if (instance_exists_fast(owner)) 
+        if (owner != noone) 
 		{
 			if (instance_exists_fast(owner.owner))
 	        {

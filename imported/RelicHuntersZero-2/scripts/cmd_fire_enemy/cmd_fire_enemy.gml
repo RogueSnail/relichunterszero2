@@ -11,11 +11,12 @@ if (owner != noone)
             
         projectile = instance_create_layer(projectileX,projectileY,"Interactive",projectile_obj);
         projectile.myGun = id;
+		projectile.owner = owner;
         projectile.speed_per_second = projectile_speed * global.enemyProjectileSpeed;
         projectile.decay = projectile_speed_decay * global.enemyProjectileSpeed;
         projectile.range = projectile_range;
         projectile.push_power = projectile_power;
-        projectile.ammo_type = ammo_type;
+        projectile.ammo_type = ammo_type;		
                         
         var precision = random_range(-accuracy,accuracy);
         projectile.direction = shoot_direction+precision;
