@@ -48,3 +48,5 @@ playLoop = false;
 playLoopSound = -1;
 
 ammo_type = type_light;
+
+scheduled_to_destroy = false;

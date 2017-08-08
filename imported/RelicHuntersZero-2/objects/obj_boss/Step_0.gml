@@ -9,7 +9,6 @@ if (look_direction == 1) image_xscale = 1;
 else image_xscale = -1;
 
 
-
 //Hit Taken
 if (hit_taken)
 {   
@@ -118,162 +117,161 @@ if (!energy) && (shield == true)
 }
 
 ///HP Milestones & Boss Phases Control
+if (hpMilestoneCurrent < 4) {
+	if (hpMilestoneCurrent == 0)
+	{
+	    if hp < hpMilestone1
+	    {
+	        hpMilestoneCurrent = 1;
 
-if (hpMilestoneCurrent == 0)
-{
-    if hp < hpMilestone1
-    {
-        hpMilestoneCurrent = 1;
+	        shield = true;
+	        elite = true;
+	        energy = energy_max;
+	        if instance_exists(obj_generator1)
+	        {
+	            obj_generator1.isVulnerable = true;
+	            show_debug_message("Boss just toggled generator1 variable isVulnerable to "+string(obj_generator1.isVulnerable));
+	        }
+        
+	        //Wave 1
+	        instance_create_layer(1928,832,"Interactive",obj_turtle3);
+	        instance_create_layer(2120,832,"Interactive",obj_turtle3);
+	        instance_create_layer(2100,832,"Interactive",obj_turtle3);
+        
+	        instance_create_layer(1700,850,"Interactive",obj_turtle2_shotgun);
+	        instance_create_layer(1696,480,"Interactive",obj_turtle2_shotgun);
+	        instance_create_layer(2048,480,"Interactive",obj_turtle3);
+	        instance_create_layer(2000,480,"Interactive",obj_turtle3);
+        
+	        instance_create_layer(2432,900,"Interactive",obj_turtle2_submachinegun);
+	        instance_create_layer(2550,900,"Interactive",obj_turtle2_submachinegun);
+	        instance_create_layer(2390,880,"Interactive",obj_turtle3);
+	    }
+	}
 
-        shield = true;
-        elite = true;
-        energy = energy_max;
-        if instance_exists(obj_generator1)
-        {
-            obj_generator1.isVulnerable = true;
-            show_debug_message("Boss just toggled generator1 variable isVulnerable to "+string(obj_generator1.isVulnerable));
-        }
-        
-        //Wave 1
-        instance_create_layer(1928,832,"Interactive",obj_turtle3);
-        instance_create_layer(2120,832,"Interactive",obj_turtle3);
-        instance_create_layer(2100,832,"Interactive",obj_turtle3);
-        
-        instance_create_layer(1700,850,"Interactive",obj_turtle2_shotgun);
-        instance_create_layer(1696,480,"Interactive",obj_turtle2_shotgun);
-        instance_create_layer(2048,480,"Interactive",obj_turtle3);
-        instance_create_layer(2000,480,"Interactive",obj_turtle3);
-        
-        instance_create_layer(2432,900,"Interactive",obj_turtle2_submachinegun);
-        instance_create_layer(2550,900,"Interactive",obj_turtle2_submachinegun);
-        instance_create_layer(2390,880,"Interactive",obj_turtle3);
-    }
-}
-
-if (hpMilestoneCurrent == 1)
-{
-    if (!instance_exists(obj_generator1))
-    {
-        shield = false;
-        elite = false;
-        energy = 0;
-    }
+	else if (hpMilestoneCurrent == 1)
+	{
+	    if (!instance_exists(obj_generator1))
+	    {
+	        shield = false;
+	        elite = false;
+	        energy = 0;
+	    }
     
-    if hp < hpMilestone2
-    {
-        hpMilestoneCurrent = 2;
+	    if hp < hpMilestone2
+	    {
+	        hpMilestoneCurrent = 2;
         
-        shield = true;
-        elite = true;
-        energy = energy_max;
-        if instance_exists(obj_generator2)
-        {
-            obj_generator2.isVulnerable = true;
-        }
+	        shield = true;
+	        elite = true;
+	        energy = energy_max;
+	        if instance_exists(obj_generator2)
+	        {
+	            obj_generator2.isVulnerable = true;
+	        }
         
-        //Wave 2
-        instance_create_layer(832,1472,"Interactive",obj_turtle3);
-        instance_create_layer(832,1664,"Interactive",obj_turtle3);
-        instance_create_layer(832,1728,"Interactive",obj_turtle2_submachinegun);
+	        //Wave 2
+	        instance_create_layer(832,1472,"Interactive",obj_turtle3);
+	        instance_create_layer(832,1664,"Interactive",obj_turtle3);
+	        instance_create_layer(832,1728,"Interactive",obj_turtle2_submachinegun);
         
-        instance_create_layer(1088,2112,"Interactive",obj_duck3);
-        instance_create_layer(1088,2240,"Interactive",obj_duck2_submachinegun);
-        instance_create_layer(1088,2190,"Interactive",obj_duck2_submachinegun);
+	        instance_create_layer(1088,2112,"Interactive",obj_duck3);
+	        instance_create_layer(1088,2240,"Interactive",obj_duck2_submachinegun);
+	        instance_create_layer(1088,2190,"Interactive",obj_duck2_submachinegun);
         
-        instance_create_layer(2240,2176,"Interactive",obj_duck2_shotgun);
-        instance_create_layer(2112,2176,"Interactive",obj_turtle3);
-        instance_create_layer(2368,2176,"Interactive",obj_turtle3);
+	        instance_create_layer(2240,2176,"Interactive",obj_duck2_shotgun);
+	        instance_create_layer(2112,2176,"Interactive",obj_turtle3);
+	        instance_create_layer(2368,2176,"Interactive",obj_turtle3);
         
-        instance_create_layer(3136,2048,"Interactive",obj_turtle3_sniper);
-        instance_create_layer(3200,1024,"Interactive",obj_turtle3_sniper);
+	        instance_create_layer(3136,2048,"Interactive",obj_turtle3_sniper);
+	        instance_create_layer(3200,1024,"Interactive",obj_turtle3_sniper);
         
-        instance_create_layer(2240,832,"Interactive",obj_turtle3);
-        instance_create_layer(2240,896,"Interactive",obj_turtle3);
-        instance_create_layer(2240,960,"Interactive",obj_turtle3);
-    }
-}
+	        instance_create_layer(2240,832,"Interactive",obj_turtle3);
+	        instance_create_layer(2240,896,"Interactive",obj_turtle3);
+	        instance_create_layer(2240,960,"Interactive",obj_turtle3);
+	    }
+	}
 
-if (hpMilestoneCurrent == 2)
-{
-    if (!instance_exists(obj_generator2))
-    {
-        shield = false;
-        elite = false;
-        energy = 0;
-    }
+	else if (hpMilestoneCurrent == 2)
+	{
+	    if (!instance_exists(obj_generator2))
+	    {
+	        shield = false;
+	        elite = false;
+	        energy = 0;
+	    }
     
-    if hp < hpMilestone3
-    {
-        hpMilestoneCurrent = 3;
+	    if hp < hpMilestone3
+	    {
+	        hpMilestoneCurrent = 3;
         
-        shield = true;
-        elite = true;
-        energy = energy_max;
-        if instance_exists(obj_generator3)
-        {
-            obj_generator3.isVulnerable = true;
-        }
+	        shield = true;
+	        elite = true;
+	        energy = energy_max;
+	        if instance_exists(obj_generator3)
+	        {
+	            obj_generator3.isVulnerable = true;
+	        }
         
-        //Wave 3
-        instance_create_layer(896,1472,"Interactive",obj_turtle3);
-        instance_create_layer(896,1600,"Interactive",obj_turtle3);
-        instance_create_layer(1024,1472,"Interactive",obj_duck2_submachinegun);
-        instance_create_layer(1024,1600,"Interactive",obj_duck3);
+	        //Wave 3
+	        instance_create_layer(896,1472,"Interactive",obj_turtle3);
+	        instance_create_layer(896,1600,"Interactive",obj_turtle3);
+	        instance_create_layer(1024,1472,"Interactive",obj_duck2_submachinegun);
+	        instance_create_layer(1024,1600,"Interactive",obj_duck3);
 
-        instance_create_layer(3520,896,"Interactive",obj_duck3_rocket);
+	        instance_create_layer(3520,896,"Interactive",obj_duck3_rocket);
         
-        instance_create_layer(1536,2176,"Interactive",obj_duck2_submachinegun);
-        instance_create_layer(1664,2176,"Interactive",obj_duck2_submachinegun);
+	        instance_create_layer(1536,2176,"Interactive",obj_duck2_submachinegun);
+	        instance_create_layer(1664,2176,"Interactive",obj_duck2_submachinegun);
         
-        instance_create_layer(3456,2176,"Interactive",obj_turtle2_shotgun);
-        instance_create_layer(3520,2176,"Interactive",obj_turtle2_shotgun);
+	        instance_create_layer(3456,2176,"Interactive",obj_turtle2_shotgun);
+	        instance_create_layer(3520,2176,"Interactive",obj_turtle2_shotgun);
         
-        instance_create_layer(3456,1120,"Interactive",obj_duck3);
+	        instance_create_layer(3456,1120,"Interactive",obj_duck3);
         
-        instance_create_layer(3008,1088,"Interactive",obj_duck2_shotgun);
+	        instance_create_layer(3008,1088,"Interactive",obj_duck2_shotgun);
 
-    }
-}
+	    }
+	}
 
-if (hpMilestoneCurrent == 3)
-{
-    //if (!instance_exists(obj_generator3))
-    {
-        hpMilestoneCurrent = 4;
+	else if (hpMilestoneCurrent == 3)
+	{
+	    //if (!instance_exists(obj_generator3))
+	    {
+	        hpMilestoneCurrent = 4;
         
-        shield = false;
-        elite = false;
-        energy = -1;
-        energy_max = -1;
+	        shield = false;
+	        elite = false;
+	        energy = -1;
+	        energy_max = -1;
         
-        isMoveable = true;
-        ai_grenade_chance = 0.12;
+	        isMoveable = true;
+	        ai_grenade_chance = 0.12;
         
-        aggro_distance = 1500;
+	        aggro_distance = 1500;
         
-        aggro_add_patrol = 0.5;
-        aggro_add_close = 2;
-        aggro_add_hit = aggro_max;
-        aggro_cost_attack = 10;
-        aggro_cost_chase = 1;
+	        aggro_add_patrol = 0.5;
+	        aggro_add_close = 2;
+	        aggro_add_hit = aggro_max;
+	        aggro_cost_attack = 10;
+	        aggro_cost_chase = 1;
         
-        fire_range = 1500;
-        speed_walk = 2.5;
-        speed_sprint = 3.2;
+	        fire_range = 1500;
+	        speed_walk = 2.5;
+	        speed_sprint = 3.2;
         
-        ai_dash_chance = 0;
-        ai_dash_cooldown = 0;//room_speed*9999999999;
+	        ai_dash_chance = 0;
+	        ai_dash_cooldown = 0;//room_speed*9999999999;
         
-        ai_supression = false;
-    }   
+	        ai_supression = false;
+	    }   
+	}
 }
 
 ///Homing Rockets Launch
-
 var wantToFire = false;
 var fireRocket = false;
 var fireAngleModifier = 0;
-
 
 if (rocketTimeCurrent < rocketTime) && (!wantToFire) rocketTimeCurrent += delta_time;
 else wantToFire = true;
@@ -287,8 +285,8 @@ if (wantToFire)
             rocketFireBurstRateCurrent = 0;
             
             if (rocketFireBurst == 3) fireAngleModifier = 160;
-            if (rocketFireBurst == 2) fireAngleModifier = 180;
-            if (rocketFireBurst == 1) fireAngleModifier = 200;
+            else if (rocketFireBurst == 2) fireAngleModifier = 180;
+            else if (rocketFireBurst == 1) fireAngleModifier = 200;
             
             rocketFireBurst--;
             fireRocket = true;
@@ -303,8 +301,6 @@ if (wantToFire)
         rocketFireBurst = rocketFireBurstMax;
     }
 }
-
-
 
 if (fireRocket)
 {
@@ -603,7 +599,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 }
 
 //Look Direction
-if instance_exists(ai_target)
+if instance_exists_fast(ai_target)
 {
     if (ai_target.x > x) look_direction = 1;   
     else look_direction = 0;

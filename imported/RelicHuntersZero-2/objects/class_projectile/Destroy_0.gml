@@ -6,5 +6,3 @@ if ((hit == noone) && (global.count_particles < global.max_particles))
     hit.type = ammo_type;
 }
 
-ds_list_destroy(damage_list);
-ds_list_add(global.audio_cleaner,audio_emitter);

@@ -9,82 +9,80 @@ if (look_direction == 1) image_xscale = myScale*1;
 else image_xscale = -1*myScale;
 
 //Hit Taken
-if (transforming) || (defenseMode)
+if (transforming)
 {
-    if (transforming)
+	show_debug_message("kamitank transforming image index " + string(image_index) + " " + string(image_number-1));
+    sprite_index = sprite_transforming;
+	image_speed = 0.2;
+    if (image_index == image_number-1) 
     {
-        sprite_index = sprite_transforming;
-        if (image_index == image_number-1) 
+        transforming = false;
+        defenseMode = true;
+		image_speed = 0;
+    }
+}
+else if (defenseMode) {
+	show_debug_message("kamitank defenseMode" );
+    sprite_index = sprite_defense;
+    if (hit_taken)
+    {   
+        hit_taken_count += delta_time;
+                
+        if (hit_taken_count >= hit_taken_max) hit_taken = false;
+        if (image_index == image_number-1) image_speed = 0;
+                
+        if hit_taken_count = 1
         {
-            transforming = false;
-            defenseMode = true;
+            sprite_index = sprite_hit_defense;
+            image_speed = 0.05;
+            image_index = 0;
         }
     }
-    else{
-        sprite_index = sprite_defense;
-        if (hit_taken)
-        {   
-            hit_taken_count += delta_time;
-                
-            if (hit_taken_count >= hit_taken_max) hit_taken = false;
-            if (image_index == image_number-1) image_speed = 0;
-                
-            if hit_taken_count = 1
-            {
-                sprite_index = sprite_hit_defense;
-                image_speed = 0.05;
-                image_index = 0;
-            }
-        }
-        else 
-		{ 
-			hit_taken_count = 0; 
-			image_speed = 0.2; 
-		}
+    else 
+	{ 
+		hit_taken_count = 0; 
+		image_speed = 0.2; 
+	}
+}
+else if (hit_taken)
+{   
+    hit_taken_count++;
+        
+    if (hit_taken_count >= hit_taken_max) hit_taken = false;
+    if (image_index == image_number-1) image_speed = 0;
+        
+    if (hit_taken_count > 0) && (sprite_index != sprite_hit)
+    {
+        sprite_index = sprite_hit;
+        image_speed = 0.2;
+        image_index = 0;
     }
 }
 else
 {
-    if (hit_taken)
-    {   
-        hit_taken_count ++	;
+    if (moving) sprite_index = sprite_walk;
+    else sprite_index = sprite_idle;
         
-        if (hit_taken_count >= hit_taken_max) hit_taken = false;
-        if (image_index == image_number-1) image_speed = 0;
-        
-        if (hit_taken_count > 0) && (sprite_index != sprite_hit)
-        {
-            sprite_index = sprite_hit;
-            image_speed = 0.2;
-            image_index = 0;
-        }
-    }
-    else
+    if (dodging)
     {
-        if (moving) sprite_index = sprite_walk;
-        else sprite_index = sprite_idle;
-        
-        if (dodging)
+        if (!instance_exists_fast(myDash))
         {
-            if (!instance_exists_fast(myDash))
-            {
-                myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
-				owner_add_owned_instance(myDash);
-                myDash.slowness = 2;
-                myDash.alpha = 100;
-            }
-            if (!instance_exists_fast(myDash2))
-            {
-                myDash2 = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
-                owner_add_owned_instance(myDash2);
-                myDash2.slowness = 4;
-                myDash2.alpha = 60;
-            }
-            sprite_index = sprite_dash;
+            myDash = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
+			owner_add_owned_instance(myDash);
+            myDash.slowness = 2;
+            myDash.alpha = 100;
         }
-        image_speed = 0.2;
-        hit_taken_count = 0;
+        if (!instance_exists_fast(myDash2))
+        {
+            myDash2 = instance_create_layer(x,y,"Interactive",fx_kamikaze_dash);
+            owner_add_owned_instance(myDash2);
+            myDash2.slowness = 4;
+            myDash2.alpha = 60;
+        }
+        sprite_index = sprite_dash;
     }
+    image_speed = 0.2;
+    hit_taken_count = 0;
 }
 
 ///Life
@@ -98,7 +96,11 @@ if (defenseCooldownCurrent < defenseCooldown) {
 	defenseCooldownCurrent += delta_time;
 }
 else if (!transforming) && (!defenseMode) {
+	show_debug_message("kamitank transforming = true" );
     transforming = true;
+    sprite_index = sprite_transforming;
+    image_speed = 0.2;
+    image_index = 0;
 }
 
 if (defenseMode)
@@ -106,6 +108,7 @@ if (defenseMode)
     defenseModeDurationCurrent += delta_time;
     if (defenseModeDurationCurrent >= defenseModeDuration)
     {
+		show_debug_message("kamitank leaving defense mode" );
         defenseMode = false;
         wantToSuperDash = true;
         defenseCooldownCurrent = 0;
@@ -115,14 +118,16 @@ if (defenseMode)
     }
     else
     {
+		show_debug_message("kamitank defense mode current");
+		show_debug_message(string(defenseModeDurationCurrent));
         ///Expand Radius
         if (defenseModeDurationCurrent >= 1000000)
         {
-            if (radiusSpeed < radiusSpeedMax) radiusSpeed += min ( radiusAccel, (radiusSpeedMax-radiusSpeed));
+            if (radiusSpeed < radiusSpeedMax) radiusSpeed = min (radiusSpeedMax, radiusSpeed + (radiusAccel * delta_time * ms_to_s_60));
         
             if (radius < radiusFinal) radius += min(radiusSpeed, (radiusFinal-radius) );
             
-            radiusAlpha -= radiusAlphaSpeed;
+            radiusAlpha = max(0, radiusAlpha - radiusAlphaSpeed);
         }
         
 		//TODO
@@ -179,6 +184,8 @@ if (!ai_active)
         ai_active = true;
         activationFX = instance_create_layer(x,y,"Interactive",fx_activation);
         owner_add_owned_instance(activationFX);
+		
+		show_debug_message("kamitank want to activate");
     }
 }
 
@@ -222,6 +229,9 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     
     if instance_exists_fast(ai_target) && (!pushed)
     {
+		show_debug_message("kamitank AI state");
+		show_debug_message(ai_state);		
+		
         //Aggro Control
         if (distance_to_target <= aggro_distance) aggro += aggro_add_close;
         if (ai_state == "PATROL") aggro += aggro_add_patrol;
@@ -327,13 +337,14 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
 		{
 			ai_dash_cooldown_current += delta_time;
 		}
-    }
-    
-    
-    
+    }    
    
     //Don't Move While Transforming
-    if (transforming) || (defenseMode) { ai_movetarget_x = -1; ai_movetarget_y = -1; } 
+    if (transforming) || (defenseMode) { 
+	
+		show_debug_message("Don't Move While Transforming or defense mode");
+		ai_movetarget_x = -1; ai_movetarget_y = -1; 
+	} 
 
     //Resolve
     path_update();
@@ -341,6 +352,7 @@ if (ai_active) && ( (distance_to_player < ai_shutdown_range) || (on_screen(x,y))
     moving = false;
     if (ai_movetarget_x) && (ai_movetarget_y) && point_distance(x,y,ai_movetarget_x,ai_movetarget_y) > 3
     {
+		show_debug_message("Kamitank moving");
         moving = true;
     }
 }
@@ -379,6 +391,8 @@ is_player = false;
 myEnemy = noone;
 damage_timer_current += delta_time;
 if (damage_timer_current >= damage_timer) && (!hit_taken) {
+
+	show_debug_message("Kamitank damage_timer_current > damage_timer");
 
 	myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_player,false,true);
 	if (myEnemy == noone) myEnemy = collision_ellipse(bbox_left,bbox_top,bbox_right,bbox_bottom,faction_ducan,false,true);
