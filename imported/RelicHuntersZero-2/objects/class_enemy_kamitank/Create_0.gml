@@ -4,11 +4,10 @@ shield = false;
 overshield = 0;
 energy_max = 0;
 energy = energy_max;
-hp_max = 9999;
+hp_max = 999999;
 hp = hp_max;
 critical_death = false;
 myScale = 1;
-
 
 rocketList = ds_list_create();
 animationTrigger = false;
@@ -33,7 +32,7 @@ defenseMode = false;
 transforming = false;
 
 defenseCooldown = 9000000;//room_speed*9;
-defenseCooldownCurrent = irandom(defenseCooldown);
+defenseCooldownCurrent = irandom(9) * 1000000;
 
 defenseModeDuration = 4000000;//room_speed*4;
 defenseModeDurationCurrent = 0;
@@ -82,7 +81,7 @@ collision_mass = 1+random(1);
 
 //VFX
 hit_taken = false;
-hit_taken_max = 100000;//room_speed*0.1;
+hit_taken_max = 6;//room_speed*0.1;
 hit_taken_count = 0;
 hit_direction = 0;
 
@@ -148,7 +147,3 @@ radiusAlphaSpeed = 0.03;
 audio_emitter = audio_emitter_create();
 audio_emitter_falloff(audio_emitter, global.falloffMinorDist, global.falloffMinorMax , global.falloffMinorFactor);
 audio_emitter_gain(audio_emitter,global.soundVolume);
-
-
-
-

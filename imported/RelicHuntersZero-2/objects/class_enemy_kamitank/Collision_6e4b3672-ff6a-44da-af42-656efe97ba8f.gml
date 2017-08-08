@@ -12,7 +12,8 @@ if (defenseMode) && (instance_exists(other))
         var newAmmoType = other.ammo_type;
         var newType = other.type;
         var newDamage = round(other.damage * reflectDamageMultiplier);
-                
+
+		show_debug_message("kamitank reflect player projectile");
         newProjectile = instance_create_layer(other.x,other.y,"Interactive",obj_projectile_player);
 		owner_add_owned_instance(newProjectile);
         newProjectile.speed_per_second = newSpeed;
@@ -26,7 +27,9 @@ if (defenseMode) && (instance_exists(other))
         newProjectile.damage = newDamage;
         newProjectile.distance_travelled = 0;
                 
-        with (other) instance_destroy();
+        with (other) {
+			scheduled_to_destroy = true;
+		}
                 
         animationTrigger = true;
     }

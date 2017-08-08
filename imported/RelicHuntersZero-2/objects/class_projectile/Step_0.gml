@@ -1,5 +1,7 @@
 /// Pause-Controlled Movement
 
+if (scheduled_to_destroy) exit;
+
 if (!global.pause)
 {
     //Speed Reset After Pause
