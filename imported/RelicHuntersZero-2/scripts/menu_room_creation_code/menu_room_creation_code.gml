@@ -1,8 +1,8 @@
 show_debug_message(room_get_name(room));
 
 controller = instance_create_layer(0,0,"Controllers",controller_menu_main);
-
 buttonController = instance_create_layer(0,0,"Controllers",controller_menuButtons);
+steamUGCController = instance_create_layer(100,100,"Controllers",controller_steamUGC);
 
 //buttonController.allowDynamicInputSwitch = true;
 goToNextRoom = false;

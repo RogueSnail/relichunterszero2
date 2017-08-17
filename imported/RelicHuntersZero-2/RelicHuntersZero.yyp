@@ -6711,6 +6711,14 @@
             }
         },
         {
+            "Key": "69d06498-8b77-4d18-a185-12b3e55a239b",
+            "Value": {
+                "id": "8da9c1f7-7067-4515-9a9d-0d5b6d19ae3d",
+                "resourcePath": "objects\\controller_steamUGC\\controller_steamUGC.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "69f62fba-a4b3-435a-980a-78a9bff1bf56",
             "Value": {
                 "id": "01187404-9cc2-42d4-b2fd-ff4b811799ce",
@@ -12871,6 +12879,14 @@
             }
         },
         {
+            "Key": "cfe67831-a8c1-4036-9da6-ad8d4ddd94b0",
+            "Value": {
+                "id": "42ca9afa-8eef-4d85-9bc7-4ae7de83a9b2",
+                "resourcePath": "views\\cfe67831-a8c1-4036-9da6-ad8d4ddd94b0.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "cfe93893-410d-4221-b155-d0d9bcc4c701",
             "Value": {
                 "id": "dc2f3240-7f38-4c80-82d6-74c6e12d89b9",
@@ -14935,6 +14951,14 @@
             }
         },
         {
+            "Key": "eefee0ff-27a5-4d0a-8067-cefe5b0ef6b7",
+            "Value": {
+                "id": "72eb8a10-89b3-4dab-96dc-9197f8b2a066",
+                "resourcePath": "scripts\\next_power_of_two\\next_power_of_two.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ef1a24fe-c996-4945-b175-e5b348d9649c",
             "Value": {
                 "id": "70652545-50c3-4ac7-b4b3-0bc55bd46309",
@@ -16103,6 +16127,7 @@
         "932edee2-f60f-4ccf-9580-eeb2135250c4",
         "adf1f488-9648-45dc-abdb-a9c9ff1bbc0a",
         "08bcf12f-e801-4880-b06c-5eabcda5d0c5",
+        "eefee0ff-27a5-4d0a-8067-cefe5b0ef6b7",
         "f64b698b-2e56-4dbc-9e51-6871d8d7ad45",
         "d329f0a0-7c7a-483a-9487-fc62530750a9",
         "369574d7-eeca-40e9-a732-d112b14cb429",
