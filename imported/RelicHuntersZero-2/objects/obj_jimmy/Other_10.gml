@@ -13,9 +13,16 @@ overshield = global.overshield[myPlayerId];
     
     if global.weapon2[myPlayerId] != noone
     {
-        show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
+        //show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
         
         weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
+		if(global.weapon2_isMod[myPlayerId]){
+			var tmpFolder = global.weapon2_modFolder[myPlayerId];
+			//var tmpData = global.weapon2_modConfigData[myPlayerId];
+			with (weapon2) {
+				load_mod_gun_config(tmpFolder);
+			}		
+		}
         owner_add_owned_instance(weapon2);
         weapon2.weaponLevel = global.weapon2Level[myPlayerId];
         draw_gun(weapon2);
@@ -27,6 +34,13 @@ overshield = global.overshield[myPlayerId];
         show_debug_message("weapon1[myPlayerId] returns "+string(global.weapon1[myPlayerId]));
         
         weapon1 = instance_create_layer(x,y,"Interactive",global.weapon1[myPlayerId]);
+		if(global.weapon1_isMod[myPlayerId]){
+			var tmpFolder = global.weapon1_modFolder[myPlayerId];
+			//var tmpData = global.weapon1_modConfigData[myPlayerId];
+			with (weapon1) {
+				load_mod_gun_config(tmpFolder);
+			}		
+		}
         owner_add_owned_instance(weapon1);
         weapon1.weaponLevel = global.weapon1Level[myPlayerId];
         draw_gun(weapon1);
@@ -34,9 +48,15 @@ overshield = global.overshield[myPlayerId];
     }
     else
     {
-		show_debug_message("here");
-        weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol_jimmy);
-        owner_add_owned_instance(weapon1);
+		//show_debug_message("here");
+        //weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol_jimmy);
+        //owner_add_owned_instance(weapon1);
+		weapon1 = instance_create_layer(x,y,"Interactive",obj_mod_gun);
+		with (weapon1) {
+			load_mod_gun_config(global.steamUGCItemsListFolder[| 0]);
+		}
+		owner_add_owned_instance(weapon1);
+		
         draw_gun(weapon1);
     }
        

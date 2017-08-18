@@ -343,6 +343,14 @@
             }
         },
         {
+            "Key": "0535874c-220f-4814-a2ce-90348636959d",
+            "Value": {
+                "id": "de849a44-ac51-40ec-877c-fc63eb928f0e",
+                "resourcePath": "scripts\\gun_set_animation_frame\\gun_set_animation_frame.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "053807ec-73e4-4ab4-b66f-075c800f58d5",
             "Value": {
                 "id": "47a64806-6f55-4556-937b-4fdfbaf1cf54",
@@ -7535,6 +7543,14 @@
             }
         },
         {
+            "Key": "77198308-4cf6-44b5-a67a-0c33dc52564b",
+            "Value": {
+                "id": "4fe5be78-b3aa-4b4b-85a6-48ff7e8b1f8d",
+                "resourcePath": "objects\\obj_mod_gun\\obj_mod_gun.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "77536d85-6960-4443-bcf7-a9a48638175b",
             "Value": {
                 "id": "1a511032-9bf5-42cd-a884-6d1c225ce2e6",
@@ -7667,6 +7683,14 @@
             "Value": {
                 "id": "f99a5eb5-d2ae-459f-b497-6315eba58aa0",
                 "resourcePath": "sprites\\spr_crystal2\\spr_crystal2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "78cfd2ac-cd33-4dfb-b9cc-b422768fd7c2",
+            "Value": {
+                "id": "00d7728e-4c2a-4a64-a05c-66d45504aad7",
+                "resourcePath": "sprites\\gun_mod_default_sprite\\gun_mod_default_sprite.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -14111,6 +14135,14 @@
             }
         },
         {
+            "Key": "e23c3af0-c64d-49f8-86bb-c897117d6b02",
+            "Value": {
+                "id": "aafdaf12-fed0-4078-9daf-922b86fd15da",
+                "resourcePath": "scripts\\load_mod_gun_config\\load_mod_gun_config.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e25286db-f564-4496-abd9-74ac59a5e6d7",
             "Value": {
                 "id": "0ee6f3f1-5f57-41c6-ae16-a856282255a5",
@@ -16198,7 +16230,9 @@
         "b1a3f959-1ba2-404a-b915-b223024831e1",
         "792e175c-a612-4661-b1d8-59a1db7b52e2",
         "330a21b6-b9cd-4413-92a6-574662b946e8",
-        "c2a70642-dff0-47f6-8804-5da9cf9cea59"
+        "c2a70642-dff0-47f6-8804-5da9cf9cea59",
+        "e23c3af0-c64d-49f8-86bb-c897117d6b02",
+        "0535874c-220f-4814-a2ce-90348636959d"
     ],
     "tutorial": ""
 }
