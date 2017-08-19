@@ -8951,6 +8951,14 @@
             }
         },
         {
+            "Key": "8da63639-c678-4b1b-9475-cddae85971c4",
+            "Value": {
+                "id": "f7b997eb-8e15-4ebf-81c6-5b4a86eff842",
+                "resourcePath": "objects\\obj_pickup_mod_gun\\obj_pickup_mod_gun.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8dbd0008-7267-4a14-8677-9ddd5d5cf8d4",
             "Value": {
                 "id": "44a08e3c-7ecf-4eaf-bc53-59ddd6d9d2d4",

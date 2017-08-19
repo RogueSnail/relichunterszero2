@@ -5,7 +5,7 @@ var configFilename = "config.json";
 var spritesheetFilename = "spritesheet.png";
 var fullPath = ugcItemFolder + "\\" + configFilename;
 
-show_debug_message(ugcItemFolder);
+//show_debug_message(ugcItemFolder);
 //show_debug_message(ugcConfigData);
 
 //set weapon as mod weapon
@@ -133,3 +133,5 @@ if file_exists(fullPath)
 }
 
 gun_set_animation_frame("default");
+
+gui_info_weapon_create(instance_nearest(x,y,class_player),c_white,name);
