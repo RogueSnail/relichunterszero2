@@ -22,6 +22,7 @@ if (instance_exists_fast(activationClient))
     
         activationClient.play_sound_pickup_weapon = true;
     
+		// if does not have a 2nd weapon, adds and destroy pickup
         if (activationClient.weapon2 == noone)
         {
             activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);	
@@ -130,14 +131,17 @@ if (instance_exists_fast(activationClient))
             }   
         }
         
+		// if has 2 weapons, check active weapon and change it
         if activationClient.myGun == activationClient.weapon1
         {
+			//create a pickup 
             new_pickup = instance_create_layer(x,y,"Interactive",class_pickup_weapon);
             new_pickup.gun = activationClient.weapon1.object;
             new_pickup.gun_ammo_current = activationClient.weapon1.ammo_current;
             new_pickup.sprite = activationClient.weapon1.sprite_index;
             new_pickup.weaponLevel = activationClient.weapon1.weaponLevel;
             new_pickup.name = activationClient.weapon1.name;
+			
             
             with(activationClient.weapon1)
             {
