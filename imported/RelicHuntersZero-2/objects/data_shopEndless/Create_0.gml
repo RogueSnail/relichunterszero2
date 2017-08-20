@@ -25,6 +25,7 @@ if (!check_weapon_owned(obj_pistol_heavy,1)) ds_list_add(global.endShop_tier[1],
 if (!check_weapon_owned(obj_assault_rifle_crude,1)) ds_list_add(global.endShop_tier[1],obj_endShop_crudeAssaultRifle);
 if (!check_weapon_owned(obj_pistol_assault,1)) ds_list_add(global.endShop_tier[1],obj_endShop_assaultPistol);
 if (!check_weapon_owned(obj_sawedoff,1)) ds_list_add(global.endShop_tier[1],obj_endShop_sawedoff);
+ds_list_add(global.endShop_tier[1],obj_endShop_sawedoff);
 
 if (!global.relic_watchful_eye) ds_list_add(global.endShop_tier[1],obj_endShop_watchfulEye);
 if (!global.relic_alcoholic_carrot) ds_list_add(global.endShop_tier[1],obj_endShop_alcoholicCarrot);

@@ -448,6 +448,7 @@ if (global.gameMode == gamemode_endless)
     global.price_endless_blastPistol = 1600;
     global.price_endless_bouncer = 1900;
     global.price_endless_highmag = 2000;
+	global.price_endless_mod_gun_tier1 = irandom_range(6, 20) * 100;
     
     global.price_endless_morningStar = 1800;
     global.price_endless_watchfulEye = 1000;
@@ -468,6 +469,7 @@ if (global.gameMode == gamemode_endless)
     global.price_endless_heavyShotgun = 3000;
     global.price_endless_relicPistol = 3500;
     global.price_endless_kamilauncher = 3000;
+	global.price_endless_mod_gun_tier2 = irandom_range(15, 30) * 100;
     
     global.price_endless_yottabyteDrive = 2500;
     global.price_endless_pineapplePudding = 1800;
@@ -483,6 +485,7 @@ if (global.gameMode == gamemode_endless)
     global.price_endless_relicMinigun = 4000;
     global.price_endless_relicCannon = 4000;
     global.price_endless_relicRocket = 5200;
+	global.price_endless_mod_gun_tier3 = irandom_range(30, 40) * 100;
     
     global.price_endless_devPotion = 4000;
     global.price_endless_crystalBacon = 4000;
@@ -490,7 +493,6 @@ if (global.gameMode == gamemode_endless)
     global.price_endless_yottabyteProcessor = 3000;
     
     //Rare Challenge Times (in Rounds)
-  
     global.challengeHungerRounds = 6;
     global.challengeThirstRounds = 6;
     global.challengeOverchargeRounds = 4;
@@ -509,8 +511,6 @@ if (global.gameMode == gamemode_endless)
     
     global.challengeHuntedRounds = 4;
     global.challengeHauntedRounds = 4;
-    
-    
 }
 
 main_camera = instance_create_layer(x,y,"Controllers",controller_camera);

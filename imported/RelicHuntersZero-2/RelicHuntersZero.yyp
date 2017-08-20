@@ -4855,6 +4855,14 @@
             }
         },
         {
+            "Key": "4b88450d-e8dc-49fb-b34f-9f60ce571202",
+            "Value": {
+                "id": "fd2cb399-d9d4-49df-9e5f-12790f9ef309",
+                "resourcePath": "objects\\obj_endShop_mod_gun\\obj_endShop_mod_gun.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4bd326e7-7c1d-40b6-8bc6-a32ebf10775b",
             "Value": {
                 "id": "83210194-d5e2-4770-ac14-a28113f229cb",
