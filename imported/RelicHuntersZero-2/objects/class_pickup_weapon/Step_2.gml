@@ -22,10 +22,22 @@ if (instance_exists_fast(activationClient))
     
         activationClient.play_sound_pickup_weapon = true;
     
+		// if does not have a 2nd weapon, adds and destroy pickup
         if (activationClient.weapon2 == noone)
         {
             activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);	
             activationClient.weapon2.weaponLevel = weaponLevel;
+			activationClient.weapon2.isMod = isMod;
+			activationClient.weapon2.ugcItemId = ugcItemId;
+			
+			if (activationClient.weapon2.isMod) {
+				with (activationClient.weapon2) {
+					show_debug_message("pickup item id");
+					show_debug_message(ugcItemId);
+					load_mod_gun_config(ugcItemId);
+				}
+			}
+			
             with (activationClient)
             {
 				owner_add_owned_instance(weapon2);
@@ -130,14 +142,18 @@ if (instance_exists_fast(activationClient))
             }   
         }
         
+		// if has 2 weapons, check active weapon and change it
         if activationClient.myGun == activationClient.weapon1
         {
+			//create a pickup 
             new_pickup = instance_create_layer(x,y,"Interactive",class_pickup_weapon);
             new_pickup.gun = activationClient.weapon1.object;
             new_pickup.gun_ammo_current = activationClient.weapon1.ammo_current;
             new_pickup.sprite = activationClient.weapon1.sprite_index;
             new_pickup.weaponLevel = activationClient.weapon1.weaponLevel;
             new_pickup.name = activationClient.weapon1.name;
+			new_pickup.isMod = activationClient.weapon1.isMod;
+			new_pickup.ugcItemId = activationClient.weapon1.ugcItemId;
             
             with(activationClient.weapon1)
             {
@@ -148,6 +164,13 @@ if (instance_exists_fast(activationClient))
             {
                 activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
                 activationClient.weapon1.weaponLevel = weaponLevel;
+				activationClient.weapon1.isMod = isMod;
+				activationClient.weapon1.ugcItemId = ugcItemId;
+				if (activationClient.weapon1.isMod) {
+					with (activationClient.weapon1) {
+						load_mod_gun_config(ugcItemId);
+					}
+				}
                 with (activationClient)
                 {
 					owner_add_owned_instance(weapon1);
@@ -190,6 +213,8 @@ if (instance_exists_fast(activationClient))
             new_pickup.sprite = activationClient.weapon2.sprite_index;
             new_pickup.weaponLevel = activationClient.weapon2.weaponLevel;
             new_pickup.name = activationClient.weapon2.name;
+			new_pickup.isMod = activationClient.weapon2.isMod;
+			new_pickup.ugcItemId = activationClient.weapon2.ugcItemId;
             
             with(activationClient.weapon2)
             {
@@ -200,6 +225,13 @@ if (instance_exists_fast(activationClient))
             {
                 activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
                 activationClient.weapon2.weaponLevel = weaponLevel;
+				activationClient.weapon2.isMod = isMod;
+				activationClient.weapon2.ugcItemId = ugcItemId;
+				if (activationClient.weapon2.isMod) {
+					with (activationClient.weapon2) {
+						load_mod_gun_config(ugcItemId);
+					}
+				}
                 with (activationClient)
                 {
 					owner_add_owned_instance(weapon2);

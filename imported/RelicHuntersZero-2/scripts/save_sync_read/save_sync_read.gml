@@ -20,6 +20,12 @@ ini_open(working_directory + "saveData.ini"); //tava com \\saveData.ini
         global.weapon2Level[p] = ini_read_real("Character","Weapon2LevelPlayer"+string(p),0);
         global.weapon1_ammo[p] = ini_read_real("Character","Ammo1Player"+string(p),999);
         global.weapon2_ammo[p] = ini_read_real("Character","Ammo2Player"+string(p),999);
+		global.weapon1[p] = ini_read_real("Character","Weapon1Player"+string(p),noone);
+		global.weapon1_isMod[p] = ini_read_real("Character","IsModWeapon1Player"+string(p),false);
+		global.weapon1_modId[p] = ini_read_real("Character","ModWeapon1IdPlayer"+string(p),"");
+		global.weapon2_isMod[p] = ini_read_real("Character","IsModWeapon2Player"+string(p),false);
+		global.weapon2_modId[p] = ini_read_real("Character","ModWeapon2IdPlayer"+string(p),"");
+		
         global.hp[p] = ini_read_real("Character","Health"+string(p),999999);
         global.overshield[p] = ini_read_real("Character","Overshield"+string(p),0);
             

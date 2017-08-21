@@ -115,8 +115,20 @@ if (global.endTierItem3 != noone) for (i=1; i<4; i++){
     }
 }
 
+// add as much mod weapons as available
+// check if player 1 or 2 have this mod already
+for (var modIndex = 0; modIndex < ds_list_size(global.steamUGCItemsList); modIndex++) {
+	var modData = global.steamUGCItemsDataMap[? global.steamUGCItemsList[| modIndex]];
+	
+	//only gun mods exist so far
+	if (modData[? "type"] != "gun") continue;
+	if (check_weapon_mod_owned(modData[? "id"],1)) continue;
+	if (global.playerCount == 2 && check_weapon_mod_owned(modData[? "id"],2)) continue;
 
-
+	ds_list_add(global.endShop_tier[1], obj_endShop_mod_gun);
+	ds_list_add(global.endShop_tier[2], obj_endShop_mod_gun);
+	ds_list_add(global.endShop_tier[3], obj_endShop_mod_gun);
+}
 
 ///Add everything to cleanUp list
 
@@ -127,4 +139,3 @@ if (ds_exists(cleanUp,ds_type_list))
     ds_list_add(cleanUp, global.endShop_tier[2]);
     ds_list_add(cleanUp, global.endShop_tier[3]);
 }
-

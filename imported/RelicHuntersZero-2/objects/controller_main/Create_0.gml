@@ -488,6 +488,8 @@ if (global.gameMode == gamemode_endless)
     global.price_endless_crystalBacon = 4000;
     global.price_endless_midnightMeal = 3500;
     global.price_endless_yottabyteProcessor = 3000;
+	
+	global.price_endless_mod_gun = irandom_range(10, 30) * 100;
     
     //Rare Challenge Times (in Rounds)
   

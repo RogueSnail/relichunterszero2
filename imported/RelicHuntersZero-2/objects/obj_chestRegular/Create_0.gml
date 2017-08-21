@@ -56,8 +56,8 @@ if (treasureType == "WEAPON") || (treasureType == "WEAPON_RARE")
     }
     
     //Find the sprite
-    if (spawnWeapon != noone){
-        var spawnToTest = instance_create_layer(0,0,"Interactive",spawnWeapon);
+    if (spawnWeapon != noone && !spawnWeapon.isMod){
+        var spawnToTest = instance_create_layer(0,0,"Interactive",spawnWeapon);		
         spawnSprite = spawnToTest.sprite_index;
         with (spawnToTest) instance_destroy();
     }
