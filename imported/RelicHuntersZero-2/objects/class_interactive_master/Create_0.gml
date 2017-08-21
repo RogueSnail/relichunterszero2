@@ -14,4 +14,4 @@ activationOverride = false;
 
 //mod flag
 isMod = false;
-ugcItemFolder = "";
+ugcItemId = 0;

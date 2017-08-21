@@ -2,7 +2,7 @@ event_inherited();
 
 weaponLevel = 0;
 isMod = false;
-ugcItemFolder = "";
+ugcItemId = 0;
 
 range = 130;
 in_range = false;

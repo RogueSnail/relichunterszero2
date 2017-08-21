@@ -17,10 +17,9 @@ overshield = global.overshield[myPlayerId];
         
         weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
 		if(global.weapon2_isMod[myPlayerId]){
-			var tmpFolder = global.weapon2_modFolder[myPlayerId];
-			//var tmpData = global.weapon2_modConfigData[myPlayerId];
+			var tmpId = global.weapon2_modId[myPlayerId];
 			with (weapon2) {
-				load_mod_gun_config(tmpFolder);
+				load_mod_gun_config(tmpId);
 			}		
 		}
         owner_add_owned_instance(weapon2);
@@ -35,28 +34,28 @@ overshield = global.overshield[myPlayerId];
         
         weapon1 = instance_create_layer(x,y,"Interactive",global.weapon1[myPlayerId]);
 		if(global.weapon1_isMod[myPlayerId]){
-			var tmpFolder = global.weapon1_modFolder[myPlayerId];
-			//var tmpData = global.weapon1_modConfigData[myPlayerId];
+			var tmpId = global.weapon1_modId[myPlayerId];
 			with (weapon1) {
-				load_mod_gun_config(tmpFolder);
+				load_mod_gun_config(tmpId);
 			}		
 		}
         owner_add_owned_instance(weapon1);
         weapon1.weaponLevel = global.weapon1Level[myPlayerId];
         draw_gun(weapon1);
-        if (room!=room_start) weapon1.ammo_current = global.weapon1_ammo[myPlayerId];
+        if (room != room_start) weapon1.ammo_current = global.weapon1_ammo[myPlayerId];
     }
     else
     {
 		//show_debug_message("here");
-        //weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol_jimmy);
-        //owner_add_owned_instance(weapon1);
-		weapon1 = instance_create_layer(x,y,"Interactive",obj_mod_gun);
+        weapon1 = instance_create_layer(x,y,"Interactive",obj_pistol_jimmy);
+        owner_add_owned_instance(weapon1);
+		//testing with mod weapons
+		/*weapon1 = instance_create_layer(x,y,"Interactive",obj_mod_gun);
 		with (weapon1) {
-			load_mod_gun_config(global.steamUGCItemsListFolder[| 0]);
+			var i = irandom(ds_list_size(global.steamUGCItemsList)-1);
+			load_mod_gun_config(global.steamUGCItemsList[| i]);
 		}
-		owner_add_owned_instance(weapon1);
-		
+		owner_add_owned_instance(weapon1);*/		
         draw_gun(weapon1);
     }
        

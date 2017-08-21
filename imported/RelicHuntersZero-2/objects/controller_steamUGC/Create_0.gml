@@ -4,16 +4,15 @@ if (!variable_global_exists("steamUGCChecked")) {
 
 if (!global.steamUGCChecked) {
 
-	global.hasModType = ds_map_create();
+	global.hasModType = ds_map_create();	
 	global.steamUGCItemsList = ds_list_create();
-	global.steamUGCItemsListFolder = ds_list_create();
-	//global.steamUGCItemsListData = ds_list_create();
+	global.steamUGCItemsDataMap = ds_map_create();
 	global.steamUGCChecked = steam_ugc_get_subscribed_items(global.steamUGCItemsList);
 
 	//init mod types
 	ds_map_add(global.hasModType, "gun", false);
 	
-	//
+	//preload each item config
 	if (global.steamUGCChecked) {
 		show_debug_message("steamUGCChecked");
 		for (var i = 0; i < ds_list_size(global.steamUGCItemsList); i += 1)
@@ -32,13 +31,10 @@ if (!global.steamUGCChecked) {
 				fullPath = configFolder + "\\" + configFilename;
 				if file_exists(fullPath)
 				{
-					show_debug_message("file exists 2");		
 					var num = 0;
-				
 					file = file_text_open_read(fullPath);
 					jsonStr = "";
-					while (!file_text_eoln(file))
-					{
+					while (!file_text_eoln(file)) {
 						jsonStr = jsonStr + file_text_readln(file);
 					}
 					file_text_close(file);
@@ -49,13 +45,13 @@ if (!global.steamUGCChecked) {
 					// todo: create a global for each type of mod
 					// eg: gunsList, charactersList
 					// so you can tell how many of each type exists, for endless shop and chests
-					if (configDataMap != -1) {
-						ds_list_add(global.steamUGCItemsListFolder, configFolder);
-						//ds_list_add(global.steamUGCItemsListData, jsonStr);
-						show_debug_message(global.steamUGCItemsListFolder[| i]);
-						//show_debug_message(global.steamUGCItemsListData[| i]);
-						
-						ds_map_replace(global.hasModType, "gun", true);
+					if (configDataMap != -1) {					
+						//add folder and id to data
+						ds_map_add(configDataMap, "folder", configFolder);
+						ds_map_add(configDataMap, "id", value);						
+						ds_map_add(global.steamUGCItemsDataMap, value, configDataMap);
+						ds_map_replace(global.hasModType, configDataMap[? "type"], true);
+						//show_debug_message(global.steamUGCItemsListFolder[| i]);
 					}
 				}
 			} else {
@@ -63,7 +59,13 @@ if (!global.steamUGCChecked) {
 			}
 			//steam_details = steam_ugc_request_item_details(value, 60);
 		}
-		show_debug_message("steamUGCLoaded");
+		show_debug_message("steamUGCLoaded true");
+		
+		//testing ugc data map
+		//var a = global.steamUGCItemsDataMap[? 1114107893];
+		//show_debug_message(a[? "name"]);
+		//show_debug_message(a[? "folder"]);
+		//show_debug_message(a[? "id"]);		
 	} else {
 		show_debug_message("steamUGCChecked false");
 	}

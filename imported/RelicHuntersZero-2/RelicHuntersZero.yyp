@@ -4719,6 +4719,14 @@
             }
         },
         {
+            "Key": "49d8a97d-1be3-412c-ad9c-756ea246601f",
+            "Value": {
+                "id": "55e99849-58cd-4569-bb46-bc80ef6832b8",
+                "resourcePath": "scripts\\load_pickup_mod_gun_config\\load_pickup_mod_gun_config.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "49e6b132-1891-425c-8b36-26169a6e44f9",
             "Value": {
                 "id": "1cfeae65-7f9f-4b99-bdf8-ab61f1f049d7",
@@ -5604,6 +5612,14 @@
                 "id": "d7a0d428-3ff2-40d4-a516-d65cba7a0dda",
                 "resourcePath": "objects\\obj_rocketlauncher\\obj_rocketlauncher.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "572515ba-ccf4-424d-aff3-9761b13c93e6",
+            "Value": {
+                "id": "896e9284-e30b-4b4c-92eb-5f30db1c7d5b",
+                "resourcePath": "scripts\\load_weapon_mod_spritesheet\\load_weapon_mod_spritesheet.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -6788,6 +6804,14 @@
                 "id": "2c7c8963-4b3e-4ee9-8682-2fee13b66d1a",
                 "resourcePath": "sprites\\spr_shotgun_heavy\\spr_shotgun_heavy.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6ac4c9fb-bdfa-4fa3-ab2b-f42a518a6916",
+            "Value": {
+                "id": "b19d2659-f605-4659-8234-94e41a5e09cb",
+                "resourcePath": "scripts\\get_random_gun_mod\\get_random_gun_mod.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -8372,6 +8396,14 @@
                 "id": "3922a0d0-e636-4450-99a0-63582e29c891",
                 "resourcePath": "objects\\menu_char_biu\\menu_char_biu.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "853df4f7-f55e-4cca-983b-21b067b05e87",
+            "Value": {
+                "id": "265e9412-879c-44b7-81d3-7e27cf9fd5fe",
+                "resourcePath": "scripts\\load_endless_shop_mod_gun\\load_endless_shop_mod_gun.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -12567,6 +12599,14 @@
             }
         },
         {
+            "Key": "c88bc1f4-67ac-4f7d-8539-b66de5dfa6ff",
+            "Value": {
+                "id": "de54357e-6e9f-4279-b5a8-983f53c66b28",
+                "resourcePath": "scripts\\check_weapon_mod_owned\\check_weapon_mod_owned.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c8cd4c38-d6b3-4fbb-aa87-f0908a16fd38",
             "Value": {
                 "id": "dab584c8-d919-485a-8d7a-825805321469",
@@ -16248,7 +16288,12 @@
         "330a21b6-b9cd-4413-92a6-574662b946e8",
         "c2a70642-dff0-47f6-8804-5da9cf9cea59",
         "e23c3af0-c64d-49f8-86bb-c897117d6b02",
-        "0535874c-220f-4814-a2ce-90348636959d"
+        "0535874c-220f-4814-a2ce-90348636959d",
+        "c88bc1f4-67ac-4f7d-8539-b66de5dfa6ff",
+        "49d8a97d-1be3-412c-ad9c-756ea246601f",
+        "6ac4c9fb-bdfa-4fa3-ab2b-f42a518a6916",
+        "853df4f7-f55e-4cca-983b-21b067b05e87",
+        "572515ba-ccf4-424d-aff3-9761b13c93e6"
     ],
     "tutorial": ""
 }

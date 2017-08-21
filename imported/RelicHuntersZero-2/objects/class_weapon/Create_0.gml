@@ -2,7 +2,7 @@
 event_inherited();
 isRelicWeapon = false; //<-- class starts to become useful :-)
 isMod = false; //is mod weapon flag
-ugcItemFolder = ""; //if mod weapon, its folder
+ugcItemId = 0; //if mod weapon, its id
 //ugcConfigData = ""; //if mod weapon, its config data
 //Just for referencing in the code atm
 //some heavy refactoring should be done in the future 
