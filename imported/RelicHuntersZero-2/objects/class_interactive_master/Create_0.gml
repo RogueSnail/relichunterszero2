@@ -12,3 +12,6 @@ clientLockReleaseCurrent = 0;
 
 activationOverride = false;
 
+//mod flag
+isMod = false;
+ugcItemFolder = "";

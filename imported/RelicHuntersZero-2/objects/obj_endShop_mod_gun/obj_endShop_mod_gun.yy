@@ -1,18 +1,18 @@
 {
-    "id": "4b88450d-e8dc-49fb-b34f-9f60ce571202",
+    "id": "af9019e0-e832-492e-9fab-38144fd571cb",
     "modelName": "GMObject",
     "mvc": "1.0",
     "name": "obj_endShop_mod_gun",
     "eventList": [
         {
-            "id": "4264945d-24e4-4844-9932-15ee7aa749ae",
+            "id": "53bf72b5-5946-46fd-991b-ebd5b6aec351",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "4b88450d-e8dc-49fb-b34f-9f60ce571202"
+            "m_owner": "af9019e0-e832-492e-9fab-38144fd571cb"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

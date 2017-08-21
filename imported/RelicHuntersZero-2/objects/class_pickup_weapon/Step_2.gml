@@ -27,10 +27,10 @@ if (instance_exists_fast(activationClient))
         {
             activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);	
             activationClient.weapon2.weaponLevel = weaponLevel;
-			activationClient.weapon2.isModWeapon = isModWeapon;
+			activationClient.weapon2.isMod = isMod;
 			activationClient.weapon2.ugcItemFolder = ugcItemFolder;
 			
-			if (activationClient.weapon2.isModWeapon) {
+			if (activationClient.weapon2.isMod) {
 				with (activationClient.weapon2) {
 					load_mod_gun_config(ugcItemFolder);
 				}
@@ -150,7 +150,7 @@ if (instance_exists_fast(activationClient))
             new_pickup.sprite = activationClient.weapon1.sprite_index;
             new_pickup.weaponLevel = activationClient.weapon1.weaponLevel;
             new_pickup.name = activationClient.weapon1.name;
-			new_pickup.isModWeapon = activationClient.weapon1.isModWeapon;
+			new_pickup.isMod = activationClient.weapon1.isMod;
 			new_pickup.ugcItemFolder = activationClient.weapon1.ugcItemFolder;
             
             with(activationClient.weapon1)
@@ -162,9 +162,9 @@ if (instance_exists_fast(activationClient))
             {
                 activationClient.weapon1 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
                 activationClient.weapon1.weaponLevel = weaponLevel;
-				activationClient.weapon1.isModWeapon = isModWeapon;
+				activationClient.weapon1.isMod = isMod;
 				activationClient.weapon1.ugcItemFolder = ugcItemFolder;
-				if (activationClient.weapon1.isModWeapon) {
+				if (activationClient.weapon1.isMod) {
 					with (activationClient.weapon1) {
 						load_mod_gun_config(ugcItemFolder);
 					}
@@ -211,8 +211,8 @@ if (instance_exists_fast(activationClient))
             new_pickup.sprite = activationClient.weapon2.sprite_index;
             new_pickup.weaponLevel = activationClient.weapon2.weaponLevel;
             new_pickup.name = activationClient.weapon2.name;
-			new_pickup.isModWeapon = activationClient.weapon2.isModWeapon;
-			new_pickup.isModWeapon = activationClient.weapon2.ugcItemFolder;
+			new_pickup.isMod = activationClient.weapon2.isMod;
+			new_pickup.isMod = activationClient.weapon2.ugcItemFolder;
             
             with(activationClient.weapon2)
             {
@@ -223,9 +223,9 @@ if (instance_exists_fast(activationClient))
             {
                 activationClient.weapon2 = instance_create_depth(activationClient.x,activationClient.y,activationClient.depth,gun);
                 activationClient.weapon2.weaponLevel = weaponLevel;
-				activationClient.weapon2.isModWeapon = isModWeapon;
+				activationClient.weapon2.isMod = isMod;
 				activationClient.weapon2.ugcItemFolder = ugcItemFolder;
-				if (activationClient.weapon2.isModWeapon) {
+				if (activationClient.weapon2.isMod) {
 					with (activationClient.weapon2) {
 						load_mod_gun_config(ugcItemFolder);
 					}

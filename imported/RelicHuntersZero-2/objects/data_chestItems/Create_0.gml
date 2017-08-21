@@ -11,6 +11,12 @@ ds_list_add(weapons[1],
     obj_pickup_assault_rifle_crude,
     obj_pickup_pistol_bouncer
 );
+// add mod weapons
+if (global.hasModType[? "gun"]) {
+	ds_list_add(weapons[1], 
+	    obj_pickup_mod_gun
+	);
+}
 
 weapons[2] = ds_list_create();
 ds_list_add(weapons[2], 
@@ -27,6 +33,13 @@ ds_list_add(weapons[2],
     obj_pickup_minigun
 );
 
+// add mod weapons
+if (global.hasModType[? "gun"]) {
+	ds_list_add(weapons[2], 
+	    obj_pickup_mod_gun
+	);
+}
+
 weapons[3] = ds_list_create();
 ds_list_add(weapons[3], 
     obj_pickup_smg_plasma,
@@ -40,6 +53,13 @@ ds_list_add(weapons[3],
     obj_pickup_minigun_relic,
     obj_pickup_relicCannon
 );
+
+// add mod weapons
+if (global.hasModType[? "gun"]) {
+	ds_list_add(weapons[3], 
+	    obj_pickup_mod_gun
+	);
+}
 
 //Relics //////////////////////
 relics[1] = ds_list_create();

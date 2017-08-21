@@ -9,7 +9,7 @@ var fullPath = ugcItemFolder + "\\" + configFilename;
 //show_debug_message(ugcConfigData);
 
 //set weapon as mod weapon
-isModWeapon = true;
+isMod = true;
 
 if file_exists(fullPath)
 {

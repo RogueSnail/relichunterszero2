@@ -1,7 +1,7 @@
 event_inherited();
 
 weaponLevel = 0;
-isModWeapon = false;
+isMod = false;
 ugcItemFolder = "";
 
 range = 130;

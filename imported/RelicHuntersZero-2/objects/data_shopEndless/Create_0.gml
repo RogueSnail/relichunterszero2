@@ -18,14 +18,15 @@ ds_list_add(global.endShop_resources,
 
 //Tier 1 //////////////////
 global.endShop_tier[1] = ds_list_create();
-
+/*
 if (!check_weapon_owned(obj_shotgun,1)) ds_list_add(global.endShop_tier[1],obj_endShop_shotgun);
 if (!check_weapon_owned(obj_submachinegun,1)) ds_list_add(global.endShop_tier[1],obj_endShop_smg);
 if (!check_weapon_owned(obj_pistol_heavy,1)) ds_list_add(global.endShop_tier[1],obj_endShop_heavyPistol);
 if (!check_weapon_owned(obj_assault_rifle_crude,1)) ds_list_add(global.endShop_tier[1],obj_endShop_crudeAssaultRifle);
 if (!check_weapon_owned(obj_pistol_assault,1)) ds_list_add(global.endShop_tier[1],obj_endShop_assaultPistol);
 if (!check_weapon_owned(obj_sawedoff,1)) ds_list_add(global.endShop_tier[1],obj_endShop_sawedoff);
-ds_list_add(global.endShop_tier[1],obj_endShop_sawedoff);
+// add mod weapons
+if (global.hasModType[? "gun"]) ds_list_add(global.endShop_tier[1],obj_endShop_mod_gun);
 
 if (!global.relic_watchful_eye) ds_list_add(global.endShop_tier[1],obj_endShop_watchfulEye);
 if (!global.relic_alcoholic_carrot) ds_list_add(global.endShop_tier[1],obj_endShop_alcoholicCarrot);
@@ -40,7 +41,11 @@ if (random(1) <= 0.4) || (global.relic_rabbit_foot == 2) {
     
     if (!global.relic_morning_star) ds_list_add(global.endShop_tier[1],obj_endShop_morningStar);
     if (!global.relic_rabbit_foot) ds_list_add(global.endShop_tier[1],obj_endShop_rabbitFoot);
-}
+}*/
+if (global.hasModType[? "gun"]) ds_list_add(global.endShop_tier[1],obj_endShop_mod_gun);
+if (global.hasModType[? "gun"]) ds_list_add(global.endShop_tier[1],obj_endShop_mod_gun);
+if (global.hasModType[? "gun"]) ds_list_add(global.endShop_tier[1],obj_endShop_mod_gun);
+
 
 //Tier 2 //////////////////
 global.endShop_tier[2] = ds_list_create();
@@ -53,6 +58,9 @@ if (!check_weapon_owned(obj_sniper_rifle,1)) ds_list_add(global.endShop_tier[2],
 if (!check_weapon_owned(obj_flakCannon,1)) ds_list_add(global.endShop_tier[2], obj_endShop_flakCannon);
 if (!check_weapon_owned(obj_minigun,1)) ds_list_add(global.endShop_tier[2], obj_endShop_minigun);
 if (!check_weapon_owned(obj_highmag,1)) ds_list_add(global.endShop_tier[2], obj_endShop_highmag);
+// add mod weapons
+if (global.hasModType[? "gun"]) ds_list_add(global.endShop_tier[2],obj_endShop_mod_gun);
+
 
 if (!global.relic_yottabyte_drive) ds_list_add(global.endShop_tier[2],obj_endShop_yottabyteDrive);
 if (!global.relic_pineapple_pie) ds_list_add(global.endShop_tier[2],obj_endShop_pineapplePie);
@@ -75,6 +83,8 @@ if (!check_weapon_owned(obj_shotgun_relic,1)) ds_list_add(global.endShop_tier[3]
 if (!check_weapon_owned(obj_rocketlauncher,1)) ds_list_add(global.endShop_tier[3], obj_endShop_rocketLauncher);
 if (!check_weapon_owned(obj_relicCannon,1)) ds_list_add(global.endShop_tier[3], obj_endShop_relicCannon);
 if (!check_weapon_owned(obj_minigun_relic,1)) ds_list_add(global.endShop_tier[3], obj_endShop_relicMinigun);
+// add mod weapons
+if (global.hasModType[? "gun"]) ds_list_add(global.endShop_tier[3],obj_endShop_mod_gun);
 
 if (!global.relic_dev_potion) ds_list_add(global.endShop_tier[3],obj_endShop_devPotion);
 if (!global.relic_midnight_meal) ds_list_add(global.endShop_tier[3],obj_endShop_midnightMeal);

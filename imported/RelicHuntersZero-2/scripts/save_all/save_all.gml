@@ -77,7 +77,7 @@ ini_open(working_directory + "\\saveData.ini");
                 ini_write_real("Character","Weapon1Player"+string(playerId),curPlayer.weapon1.object);
                 ini_write_real("Character","Weapon1LevelPlayer"+string(playerId),curPlayer.weapon1.weaponLevel);
                 ini_write_real("Character","Ammo1Player"+string(playerId),curPlayer.weapon1.ammo_current);
-				ini_write_real("Character","IsModWeapon1Player"+string(playerId),curPlayer.weapon1.isModWeapon);
+				ini_write_real("Character","IsModWeapon1Player"+string(playerId),curPlayer.weapon1.isMod);
 				ini_write_string("Character","ModWeapon1FolderPlayer"+string(playerId),curPlayer.weapon1.ugcItemFolder);
 				//ini_write_string("Character","ModWeapon1ConfigPlayer"+string(playerId),curPlayer.weapon1.ugcConfigData);
             }
@@ -88,7 +88,7 @@ ini_open(working_directory + "\\saveData.ini");
                 ini_write_real("Character","Weapon2Player"+string(playerId),curPlayer.weapon2.object);
                 ini_write_real("Character","Weapon2LevelPlayer"+string(playerId),curPlayer.weapon2.weaponLevel);
                 ini_write_real("Character","Ammo2Player"+string(playerId),curPlayer.weapon2.ammo_current);
-				ini_write_real("Character","IsModWeapon2Player"+string(playerId),curPlayer.weapon2.isModWeapon);
+				ini_write_real("Character","IsModWeapon2Player"+string(playerId),curPlayer.weapon2.isMod);
 				ini_write_string("Character","ModWeapon2FolderPlayer"+string(playerId),curPlayer.weapon2.ugcItemFolder);
 				//ini_write_string("Character","ModWeapon2ConfigPlayer"+string(playerId),curPlayer.weapon2.ugcConfigData);
             }

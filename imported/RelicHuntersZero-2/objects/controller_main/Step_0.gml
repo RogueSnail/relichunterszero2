@@ -742,8 +742,8 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
     }
 }
 else {
-	/*
-	if keyboard_check_pressed(ord("M")) global.currentLoop++;
+	
+	//if keyboard_check_pressed(ord("M")) global.currentLoop++;
     if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
      //Debug: Kill Everything
     if keyboard_check_pressed(vk_f9)
@@ -756,7 +756,7 @@ else {
             }
         }
     } 
-	*/
+	
 }
 ///Take Screenshot
 //steam_screenshot_check();

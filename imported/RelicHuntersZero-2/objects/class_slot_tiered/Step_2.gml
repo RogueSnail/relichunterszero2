@@ -24,13 +24,12 @@ if (!instance_exists(spawnedItem)) {
             tier++;
         }
             
+            
         if (spawn){
             spawnedItem = instance_create_layer(x,y,"Interactive",spawn);
             if (ds_exists(list,ds_type_list)) ds_list_delete(list,randomSpawn);
             hasSpawned = true;
             myItem = spawn;
-			//spawned mod?
-			if 
         }
     }
 }
