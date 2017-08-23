@@ -745,6 +745,7 @@ else {
 	
 	//if keyboard_check_pressed(ord("M")) global.currentLoop++;
     if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
+	if keyboard_check_pressed(ord("C")) instance_create_layer(global.characterPos[1,0], global.characterPos[1,1],"Interactive",obj_chestRegular);
      //Debug: Kill Everything
     if keyboard_check_pressed(vk_f9)
     {

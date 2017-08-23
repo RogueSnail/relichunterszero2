@@ -125,9 +125,9 @@ for (var modIndex = 0; modIndex < ds_list_size(global.steamUGCItemsList); modInd
 	if (check_weapon_mod_owned(modData[? "id"],1)) continue;
 	if (global.playerCount == 2 && check_weapon_mod_owned(modData[? "id"],2)) continue;
 
-	ds_list_add(global.endShop_tier[1], obj_endShop_mod_gun);
-	ds_list_add(global.endShop_tier[2], obj_endShop_mod_gun);
-	ds_list_add(global.endShop_tier[3], obj_endShop_mod_gun);
+	var modTier = modData[? "tier"];
+	modTier = max(1, min(3, modTier));
+	ds_list_add(global.endShop_tier[modTier], obj_endShop_mod_gun);
 }
 
 ///Add everything to cleanUp list

@@ -26,7 +26,6 @@ fire_rate = configDataMap[? "fire_rate"] * s_to_ms;
 fire_amount = configDataMap[? "fire_amount"];
 fire_burst = configDataMap[? "fire_burst"];
 fire_burst_rate = configDataMap[? "fire_burst_rate"] * s_to_ms;
-fire_automatic = configDataMap[? "fire_automatic"];
 shake_amount = configDataMap[? "shake_amount"];
 crosshair_recoil = configDataMap[? "crosshair_recoil"];
 joypadRumbleFactor = configDataMap[? "joypad_rumble_factor"];
@@ -40,14 +39,44 @@ origin_y = configDataMap[? "origin_y"];
 sprite_w = configDataMap[? "sprite_w"];
 sprite_h = configDataMap[? "sprite_h"];	
 price = configDataMap[? "price"];
+tier = configDataMap[? "tier"];
 	
 // booleans 
+fire_automatic = configDataMap[? "fire_automatic"] == 1;
 dropCasing = configDataMap[? "drop_casing"] == 1;
 goesThroughWalls = configDataMap[? "goes_through_walls"] == 1;
 projectileBounce = configDataMap[? "projectile_bounce"] == 1;
 projectileBouceMax = configDataMap[? "projectile_bouce_max"] == 1;
 
 //build vars
+
+//limit data
+// load data
+projectile_damage = max(1, min(350, projectile_damage));
+projectile_range = max(0, min(1200, projectile_range));
+projectile_piercing = max(0, min(5, projectile_piercing));
+projectile_recoil = max(0, min(10, projectile_recoil));
+projectile_power = max(0, min(20, projectile_power));
+projectile_speed = max(0, min(100, projectile_speed));
+projectile_speed_decay = max(-1, min(1, projectile_speed_decay));
+accuracy = max(1, min(50, accuracy));
+accuracy_aiming = max(1, min(20, accuracy_aiming));
+ammo = max(1, min(999, ammo));
+ammo_cost = max(0, min(50, ammo_cost));
+reload_time = max(0 * s_to_ms, min(10 * s_to_ms, reload_time));
+fire_rate = max(0 * s_to_ms, min(10 * s_to_ms, fire_rate));
+fire_amount = max(1, min(20, fire_amount));
+fire_burst = max(0, min(50, fire_burst));
+fire_burst_rate = max(0 * s_to_ms, min(1 * s_to_ms, fire_burst_rate));
+shake_amount = max(0, min(100, shake_amount));
+crosshair_recoil = max(0, min(2, crosshair_recoil));
+joypadRumbleFactor = max(0, min(1, joypadRumbleFactor));
+beamThickness = max(1, min(20, beamThickness));
+beam_color_r = max(0, min(255, beam_color_r));
+beam_color_g = max(0, min(255, beam_color_g));
+beam_color_b = max(0, min(255, beam_color_b));
+price = max(100, min(10000, price));
+tier = max(1, min(3, tier));
 	
 // object type
 //default,blast,beam,plasma,skull,flak,flakRelic,sonicBoom,rocket,kamiRocket,flame

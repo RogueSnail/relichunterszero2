@@ -19,6 +19,9 @@ else if (diceRoll <= relicChance) treasureType = "RELIC";
 else if (diceRoll <= coinChance) treasureType = "COINS";
 else treasureType = "WEAPON";
 
+// debug
+treasureType = "WEAPON";
+
 // Find Treasure Tier
 var treasureTier = 1;
 if  (room==level2_1) || (room==level2_2) || (room==level2_3) || 
@@ -47,6 +50,7 @@ if (treasureType == "WEAPON") || (treasureType == "WEAPON_RARE")
 {
     var data = instance_create_layer(0,0,"Interactive",data_chestItems);
     if (ds_exists(data.weapons[treasureTier],ds_type_list)) {
+
         var list = data.weapons[treasureTier];
         if (!ds_list_empty(list)) {
             var randomPosition = irandom(ds_list_size(list)-1);
@@ -56,9 +60,12 @@ if (treasureType == "WEAPON") || (treasureType == "WEAPON_RARE")
     }
     
     //Find the sprite
-    if (spawnWeapon != noone && !spawnWeapon.isMod){
+    if (spawnWeapon != noone){	
+		
         var spawnToTest = instance_create_layer(0,0,"Interactive",spawnWeapon);		
-        spawnSprite = spawnToTest.sprite_index;
+		if (spawnToTest.isMod == false) {
+	        spawnSprite = spawnToTest.sprite_index;
+		}
         with (spawnToTest) instance_destroy();
     }
     exit;
@@ -85,4 +92,3 @@ if (treasureType == "RELIC") || (treasureType == "RELIC_RARE")
     }
     exit;
 }
-

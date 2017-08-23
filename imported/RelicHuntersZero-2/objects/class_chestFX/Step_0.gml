@@ -4,6 +4,7 @@ if (!spawned) && (image_index >= spawnFrame){
     spawned = true;
     
     if (!spawnCoins) {
+		//show_debug_message("class_chestFX step");
         var spawn = instance_create_layer(x,y,"GUI",fx_digItem);
         spawn.itemSprite = spawnSprite;
         spawn.endlessRelic = spawnRelic;
