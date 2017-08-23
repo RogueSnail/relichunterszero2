@@ -31,16 +31,16 @@ if (endlessWeapon != noone)
     weapon.x += x-wPos[0];
     weapon.y += y-wPos[1];
 	//spawn random mod weapon
-	if (endlessWeapon.isMod) {
+	if (weapon.isMod) {		
 		var tmpModId = get_random_gun_mod(true);
 		if (tmpModId > 0) {
-			endlessWeapon.ugcItemId = tmpModId;
-			with (endlessWeapon) {
+			weapon.ugcItemId = tmpModId;
+			with (weapon) {
 				load_endless_shop_mod_gun(ugcItemId);
 			}
 		}
 		else {
-			instance_destroy(endlessWeapon);
+			instance_destroy(weapon);
 		}		
 	}
     exit;

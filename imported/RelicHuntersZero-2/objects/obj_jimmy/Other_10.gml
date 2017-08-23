@@ -13,7 +13,7 @@ overshield = global.overshield[myPlayerId];
     
     if global.weapon2[myPlayerId] != noone
     {
-        //show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
+        show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
         
         weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
 		if(global.weapon2_isMod[myPlayerId]){
