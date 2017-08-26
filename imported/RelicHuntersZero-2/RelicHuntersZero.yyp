@@ -6615,6 +6615,14 @@
             }
         },
         {
+            "Key": "670542ad-9373-4bc6-80bd-998811ff41e8",
+            "Value": {
+                "id": "21099d2a-4293-4c3b-b6b1-7047b4871215",
+                "resourcePath": "objects\\obj_modSelector\\obj_modSelector.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "677fc5f4-c905-42db-aa32-40b9f46aa824",
             "Value": {
                 "id": "81cc5339-2956-42c2-bf98-6b5f56a7e7fa",
@@ -11423,6 +11431,14 @@
             }
         },
         {
+            "Key": "b5f6199d-9590-428b-9128-692920055a80",
+            "Value": {
+                "id": "9a13315a-e2dc-4789-b6e2-d0ea787e635d",
+                "resourcePath": "objects\\obj_spawn_mod\\obj_spawn_mod.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b609158e-3e6c-41d3-9680-69c38998f195",
             "Value": {
                 "id": "23e6ebe1-e0b0-45f4-8992-b367357a46cc",
@@ -11644,6 +11660,14 @@
                 "id": "75eb25dc-339b-4e67-9390-a562b7a1f617",
                 "resourcePath": "sounds\\sfx_coin2\\sfx_coin2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "b986fa66-0e54-4aa5-bd98-6d469b709269",
+            "Value": {
+                "id": "09af15d0-f1ad-47e4-8fe5-3ede01d08743",
+                "resourcePath": "sprites\\sprite644\\sprite644.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -12183,6 +12207,14 @@
             }
         },
         {
+            "Key": "c1437311-1de3-4141-875d-656c732f2091",
+            "Value": {
+                "id": "b4260c96-4b7f-4db3-87f8-a803cdf78ccd",
+                "resourcePath": "views\\c1437311-1de3-4141-875d-656c732f2091.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "c15bb8f8-2d67-4343-aaff-c35215efa332",
             "Value": {
                 "id": "bb86dde7-a2e3-474e-a6bb-42f7ca2a1d14",
@@ -12276,6 +12308,14 @@
                 "id": "3bc1205e-cca3-431d-a9a4-9503fec2dc75",
                 "resourcePath": "scripts\\show_gui_stage\\show_gui_stage.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c2af0181-c604-495a-95e9-02714f978338",
+            "Value": {
+                "id": "92cd9f70-3499-414f-b253-ac0e997c421d",
+                "resourcePath": "sprites\\sprite643\\sprite643.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
