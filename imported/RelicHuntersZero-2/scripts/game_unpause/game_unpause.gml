@@ -11,6 +11,7 @@ global.pauseMenu = false;
 
 //Activate all instances, shut down Pause Menu objects
 instance_activate_all();
+deactivate_pools();
 
 instance_deactivate_object(global.pauseMenuButtonController);
 instance_deactivate_object(global.pauseController);

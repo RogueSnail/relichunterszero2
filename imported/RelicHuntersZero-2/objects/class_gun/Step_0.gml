@@ -272,11 +272,14 @@ if (isActive) && (owner) && instance_exists(owner)
         ///guiInfo.colorMain = K_BETU_RED;
         //guiInfo.myString = loc_key("INFO_OUTOFAMMO");
     }
-    
+	
     //Rate of Fire
     if (!can_fire)
     {
         fire_rate_current += delta_time;
+		show_debug_message("fire_rate");
+		show_debug_message(fire_rate);
+		show_debug_message(fireRateDecayCurrent);
         if fire_rate_current >= (fire_rate + fireRateDecayCurrent)
         {
             fire_rate_current = 0;
@@ -286,9 +289,12 @@ if (isActive) && (owner) && instance_exists(owner)
     }
     
     //Rate of Fire Decay Recovery
+           
     if (!input_held) || (reloading) || (!ammo_current)
     {
         fireRateDecayCurrent += fireRateDecayRecovery * delta_time * ms_to_s_60;
+	    if (fireRateDecayCurrent > fireRateDecayMax) fireRateDecayCurrent = fireRateDecayMax;
+	    else if (fireRateDecayCurrent < fireRateDecayMin) fireRateDecayCurrent = fireRateDecayMin;
     }
     
     //Burst Fire

@@ -1,6 +1,7 @@
 #macro ms_to_s 0.000001
 #macro ms_to_s_60 0.00006
 #macro s_to_ms 1000000
+#macro s_to_ms_60 60000000
 #macro fade_depth -16000
 #macro bottom_depth -16000
 #macro distance_far 999999

@@ -9375,6 +9375,14 @@
             }
         },
         {
+            "Key": "93f56e7a-a4b5-41fe-b712-db728a626b5d",
+            "Value": {
+                "id": "61d8dea9-1c95-4d91-8706-a7cc27a0fe4b",
+                "resourcePath": "scripts\\deactivate_pools\\deactivate_pools.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9440e9d3-0e51-40f2-808a-80d5b23766bd",
             "Value": {
                 "id": "c7ca760d-ace1-4f9d-b49e-e8aa0bb30fa9",
@@ -14351,6 +14359,14 @@
             }
         },
         {
+            "Key": "e3b49b43-b1c2-46cb-8d29-51e745660b28",
+            "Value": {
+                "id": "34f55829-385d-4edb-abd1-fb156e07ec69",
+                "resourcePath": "scripts\\deactivate_pool_objects\\deactivate_pool_objects.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e3befeb5-307b-43cb-8c9a-a1a384e7e5d9",
             "Value": {
                 "id": "e3d8b420-394d-47aa-8825-e10973beb512",
@@ -16326,6 +16342,8 @@
         "b1a3f959-1ba2-404a-b915-b223024831e1",
         "792e175c-a612-4661-b1d8-59a1db7b52e2",
         "330a21b6-b9cd-4413-92a6-574662b946e8",
+        "e3b49b43-b1c2-46cb-8d29-51e745660b28",
+        "93f56e7a-a4b5-41fe-b712-db728a626b5d",
         "c2a70642-dff0-47f6-8804-5da9cf9cea59",
         "e23c3af0-c64d-49f8-86bb-c897117d6b02",
         "0535874c-220f-4814-a2ce-90348636959d",
