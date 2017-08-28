@@ -55,8 +55,8 @@ if (owner != noone)
                 
 	        var damageBonus = 0;
 	        if (ammo_type == type_light) damageBonus += round(projectile_damage * (global.challengeLightFocus*global.challengeLightFocusMultiplier));
-	        if (ammo_type == type_medium) damageBonus += round(projectile_damage * (global.challengeMediumFocus*global.challengeMediumFocusMultiplier));
-	        if (ammo_type == type_heavy) damageBonus += round(projectile_damage * (global.challengeHeavyFocus*global.challengeHeavyFocusMultiplier));
+	        else if (ammo_type == type_medium) damageBonus += round(projectile_damage * (global.challengeMediumFocus*global.challengeMediumFocusMultiplier));
+	        else if (ammo_type == type_heavy) damageBonus += round(projectile_damage * (global.challengeHeavyFocus*global.challengeHeavyFocusMultiplier));
 	        if (global.challengeMedieval) damageBonus -= round(projectile_damage * global.challengeMedievalPenalty);
 	        projectile.damage = projectile_damage + damageBonus;
 	    }

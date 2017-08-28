@@ -10,7 +10,7 @@ in_range = false;
 myPrompt = instance_create_layer(x-34,y-21,"Interactive",fx_prompt_e);
 owner_add_owned_instance(myPrompt);
 
-name = "GUN MOD SELECTOR"
+name = loc_key("TERMINAL_GUN_MOD_SELECTOR_DESC");
 myInfo = instance_create_layer(x,y,"Interactive_Over",fx_info_pickup);
 owner_add_owned_instance(myInfo);
 
@@ -33,4 +33,7 @@ spawner = instance_nearest(x, y, obj_spawn_mod);
 
 //holds the last spawned item reference
 lastSpawnedItem = noone;
+
+//select first weapon on first step
+first_step = true;
 

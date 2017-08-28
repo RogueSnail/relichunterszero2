@@ -11,6 +11,6 @@ draw_set_font(global.font_shopPrice);
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 draw_set_colour(c_white);
-var infoString = "GUN MODS";
+var infoString = loc_key("TERMINAL_GUN_MODS");
 draw_text(x,y+30,string_hash_to_newline(infoString));
 

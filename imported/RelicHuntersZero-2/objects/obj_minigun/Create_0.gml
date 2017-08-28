@@ -22,8 +22,8 @@ reload_time = 4200000;//room_speed*4.2;
 fire_rate = 300000;//room_speed*0.3;
 fire_automatic = true;
 
-fireRateDecay = -2;
-fireRateDecayRecovery = 200000;//0.2;
+fireRateDecay = -20000;//-2
+fireRateDecayRecovery = 200000;//0.2
 fireRateDecayMin = -250000;//-room_speed*0.25;
 fireRateDecayMax = 0;
 
