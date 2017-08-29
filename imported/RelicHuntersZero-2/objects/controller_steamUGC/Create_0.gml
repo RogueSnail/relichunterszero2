@@ -40,8 +40,25 @@ if (!global.steamUGCChecked) {
 					file_text_close(file);
 	
 					// check load data into vars
+					//if invlaid mod data, remove the item
 					configDataMap = json_decode(jsonStr);
-					if (configDataMap == -1) show_debug_message("Invalid mod data "+value);
+					if (configDataMap == -1) {
+						show_debug_message("Invalid mod data "+jsonStr);
+						ds_list_delete(global.steamUGCItemsList, i);
+						i--;
+						continue;
+					}
+					
+					//check if spritesheet is included
+					var spritesheetFilename = "spritesheet.png";
+					var sprite_filename = configFolder + "\\" + spritesheetFilename;
+					if (!file_exists(sprite_filename)) {
+						show_debug_message("Missing mod spritesheet "+spritesheetFilename);
+						ds_list_delete(global.steamUGCItemsList, i);
+						i--;
+						continue;
+					}
+					
 					// todo: create a global for each type of mod
 					// eg: gunsList, charactersList
 					// so you can tell how many of each type exists, for endless shop and chests
@@ -55,7 +72,10 @@ if (!global.steamUGCChecked) {
 					}
 				}
 			} else {
-				show_debug_message("itemInfoLoaded false");		
+				show_debug_message("itemInfoLoaded false");
+				ds_list_delete(global.steamUGCItemsList, i);
+				i--;
+				continue;
 			}
 			//steam_details = steam_ugc_request_item_details(value, 60);
 		}
