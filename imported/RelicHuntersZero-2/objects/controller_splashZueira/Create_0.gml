@@ -1,7 +1,7 @@
 //Setup
 
 room_goto_next();
-
+zueiraLogo = noone;
 /*
 goToNextRoom = false;
 zueiraLogo = instance_create_layer(room_width/2,room_height/2,"Interactive",splash_fx_zueira);

@@ -94,7 +94,7 @@ switch (projectile_obj_name) {
 	case "skull": projectile_obj = obj_projectile_skull; break;
 	case "flak": projectile_obj = obj_projectile_flak; break;
 	case "flakRelic": projectile_obj = obj_projectile_flakRelic; break;
-	case "sonicBoom": projectile_obj = obj_sonicBoom; break;
+	case "sonicBoom": projectile_obj = obj_sonicboom; break;
 	case "rocket": projectile_obj = obj_rocket; break;
 	case "kamiRocket": projectile_obj = obj_kamiRocket; break;
 	case "flame": projectile_obj = obj_flame; break;
