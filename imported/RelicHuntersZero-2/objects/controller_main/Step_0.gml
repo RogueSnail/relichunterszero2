@@ -741,7 +741,7 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
         steam_clear_achievement("ACHIEVEMENT_DESTROY_KAMIKAGES"); //set by the cage on its Destroy event (alongside Steam Stat);
     }
 }
-else {
+/*else {
 	
 	//if keyboard_check_pressed(ord("M")) global.currentLoop++;
     if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
@@ -758,7 +758,7 @@ else {
         }
     } 
 	
-}
+}*/
 ///Take Screenshot
 //steam_screenshot_check();
 

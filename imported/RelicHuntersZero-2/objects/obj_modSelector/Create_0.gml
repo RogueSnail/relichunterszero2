@@ -20,6 +20,11 @@ depth = -y-32;
 hasGunMods = false;
 currentModIndex = 0;
 for (var modIndex = 0; modIndex < ds_list_size(global.steamUGCItemsList); modIndex++) {
+
+	show_debug_message("modindex");
+	show_debug_message(modIndex);
+	show_debug_message(global.steamUGCItemsList[| modIndex]);	
+	show_debug_message(global.steamUGCItemsDataMap[? global.steamUGCItemsList[| modIndex]]);	
 	var modData = global.steamUGCItemsDataMap[? global.steamUGCItemsList[| modIndex]];
 	
 	//only gun mods exist so far

@@ -277,9 +277,9 @@ if (isActive) && (owner) && instance_exists(owner)
     if (!can_fire)
     {
         fire_rate_current += delta_time;
-		show_debug_message("fire_rate");
-		show_debug_message(fire_rate);
-		show_debug_message(fireRateDecayCurrent);
+		//show_debug_message("fire_rate");
+		//show_debug_message(fire_rate);
+		//show_debug_message(fireRateDecayCurrent);
         if fire_rate_current >= (fire_rate + fireRateDecayCurrent)
         {
             fire_rate_current = 0;

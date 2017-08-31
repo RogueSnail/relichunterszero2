@@ -2,6 +2,7 @@
 global.pause = 0;
 global.pauseMenu = false;
 draw_texture_flush();
+
 randomize();
 //shadow_init(0.4);
 //reflection_init();
@@ -63,5 +64,7 @@ global.gui_stage = noone;
 global.target_fps = game_get_speed(gamespeed_fps);
 show_debug_message(global.target_fps);
 
+//hide cursor
+window_set_cursor(cr_none);
 
 room_goto_next();
