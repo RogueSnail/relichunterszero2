@@ -742,7 +742,7 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
     }
 }
 /*else {
-	
+
 	//if keyboard_check_pressed(ord("M")) global.currentLoop++;
     if keyboard_check_pressed(ord("B")) global.bountyEndless += 500;
 	if keyboard_check_pressed(ord("C")) instance_create_layer(global.characterPos[1,0], global.characterPos[1,1],"Interactive",obj_chestRegular);
@@ -757,8 +757,9 @@ if keyboard_check_pressed(ord("N")) room_goto(room_endShop);
             }
         }
     } 
-	
-}*/
+}
+*/
+
 ///Take Screenshot
 //steam_screenshot_check();
 
