@@ -16,6 +16,12 @@ overshield = global.overshield[myPlayerId];
         show_debug_message("weapon2[myPlayerId] returns "+string(global.weapon2[myPlayerId]));
         
         weapon2 = instance_create_layer(x,y,"Interactive",global.weapon2[myPlayerId]);
+		if(global.weapon2_isMod[myPlayerId]){
+			var tmpId = global.weapon2_modId[myPlayerId];
+			with (weapon2) {
+				load_mod_gun_config(tmpId);
+			}		
+		}
         owner_add_owned_instance(weapon2);
         weapon2.weaponLevel = global.weapon2Level[myPlayerId];
         draw_gun(weapon2);
@@ -27,6 +33,12 @@ overshield = global.overshield[myPlayerId];
         show_debug_message("weapon1[myPlayerId] returns "+string(global.weapon1[myPlayerId]));
         
         weapon1 = instance_create_layer(x,y,"Interactive",global.weapon1[myPlayerId]);
+		if(global.weapon1_isMod[myPlayerId]){
+			var tmpId = global.weapon1_modId[myPlayerId];
+			with (weapon1) {
+				load_mod_gun_config(tmpId);
+			}		
+		}
         owner_add_owned_instance(weapon1);
         weapon1.weaponLevel = global.weapon1Level[myPlayerId];
         draw_gun(weapon1);

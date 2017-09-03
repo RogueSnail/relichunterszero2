@@ -21,7 +21,11 @@ if instance_exists(owner)
         }
         
         //Draw Self
-        if (!drawGrenadeInsteadOfGun) draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale,image_yscale,image_angle,blend,1);
+        if (!drawGrenadeInsteadOfGun) {
+			if (sprite_index >= 0) {
+				draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale,image_yscale,image_angle,blend,1);
+			}
+		}
         else 
         {
             if (instance_exists(owner)) if (owner.myChar == char_rider) grenadeSpriteOverride = spr_grenadeRider;

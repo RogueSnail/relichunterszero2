@@ -1,6 +1,7 @@
 //Setup
 
 room_goto_next();
+
 zueiraLogo = noone;
 /*
 goToNextRoom = false;
