@@ -15,7 +15,11 @@ surface_set_target(surf);
 
 // load spritesheet
 var spritesheetFilename = "spritesheet.png";
-var sprite_filename = folder + "\\" + spritesheetFilename;
+if (os_type == os_linux) {
+	var sprite_filename = working_directory + string(ugcItemId) + "//" + spritesheetFilename;
+} else {
+	var sprite_filename = folder + "\\" + spritesheetFilename;
+} 
 if file_exists(sprite_filename)
 {
 	show_debug_message("Loading gun mod spritesheet");
