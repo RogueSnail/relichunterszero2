@@ -2,6 +2,7 @@ if (!variable_global_exists("steamUGCChecked")) {
 	global.steamUGCChecked = false;
 }
 
+//fileFound = "false";
 if (!global.steamUGCChecked) {
 
 	global.hasModType = ds_map_create();	
@@ -24,11 +25,26 @@ if (!global.steamUGCChecked) {
 			if (itemInfoLoaded) {
 				show_debug_message("itemInfoLoaded");	
 				folder = string(item_map[? "folder"]);	
-				show_debug_message("folder: " + folder);		
-			
-				configFolder = string_replace_all(folder, "\\", "\\\\");
-				configFilename = "config.json";
-				fullPath = configFolder + "\\" + configFilename;
+				show_debug_message("folder: " + folder);	
+				
+				//move items to sandbox location on linux
+				if (os_type == os_linux) {
+					configFolder = string(value);
+					if (!directory_exists(working_directory + configFolder)) {
+						//directory_create(configFolder);
+						directory_copy_fmns(folder,  working_directory + configFolder); 
+					}
+
+					configFilename = "config.json";
+					fullPath = working_directory + configFolder + "//" + configFilename;
+
+				}
+				else {			
+					configFolder = string_replace_all(folder, "\\", "\\\\");
+					configFilename = "config.json";
+					fullPath = configFolder + "\\" + configFilename;
+				}
+
 				if file_exists(fullPath)
 				{
 					var num = 0;
@@ -38,7 +54,8 @@ if (!global.steamUGCChecked) {
 						jsonStr = jsonStr + file_text_readln(file);
 					}
 					file_text_close(file);
-	
+					//fileFound = jsonStr;
+						
 					// check load data into vars
 					//if invlaid mod data, remove the item
 					configDataMap = json_decode(jsonStr);
@@ -51,7 +68,12 @@ if (!global.steamUGCChecked) {
 					
 					//check if spritesheet is included
 					var spritesheetFilename = "spritesheet.png";
-					var sprite_filename = configFolder + "\\" + spritesheetFilename;
+					if (os_type == os_linux) {
+						var sprite_filename = working_directory + configFolder + "//" + spritesheetFilename;
+					}
+					else {
+						var sprite_filename = configFolder + "\\" + spritesheetFilename;
+					}						
 					if (!file_exists(sprite_filename)) {
 						show_debug_message("Missing mod spritesheet "+spritesheetFilename);
 						ds_list_delete(global.steamUGCItemsList, i);
@@ -88,5 +110,6 @@ if (!global.steamUGCChecked) {
 		//show_debug_message(a[? "id"]);		
 	} else {
 		show_debug_message("steamUGCChecked false");
+
 	}
 }
