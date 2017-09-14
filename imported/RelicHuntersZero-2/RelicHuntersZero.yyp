@@ -7871,6 +7871,14 @@
             }
         },
         {
+            "Key": "79fb7071-df6f-4775-b8ca-6debf81c6fe7",
+            "Value": {
+                "id": "74ffe5fe-9636-4b1f-8751-6a8156f2ffd7",
+                "resourcePath": "sprites\\spr_legend\\spr_legend.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7a2f9301-b54a-4472-923a-10ef4b12c29b",
             "Value": {
                 "id": "5b1a62b9-d0bd-4200-b56c-b352a13408ca",
