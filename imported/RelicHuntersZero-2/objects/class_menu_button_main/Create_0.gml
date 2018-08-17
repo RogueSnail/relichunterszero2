@@ -10,7 +10,7 @@ textYOffset = 0;
 
 myFont = global.font_menuLarge;
 
-starPositionX = point_distance(x,y,bbox_right,y) - 32;
+starPositionX = point_distance(x,y,bbox_right,y) - 60;
 starPositionY = 0;
 
 starScaleInitial = 1.5;
@@ -21,7 +21,7 @@ starScaleFinal = 1;
 
 
 moveSpeed = 5;
-moveDistance = 50;
+moveDistance = 25;
 
 startPositionX = x;
 startPositionY = y;

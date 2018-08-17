@@ -1,4 +1,4 @@
-///Draw Event + Digging
+///Draw Event + Digging + bDay Hat
 
 if (!isDigging) 
 {
@@ -21,3 +21,45 @@ else{
     draw_sprite_ext(spr_digPile,digImage,x,y,1,1,0,myDirtColor,1);
 }
 
+
+if (global.bdayMode)							// Birthday Hat!!!
+{
+	var hatX = x;
+	var hatY = y;
+	
+	switch (animation_current)
+	{
+	    case ("idle"):  
+	        switch (round(image_index))
+			{
+				case 3: case 4: case 5: case 9: case 10: case 11:
+					hatY -= 2;
+					break;
+			}
+			break;
+			
+	    case ("walk"):
+	        switch (round(image_index))
+			{
+				case 1: case 4:
+					hatY -= 2;
+					break;
+			}
+	        break;
+			
+	    case ("sprint"):
+	        switch (round(image_index))
+			{
+				case 1: case 4:
+					hatY -= 6;
+					break;
+					
+				case 2: case 5:
+					hatY -= 2;
+			}
+	        break;
+	}
+	
+	if (isDigging) hatY += digDepth;
+	draw_sprite_ext(spr_bday_hat,0,hatX+2,hatY+12,1.25*image_xscale,1.25*image_yscale,0,c_white,1);
+}

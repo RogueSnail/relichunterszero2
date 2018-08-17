@@ -1,5 +1,5 @@
 /// @description dynamic depth & death
-// You can write your code in this editor
+
 depth = -y;
 
 //death
@@ -7,20 +7,13 @@ if hp <= 0
 {
     if (!no_score)
     {
-        if (!critical_death)
-        {
-            //if (global.allowKillFreeze) global.pause = 50000;//room_speed*0.05;
-            score_add(global.score_kill,false);
-        }
-        else
-        {
-            //if (global.allowKillFreeze) global.pause = 75000;//room_speed*0.07;
-            score_add(global.score_kill+global.score_headshot,true);
-        }
+        if (!critical_death) score_add(global.score_kill,false);
+        else score_add(global.score_kill+global.score_headshot,true);
     }
     
     repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
     roll_ammo_drop(x,y);
+	if (global.gameMode == gamemode_endless) if random(1) <= 0.1 repeat(ceil(coins/2)) instance_create_layer(x,y,"Interactive",obj_pickup_scrap);
     
     if (drop_gun)
     {

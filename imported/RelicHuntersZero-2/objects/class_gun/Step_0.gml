@@ -258,19 +258,11 @@ if (isActive) && (owner) && instance_exists(owner)
     {
         audio_play(owner.audio_emitter,false,1,sfx_click);
 		gui_info_show_at(owner.id, owner.x, owner.y, "Interactive_Over", K_BETU_RED, loc_key("INFO_RELOADING"));
-        //guiInfo = instance_create_layer(owner.x,owner.y,"Interactive",gui_info);
-        //guiInfo.colorMain = K_BETU_RED;
-        //guiInfo.myString = loc_key("INFO_RELOADING");
-        //guiInfo.owner = id;
     }
     else if (input_pressed) && (!ammo_current)
     {
         audio_play(owner.audio_emitter,false,1,sfx_click);
 		gui_info_show_at(owner.id, owner.x, owner.y, "Interactive_Over", K_BETU_RED, loc_key("INFO_OUTOFAMMO"));
-        //guiInfo = instance_create_layer(owner.x,owner.y,"Interactive",gui_info);
-        //guiInfo.owner = id;
-        ///guiInfo.colorMain = K_BETU_RED;
-        //guiInfo.myString = loc_key("INFO_OUTOFAMMO");
     }
 	
     //Rate of Fire

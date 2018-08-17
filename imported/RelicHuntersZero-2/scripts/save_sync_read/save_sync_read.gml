@@ -43,6 +43,7 @@ ini_open(working_directory + "saveData.ini"); //tava com \\saveData.ini
     global.isDaily = ini_read_real("Temp","isDaily",false);
     global.playedEndless = ini_read_real("Temp","playedEndless",false);
     global.bountyEndless = ini_read_real("Temp","Bounty Endless",0);
+	global.scrapEndless = ini_read_real("Temp","Scrap Endless",0);
     global.currentLoop = ini_read_real("Temp","Loop",0);
     global.endPriceTier_lightAmmo = ini_read_real("Temp","endPriceTier_lightAmmo",0);
     global.endPriceTier_mediumAmmo = ini_read_real("Temp","endPriceTier_mediumAmmo",0);
@@ -292,6 +293,9 @@ ini_open(working_directory + "saveData.ini"); //tava com \\saveData.ini
     
     global.inputReload1 = ini_read_real( "Mapping", "Keyboard Reload1", ord("R") );
     global.inputReload2 = ini_read_real( "Mapping", "Keyboard Reload2", -99 );
+	
+	global.inputRecycle1 = ini_read_real( "Mapping", "Keyboard Recycle1", ord("X") );
+	global.inputRecycle2 = ini_read_real( "Mapping", "Keyboard Recycle2", -99 );
     
     // Joystick Input
     // Null buttons must be "-99" instead of just "-1" to avoid Mouse button issues

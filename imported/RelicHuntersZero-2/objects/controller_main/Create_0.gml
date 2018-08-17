@@ -27,6 +27,10 @@ global.gameOver = false;
 global.relicDetected = false;
 global.overrideLevel = noone;
 
+if current_month == 8 global.bdayMode = true;
+else global.bdayMode = false;
+
+
 global.steamApi = false;
 
 if (steam_initialised())
@@ -427,15 +431,15 @@ if (global.gameMode == gamemode_endless)
     
     
     //Gunnar
-    global.price_weaponUpgrade[0] = 500;
-    global.price_weaponUpgrade[1] = 800;
-    global.price_weaponUpgrade[2] = 1200;
-    global.price_weaponUpgrade[3] = 1600;
-    global.price_weaponUpgrade[4] = 2100;
-    global.price_weaponUpgrade[5] = 2600;
-    global.price_weaponUpgrade[6] = 3200;
-    global.price_weaponUpgrade[7] = 3800;
-    global.price_weaponUpgrade[8] = 5000;
+    global.price_weaponUpgrade[0] = 50;			//Old bounty cost = 500
+    global.price_weaponUpgrade[1] = 80;			//Old bounty cost = 800
+    global.price_weaponUpgrade[2] = 120;			//Old bounty cost = 1200
+    global.price_weaponUpgrade[3] = 160;			//Old bounty cost = 1600
+    global.price_weaponUpgrade[4] = 210;			//Old bounty cost = 2100
+    global.price_weaponUpgrade[5] = 260;			//Old bounty cost = 2600
+    global.price_weaponUpgrade[6] = 320;			//Old bounty cost = 3200
+    global.price_weaponUpgrade[7] = 380;			//Old bounty cost = 3800
+    global.price_weaponUpgrade[8] = 500;			//Old bounty cost = 5000
     
     //Tier1
     global.price_endless_assaultPistol = 600;
@@ -457,37 +461,37 @@ if (global.gameMode == gamemode_endless)
     global.price_endless_megaQuantumChip = 1000;
     
     //Tier2
-    global.price_endless_plasmaPistol = 2000;
-    global.price_endless_machinegun = 2250;
-    global.price_endless_minigun = 2600;
-    global.price_endless_flakCannon = 2600;
-    global.price_endless_assaultRifle = 2500;
-    global.price_endless_blitz = 2500;
-    global.price_endless_rocketLauncher = 3000;
-    global.price_endless_sniperRifle = 3200;
-    global.price_endless_heavyShotgun = 3000;
-    global.price_endless_relicPistol = 3500;
-    global.price_endless_kamilauncher = 3000;
+    global.price_endless_plasmaPistol = 3000;
+    global.price_endless_machinegun = 3375;
+    global.price_endless_minigun = 3900;
+    global.price_endless_flakCannon = 3900;
+    global.price_endless_assaultRifle = 3750;
+    global.price_endless_blitz = 3750;
+    global.price_endless_rocketLauncher = 4500;
+    global.price_endless_sniperRifle = 4800;
+    global.price_endless_heavyShotgun = 4500;
+    global.price_endless_relicPistol = 5250;
+    global.price_endless_kamilauncher = 4500;
     
-    global.price_endless_yottabyteDrive = 2500;
-    global.price_endless_pineapplePudding = 1800;
-    global.price_endless_pineapplePie = 1800;
-    global.price_endless_midnightBeer = 2200;
+    global.price_endless_yottabyteDrive = 3750;
+    global.price_endless_pineapplePudding = 2700;
+    global.price_endless_pineapplePie = 2700;
+    global.price_endless_midnightBeer = 3300;
     
     //Tier3
-    global.price_endless_plasmaSMG = 3500;
-    global.price_endless_relicSMG = 3500;
-    global.price_endless_relicShotgun = 4000;
-    global.price_endless_relicRifle = 4000;
-    global.price_endless_relicSniper = 4500;
-    global.price_endless_relicMinigun = 4000;
-    global.price_endless_relicCannon = 4000;
-    global.price_endless_relicRocket = 5200;
+    global.price_endless_plasmaSMG = 5250;
+    global.price_endless_relicSMG = 5250;
+    global.price_endless_relicShotgun = 6000;
+    global.price_endless_relicRifle = 6000;
+    global.price_endless_relicSniper = 6000;
+    global.price_endless_relicMinigun = 6000;
+    global.price_endless_relicCannon = 6000;
+    global.price_endless_relicRocket = 7800;
     
-    global.price_endless_devPotion = 4000;
-    global.price_endless_crystalBacon = 4000;
-    global.price_endless_midnightMeal = 3500;
-    global.price_endless_yottabyteProcessor = 3000;
+    global.price_endless_devPotion = 6000;
+    global.price_endless_crystalBacon = 6000;
+    global.price_endless_midnightMeal = 5250;
+    global.price_endless_yottabyteProcessor = 4500;
 	
 	global.price_endless_mod_gun = irandom_range(10, 30) * 100;
     

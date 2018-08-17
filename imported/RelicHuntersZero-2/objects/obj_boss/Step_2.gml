@@ -10,6 +10,7 @@ if (my_gun != noone)
 if hp <= 0
 {
     repeat(coins) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
+	repeat (coins) instance_create_layer(x,y,"Interactive",obj_pickup_scrap);
     
     myCorpse = instance_create_layer(x,y,"Interactive",fx_corpse_boss);
     myCorpse.image_xscale = image_xscale;

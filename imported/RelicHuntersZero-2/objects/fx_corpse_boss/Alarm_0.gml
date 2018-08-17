@@ -1,6 +1,7 @@
 ///Coin Drop
 
 repeat(10) instance_create_layer(x,y,"Interactive",obj_pickup_coin);
+repeat(2) instance_create_layer(x,y,"Interactive",obj_pickup_scrap);
 
 coinDrops--;
 

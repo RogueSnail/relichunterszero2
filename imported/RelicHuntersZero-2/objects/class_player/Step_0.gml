@@ -336,7 +336,7 @@ if (allowMovement)
     if (melee_dash) && (speed == 0) melee_dash = false;
 }
 
-//Resolve Everything 
+//Resolve Everything
 move_speed = speed;
 move_direction = direction;
 speed = 0;

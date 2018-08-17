@@ -10,4 +10,6 @@ textYOffset = 46;
 badgeRank = 0;
 if (global.dailyCompleted == string(current_day)+string(current_month)+string(current_year)) badgeRank = global.dailyCompletedBadge;
 
-
+//Stop moving
+selectPositionX = startPositionX;
+selectPositionY = startPositionY;

@@ -11,4 +11,3 @@ if (executeAction)
     
     room_goto(room_daily);
 }
-

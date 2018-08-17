@@ -9,6 +9,8 @@ if (room==room_start) || (room==room_shop) || (room==room_endShop) || (global.pa
     isActive = true;
 }
 
+if (global.gameMode == gamemode_endless) sprite_index = spr_dynamic_bountyScrap;
+
 //Also timedActivated by the pickup_coin
 
 

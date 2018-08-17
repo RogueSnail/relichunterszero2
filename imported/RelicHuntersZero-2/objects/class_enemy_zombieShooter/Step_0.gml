@@ -1,3 +1,7 @@
+event_inherited();
+
+/*
+
 ///Challenges
 if (global.challengeCatapult) && (!catapultApplied) {
     grenade_count_max = grenade_count_max * global.challengeCatapultMultiplier;

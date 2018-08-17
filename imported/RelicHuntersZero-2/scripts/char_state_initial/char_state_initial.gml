@@ -43,6 +43,7 @@
         global.scoreEndless = 0;
         global.currentLoop = 0;
         global.bountyEndless = 0;
+		global.scrapEndless = 0;
         global.spookylandsVisited = false;
         
         global.ammo_light[1] = 100;

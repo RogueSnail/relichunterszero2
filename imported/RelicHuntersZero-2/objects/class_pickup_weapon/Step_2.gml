@@ -15,6 +15,74 @@ if (instance_exists_fast(activationClient))
     {
         forbiddenWeapon = true;
     }
+	
+	//Recycle
+	var playerId = activationClient.myPlayerId
+	
+	if global.gameMode == gamemode_endless if (in_range)
+	{
+		if (global.input[playerId] == K_INPUT_KEYBOARD && input_key_recycle()) || (global.input[playerId] != K_INPUT_KEYBOARD && joy_check_pressed(global.input[playerId],6))
+		{
+			audio_play(activationClient.audio_emitter,false,1,sfx_pickup_weapon);
+			
+			var ScrapToDrop;																					//Some guns give more or less scrap
+			switch (gun)
+			{
+				case obj_pistol :
+					ScrapToDrop = 2;
+					break;
+					
+				case obj_smg_crude :
+				case obj_shotgun_crude :
+					ScrapToDrop = 3;
+					break;
+					
+				case obj_pistol_jimmy :
+				case obj_keytar :
+				case obj_flamethrower :
+				case obj_gloves :
+				case obj_shield_biu :
+					ScrapToDrop = 7;
+					break;
+					
+				case obj_sniper_ghost :
+				case obj_spookyBeamer :
+				case obj_spookyPistol :
+				case obj_spookyReaper :
+				case obj_kamilauncher :
+				case obj_smg_plasma :
+					ScrapToDrop = 10;
+					break;
+					
+				case obj_pistol_relic :
+				case obj_smg_relic :
+				case obj_rifle_relic :
+				case obj_shotgun_relic :
+				case obj_relicCannon:
+				case obj_rocketlauncher_relic :
+				case obj_minigun_relic :
+					ScrapToDrop = 15;
+					break;
+					
+				case obj_ducanElite_plasma :
+				case obj_ducanElite_rifle :
+				case obj_ducanElite_rocket :
+				case obj_ducanElite_shotgun :
+				case obj_ducanElite_sniper :
+					ScrapToDrop = 20;
+					break;
+			
+				default : ScrapToDrop = 5;
+			}
+			
+			if (weaponLevel) ScrapToDrop += floor(global.price_weaponUpgrade[weaponLevel-1] * 0.75 * 0.2);		//recovers 75% worth of Scrap from upgraded weapons
+			
+			repeat (ScrapToDrop) instance_create_layer(x,y,"Interactive",obj_pickup_scrap);
+			
+			instance_destroy();
+			exit;
+		}
+	}
 
     if (!forbiddenWeapon) && (wantToActivate) && (in_range)
     {

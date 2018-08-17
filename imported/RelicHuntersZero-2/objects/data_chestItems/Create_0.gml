@@ -43,18 +43,21 @@ ds_list_add(weapons[3],
 
 // add as much mod weapons as available
 // check if player 1 or 2 have this mod already
-for (var modIndex = 0; modIndex < ds_list_size(global.steamUGCItemsList); modIndex++) {
+if !global.isDaily
+{
+	for (var modIndex = 0; modIndex < ds_list_size(global.steamUGCItemsList); modIndex++) {
 
-	var modData = global.steamUGCItemsDataMap[? global.steamUGCItemsList[| modIndex]];
+		var modData = global.steamUGCItemsDataMap[? global.steamUGCItemsList[| modIndex]];
 	
-	//only gun mods exist so far
-	if (modData[? "type"] != "gun") continue;
-	if (check_weapon_mod_owned(modData[? "id"],1)) continue;
-	if (global.playerCount == 2 && check_weapon_mod_owned(modData[? "id"],2)) continue;
+		//only gun mods exist so far
+		if (modData[? "type"] != "gun") continue;
+		if (check_weapon_mod_owned(modData[? "id"],1)) continue;
+		if (global.playerCount == 2 && check_weapon_mod_owned(modData[? "id"],2)) continue;
 
-	var modTier = modData[? "tier"];
-	modTier = max(1, min(3, modTier));
-	ds_list_add(weapons[modTier], obj_pickup_mod_gun);
+		var modTier = modData[? "tier"];
+		modTier = max(1, min(3, modTier));
+		ds_list_add(weapons[modTier], obj_pickup_mod_gun);
+	}
 }
 
 //Relics //////////////////////
